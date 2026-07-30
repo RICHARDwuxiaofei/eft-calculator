@@ -13,6 +13,7 @@ venv/
 htmlcov/
 .test-tmp/
 pytest-cache-files-*/
+tmp/
 
 # Build output
 build/
@@ -29,4 +30,3 @@ logs/
 .vscode/
 .DS_Store
 Thumbs.db
-

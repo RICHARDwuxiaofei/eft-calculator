@@ -1,0 +1,120 @@
+{
+  "retrieved_at": "2026-07-30T12:51:57.981401+00:00",
+  "source": "Escape from Tarkov Wiki via MediaWiki API",
+  "source_api": "https://escapefromtarkov.fandom.com/api.php",
+  "notice": "These item images are third-party game reference assets and are not licensed under this project's MIT License. Rights remain with their respective owners.",
+  "assets": [
+    {
+      "path": "ammo/m855a1.png",
+      "wiki_title": "File:M855A1ICON.png",
+      "description_url": "https://escapefromtarkov.fandom.com/wiki/File:M855A1ICON.png",
+      "original_url": "https://static.wikia.nocookie.net/escapefromtarkov_gamepedia/images/5/5f/M855A1ICON.png/revision/latest?cb=20220108035923",
+      "original_size": 6525
+    },
+    {
+      "path": "ammo/m855.png",
+      "wiki_title": "File:M855ICON.png",
+      "description_url": "https://escapefromtarkov.fandom.com/wiki/File:M855ICON.png",
+      "original_url": "https://static.wikia.nocookie.net/escapefromtarkov_gamepedia/images/5/55/M855ICON.png/revision/latest?cb=20220108035916",
+      "original_size": 6778
+    },
+    {
+      "path": "ammo/m995.png",
+      "wiki_title": "File:M995.png",
+      "description_url": "https://escapefromtarkov.fandom.com/wiki/File:M995.png",
+      "original_url": "https://static.wikia.nocookie.net/escapefromtarkov_gamepedia/images/b/b0/M995.png/revision/latest?cb=20210330133935",
+      "original_size": 71880
+    },
+    {
+      "path": "ammo/762bp.png",
+      "wiki_title": "File:7.62x39BP_ins.png",
+      "description_url": "https://escapefromtarkov.fandom.com/wiki/File:7.62x39BP_ins.png",
+      "original_url": "https://static.wikia.nocookie.net/escapefromtarkov_gamepedia/images/c/c5/7.62x39BP_ins.png/revision/latest?cb=20200421141100",
+      "original_size": 72662
+    },
+    {
+      "path": "ammo/7n40.png",
+      "wiki_title": "File:7N40 Full.png",
+      "description_url": "https://escapefromtarkov.fandom.com/wiki/File:7N40_Full.png",
+      "original_url": "https://static.wikia.nocookie.net/escapefromtarkov_gamepedia/images/7/78/7N40_Full.png/revision/latest?cb=20211214005550",
+      "original_size": 98254
+    },
+    {
+      "path": "ammo/545bp.png",
+      "wiki_title": "File:AKBPIMAGE.png",
+      "description_url": "https://escapefromtarkov.fandom.com/wiki/File:AKBPIMAGE.png",
+      "original_url": "https://static.wikia.nocookie.net/escapefromtarkov_gamepedia/images/d/dc/AKBPIMAGE.png/revision/latest?cb=20190519005315",
+      "original_size": 114544
+    },
+    {
+      "path": "ammo/m80.png",
+      "wiki_title": "File:M80ICON.png",
+      "description_url": "https://escapefromtarkov.fandom.com/wiki/File:M80ICON.png",
+      "original_url": "https://static.wikia.nocookie.net/escapefromtarkov_gamepedia/images/9/94/M80ICON.png/revision/latest?cb=20220106054524",
+      "original_size": 5856
+    },
+    {
+      "path": "ammo/ap20.png",
+      "wiki_title": "File:12-70 AP-20.png",
+      "description_url": "https://escapefromtarkov.fandom.com/wiki/File:12-70_AP-20.png",
+      "original_url": "https://static.wikia.nocookie.net/escapefromtarkov_gamepedia/images/a/ad/12-70_AP-20.png/revision/latest?cb=20191107133257",
+      "original_size": 302045
+    },
+    {
+      "path": "ammo/buckshot.png",
+      "wiki_title": "File:12x70BUCKSHOTIMAGE.png",
+      "description_url": "https://escapefromtarkov.fandom.com/wiki/File:12x70BUCKSHOTIMAGE.png",
+      "original_url": "https://static.wikia.nocookie.net/escapefromtarkov_gamepedia/images/c/c4/12x70BUCKSHOTIMAGE.png/revision/latest?cb=20190518222122",
+      "original_size": 128083
+    },
+    {
+      "path": "armor/ceramic.png",
+      "wiki_title": "File:KITECO SC-IV SA ballistic plate icon.png",
+      "description_url": "https://escapefromtarkov.fandom.com/wiki/File:KITECO_SC-IV_SA_ballistic_plate_icon.png",
+      "original_url": "https://static.wikia.nocookie.net/escapefromtarkov_gamepedia/images/a/a9/KITECO_SC-IV_SA_ballistic_plate_icon.png/revision/latest?cb=20240401220828",
+      "original_size": 18260
+    },
+    {
+      "path": "armor/steel.png",
+      "wiki_title": "File:Global Armor's Steel ballistic plate icon.png",
+      "description_url": "https://escapefromtarkov.fandom.com/wiki/File:Global_Armor%27s_Steel_ballistic_plate_icon.png",
+      "original_url": "https://static.wikia.nocookie.net/escapefromtarkov_gamepedia/images/b/b2/Global_Armor%27s_Steel_ballistic_plate_icon.png/revision/latest?cb=20240401225330",
+      "original_size": 21019
+    },
+    {
+      "path": "armor/uhmwpe.png",
+      "wiki_title": "File:Monoclete level III PE ballistic plate icon.png",
+      "description_url": "https://escapefromtarkov.fandom.com/wiki/File:Monoclete_level_III_PE_ballistic_plate_icon.png",
+      "original_url": "https://static.wikia.nocookie.net/escapefromtarkov_gamepedia/images/5/51/Monoclete_level_III_PE_ballistic_plate_icon.png/revision/latest?cb=20240401220814",
+      "original_size": 18240
+    },
+    {
+      "path": "armor/aramid.png",
+      "wiki_title": "File:PACA Soft Armor.png",
+      "description_url": "https://escapefromtarkov.fandom.com/wiki/File:PACA_Soft_Armor.png",
+      "original_url": "https://static.wikia.nocookie.net/escapefromtarkov_gamepedia/images/2/25/PACA_Soft_Armor.png/revision/latest?cb=20190301085818",
+      "original_size": 680204
+    },
+    {
+      "path": "armor/titanium.png",
+      "wiki_title": "File:Kiba Arms Titan Ballistic plate icon.png",
+      "description_url": "https://escapefromtarkov.fandom.com/wiki/File:Kiba_Arms_Titan_Ballistic_plate_icon.png",
+      "original_url": "https://static.wikia.nocookie.net/escapefromtarkov_gamepedia/images/9/9e/Kiba_Arms_Titan_Ballistic_plate_icon.png/revision/latest?cb=20240401225355",
+      "original_size": 20920
+    },
+    {
+      "path": "armor/combined.png",
+      "wiki_title": "File:ESAPI level IV ballistic plate icon.png",
+      "description_url": "https://escapefromtarkov.fandom.com/wiki/File:ESAPI_level_IV_ballistic_plate_icon.png",
+      "original_url": "https://static.wikia.nocookie.net/escapefromtarkov_gamepedia/images/1/1d/ESAPI_level_IV_ballistic_plate_icon.png/revision/latest?cb=20240401220630",
+      "original_size": 18119
+    },
+    {
+      "path": "armor/helmet.png",
+      "wiki_title": "File:Kiver-M Helmet icon.png",
+      "description_url": "https://escapefromtarkov.fandom.com/wiki/File:Kiver-M_Helmet_icon.png",
+      "original_url": "https://static.wikia.nocookie.net/escapefromtarkov_gamepedia/images/1/1c/Kiver-M_Helmet_icon.png/revision/latest?cb=20250502203517",
+      "original_size": 28785
+    }
+  ]
+}

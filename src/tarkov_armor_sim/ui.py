@@ -4,8 +4,16 @@ import logging
 from pathlib import Path
 
 import pyqtgraph as pg
-from PySide6.QtCore import QSettings, Qt, QThreadPool, QTimer
-from PySide6.QtGui import QAction, QFont, QFontDatabase, QKeySequence, QShortcut
+from PySide6.QtCore import QSettings, QSize, Qt, QThreadPool, QTimer
+from PySide6.QtGui import (
+    QAction,
+    QFont,
+    QFontDatabase,
+    QIcon,
+    QKeySequence,
+    QPixmap,
+    QShortcut,
+)
 from PySide6.QtWidgets import (
     QApplication,
     QButtonGroup,
@@ -43,6 +51,11 @@ from .services import export_csv, export_json, result_summary
 from .worker import SimulationWorker
 
 LOGGER = logging.getLogger(__name__)
+RESOURCE_ROOT = Path(__file__).resolve().parent / "resources"
+
+
+def resource_path(*parts: str) -> Path:
+    return RESOURCE_ROOT.joinpath(*parts)
 
 STYLE = """
 QWidget { background: #13171b; color: #e8ebee; font-size: 14px; }
@@ -86,6 +99,7 @@ class MainWindow(QMainWindow):
         self.worker: SimulationWorker | None = None
         self.thread_pool = QThreadPool.globalInstance()
         self.setWindowTitle("Escape from Tarkov 护甲模拟器 — 非官方")
+        self.setWindowIcon(QIcon(str(resource_path("icons", "app-icon.png"))))
         self.resize(1440, 900)
         self.setMinimumSize(980, 650)
         self._build_ui()
@@ -205,10 +219,16 @@ class MainWindow(QMainWindow):
         self.ammo_list = QListWidget()
         self.ammo_list.currentRowChanged.connect(self._select_ammo)
         self.ammo_list.hide()
+        ammo_summary = QHBoxLayout()
+        self.ammo_preview = QLabel()
+        self.ammo_preview.setFixedSize(72, 72)
+        self.ammo_preview.setAlignment(Qt.AlignmentFlag.AlignCenter)
         self.ammo_card = QLabel("请选择弹药")
         self.ammo_card.setWordWrap(True)
         self.ammo_card.setMaximumHeight(95)
-        layout.addWidget(self.ammo_card)
+        ammo_summary.addWidget(self.ammo_preview)
+        ammo_summary.addWidget(self.ammo_card, 1)
+        layout.addLayout(ammo_summary)
 
         ammo_actions = QHBoxLayout()
         self.favorite_button = QPushButton("☆ 收藏")
@@ -235,6 +255,10 @@ class MainWindow(QMainWindow):
         for index, preset_name in enumerate(default_armor_presets()):
             button = QPushButton(preset_name)
             button.setObjectName("choice")
+            preset_icon = ("ceramic.png", "steel.png", "aramid.png")[index]
+            button.setIcon(QIcon(str(resource_path("items", "armor", preset_icon))))
+            button.setIconSize(QSize(42, 42))
+            button.setMinimumHeight(58)
             button.clicked.connect(
                 lambda _checked=False, current=index: self._choose_preset(current)
             )
@@ -256,6 +280,14 @@ class MainWindow(QMainWindow):
             button.setObjectName("caliber")
             button.setCheckable(True)
             button.setProperty("armor_type", value)
+            type_icon = {
+                ArmorLayerType.PLATE: "ceramic.png",
+                ArmorLayerType.SOFT: "aramid.png",
+                ArmorLayerType.HELMET: "helmet.png",
+            }[value]
+            button.setIcon(QIcon(str(resource_path("items", "armor", type_icon))))
+            button.setIconSize(QSize(38, 38))
+            button.setMinimumHeight(52)
             self.armor_type_group.addButton(button, index)
             type_row.addWidget(button)
         self.armor_type_group.button(0).setChecked(True)
@@ -290,6 +322,11 @@ class MainWindow(QMainWindow):
             button.setObjectName("choice")
             button.setCheckable(True)
             button.setProperty("material", value)
+            button.setIcon(
+                QIcon(str(resource_path("items", "armor", f"{value.value}.png")))
+            )
+            button.setIconSize(QSize(42, 42))
+            button.setMinimumHeight(56)
             self.material_group.addButton(button, row)
             chooser.addWidget(button, row, 1)
         self.material_group.button(1).setChecked(True)
@@ -534,6 +571,11 @@ class MainWindow(QMainWindow):
             )
             button.setObjectName("choice")
             button.setCheckable(True)
+            icon_path = resource_path("items", "ammo", f"{ammo.id}.png")
+            if icon_path.exists():
+                button.setIcon(QIcon(str(icon_path)))
+                button.setIconSize(QSize(48, 48))
+                button.setMinimumHeight(66)
             button.clicked.connect(
                 lambda _checked=False, current=index: self._select_ammo(current)
             )
@@ -577,6 +619,18 @@ class MainWindow(QMainWindow):
             f"<br>甲伤：{ammo.armor_damage_percent:g}%<br>弹丸：{ammo.projectile_count}"
             f"<br>初速：{ammo.muzzle_velocity or '未知'} m/s<br>数据：{ammo.source_version}"
         )
+        preview_path = resource_path("items", "ammo", f"{ammo.id}.png")
+        if preview_path.exists():
+            self.ammo_preview.setPixmap(
+                QPixmap(str(preview_path)).scaled(
+                    68,
+                    68,
+                    Qt.AspectRatioMode.KeepAspectRatio,
+                    Qt.TransformationMode.SmoothTransformation,
+                )
+            )
+        else:
+            self.ammo_preview.clear()
         self.favorite_button.setText(
             "★ 取消收藏" if self.database.is_favorite(ammo.id) else "☆ 收藏当前弹药"
         )
@@ -735,7 +789,15 @@ class MainWindow(QMainWindow):
                 f"{layer.true_durability_ratio:.0%}",
             )
             for col, value in enumerate(values):
-                self.layer_table.setItem(row, col, QTableWidgetItem(value))
+                item = QTableWidgetItem(value)
+                if col == 1:
+                    icon_name = (
+                        "helmet.png"
+                        if layer.layer_type == ArmorLayerType.HELMET
+                        else f"{layer.material.value}.png"
+                    )
+                    item.setIcon(QIcon(str(resource_path("items", "armor", icon_name))))
+                self.layer_table.setItem(row, col, item)
         self.layer_table.resizeColumnsToContents()
         if self.layers:
             self.layer_table.selectRow(0)
@@ -1150,5 +1212,6 @@ def create_application(database: Database) -> tuple[QApplication, MainWindow]:
     if font_path.exists():
         QFontDatabase.addApplicationFont(str(font_path))
     app.setFont(QFont("Microsoft YaHei UI", 10))
+    app.setWindowIcon(QIcon(str(resource_path("icons", "app-icon.png"))))
     window = MainWindow(database)
     return app, window

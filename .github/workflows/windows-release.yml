@@ -57,8 +57,7 @@ jobs:
         if: startsWith(github.ref, 'refs/tags/v')
         uses: softprops/action-gh-release@v2
         with:
-          name: EFT Calculator 1.0.0
+          name: EFT Calculator ${{ github.ref_name }}
           generate_release_notes: true
           make_latest: true
           files: dist/EFT-Calculator-Windows-x64.zip
-

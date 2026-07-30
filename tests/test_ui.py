@@ -46,6 +46,7 @@ def test_large_button_ammo_and_layer_builder(qtbot, tmp_path) -> None:
     assert window.caliber_filter.currentData() == "5.56x45"
     assert window.ammo_choice_group.buttons()
     window.ammo_choice_group.buttons()[0].click()
+    assert not window.ammo_choice_group.buttons()[0].icon().isNull()
     assert window.selected_ammo is not None
     assert window.selected_ammo.caliber == "5.56x45"
 
@@ -53,6 +54,7 @@ def test_large_button_ammo_and_layer_builder(qtbot, tmp_path) -> None:
     assert window.layers == []
     window.armor_class_group.button(5).click()
     window.material_group.button(1).click()
+    assert not window.material_group.button(1).icon().isNull()
     window._confirm_armor_layer()
     assert len(window.layers) == 1
     assert window.layers[0].armor_class == 5
