@@ -1,0 +1,15 @@
+[
+  {
+    "id": "m855a1-vs-two-layers",
+    "data_version": "eft-1.0.6.0-snapshot-2026-07-30",
+    "ruleset_version": "community-approx-2026.07-v1",
+    "ammo": "M855A1",
+    "armor_layers": ["5级陶瓷插板", "3级芳纶内衬"],
+    "distance_m": 0,
+    "random_seed": 1234,
+    "expected_final_penetration_range": [0.0, 0.35],
+    "reference": "community approximation regression guard",
+    "confidence": "approximation"
+  }
+]
+

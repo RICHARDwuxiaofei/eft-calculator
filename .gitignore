@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyd
+*.egg-info/
+.venv/
+venv/
+
+# Test and lint caches
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.test-tmp/
+pytest-cache-files-*/
+
+# Build output
+build/
+dist/
+packaging/*.spec
+
+# Runtime/user data
+*.sqlite3
+logs/
+*.log
+
+# Editors and OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
