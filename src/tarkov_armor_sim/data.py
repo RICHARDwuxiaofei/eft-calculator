@@ -84,17 +84,82 @@ class Database:
         rows = self.connection.execute("SELECT payload FROM ammo ORDER BY id").fetchall()
         return [Ammo(**json.loads(row["payload"])) for row in rows]
 
+    def apply_ammo_snapshot(self, snapshot: dict) -> None:
+        """Atomically replace normalized ammo while preserving user tables."""
+        records = snapshot.get("ammo", [])
+        if not records:
+            raise ValueError("快照不包含弹药")
+        with self.connection:
+            self.connection.execute("DELETE FROM ammo")
+            for raw in records:
+                payload = {key: value for key, value in raw.items() if key != "provenance"}
+                payload["aliases"] = list(payload.get("aliases", []))
+                search = " ".join(
+                    (
+                        payload["name"],
+                        payload["short_name"],
+                        payload["caliber"],
+                        *payload["aliases"],
+                    )
+                ).casefold()
+                self.connection.execute(
+                    "INSERT INTO ammo(id,payload,search_text) VALUES(?,?,?)",
+                    (
+                        payload["id"],
+                        json.dumps(payload, ensure_ascii=False),
+                        search,
+                    ),
+                )
+            self.connection.execute(
+                "INSERT OR REPLACE INTO metadata(key,value) VALUES('data_version',?)",
+                (snapshot["snapshot_id"],),
+            )
+            self.connection.execute(
+                "INSERT OR REPLACE INTO metadata(key,value) VALUES('last_sync_at',?)",
+                (snapshot["created_at"],),
+            )
+
     def search_ammo(self, query: str, caliber: str = "") -> list[Ammo]:
-        tokens = query.casefold().split()
+        def normalize(value: str) -> str:
+            return "".join(character for character in value.casefold() if character.isalnum())
+
+        tokens = [normalize(token) for token in query.split() if normalize(token)]
+        collapsed_query = normalize(query)
+        favorite_ids = {
+            row["item_id"]
+            for row in self.connection.execute(
+                "SELECT item_id FROM favorites WHERE kind='ammo'"
+            ).fetchall()
+        }
+        recent_ids = {
+            row["item_id"]: index
+            for index, row in enumerate(
+                self.connection.execute(
+                    "SELECT item_id FROM recent WHERE kind='ammo' ORDER BY used_at DESC"
+                ).fetchall()
+            )
+        }
         result = []
         for ammo in self.all_ammo():
             haystack = " ".join(
                 (ammo.name, ammo.short_name, ammo.caliber, *ammo.aliases)
             ).casefold()
-            if all(token in haystack for token in tokens) and (
+            normalized_haystack = normalize(haystack)
+            matches = all(token in normalized_haystack for token in tokens)
+            if collapsed_query:
+                matches = matches and collapsed_query in normalized_haystack
+            if matches and (
                 not caliber or ammo.caliber == caliber
             ):
                 result.append(ammo)
+        result.sort(
+            key=lambda ammo: (
+                0 if ammo.id in favorite_ids else 1,
+                recent_ids.get(ammo.id, 10_000),
+                ammo.caliber,
+                ammo.short_name.casefold(),
+            )
+        )
         return result
 
     def set_favorite(self, ammo_id: str, favorite: bool) -> None:
@@ -141,4 +206,3 @@ def default_database_path() -> Path:
 
     root = Path(os.getenv("LOCALAPPDATA", Path.home())) / "TarkovArmorSimulator"
     return root / "current.sqlite3"
-

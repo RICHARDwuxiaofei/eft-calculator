@@ -1,0 +1,82 @@
+name: Android build
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  build-android:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+          cache: gradle
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Install Android 36.1 SDK
+        run: |
+          yes | "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" \
+            "platforms;android-36.1" "build-tools;36.0.0"
+
+      - name: Prepare release signing key
+        if: startsWith(github.ref, 'refs/tags/v')
+        env:
+          RELEASE_KEYSTORE_BASE64: ${{ secrets.ANDROID_RELEASE_KEYSTORE_BASE64 }}
+          RELEASE_STORE_PASSWORD: ${{ secrets.ANDROID_RELEASE_STORE_PASSWORD }}
+          RELEASE_KEY_ALIAS: ${{ secrets.ANDROID_RELEASE_KEY_ALIAS }}
+          RELEASE_KEY_PASSWORD: ${{ secrets.ANDROID_RELEASE_KEY_PASSWORD }}
+        run: |
+          test -n "$RELEASE_KEYSTORE_BASE64"
+          test -n "$RELEASE_STORE_PASSWORD"
+          test -n "$RELEASE_KEY_ALIAS"
+          test -n "$RELEASE_KEY_PASSWORD"
+          printf '%s' "$RELEASE_KEYSTORE_BASE64" | base64 --decode \
+            > "$RUNNER_TEMP/eft-calculator-release.jks"
+
+      - name: Unit tests and APKs
+        working-directory: android
+        env:
+          EFT_RELEASE_STORE_FILE: ${{ startsWith(github.ref, 'refs/tags/v') && format('{0}/eft-calculator-release.jks', runner.temp) || '' }}
+          EFT_RELEASE_STORE_PASSWORD: ${{ secrets.ANDROID_RELEASE_STORE_PASSWORD }}
+          EFT_RELEASE_KEY_ALIAS: ${{ secrets.ANDROID_RELEASE_KEY_ALIAS }}
+          EFT_RELEASE_KEY_PASSWORD: ${{ secrets.ANDROID_RELEASE_KEY_PASSWORD }}
+        run: ./gradlew testDebugUnitTest assembleDebug assembleRelease
+
+      - name: Name artifacts
+        run: |
+          cp android/app/build/outputs/apk/debug/app-debug.apk \
+            android/app/build/outputs/apk/debug/EFT-Calculator-Android-debug.apk
+          if [ -f android/app/build/outputs/apk/release/app-release.apk ]; then
+            cp android/app/build/outputs/apk/release/app-release.apk \
+              "android/app/build/outputs/apk/release/EFT-Calculator-Android-${GITHUB_REF_NAME}.apk"
+          else
+            cp android/app/build/outputs/apk/release/app-release-unsigned.apk \
+              android/app/build/outputs/apk/release/EFT-Calculator-Android-release-unsigned.apk
+          fi
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: EFT-Calculator-Android
+          path: |
+            android/app/build/outputs/apk/debug/EFT-Calculator-Android-debug.apk
+            android/app/build/outputs/apk/release/EFT-Calculator-Android-*.apk
+
+      - name: Attach signed Android APK to tagged release
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: android/app/build/outputs/apk/release/EFT-Calculator-Android-${{ github.ref_name }}.apk

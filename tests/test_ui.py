@@ -6,6 +6,11 @@ from tarkov_armor_sim.data import Database
 from tarkov_armor_sim.ui import MainWindow
 
 
+@pytest.fixture(autouse=True)
+def _default_ui_locale(monkeypatch) -> None:
+    monkeypatch.setenv("EFT_CALCULATOR_LANG", "zh_CN")
+
+
 def test_main_window_starts_and_is_not_empty(qtbot, tmp_path) -> None:
     window = MainWindow(Database(tmp_path / "ui.sqlite3"))
     qtbot.addWidget(window)
@@ -77,3 +82,13 @@ def test_separate_resets(qtbot, tmp_path) -> None:
     window._reset_armor()
     assert len(window.layers) == 0
     assert "请添加护甲" in window.penetration_metric.text()
+
+
+def test_window_uses_english_i18n_catalog(qtbot, tmp_path, monkeypatch) -> None:
+    monkeypatch.setenv("EFT_CALCULATOR_LANG", "en_US")
+    window = MainWindow(Database(tmp_path / "ui-en.sqlite3"))
+    qtbot.addWidget(window)
+    window.show()
+    assert window.windowTitle() == "EFT Calculator · Layered Armor & Ballistics"
+    assert "Add armor" in window.penetration_metric.text()
+    assert window.confirm_layer_button.text() == "Confirm and add as layer 1"

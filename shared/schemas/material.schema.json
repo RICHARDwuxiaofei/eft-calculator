@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://eft-calculator.local/schemas/material.schema.json",
+  "title": "ArmorMaterial",
+  "type": "object",
+  "required": ["id", "name", "destructibility"],
+  "properties": {
+    "id": {"type": "string", "minLength": 1},
+    "name": {"type": "string", "minLength": 1},
+    "destructibility": {"type": "number", "exclusiveMinimum": 0}
+  },
+  "additionalProperties": true
+}

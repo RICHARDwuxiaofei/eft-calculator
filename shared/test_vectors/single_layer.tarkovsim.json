@@ -1,0 +1,13 @@
+{
+  "name": "single_layer",
+  "input": {
+    "schema_version": 1,
+    "ammo": {"id": "m855a1", "name": "5.56x45mm M855A1", "short_name": "M855A1", "caliber": "5.56x45", "damage": 47, "penetration_power": 40, "armor_damage_percent": 52, "projectile_count": 1},
+    "armor_layers": [{"id": "ceramic5", "name": "5级陶瓷", "layer_type": "plate", "armor_class": 5, "current_durability": 45, "displayed_max_durability": 45, "original_max_durability": 45, "material": "ceramic", "destructibility": 0.8, "blunt_throughput": 0.1, "is_hard_armor": true}],
+    "distance_m": 0,
+    "shot_count": 1,
+    "simulation_iterations": 1000,
+    "random_seed": 20260731
+  },
+  "expected": {"final_penetration_probability": 0.09777259988390341, "three_shot_penetration_probability": 0.09777259988390341, "expected_health_damage": 3.331601341044008, "expected_blunt_damage": 4.240468780545654, "ruleset_version": "community-approx-2026.07-v1"}
+}

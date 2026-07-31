@@ -1,0 +1,3 @@
+-keep class com.chaquo.python.** { *; }
+-keep class com.eftcalculator.data.** { *; }
+-keepattributes *Annotation*

@@ -1,0 +1,16 @@
+{
+  "name": "continuous_fire",
+  "input": {
+    "schema_version": 1,
+    "ammo": {"id": "545bp", "name": "5.45x39mm BP", "short_name": "BP", "caliber": "5.45x39", "damage": 48, "penetration_power": 45, "armor_damage_percent": 48, "projectile_count": 1},
+    "armor_layers": [
+      {"id": "steel6", "name": "6级钢板", "layer_type": "plate", "armor_class": 6, "current_durability": 60, "displayed_max_durability": 60, "original_max_durability": 60, "material": "steel", "destructibility": 0.35, "blunt_throughput": 0.08, "is_hard_armor": true},
+      {"id": "soft3", "name": "3级软甲", "layer_type": "soft", "armor_class": 3, "current_durability": 40, "displayed_max_durability": 40, "original_max_durability": 40, "material": "aramid", "destructibility": 0.3, "blunt_throughput": 0.18, "is_hard_armor": false}
+    ],
+    "distance_m": 0,
+    "shot_count": 10,
+    "simulation_iterations": 1000,
+    "random_seed": 20260731
+  },
+  "expected": {"final_penetration_probability": 0.00517234935882388, "three_shot_penetration_probability": 0.019175859731286993, "expected_health_damage": 0.1346879773037738, "expected_blunt_damage": 3.588154187264576, "ruleset_version": "community-approx-2026.07-v1"}
+}

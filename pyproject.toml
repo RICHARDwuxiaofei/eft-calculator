@@ -4,14 +4,13 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "tarkov-armor-simulator"
-version = "1.1.0"
+version = "2.0.0"
 description = "Offline layered armor and ammunition simulator for Escape from Tarkov"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
   "PySide6>=6.8",
   "pyqtgraph>=0.13.7",
-  "numpy>=2.1",
   "httpx>=0.27",
 ]
 
@@ -22,11 +21,21 @@ dev = ["pytest>=8.3", "pytest-qt>=4.4", "ruff>=0.8", "pyinstaller>=6.11", "pillo
 tarkov-armor-sim = "tarkov_armor_sim.main:main"
 
 [tool.setuptools]
-package-dir = {"" = "src"}
+packages = [
+  "tarkov_armor_sim",
+  "tarkov_armor_sim.data_sources",
+  "tarkov_sim_core",
+  "tarkov_sim_core.models",
+  "tarkov_sim_core.engine",
+  "tarkov_sim_core.rulesets",
+  "tarkov_sim_core.validation",
+  "tarkov_sim_core.serialization",
+]
 include-package-data = true
 
-[tool.setuptools.packages.find]
-where = ["src"]
+[tool.setuptools.package-dir]
+tarkov_armor_sim = "src/tarkov_armor_sim"
+tarkov_sim_core = "shared/tarkov_sim_core/src/tarkov_sim_core"
 
 [tool.setuptools.package-data]
 tarkov_armor_sim = [

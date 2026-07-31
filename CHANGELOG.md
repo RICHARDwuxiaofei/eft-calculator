@@ -1,5 +1,28 @@
 # Changelog
 
+## 2.0.0 - 2026-07-31
+
+正式版发布内容：
+
+- 重构 Windows 主界面：顶部全局操作、左侧快速输入、右侧结果工作区，1280×720 起即可完整使用。
+- 新增大按钮口径/弹药选择、Ctrl+K 搜索、收藏与最近排序，保留弹药和护甲视觉缩略图。
+- 新增护甲类型、等级、材质的分步选择；每次选择后自动形成一层，可继续添加任意第二层及后续层。
+- 新增常用护甲路径预设、独立护甲编辑器，以及“重置弹药”“重置护甲”“全部重置”三个入口。
+- 新增耐久数字输入、新品/75%/50%/25%/损坏快捷值、距离、射击次数和快速/实验室模式。
+- 新增分层条件/累计穿透率、停止概率、耐久损失、钝伤、连续射击、胸部致死概率和结果导出。
+- 新增 tarkov.dev / TarkovTracker 在线同步、来源溯源、冲突记录、字段校验、备份和原子缓存；
+  离线或服务异常时继续使用最后有效数据。
+- 提取不依赖 UI、数据库和网络的共享 Python 计算核心、版本化 JSON API、Schema 与六组跨端测试向量。
+- 新增原生 Android 应用：Kotlin、Compose Material 3、Room、DataStore、WorkManager 与 Chaquopy。
+- 新增完整中英国际化：Windows 集中式 locale catalog 与即时语言切换；Android 使用原生
+  `values` / `values-zh` 资源并跟随系统语言。
+- 项目主页 README 提供完整中文与 English 双语说明。
+- Android 支持 API 24+、`arm64-v8a` 与 `x86_64`；正式 Release 提供可直接侧载安装的签名 APK。
+- 新增 Windows 与 Android GitHub Actions：标签发布时云端测试、构建并上传 APK/ZIP。
+- 统一桌面端、共享核心和 Android 版本号为 `2.0.0`。
+- 发布前通过 Python lint、35 项 pytest（含中英文 UI）、Android JVM/构建测试、Windows EXE
+  启动冒烟和 APK 签名验证。
+
 ## 1.1.0
 
 - 为所有内置弹药加入 Wiki 物品缩略图。
