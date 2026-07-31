@@ -35,4 +35,4 @@ def test_shared_monte_carlo_is_deterministic() -> None:
 def test_engine_metadata_is_versioned() -> None:
     metadata = json.loads(get_engine_metadata_json())
     assert metadata["schema_version"] == 1
-    assert metadata["core_version"] == "2.1.0"
+    assert metadata["core_version"] == "2.1.1"

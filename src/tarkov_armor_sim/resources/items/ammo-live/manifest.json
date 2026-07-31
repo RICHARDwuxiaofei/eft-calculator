@@ -1,0 +1,772 @@
+{
+  "data_source": "https://raw.githubusercontent.com/TarkovTracker/tarkovdata/master/ammunition.json",
+  "image_source_pattern": "https://assets.tarkov.dev/{item_id}-icon.webp",
+  "items": {
+    "54527a984bdc2d4e668b4567": {
+      "name": "5.56x45mm M855",
+      "short_name": "M855",
+      "source_url": "https://assets.tarkov.dev/54527a984bdc2d4e668b4567-icon.webp"
+    },
+    "54527ac44bdc2d36668b4567": {
+      "name": "5.56x45mm M855A1",
+      "short_name": "M855A1",
+      "source_url": "https://assets.tarkov.dev/54527ac44bdc2d36668b4567-icon.webp"
+    },
+    "560d5e524bdc2d25448b4571": {
+      "name": "12/70 7mm buckshot",
+      "short_name": "7mm",
+      "source_url": "https://assets.tarkov.dev/560d5e524bdc2d25448b4571-icon.webp"
+    },
+    "560d61e84bdc2da74d8b4571": {
+      "name": "7.62x54mm R SNB gzh",
+      "short_name": "SNB",
+      "source_url": "https://assets.tarkov.dev/560d61e84bdc2da74d8b4571-icon.webp"
+    },
+    "5656d7c34bdc2d9d198b4587": {
+      "name": "7.62x39mm PS gzh",
+      "short_name": "PS",
+      "source_url": "https://assets.tarkov.dev/5656d7c34bdc2d9d198b4587-icon.webp"
+    },
+    "5656eb674bdc2d35148b457c": {
+      "name": "40mm VOG-25",
+      "short_name": "40mm",
+      "source_url": "https://assets.tarkov.dev/5656eb674bdc2d35148b457c-icon.webp"
+    },
+    "56d59d3ad2720bdb418b4577": {
+      "name": "9x19mm Pst gzh",
+      "short_name": "Pst",
+      "source_url": "https://assets.tarkov.dev/56d59d3ad2720bdb418b4577-icon.webp"
+    },
+    "56dfef82d2720bbd668b4567": {
+      "name": "5.45x39mm BP gs",
+      "short_name": "BP",
+      "source_url": "https://assets.tarkov.dev/56dfef82d2720bbd668b4567-icon.webp"
+    },
+    "56dff026d2720bb8668b4567": {
+      "name": "5.45x39mm BS gs",
+      "short_name": "BS",
+      "source_url": "https://assets.tarkov.dev/56dff026d2720bb8668b4567-icon.webp"
+    },
+    "56dff061d2720bb5668b4567": {
+      "name": "5.45x39mm BT gs",
+      "short_name": "BT",
+      "source_url": "https://assets.tarkov.dev/56dff061d2720bb5668b4567-icon.webp"
+    },
+    "56dff0bed2720bb0668b4567": {
+      "name": "5.45x39mm FMJ",
+      "short_name": "FMJ",
+      "source_url": "https://assets.tarkov.dev/56dff0bed2720bb0668b4567-icon.webp"
+    },
+    "56dff216d2720bbd668b4568": {
+      "name": "5.45x39mm HP",
+      "short_name": "HP",
+      "source_url": "https://assets.tarkov.dev/56dff216d2720bbd668b4568-icon.webp"
+    },
+    "56dff2ced2720bb4668b4567": {
+      "name": "5.45x39mm PP gs",
+      "short_name": "PP",
+      "source_url": "https://assets.tarkov.dev/56dff2ced2720bb4668b4567-icon.webp"
+    },
+    "56dff338d2720bbd668b4569": {
+      "name": "5.45x39mm PRS gs",
+      "short_name": "PRS",
+      "source_url": "https://assets.tarkov.dev/56dff338d2720bbd668b4569-icon.webp"
+    },
+    "56dff3afd2720bba668b4567": {
+      "name": "5.45x39mm PS gs",
+      "short_name": "PS",
+      "source_url": "https://assets.tarkov.dev/56dff3afd2720bba668b4567-icon.webp"
+    },
+    "56dff421d2720b5f5a8b4567": {
+      "name": "5.45x39mm SP",
+      "short_name": "SP",
+      "source_url": "https://assets.tarkov.dev/56dff421d2720b5f5a8b4567-icon.webp"
+    },
+    "56dff4a2d2720bbd668b456a": {
+      "name": "5.45x39mm T gs",
+      "short_name": "T",
+      "source_url": "https://assets.tarkov.dev/56dff4a2d2720bbd668b456a-icon.webp"
+    },
+    "56dff4ecd2720b5f5a8b4568": {
+      "name": "5.45x39mm US gs",
+      "short_name": "US",
+      "source_url": "https://assets.tarkov.dev/56dff4ecd2720b5f5a8b4568-icon.webp"
+    },
+    "5735fdcd2459776445391d61": {
+      "name": "7.62x25mm TT AKBS",
+      "short_name": "AKBS",
+      "source_url": "https://assets.tarkov.dev/5735fdcd2459776445391d61-icon.webp"
+    },
+    "5735ff5c245977640e39ba7e": {
+      "name": "7.62x25mm TT FMJ43",
+      "short_name": "FMJ43",
+      "source_url": "https://assets.tarkov.dev/5735ff5c245977640e39ba7e-icon.webp"
+    },
+    "573601b42459776410737435": {
+      "name": "7.62x25mm TT LRN",
+      "short_name": "LRN",
+      "source_url": "https://assets.tarkov.dev/573601b42459776410737435-icon.webp"
+    },
+    "573602322459776445391df1": {
+      "name": "7.62x25mm TT LRNPC",
+      "short_name": "LRNPC",
+      "source_url": "https://assets.tarkov.dev/573602322459776445391df1-icon.webp"
+    },
+    "5736026a245977644601dc61": {
+      "name": "7.62x25mm TT P gl",
+      "short_name": "P",
+      "source_url": "https://assets.tarkov.dev/5736026a245977644601dc61-icon.webp"
+    },
+    "573603562459776430731618": {
+      "name": "7.62x25mm TT Pst gzh",
+      "short_name": "Pst",
+      "source_url": "https://assets.tarkov.dev/573603562459776430731618-icon.webp"
+    },
+    "573603c924597764442bd9cb": {
+      "name": "7.62x25mm TT PT gzh",
+      "short_name": "PT",
+      "source_url": "https://assets.tarkov.dev/573603c924597764442bd9cb-icon.webp"
+    },
+    "573718ba2459775a75491131": {
+      "name": "9x18mm PM BZhT gzh",
+      "short_name": "BZhT",
+      "source_url": "https://assets.tarkov.dev/573718ba2459775a75491131-icon.webp"
+    },
+    "573719762459775a626ccbc1": {
+      "name": "9x18mm PM P gzh",
+      "short_name": "P",
+      "source_url": "https://assets.tarkov.dev/573719762459775a626ccbc1-icon.webp"
+    },
+    "573719df2459775a626ccbc2": {
+      "name": "9x18mm PM PBM gzh",
+      "short_name": "PBM",
+      "source_url": "https://assets.tarkov.dev/573719df2459775a626ccbc2-icon.webp"
+    },
+    "57371aab2459775a77142f22": {
+      "name": "9x18mm PMM PstM gzh",
+      "short_name": "PstM",
+      "source_url": "https://assets.tarkov.dev/57371aab2459775a77142f22-icon.webp"
+    },
+    "57371b192459775a9f58a5e0": {
+      "name": "9x18mm PM Ppe gzh",
+      "short_name": "Ppe",
+      "source_url": "https://assets.tarkov.dev/57371b192459775a9f58a5e0-icon.webp"
+    },
+    "57371e4124597760ff7b25f1": {
+      "name": "9x18mm PM PPT gzh",
+      "short_name": "PPT",
+      "source_url": "https://assets.tarkov.dev/57371e4124597760ff7b25f1-icon.webp"
+    },
+    "57371eb62459776125652ac1": {
+      "name": "9x18mm PM PRS gs",
+      "short_name": "PRS",
+      "source_url": "https://assets.tarkov.dev/57371eb62459776125652ac1-icon.webp"
+    },
+    "57371f2b24597761224311f1": {
+      "name": "9x18mm PM PS gs PPO",
+      "short_name": "PS PPO",
+      "source_url": "https://assets.tarkov.dev/57371f2b24597761224311f1-icon.webp"
+    },
+    "57371f8d24597761006c6a81": {
+      "name": "9x18mm PM PSO gzh",
+      "short_name": "PSO",
+      "source_url": "https://assets.tarkov.dev/57371f8d24597761006c6a81-icon.webp"
+    },
+    "5737201124597760fc4431f1": {
+      "name": "9x18mm PM Pst gzh",
+      "short_name": "Pst",
+      "source_url": "https://assets.tarkov.dev/5737201124597760fc4431f1-icon.webp"
+    },
+    "5737207f24597760ff7b25f2": {
+      "name": "9x18mm PM PSV",
+      "short_name": "PSV",
+      "source_url": "https://assets.tarkov.dev/5737207f24597760ff7b25f2-icon.webp"
+    },
+    "573720e02459776143012541": {
+      "name": "9x18mm PM RG028 gzh",
+      "short_name": "RG028",
+      "source_url": "https://assets.tarkov.dev/573720e02459776143012541-icon.webp"
+    },
+    "57372140245977611f70ee91": {
+      "name": "9x18mm PM SP7 gzh",
+      "short_name": "SP7",
+      "source_url": "https://assets.tarkov.dev/57372140245977611f70ee91-icon.webp"
+    },
+    "5737218f245977612125ba51": {
+      "name": "9x18mm PM SP8 gzh",
+      "short_name": "SP8",
+      "source_url": "https://assets.tarkov.dev/5737218f245977612125ba51-icon.webp"
+    },
+    "57a0dfb82459774d3078b56c": {
+      "name": "9x39mm SP-5 gs",
+      "short_name": "SP-5",
+      "source_url": "https://assets.tarkov.dev/57a0dfb82459774d3078b56c-icon.webp"
+    },
+    "57a0e5022459774d1673f889": {
+      "name": "9x39mm SP-6 gs",
+      "short_name": "SP-6",
+      "source_url": "https://assets.tarkov.dev/57a0e5022459774d1673f889-icon.webp"
+    },
+    "58820d1224597753c90aeb13": {
+      "name": "12/70 lead slug",
+      "short_name": "Slug",
+      "source_url": "https://assets.tarkov.dev/58820d1224597753c90aeb13-icon.webp"
+    },
+    "58864a4f2459770fcc257101": {
+      "name": "9x19mm PSO gzh",
+      "short_name": "PSO",
+      "source_url": "https://assets.tarkov.dev/58864a4f2459770fcc257101-icon.webp"
+    },
+    "5887431f2459777e1612938f": {
+      "name": "7.62x54mm R LPS gzh",
+      "short_name": "LPS",
+      "source_url": "https://assets.tarkov.dev/5887431f2459777e1612938f-icon.webp"
+    },
+    "58dd3ad986f77403051cba8f": {
+      "name": "7.62x51mm M80",
+      "short_name": "M80",
+      "source_url": "https://assets.tarkov.dev/58dd3ad986f77403051cba8f-icon.webp"
+    },
+    "59e0d99486f7744a32234762": {
+      "name": "7.62x39mm BP gzh",
+      "short_name": "BP",
+      "source_url": "https://assets.tarkov.dev/59e0d99486f7744a32234762-icon.webp"
+    },
+    "59e4cf5286f7741778269d8a": {
+      "name": "7.62x39mm T-45M1 gzh",
+      "short_name": "T-45M1",
+      "source_url": "https://assets.tarkov.dev/59e4cf5286f7741778269d8a-icon.webp"
+    },
+    "59e4d24686f7741776641ac7": {
+      "name": "7.62x39mm US gzh",
+      "short_name": "US",
+      "source_url": "https://assets.tarkov.dev/59e4d24686f7741776641ac7-icon.webp"
+    },
+    "59e4d3d286f774176a36250a": {
+      "name": "7.62x39mm HP",
+      "short_name": "HP",
+      "source_url": "https://assets.tarkov.dev/59e4d3d286f774176a36250a-icon.webp"
+    },
+    "59e6542b86f77411dc52a77a": {
+      "name": ".366 TKM FMJ",
+      "short_name": "FMJ",
+      "source_url": "https://assets.tarkov.dev/59e6542b86f77411dc52a77a-icon.webp"
+    },
+    "59e655cb86f77411dc52a77b": {
+      "name": ".366 TKM EKO",
+      "short_name": "EKO",
+      "source_url": "https://assets.tarkov.dev/59e655cb86f77411dc52a77b-icon.webp"
+    },
+    "59e6658b86f77411d949b250": {
+      "name": ".366 TKM Geksa",
+      "short_name": "Geksa",
+      "source_url": "https://assets.tarkov.dev/59e6658b86f77411d949b250-icon.webp"
+    },
+    "59e68f6f86f7746c9f75e846": {
+      "name": "5.56x45mm M856",
+      "short_name": "M856",
+      "source_url": "https://assets.tarkov.dev/59e68f6f86f7746c9f75e846-icon.webp"
+    },
+    "59e6906286f7746c9f75e847": {
+      "name": "5.56x45mm M856A1",
+      "short_name": "M856A1",
+      "source_url": "https://assets.tarkov.dev/59e6906286f7746c9f75e847-icon.webp"
+    },
+    "59e690b686f7746c9f75e848": {
+      "name": "5.56x45mm M995",
+      "short_name": "M995",
+      "source_url": "https://assets.tarkov.dev/59e690b686f7746c9f75e848-icon.webp"
+    },
+    "59e6918f86f7746c9f75e849": {
+      "name": "5.56x45mm MK 255 Mod 0 (RRLP)",
+      "short_name": "RRLP",
+      "source_url": "https://assets.tarkov.dev/59e6918f86f7746c9f75e849-icon.webp"
+    },
+    "59e6920f86f77411d82aa167": {
+      "name": "5.56x45mm FMJ",
+      "short_name": "FMJ",
+      "source_url": "https://assets.tarkov.dev/59e6920f86f77411d82aa167-icon.webp"
+    },
+    "59e6927d86f77411da468256": {
+      "name": "5.56x45mm HP",
+      "short_name": "HP",
+      "source_url": "https://assets.tarkov.dev/59e6927d86f77411da468256-icon.webp"
+    },
+    "59e77a2386f7742ee578960a": {
+      "name": "7.62x54mm R PS gzh",
+      "short_name": "PS",
+      "source_url": "https://assets.tarkov.dev/59e77a2386f7742ee578960a-icon.webp"
+    },
+    "5a269f97c4a282000b151807": {
+      "name": "9x21mm PS gzh",
+      "short_name": "PS",
+      "source_url": "https://assets.tarkov.dev/5a269f97c4a282000b151807-icon.webp"
+    },
+    "5a26abfac4a28232980eabff": {
+      "name": "9x21mm P gzh",
+      "short_name": "P",
+      "source_url": "https://assets.tarkov.dev/5a26abfac4a28232980eabff-icon.webp"
+    },
+    "5a26ac06c4a282000c5a90a8": {
+      "name": "9x21mm PE gzh",
+      "short_name": "PE",
+      "source_url": "https://assets.tarkov.dev/5a26ac06c4a282000c5a90a8-icon.webp"
+    },
+    "5a26ac0ec4a28200741e1e18": {
+      "name": "9x21mm BT gzh",
+      "short_name": "BT",
+      "source_url": "https://assets.tarkov.dev/5a26ac0ec4a28200741e1e18-icon.webp"
+    },
+    "5a38ebd9c4a282000d722a5b": {
+      "name": "20/70 7.5mm buckshot",
+      "short_name": "7.5mm",
+      "source_url": "https://assets.tarkov.dev/5a38ebd9c4a282000d722a5b-icon.webp"
+    },
+    "5a3c16fe86f77452b62de32a": {
+      "name": "9x19mm Luger CCI",
+      "short_name": "Luger CCI",
+      "source_url": "https://assets.tarkov.dev/5a3c16fe86f77452b62de32a-icon.webp"
+    },
+    "5a6086ea4f39f99cd479502f": {
+      "name": "7.62x51mm M61",
+      "short_name": "M61",
+      "source_url": "https://assets.tarkov.dev/5a6086ea4f39f99cd479502f-icon.webp"
+    },
+    "5a608bf24f39f98ffc77720e": {
+      "name": "7.62x51mm M62 Tracer",
+      "short_name": "M62",
+      "source_url": "https://assets.tarkov.dev/5a608bf24f39f98ffc77720e-icon.webp"
+    },
+    "5ba2678ad4351e44f824b344": {
+      "name": "4.6x30mm FMJ SX",
+      "short_name": "FMJ SX",
+      "source_url": "https://assets.tarkov.dev/5ba2678ad4351e44f824b344-icon.webp"
+    },
+    "5ba26812d4351e003201fef1": {
+      "name": "4.6x30mm Action SX",
+      "short_name": "Action SX",
+      "source_url": "https://assets.tarkov.dev/5ba26812d4351e003201fef1-icon.webp"
+    },
+    "5ba26835d4351e0035628ff5": {
+      "name": "4.6x30mm AP SX",
+      "short_name": "AP SX",
+      "source_url": "https://assets.tarkov.dev/5ba26835d4351e0035628ff5-icon.webp"
+    },
+    "5ba26844d4351e00334c9475": {
+      "name": "4.6x30mm Subsonic SX",
+      "short_name": "Subsonic SX",
+      "source_url": "https://assets.tarkov.dev/5ba26844d4351e00334c9475-icon.webp"
+    },
+    "5c0d56a986f774449d5de529": {
+      "name": "9x19mm RIP",
+      "short_name": "RIP",
+      "source_url": "https://assets.tarkov.dev/5c0d56a986f774449d5de529-icon.webp"
+    },
+    "5c0d591486f7744c505b416f": {
+      "name": "12/70 RIP",
+      "short_name": "RIP",
+      "source_url": "https://assets.tarkov.dev/5c0d591486f7744c505b416f-icon.webp"
+    },
+    "5c0d5ae286f7741e46554302": {
+      "name": "5.56x45mm Warmageddon",
+      "short_name": "Warmage",
+      "source_url": "https://assets.tarkov.dev/5c0d5ae286f7741e46554302-icon.webp"
+    },
+    "5c0d5e4486f77478390952fe": {
+      "name": "5.45x39mm PPBS gs \"Igolnik\"",
+      "short_name": "PPBS",
+      "source_url": "https://assets.tarkov.dev/5c0d5e4486f77478390952fe-icon.webp"
+    },
+    "5c0d668f86f7747ccb7f13b2": {
+      "name": "9x39mm SPP gs",
+      "short_name": "SPP",
+      "source_url": "https://assets.tarkov.dev/5c0d668f86f7747ccb7f13b2-icon.webp"
+    },
+    "5c0d688c86f77413ae3407b2": {
+      "name": "9x39mm BP gs",
+      "short_name": "BP",
+      "source_url": "https://assets.tarkov.dev/5c0d688c86f77413ae3407b2-icon.webp"
+    },
+    "5c3df7d588a4501f290594e5": {
+      "name": "9x19mm T gzh",
+      "short_name": "T",
+      "source_url": "https://assets.tarkov.dev/5c3df7d588a4501f290594e5-icon.webp"
+    },
+    "5c925fa22e221601da359b7b": {
+      "name": "9x19mm AP 6.3",
+      "short_name": "AP 6.3",
+      "source_url": "https://assets.tarkov.dev/5c925fa22e221601da359b7b-icon.webp"
+    },
+    "5cadf6ddae9215051e1c23b2": {
+      "name": "12.7x55mm PS12",
+      "short_name": "PS12",
+      "source_url": "https://assets.tarkov.dev/5cadf6ddae9215051e1c23b2-icon.webp"
+    },
+    "5cadf6e5ae921500113bb973": {
+      "name": "12.7x55mm PS12A",
+      "short_name": "PS12A",
+      "source_url": "https://assets.tarkov.dev/5cadf6e5ae921500113bb973-icon.webp"
+    },
+    "5cadf6eeae921500134b2799": {
+      "name": "12.7x55mm PS12B",
+      "short_name": "PS12B",
+      "source_url": "https://assets.tarkov.dev/5cadf6eeae921500134b2799-icon.webp"
+    },
+    "5cc80f38e4a949001152b560": {
+      "name": "5.7x28mm SS190",
+      "short_name": "SS190",
+      "source_url": "https://assets.tarkov.dev/5cc80f38e4a949001152b560-icon.webp"
+    },
+    "5cc80f53e4a949000e1ea4f8": {
+      "name": "5.7x28mm L191",
+      "short_name": "L191",
+      "source_url": "https://assets.tarkov.dev/5cc80f53e4a949000e1ea4f8-icon.webp"
+    },
+    "5cc80f67e4a949035e43bbba": {
+      "name": "5.7x28mm SB193",
+      "short_name": "SB193",
+      "source_url": "https://assets.tarkov.dev/5cc80f67e4a949035e43bbba-icon.webp"
+    },
+    "5cc80f79e4a949033c7343b2": {
+      "name": "5.7x28mm SS198LF",
+      "short_name": "SS198LF",
+      "source_url": "https://assets.tarkov.dev/5cc80f79e4a949033c7343b2-icon.webp"
+    },
+    "5cc80f8fe4a949033b0224a2": {
+      "name": "5.7x28mm SS197SR",
+      "short_name": "SS197SR",
+      "source_url": "https://assets.tarkov.dev/5cc80f8fe4a949033b0224a2-icon.webp"
+    },
+    "5cc86832d7f00c000d3a6e6c": {
+      "name": "5.7x28mm R37.F",
+      "short_name": "R37.F",
+      "source_url": "https://assets.tarkov.dev/5cc86832d7f00c000d3a6e6c-icon.webp"
+    },
+    "5cc86840d7f00c002412c56c": {
+      "name": "5.7x28mm R37.X",
+      "short_name": "R37.X",
+      "source_url": "https://assets.tarkov.dev/5cc86840d7f00c002412c56c-icon.webp"
+    },
+    "5d6e6772a4b936088465b17c": {
+      "name": "12/70 5.25mm buckshot",
+      "short_name": "5.25mm",
+      "source_url": "https://assets.tarkov.dev/5d6e6772a4b936088465b17c-icon.webp"
+    },
+    "5d6e67fba4b9361bc73bc779": {
+      "name": "12/70 6.5mm Express buckshot",
+      "short_name": "Express",
+      "source_url": "https://assets.tarkov.dev/5d6e67fba4b9361bc73bc779-icon.webp"
+    },
+    "5d6e6806a4b936088465b17e": {
+      "name": "12/70 8.5mm Magnum buckshot",
+      "short_name": "Magnum",
+      "source_url": "https://assets.tarkov.dev/5d6e6806a4b936088465b17e-icon.webp"
+    },
+    "5d6e6869a4b9361c140bcfde": {
+      "name": "12/70 Grizzly 40 slug",
+      "short_name": "Grizzly 40",
+      "source_url": "https://assets.tarkov.dev/5d6e6869a4b9361c140bcfde-icon.webp"
+    },
+    "5d6e6891a4b9361bd473feea": {
+      "name": "12/70 \"Poleva-3\" slug",
+      "short_name": "Poleva-3",
+      "source_url": "https://assets.tarkov.dev/5d6e6891a4b9361bd473feea-icon.webp"
+    },
+    "5d6e689ca4b9361bc8618956": {
+      "name": "12/70 \"Poleva-6u\" slug",
+      "short_name": "Poleva-6u",
+      "source_url": "https://assets.tarkov.dev/5d6e689ca4b9361bc8618956-icon.webp"
+    },
+    "5d6e68a8a4b9360b6c0d54e2": {
+      "name": "12/70 AP-20 armor-piercing slug",
+      "short_name": "AP-20",
+      "source_url": "https://assets.tarkov.dev/5d6e68a8a4b9360b6c0d54e2-icon.webp"
+    },
+    "5d6e68b3a4b9361bca7e50b5": {
+      "name": "12/70 Copper Sabot Premier HP slug",
+      "short_name": "CSP",
+      "source_url": "https://assets.tarkov.dev/5d6e68b3a4b9361bca7e50b5-icon.webp"
+    },
+    "5d6e68c4a4b9361b93413f79": {
+      "name": "12/70 makeshift .50 BMG slug",
+      "short_name": ".50 BMG",
+      "source_url": "https://assets.tarkov.dev/5d6e68c4a4b9361b93413f79-icon.webp"
+    },
+    "5d6e68d1a4b93622fe60e845": {
+      "name": "12/70 SuperFormance HP slug",
+      "short_name": "SFormance",
+      "source_url": "https://assets.tarkov.dev/5d6e68d1a4b93622fe60e845-icon.webp"
+    },
+    "5d6e68dea4b9361bcc29e659": {
+      "name": "12/70 Dual Sabot slug",
+      "short_name": "DualSabot",
+      "source_url": "https://assets.tarkov.dev/5d6e68dea4b9361bcc29e659-icon.webp"
+    },
+    "5d6e68e6a4b9361c140bcfe0": {
+      "name": "12/70 FTX Custom Lite slug",
+      "short_name": "FTX",
+      "source_url": "https://assets.tarkov.dev/5d6e68e6a4b9361c140bcfe0-icon.webp"
+    },
+    "5d6e6911a4b9361bd5780d52": {
+      "name": "12/70 flechette",
+      "short_name": "Flechette",
+      "source_url": "https://assets.tarkov.dev/5d6e6911a4b9361bd5780d52-icon.webp"
+    },
+    "5d6e695fa4b936359b35d852": {
+      "name": "20/70 5.6mm buckshot",
+      "short_name": "5.6mm",
+      "source_url": "https://assets.tarkov.dev/5d6e695fa4b936359b35d852-icon.webp"
+    },
+    "5d6e69b9a4b9361bc8618958": {
+      "name": "20/70 6.2mm buckshot",
+      "short_name": "6.2mm",
+      "source_url": "https://assets.tarkov.dev/5d6e69b9a4b9361bc8618958-icon.webp"
+    },
+    "5d6e69c7a4b9360b6c0d54e4": {
+      "name": "20/70 7.3mm buckshot",
+      "short_name": "7.3mm",
+      "source_url": "https://assets.tarkov.dev/5d6e69c7a4b9360b6c0d54e4-icon.webp"
+    },
+    "5d6e6a05a4b93618084f58d0": {
+      "name": "20/70 Star slug",
+      "short_name": "Star",
+      "source_url": "https://assets.tarkov.dev/5d6e6a05a4b93618084f58d0-icon.webp"
+    },
+    "5d6e6a42a4b9364f07165f52": {
+      "name": "20/70 \"Poleva-6u\" slug",
+      "short_name": "Poleva-6u",
+      "source_url": "https://assets.tarkov.dev/5d6e6a42a4b9364f07165f52-icon.webp"
+    },
+    "5d6e6a53a4b9361bd473feec": {
+      "name": "20/70 \"Poleva-3\" slug",
+      "short_name": "Poleva-3",
+      "source_url": "https://assets.tarkov.dev/5d6e6a53a4b9361bd473feec-icon.webp"
+    },
+    "5d6e6a5fa4b93614ec501745": {
+      "name": "20/70 Devastator slug",
+      "short_name": "Devastator",
+      "source_url": "https://assets.tarkov.dev/5d6e6a5fa4b93614ec501745-icon.webp"
+    },
+    "5e023cf8186a883be655e54f": {
+      "name": "7.62x54mm R T-46M gzh",
+      "short_name": "T-46M",
+      "source_url": "https://assets.tarkov.dev/5e023cf8186a883be655e54f-icon.webp"
+    },
+    "5e023d34e8a400319a28ed44": {
+      "name": "7.62x54mm R BT gzh",
+      "short_name": "BT",
+      "source_url": "https://assets.tarkov.dev/5e023d34e8a400319a28ed44-icon.webp"
+    },
+    "5e023d48186a883be655e551": {
+      "name": "7.62x54mm R BS gs",
+      "short_name": "BS",
+      "source_url": "https://assets.tarkov.dev/5e023d48186a883be655e551-icon.webp"
+    },
+    "5e023e53d4353e3302577c4c": {
+      "name": "7.62x51mm BCP FMJ",
+      "short_name": "BCP FMJ",
+      "source_url": "https://assets.tarkov.dev/5e023e53d4353e3302577c4c-icon.webp"
+    },
+    "5e023e6e34d52a55c3304f71": {
+      "name": "7.62x51mm TCW SP",
+      "short_name": "TCW SP",
+      "source_url": "https://assets.tarkov.dev/5e023e6e34d52a55c3304f71-icon.webp"
+    },
+    "5e023e88277cce2b522ff2b1": {
+      "name": "7.62x51mm Ultra Nosler",
+      "short_name": "Ultra Nosler",
+      "source_url": "https://assets.tarkov.dev/5e023e88277cce2b522ff2b1-icon.webp"
+    },
+    "5e81f423763d9f754677bf2e": {
+      "name": ".45 ACP Match FMJ",
+      "short_name": "FMJ",
+      "source_url": "https://assets.tarkov.dev/5e81f423763d9f754677bf2e-icon.webp"
+    },
+    "5e85a9a6eacf8c039e4e2ac1": {
+      "name": "23x75mm \"Shrapnel-10\" buckshot",
+      "short_name": "Shrap-10",
+      "source_url": "https://assets.tarkov.dev/5e85a9a6eacf8c039e4e2ac1-icon.webp"
+    },
+    "5e85a9f4add9fe03027d9bf1": {
+      "name": "23x75mm \"Zvezda\" flashbang round",
+      "short_name": "Zvezda",
+      "source_url": "https://assets.tarkov.dev/5e85a9f4add9fe03027d9bf1-icon.webp"
+    },
+    "5e85aa1a988a8701445df1f5": {
+      "name": "23x75mm \"Barrikada\" slug",
+      "short_name": "Barrikada",
+      "source_url": "https://assets.tarkov.dev/5e85aa1a988a8701445df1f5-icon.webp"
+    },
+    "5ea2a8e200685063ec28c05a": {
+      "name": ".45 ACP RIP",
+      "short_name": "RIP",
+      "source_url": "https://assets.tarkov.dev/5ea2a8e200685063ec28c05a-icon.webp"
+    },
+    "5ede4739e0350d05467f73e8": {
+      "name": "40x46mm M406 (HE) grenade",
+      "short_name": "M406",
+      "source_url": "https://assets.tarkov.dev/5ede4739e0350d05467f73e8-icon.webp"
+    },
+    "5ede47405b097655935d7d16": {
+      "name": "40x46mm M441 (HE) grenade",
+      "short_name": "M441",
+      "source_url": "https://assets.tarkov.dev/5ede47405b097655935d7d16-icon.webp"
+    },
+    "5ede474b0c226a66f5402622": {
+      "name": "40x46mm M381 (HE) grenade",
+      "short_name": "M381",
+      "source_url": "https://assets.tarkov.dev/5ede474b0c226a66f5402622-icon.webp"
+    },
+    "5ede475339ee016e8c534742": {
+      "name": "40x46mm M576 (MP-APERS) grenade",
+      "short_name": "M576",
+      "source_url": "https://assets.tarkov.dev/5ede475339ee016e8c534742-icon.webp"
+    },
+    "5ede475b549eed7c6d5c18fb": {
+      "name": "40x46mm M386 (HE) grenade",
+      "short_name": "M386",
+      "source_url": "https://assets.tarkov.dev/5ede475b549eed7c6d5c18fb-icon.webp"
+    },
+    "5efb0c1bd79ff02a1f5e68d9": {
+      "name": "7.62x51mm M993",
+      "short_name": "M993",
+      "source_url": "https://assets.tarkov.dev/5efb0c1bd79ff02a1f5e68d9-icon.webp"
+    },
+    "5efb0cabfb3e451d70735af5": {
+      "name": ".45 ACP AP",
+      "short_name": "AP",
+      "source_url": "https://assets.tarkov.dev/5efb0cabfb3e451d70735af5-icon.webp"
+    },
+    "5efb0d4f4bc50b58e81710f3": {
+      "name": ".45 ACP Lasermatch FMJ",
+      "short_name": "Lasermatch",
+      "source_url": "https://assets.tarkov.dev/5efb0d4f4bc50b58e81710f3-icon.webp"
+    },
+    "5efb0da7a29a85116f6ea05f": {
+      "name": "9x19mm PBP gzh",
+      "short_name": "PBP",
+      "source_url": "https://assets.tarkov.dev/5efb0da7a29a85116f6ea05f-icon.webp"
+    },
+    "5efb0e16aeb21837e749c7ff": {
+      "name": "9x19mm QuakeMaker",
+      "short_name": "QuakeMaker",
+      "source_url": "https://assets.tarkov.dev/5efb0e16aeb21837e749c7ff-icon.webp"
+    },
+    "5efb0fc6aeb21837e749c801": {
+      "name": ".45 ACP Hydra-Shok",
+      "short_name": "HydraShok",
+      "source_url": "https://assets.tarkov.dev/5efb0fc6aeb21837e749c801-icon.webp"
+    },
+    "5f0596629e22f464da6bbdd9": {
+      "name": ".366 TKM AP-M",
+      "short_name": "AP-M",
+      "source_url": "https://assets.tarkov.dev/5f0596629e22f464da6bbdd9-icon.webp"
+    },
+    "5f0c892565703e5c461894e9": {
+      "name": "40x46mm M433 (HEDP) grenade",
+      "short_name": "M433",
+      "source_url": "https://assets.tarkov.dev/5f0c892565703e5c461894e9-icon.webp"
+    },
+    "5f647f31b6238e5dd066e196": {
+      "name": "23x75mm \"Shrapnel-25\" buckshot",
+      "short_name": "Shrap-25",
+      "source_url": "https://assets.tarkov.dev/5f647f31b6238e5dd066e196-icon.webp"
+    },
+    "5fbe3ffdf8b6a877a729ea82": {
+      "name": ".300 Blackout BCP FMJ",
+      "short_name": "BCP FMJ",
+      "source_url": "https://assets.tarkov.dev/5fbe3ffdf8b6a877a729ea82-icon.webp"
+    },
+    "5fc275cf85fd526b824a571a": {
+      "name": ".338 Lapua Magnum FMJ",
+      "short_name": "FMJ",
+      "source_url": "https://assets.tarkov.dev/5fc275cf85fd526b824a571a-icon.webp"
+    },
+    "5fc382a9d724d907e2077dab": {
+      "name": ".338 Lapua Magnum AP",
+      "short_name": "AP",
+      "source_url": "https://assets.tarkov.dev/5fc382a9d724d907e2077dab-icon.webp"
+    },
+    "5fc382b6d6fa9c00c571bbc3": {
+      "name": ".338 Lapua Magnum TAC-X",
+      "short_name": "TAC-X",
+      "source_url": "https://assets.tarkov.dev/5fc382b6d6fa9c00c571bbc3-icon.webp"
+    },
+    "5fc382c1016cce60e8341b20": {
+      "name": ".338 Lapua Magnum UCW",
+      "short_name": "UCW",
+      "source_url": "https://assets.tarkov.dev/5fc382c1016cce60e8341b20-icon.webp"
+    },
+    "5fd20ff893a8961fc660a954": {
+      "name": ".300 Blackout AP",
+      "short_name": "AP",
+      "source_url": "https://assets.tarkov.dev/5fd20ff893a8961fc660a954-icon.webp"
+    },
+    "60194943740c5d77f6705eea": {
+      "name": "5.56x45mm MK 318 Mod 0 (SOST)",
+      "short_name": "SOST",
+      "source_url": "https://assets.tarkov.dev/60194943740c5d77f6705eea-icon.webp"
+    },
+    "601949593ae8f707c4608daa": {
+      "name": "5.56x45mm SSA AP",
+      "short_name": "SSA AP",
+      "source_url": "https://assets.tarkov.dev/601949593ae8f707c4608daa-icon.webp"
+    },
+    "601aa3d2b2bcb34913271e6d": {
+      "name": "7.62x39mm MAI AP",
+      "short_name": "MAI AP",
+      "source_url": "https://assets.tarkov.dev/601aa3d2b2bcb34913271e6d-icon.webp"
+    },
+    "61962b617c6c7b169525f168": {
+      "name": "5.45x39mm 7N40",
+      "short_name": "7N40",
+      "source_url": "https://assets.tarkov.dev/61962b617c6c7b169525f168-icon.webp"
+    },
+    "61962d879bb3d20b0946d385": {
+      "name": "9x39mm PAB-9 gs",
+      "short_name": "PAB-9",
+      "source_url": "https://assets.tarkov.dev/61962d879bb3d20b0946d385-icon.webp"
+    },
+    "6196364158ef8c428c287d9f": {
+      "name": ".300 Blackout V-Max",
+      "short_name": "V-Max",
+      "source_url": "https://assets.tarkov.dev/6196364158ef8c428c287d9f-icon.webp"
+    },
+    "6196365d58ef8c428c287da1": {
+      "name": ".300 Blackout Whisper",
+      "short_name": "Whisper",
+      "source_url": "https://assets.tarkov.dev/6196365d58ef8c428c287da1-icon.webp"
+    },
+    "619636be6db0f2477964e710": {
+      "name": ".300 Blackout M62 Tracer",
+      "short_name": "M62",
+      "source_url": "https://assets.tarkov.dev/619636be6db0f2477964e710-icon.webp"
+    },
+    "62330b3ed4dc74626d570b95": {
+      "name": ".357 Magnum FMJ",
+      "short_name": "FMJ",
+      "source_url": "https://assets.tarkov.dev/62330b3ed4dc74626d570b95-icon.webp"
+    },
+    "62330bfadc5883093563729b": {
+      "name": ".357 Magnum Hollow Point",
+      "short_name": ".357 HP",
+      "source_url": "https://assets.tarkov.dev/62330bfadc5883093563729b-icon.webp"
+    },
+    "62330c18744e5e31df12f516": {
+      "name": ".357 Magnum JHP",
+      "short_name": "JHP",
+      "source_url": "https://assets.tarkov.dev/62330c18744e5e31df12f516-icon.webp"
+    },
+    "62330c40bdd19b369e1e53d1": {
+      "name": ".357 Magnum Soft Point",
+      "short_name": ".357 SP",
+      "source_url": "https://assets.tarkov.dev/62330c40bdd19b369e1e53d1-icon.webp"
+    }
+  },
+  "missing_image_ids": [
+    "5485a8684bdc2da71d8b4567",
+    "5cde8864d7f00c0010373be1",
+    "5d2f2ab648f03550091993ca",
+    "5d70e500a4b9364de70d38ce"
+  ]
+}

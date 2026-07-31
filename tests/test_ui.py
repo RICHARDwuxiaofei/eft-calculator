@@ -1,8 +1,10 @@
+from dataclasses import asdict, replace
+
 import pytest
 
 pytest.importorskip("PySide6")
 
-from tarkov_armor_sim.data import Database
+from tarkov_armor_sim.data import SEED_AMMO, Database
 from tarkov_armor_sim.ui import MainWindow
 
 
@@ -81,7 +83,7 @@ def test_separate_resets(qtbot, tmp_path) -> None:
     assert window.selected_ammo.id == "m855a1"
     window._reset_armor()
     assert len(window.layers) == 0
-    assert "请添加护甲" in window.penetration_metric.text()
+    assert window.penetration_metric.text() == "请选择护甲"
 
 
 def test_live_suggestion_manual_ammo_and_plate_autofill(qtbot, tmp_path) -> None:
@@ -119,5 +121,49 @@ def test_window_uses_english_i18n_catalog(qtbot, tmp_path, monkeypatch) -> None:
     qtbot.addWidget(window)
     window.show()
     assert window.windowTitle() == "EFT Calculator · Layered Armor & Ballistics"
-    assert "Add armor" in window.penetration_metric.text()
+    assert window.penetration_metric.text() == "Choose armor"
     assert window.confirm_layer_button.text() == "Confirm and add as layer 1"
+
+
+def test_tracker_caliber_filter_and_search_rows_use_item_icons(qtbot, tmp_path) -> None:
+    database = Database(tmp_path / "online-ui.sqlite3")
+    m855 = replace(
+        SEED_AMMO[1],
+        id="54527a984bdc2d4e668b4567",
+        caliber="556x45",
+    )
+    m855a1 = replace(
+        SEED_AMMO[0],
+        id="54527ac44bdc2d36668b4567",
+        caliber="556x45",
+    )
+    database.apply_ammo_snapshot(
+        {
+            "snapshot_id": "tracker-ui",
+            "created_at": "2026-07-31T00:00:00+00:00",
+            "ammo": [asdict(m855), asdict(m855a1)],
+        }
+    )
+    window = MainWindow(database)
+    qtbot.addWidget(window)
+
+    window.caliber_group.button(1).click()
+    assert window.ammo_list.count() == 2
+    assert all(not window.ammo_list.item(row).icon().isNull() for row in range(2))
+    assert window._ammo_icon(m855) != window._ammo_icon(m855a1)
+    assert "5.56x45" in window.ammo_list.item(0).text()
+
+
+def test_empty_results_offer_common_armor_shortcuts(qtbot, tmp_path) -> None:
+    window = MainWindow(Database(tmp_path / "empty-state.sqlite3"))
+    qtbot.addWidget(window)
+    window._reset_armor()
+
+    assert not window.empty_result_panel.isHidden()
+    assert window.result_tabs.isHidden()
+    choices = window.empty_result_panel.findChildren(type(window.selected_ammo_button))
+    assert len(choices) >= 7
+    choices[0].click()
+    assert window.layers
+    assert window.empty_result_panel.isHidden()
+    assert not window.result_tabs.isHidden()

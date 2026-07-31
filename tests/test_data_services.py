@@ -1,4 +1,5 @@
 import json
+from dataclasses import asdict, replace
 
 from tarkov_armor_sim.data import (
     ARMOR_CARRIERS,
@@ -28,6 +29,23 @@ def test_bilingual_partial_search_ranks_exact_short_name_first(tmp_path) -> None
     assert any(item.id == "m855a1" for item in results)
     assert db.search_ammo("穿甲独头", locale="zh_CN")[0].id == "ap20"
     assert db.search_ammo("armor-piercing", locale="zh_CN")[0].id == "ap20"
+
+
+def test_api_caliber_identifiers_match_human_readable_filters(tmp_path) -> None:
+    db = Database(tmp_path / "api-caliber.sqlite3")
+    online = replace(
+        SEED_AMMO[1],
+        id="54527a984bdc2d4e668b4567",
+        caliber="556x45",
+    )
+    db.apply_ammo_snapshot(
+        {
+            "snapshot_id": "tracker-calibers",
+            "created_at": "2026-07-31T00:00:00+00:00",
+            "ammo": [asdict(online)],
+        }
+    )
+    assert db.search_ammo("", "5.56x45")[0].id == online.id
 
 
 def test_carrier_defaults_reference_real_plate_values() -> None:

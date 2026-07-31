@@ -15,10 +15,12 @@ from PySide6.QtCore import (
     Qt,
     QThreadPool,
     QTimer,
+    QUrl,
     Signal,
     Slot,
 )
-from PySide6.QtGui import QFont, QFontDatabase, QIcon, QKeySequence, QShortcut
+from PySide6.QtGui import QFont, QFontDatabase, QIcon, QImage, QKeySequence, QShortcut
+from PySide6.QtNetwork import QNetworkAccessManager, QNetworkReply, QNetworkRequest
 from PySide6.QtWidgets import (
     QAbstractButton,
     QApplication,
@@ -41,6 +43,7 @@ from PySide6.QtWidgets import (
     QProgressBar,
     QPushButton,
     QScrollArea,
+    QSizePolicy,
     QSlider,
     QSpinBox,
     QSplitter,
@@ -51,6 +54,7 @@ from PySide6.QtWidgets import (
     QWidget,
 )
 
+from .calibers import display_caliber
 from .data import (
     ARMOR_CARRIERS,
     ARMOR_PLATES,
@@ -146,6 +150,13 @@ class MainWindow(QMainWindow):
         self.thread_pool = QThreadPool.globalInstance()
         self._updating_durability = False
         self._lab_mode = False
+        self._ammo_icon_network = QNetworkAccessManager(self)
+        self._ammo_icon_requests: set[str] = set()
+        self._ammo_icon_failures: set[str] = set()
+        self._ammo_icon_refresh_timer = QTimer(self)
+        self._ammo_icon_refresh_timer.setSingleShot(True)
+        self._ammo_icon_refresh_timer.setInterval(120)
+        self._ammo_icon_refresh_timer.timeout.connect(self._refresh_icon_views)
         self._analysis_timer = QTimer(self)
         self._analysis_timer.setSingleShot(True)
         self._analysis_timer.setInterval(120)
@@ -296,8 +307,8 @@ class MainWindow(QMainWindow):
 
         armor_card, armor_layout = self._card("护甲命中路径")
         preset_row = QGridLayout()
-        for index, name in enumerate(default_armor_presets()):
-            button = QPushButton(name.replace(" + ", "\n+ "))
+        for index, name in enumerate(list(default_armor_presets())[:3]):
+            button = QPushButton(self._t(name).replace(" + ", "\n+ "))
             button.setMinimumHeight(54)
             button.clicked.connect(lambda _checked=False, value=index: self._choose_preset(value))
             preset_row.addWidget(button, index // 2, index % 2)
@@ -447,6 +458,39 @@ class MainWindow(QMainWindow):
         self.result_tabs.addTab(self._build_chart_tab(), "图表")
         self.result_tabs.addTab(self._build_compare_tab(), "比较")
         self.result_tabs.currentChanged.connect(self._tab_changed)
+        self.empty_result_panel = QFrame()
+        self.empty_result_panel.setObjectName("card")
+        empty_layout = QVBoxLayout(self.empty_result_panel)
+        empty_title = QLabel("常用护甲测试")
+        empty_title.setObjectName("section")
+        empty_hint = QLabel("一键载入常见组合，立即查看当前弹药的效果。")
+        empty_hint.setObjectName("muted")
+        empty_layout.addWidget(empty_title)
+        empty_layout.addWidget(empty_hint)
+        common_grid = QGridLayout()
+        for index, (name, layers) in enumerate(default_armor_presets().items()):
+            button = QPushButton(f"{self._t(name)}\n{self._t('载入并计算')}")
+            button.setObjectName("choice")
+            button.setMinimumHeight(76)
+            button.setSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Expanding)
+            material = layers[0].material
+            image_name = (
+                "combined.webp"
+                if material == ArmorMaterial.COMBINED
+                else f"{material.value}.png"
+            )
+            button.setIcon(QIcon(str(resource_path("items", "armor", image_name))))
+            button.setIconSize(QSize(48, 48))
+            button.clicked.connect(
+                lambda _checked=False, value=index: self._choose_preset(value)
+            )
+            common_grid.addWidget(button, index // 3, index % 3)
+        empty_layout.addLayout(common_grid, 1)
+        custom_path = QPushButton("自定义护甲路径…")
+        custom_path.setObjectName("primary")
+        custom_path.clicked.connect(self._open_armor_editor)
+        empty_layout.addWidget(custom_path)
+        layout.addWidget(self.empty_result_panel, 1)
         layout.addWidget(self.result_tabs, 1)
         exports = QHBoxLayout()
         exports.addStretch()
@@ -510,7 +554,7 @@ class MainWindow(QMainWindow):
     def _build_search_dialog(self) -> QDialog:
         dialog = QDialog(self)
         dialog.setWindowTitle("选择弹药")
-        dialog.resize(760, 620)
+        dialog.resize(900, 680)
         layout = QVBoxLayout(dialog)
         self.search_input = QLineEdit()
         self.search_input.setPlaceholderText("名称 / 简称 / 别名 / 口径")
@@ -526,13 +570,25 @@ class MainWindow(QMainWindow):
         self.global_search.setCompleter(self.ammo_completer)
         self.caliber_filter = QComboBox()
         self.caliber_filter.addItem("全部口径", "")
-        for caliber in ("5.56x45", "5.45x39", "7.62x39", "7.62x51", "12/70"):
+        for caliber in (
+            "5.56x45",
+            "5.45x39",
+            "7.62x39",
+            "7.62x51",
+            "7.62x54R",
+            "9x19",
+            ".300 BLK",
+            "4.6x30",
+            "5.7x28",
+            ".45 ACP",
+            "12/70",
+        ):
             self.caliber_filter.addItem(caliber, caliber)
         self.caliber_filter.currentIndexChanged.connect(self._refresh_ammo)
         self.caliber_filter.hide()
         self.caliber_group = QButtonGroup(self)
         self.caliber_group.setExclusive(True)
-        caliber_row = QHBoxLayout()
+        caliber_row = QGridLayout()
         for index in range(self.caliber_filter.count()):
             button = QPushButton(self.caliber_filter.itemText(index))
             button.setCheckable(True)
@@ -540,10 +596,12 @@ class MainWindow(QMainWindow):
                 lambda _checked=False, value=index: self.caliber_filter.setCurrentIndex(value)
             )
             self.caliber_group.addButton(button, index)
-            caliber_row.addWidget(button)
+            caliber_row.addWidget(button, index // 4, index % 4)
         self.caliber_group.button(0).setChecked(True)
         layout.addLayout(caliber_row)
         self.ammo_list = QListWidget()
+        self.ammo_list.setIconSize(QSize(42, 42))
+        self.ammo_list.setMinimumHeight(300)
         self.ammo_list.itemActivated.connect(
             lambda item: self._select_ammo_by_id(item.data(Qt.ItemDataRole.UserRole), close=True)
         )
@@ -555,8 +613,13 @@ class MainWindow(QMainWindow):
         self.ammo_choice_host = QWidget()
         self.ammo_choice_grid = QGridLayout(self.ammo_choice_host)
         layout.addWidget(self.ammo_choice_host)
+        self.custom_editor_toggle = QPushButton("手动编辑弹药参数  ›")
+        self.custom_editor_toggle.setCheckable(True)
+        self.custom_editor_toggle.clicked.connect(self._toggle_custom_ammo_editor)
+        layout.addWidget(self.custom_editor_toggle)
         editor = QFrame()
         editor.setObjectName("card")
+        self.custom_ammo_editor = editor
         editor_layout = QFormLayout(editor)
         self.custom_ammo_name = QLineEdit()
         self.custom_ammo_damage = QDoubleSpinBox()
@@ -575,12 +638,19 @@ class MainWindow(QMainWindow):
         use_custom = QPushButton("使用这些弹药数值")
         use_custom.clicked.connect(self._apply_custom_ammo)
         editor_layout.addRow(use_custom)
+        editor.hide()
         layout.addWidget(editor)
         buttons = QDialogButtonBox(QDialogButtonBox.StandardButton.Close)
         buttons.button(QDialogButtonBox.StandardButton.Close).setText("关闭")
         buttons.rejected.connect(dialog.reject)
         layout.addWidget(buttons)
         return dialog
+
+    def _toggle_custom_ammo_editor(self, checked: bool) -> None:
+        self.custom_ammo_editor.setVisible(checked)
+        self.custom_editor_toggle.setText(
+            self._t("手动编辑弹药参数  ⌄" if checked else "手动编辑弹药参数  ›")
+        )
 
     def _build_armor_dialog(self) -> QDialog:
         dialog = QDialog(self)
@@ -740,7 +810,8 @@ class MainWindow(QMainWindow):
             english = ammo.localized_names.get("en", ammo.name)
             secondary = f" / {english}" if english != localized else ""
             self.ammo_list.addItem(
-                f"{prefix}{ammo.short_name} · {localized}{secondary}\n{ammo.caliber}   "
+                f"{prefix}{ammo.short_name} · {localized}{secondary}\n"
+                f"{display_caliber(ammo.caliber)}   "
                 + self._t(
                     "伤害 {damage:g} · 穿深 {penetration:g}",
                     damage=ammo.damage,
@@ -749,6 +820,9 @@ class MainWindow(QMainWindow):
             )
             self.ammo_list.item(self.ammo_list.count() - 1).setData(
                 Qt.ItemDataRole.UserRole, ammo.id
+            )
+            self.ammo_list.item(self.ammo_list.count() - 1).setIcon(
+                QIcon(str(self._ammo_icon(ammo)))
             )
             completion = f"{ammo.short_name} · {localized}"
             completion_labels.append(completion)
@@ -808,9 +882,59 @@ class MainWindow(QMainWindow):
             "m80": "m80.png",
             "ap20": "ap20.png",
             "7n40": "7n40.png",
-        }.get(normalized_short_name, "m855a1.png")
+        }.get(normalized_short_name)
         item_id = ammo.id.removeprefix("custom-")
-        return resource_path("items", "ammo", mapping.get(item_id, fallback))
+        live_icon = resource_path("items", "ammo-live", f"{item_id}.webp")
+        if live_icon.exists():
+            return live_icon
+        legacy_name = mapping.get(item_id, fallback)
+        if legacy_name:
+            return resource_path("items", "ammo", legacy_name)
+        cache_icon = default_database_path().parent / "ammo-icons" / f"{item_id}.webp"
+        if cache_icon.exists() and not QImage(str(cache_icon)).isNull():
+            return cache_icon
+        self._request_ammo_icon(ammo, cache_icon)
+        return resource_path("items", "ammo", "ammo-placeholder.svg")
+
+    def _request_ammo_icon(self, ammo: Ammo, cache_path: Path) -> None:
+        item_id = ammo.id.removeprefix("custom-")
+        if (
+            os.getenv("QT_QPA_PLATFORM") == "offscreen"
+            or len(item_id) != 24
+            or any(character not in "0123456789abcdef" for character in item_id.casefold())
+            or item_id in self._ammo_icon_requests
+            or item_id in self._ammo_icon_failures
+        ):
+            return
+        url = ammo.image_url or f"https://assets.tarkov.dev/{item_id}-icon.webp"
+        self._ammo_icon_requests.add(item_id)
+        reply = self._ammo_icon_network.get(QNetworkRequest(QUrl(url)))
+        reply.finished.connect(
+            lambda current=reply, current_id=item_id, target=cache_path: self._ammo_icon_finished(
+                current, current_id, target
+            )
+        )
+
+    def _ammo_icon_finished(self, reply, item_id: str, cache_path: Path) -> None:
+        self._ammo_icon_requests.discard(item_id)
+        data = bytes(reply.readAll())
+        valid = (
+            reply.error() == QNetworkReply.NetworkError.NoError
+            and bool(data)
+            and not QImage.fromData(data).isNull()
+        )
+        reply.deleteLater()
+        if not valid:
+            self._ammo_icon_failures.add(item_id)
+            return
+        cache_path.parent.mkdir(parents=True, exist_ok=True)
+        cache_path.write_bytes(data)
+        self._ammo_icon_refresh_timer.start()
+
+    def _refresh_icon_views(self) -> None:
+        self._refresh_ammo()
+        if self.selected_ammo:
+            self._render_selected_ammo()
 
     def _use_ammo_completion(self, label: str) -> None:
         item_id = self.completion_lookup.get(label)
@@ -891,7 +1015,7 @@ class MainWindow(QMainWindow):
             self._t(
                 "{ammo}  ·  {caliber}\n伤害 {damage:g}    穿深 {penetration:g}    甲伤 {armor_damage:g}%",
                 ammo=f"{ammo.short_name} · {ammo.display_name(self.i18n.locale)}",
-                caliber=ammo.caliber,
+                caliber=display_caliber(ammo.caliber),
                 damage=ammo.damage,
                 penetration=ammo.penetration_power,
                 armor_damage=ammo.armor_damage_percent,
@@ -1068,6 +1192,8 @@ class MainWindow(QMainWindow):
                 + ("" if layer.enabled else self._t("（停用）"))
             )
         self.layer_table.blockSignals(False)
+        self.empty_result_panel.setVisible(not self.layers)
+        self.result_tabs.setVisible(bool(self.layers))
         self.path_summary.setText("\n".join(path_parts) if path_parts else self._t("尚未添加护甲"))
         self.confirm_layer_button.setText(
             self._t("确认并添加为第 {layer} 层", layer=len(self.layers) + 1)
@@ -1181,7 +1307,7 @@ class MainWindow(QMainWindow):
     def _reset_armor(self) -> None:
         self.layers = []
         self._refresh_layers()
-        self.penetration_metric.setText(self._t("— · 请添加护甲"))
+        self._set_empty_result_state()
         self.conclusion.setText(self._t("选择弹药后，使用护甲预设或打开路径编辑器添加第一层。"))
         self._schedule_analysis()
 
@@ -1209,10 +1335,7 @@ class MainWindow(QMainWindow):
 
     def _analyze(self) -> None:
         if not self.selected_ammo or not self.layers:
-            self.penetration_metric.setText(self._t("— · 请添加护甲"))
-            self.conclusion.setText(self._t("选择弹药后，使用护甲预设或打开路径编辑器添加第一层。"))
-            for value in self.result_values.values():
-                value.setText("—")
+            self._set_empty_result_state()
             return
         from .engine import analyze
 
@@ -1227,6 +1350,9 @@ class MainWindow(QMainWindow):
 
     def _show_result(self, result) -> None:
         self.current_result = result
+        self.empty_result_panel.hide()
+        self.result_tabs.show()
+        self.penetration_metric.setStyleSheet("")
         self.penetration_metric.setText(f"{result.final_penetration_probability:.0%}")
         self.conclusion.setText(result_summary(result, self.shots.value(), self._t))
         self.result_values["three"].setText(f"{result.three_shot_penetration_probability:.0%}")
@@ -1247,6 +1373,21 @@ class MainWindow(QMainWindow):
         self._fill_burst_results(result)
         self._plot_result(result)
         self.status.setText(self._t("已自动更新 · 120 ms 防抖"))
+
+    def _set_empty_result_state(self) -> None:
+        self.current_result = None
+        self.current_scenario = None
+        self.empty_result_panel.show()
+        self.result_tabs.hide()
+        self.penetration_metric.setStyleSheet(
+            "font-size: 30px; font-weight: 850; color: #f2c86f;"
+        )
+        self.penetration_metric.setText(self._t("请选择护甲"))
+        self.conclusion.setText(
+            self._t("选择弹药后，使用护甲预设或打开路径编辑器添加第一层。")
+        )
+        for value in self.result_values.values():
+            value.setText("—")
 
     def _fill_layer_results(self, result) -> None:
         self.layer_result_table.setRowCount(len(result.layer_results))

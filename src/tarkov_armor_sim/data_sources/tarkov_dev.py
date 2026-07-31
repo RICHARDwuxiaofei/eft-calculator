@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import httpx
 
+from ..calibers import display_caliber
 from ..models import Ammo
 from .base import AdapterResult, DataSourceAdapter, FieldProvenance, SourceManifest, utc_now
 
@@ -109,7 +110,7 @@ class TarkovDevAdapter(DataSourceAdapter):
 
 
 def _clean_caliber(value: str) -> str:
-    return value.removeprefix("Caliber").replace("NATO", "").replace("mm", "")
+    return display_caliber(value)
 
 
 def _optional_float(value: object) -> float | None:

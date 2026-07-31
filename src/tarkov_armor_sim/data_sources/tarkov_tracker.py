@@ -38,6 +38,7 @@ class TarkovTrackerAdapter(DataSourceAdapter):
                     fragmentation_chance=_optional_float(ballistics.get("fragmentationChance")),
                     ricochet_chance=_optional_float(ballistics.get("ricochetChance")),
                     source_version=f"tarkovdata-{fetched_at[:10]}",
+                    image_url=f"https://assets.tarkov.dev/{item_id}-icon.webp",
                 )
             )
             provenance[item_id] = {
