@@ -28,8 +28,20 @@ class DataSyncWorker(context: Context, params: WorkerParameters) : CoroutineWork
     }.fold(onSuccess = { Result.success() }, onFailure = { Result.retry() })
 
     private fun fetchTarkovDev(): String? {
-        val query = """{"query":"query { ammo(lang: en) { item { id name shortName } caliber damage penetrationPower armorDamage projectileCount initialSpeed } }"}"""
-        return request("https://api.tarkov.dev/graphql", "POST", query)
+        val query = """
+            query EftCalculatorAmmoBilingual {
+              en: ammo(lang: en) {
+                item { id name shortName }
+                caliber damage penetrationPower armorDamage projectileCount initialSpeed
+              }
+              zh: ammo(lang: zh) { item { id name shortName } }
+            }
+        """.trimIndent()
+        return request(
+            "https://api.tarkov.dev/graphql",
+            "POST",
+            JSONObject().put("query", query).toString(),
+        )
     }
 
     private fun fetchTarkovTracker(): String =
@@ -47,6 +59,7 @@ class DataSyncWorker(context: Context, params: WorkerParameters) : CoroutineWork
         connection.connectTimeout = 15_000
         connection.readTimeout = 25_000
         connection.setRequestProperty("Accept", "application/json")
+        connection.setRequestProperty("User-Agent", "EFT-Calculator-Android/2.1")
         if (body != null) {
             connection.doOutput = true
             connection.setRequestProperty("Content-Type", "application/json")
@@ -58,8 +71,18 @@ class DataSyncWorker(context: Context, params: WorkerParameters) : CoroutineWork
 
     private fun parseSnapshot(raw: String): List<AmmoEntity> {
         val root = JSONObject(raw)
-        val graph = root.optJSONObject("data")?.optJSONArray("ammo")
+        val data = root.optJSONObject("data")
+        val graph = data?.optJSONArray("en") ?: data?.optJSONArray("ammo")
         if (graph != null) {
+            val chineseNames = buildMap {
+                val chinese = data?.optJSONArray("zh")
+                if (chinese != null) {
+                    for (index in 0 until chinese.length()) {
+                        val item = chinese.getJSONObject(index).getJSONObject("item")
+                        put(item.getString("id"), item.optString("name").takeIf { it.isNotBlank() })
+                    }
+                }
+            }
             return buildList {
                 for (index in 0 until graph.length()) {
                     val record = graph.getJSONObject(index)
@@ -76,6 +99,7 @@ class DataSyncWorker(context: Context, params: WorkerParameters) : CoroutineWork
                             projectileCount = record.optInt("projectileCount", 1),
                             speed = record.optDouble("initialSpeed").takeUnless { it.isNaN() },
                             source = "tarkov.dev",
+                            nameZh = chineseNames[item.getString("id")],
                         ),
                     )
                 }
@@ -110,6 +134,7 @@ class DataSyncWorker(context: Context, params: WorkerParameters) : CoroutineWork
         projectileCount: Int,
         speed: Double?,
         source: String,
+        nameZh: String? = null,
     ) = AmmoEntity(
         id,
         name,
@@ -121,7 +146,8 @@ class DataSyncWorker(context: Context, params: WorkerParameters) : CoroutineWork
         projectileCount,
         speed,
         source,
-        "$name $shortName $caliber",
+        "$name ${nameZh.orEmpty()} $shortName $caliber",
+        nameZh,
     )
 
     companion object {

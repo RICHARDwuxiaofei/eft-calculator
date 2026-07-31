@@ -1,5 +1,6 @@
 package com.eftcalculator
 
+import android.graphics.BitmapFactory
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -15,6 +16,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
@@ -53,9 +55,12 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import java.text.DateFormat
 import java.util.Date
+import java.util.Locale
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.asImageBitmap
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -159,16 +164,22 @@ fun EftCalculatorApp(vm: MainViewModel = viewModel()) {
                     onShots = { vm.updateConditions(shots = it) },
                     onFavorite = vm::toggleFavorite,
                     onSimulate = vm::simulate,
+                    onResetAmmo = vm::resetAmmo,
+                    onResetArmor = vm::resetArmor,
+                    onResetAll = vm::resetAll,
                 )
                 1 -> CompareScreen(Modifier.padding(padding), ammo, state.selectedAmmo, vm::selectAmmo)
                 else -> FavoritesScreen(Modifier.padding(padding), favorites, vm::selectAmmo)
             }
         }
         if (searchOpen) {
-            AmmoSearchSheet(ammo, vm.query.value, {
+            AmmoSearchSheet(ammo, vm.query.value, state.selectedAmmo, {
                 vm.query.value = it
             }, {
                 vm.selectAmmo(it)
+                searchOpen = false
+            }, { name, damage, penetration, armorDamage, projectiles ->
+                vm.useCustomAmmo(name, damage, penetration, armorDamage, projectiles)
                 searchOpen = false
             }, { searchOpen = false })
         }
@@ -199,9 +210,22 @@ private fun QuickScreen(
     onShots: (Int) -> Unit,
     onFavorite: () -> Unit,
     onSimulate: () -> Unit,
+    onResetAmmo: () -> Unit,
+    onResetArmor: () -> Unit,
+    onResetAll: () -> Unit,
 ) {
     val inputs: @Composable () -> Unit = {
-        InputPane(state, onSearch, onArmor, onDistance, onShots, onFavorite)
+        InputPane(
+            state,
+            onSearch,
+            onArmor,
+            onDistance,
+            onShots,
+            onFavorite,
+            onResetAmmo,
+            onResetArmor,
+            onResetAll,
+        )
     }
     val results: @Composable () -> Unit = { ResultPane(state, onSimulate) }
     if (wide) {
@@ -225,6 +249,9 @@ private fun InputPane(
     onDistance: (Int) -> Unit,
     onShots: (Int) -> Unit,
     onFavorite: () -> Unit,
+    onResetAmmo: () -> Unit,
+    onResetArmor: () -> Unit,
+    onResetAll: () -> Unit,
 ) {
     val armorSummary = state.armor.map {
         stringResource(R.string.armor_summary, it.armorClass, materialLabel(it.material))
@@ -250,6 +277,11 @@ private fun InputPane(
             }
             Button(onClick = onArmor, modifier = Modifier.fillMaxWidth()) {
                 Text(armorSummary)
+            }
+            FlowRow(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+                TextButton(onClick = onResetAmmo) { Text(stringResource(R.string.reset_ammo)) }
+                TextButton(onClick = onResetArmor) { Text(stringResource(R.string.reset_armor)) }
+                TextButton(onClick = onResetAll) { Text(stringResource(R.string.reset_all)) }
             }
             Text(stringResource(R.string.distance_value, state.distance))
             Slider(
@@ -344,19 +376,74 @@ private fun materialLabel(material: String): String = stringResource(
         "uhmwpe" -> R.string.material_uhmwpe
         "aramid" -> R.string.material_aramid
         "titanium" -> R.string.material_titanium
+        "combined" -> R.string.material_combined
         else -> R.string.material_ceramic
     },
 )
+
+private fun AmmoEntity.localizedName(): String =
+    if (Locale.getDefault().language.startsWith("zh") && !nameZh.isNullOrBlank()) {
+        nameZh
+    } else {
+        name
+    }
+
+@Composable
+private fun AmmoIcon(item: AmmoEntity, modifier: Modifier = Modifier) {
+    val context = LocalContext.current
+    val path = remember(item.id, item.shortName) {
+        val normalized = item.shortName.lowercase().filter(Char::isLetterOrDigit)
+        when {
+            normalized == "m855a1" -> "ammo/m855a1.png"
+            normalized == "m855" -> "ammo/m855.png"
+            normalized == "m995" -> "ammo/m995.png"
+            normalized == "m80" -> "ammo/m80.png"
+            normalized == "ap20" -> "ammo/ap20.png"
+            normalized == "7n40" -> "ammo/7n40.png"
+            item.id == "762bp" -> "ammo/762bp.png"
+            item.id == "545bp" -> "ammo/545bp.png"
+            item.id == "buckshot" -> "ammo/buckshot.png"
+            else -> "ammo/m855a1.png"
+        }
+    }
+    val bitmap = remember(path) {
+        runCatching {
+            context.assets.open(path).use(BitmapFactory::decodeStream)
+        }.getOrNull()
+    }
+    if (bitmap != null) {
+        Image(bitmap.asImageBitmap(), item.shortName, modifier)
+    }
+}
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun AmmoSearchSheet(
     ammo: List<AmmoEntity>,
     query: String,
+    selected: AmmoEntity?,
     onQuery: (String) -> Unit,
     onSelect: (AmmoEntity) -> Unit,
+    onCustom: (String, Double, Double, Double, Int) -> Unit,
     onDismiss: () -> Unit,
 ) {
+    val editable = selected ?: ammo.firstOrNull()
+    var manualOpen by rememberSaveable { mutableStateOf(false) }
+    var customName by remember(editable?.id) {
+        mutableStateOf(editable?.localizedName().orEmpty())
+    }
+    var customDamage by remember(editable?.id) {
+        mutableStateOf(editable?.damage?.toString().orEmpty())
+    }
+    var customPenetration by remember(editable?.id) {
+        mutableStateOf(editable?.penetrationPower?.toString().orEmpty())
+    }
+    var customArmorDamage by remember(editable?.id) {
+        mutableStateOf(editable?.armorDamagePercent?.toString().orEmpty())
+    }
+    var customProjectiles by remember(editable?.id) {
+        mutableStateOf(editable?.projectileCount?.toString().orEmpty())
+    }
     ModalBottomSheet(onDismissRequest = onDismiss) {
         Column(Modifier.fillMaxWidth().padding(16.dp)) {
             TextField(
@@ -365,11 +452,73 @@ private fun AmmoSearchSheet(
                 placeholder = { Text(stringResource(R.string.search_hint)) },
                 modifier = Modifier.fillMaxWidth(),
             )
-            LazyColumn(Modifier.height(480.dp)) {
+            TextButton(
+                onClick = { manualOpen = !manualOpen },
+                enabled = editable != null,
+            ) {
+                Text(stringResource(R.string.manual_ammo_values))
+            }
+            if (manualOpen && editable != null) {
+                TextField(
+                    value = customName,
+                    onValueChange = { customName = it },
+                    label = { Text(stringResource(R.string.custom_name)) },
+                    modifier = Modifier.fillMaxWidth(),
+                )
+                Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+                    TextField(
+                        value = customDamage,
+                        onValueChange = { customDamage = it },
+                        label = { Text(stringResource(R.string.damage)) },
+                        modifier = Modifier.weight(1f),
+                    )
+                    TextField(
+                        value = customPenetration,
+                        onValueChange = { customPenetration = it },
+                        label = { Text(stringResource(R.string.penetration)) },
+                        modifier = Modifier.weight(1f),
+                    )
+                }
+                Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+                    TextField(
+                        value = customArmorDamage,
+                        onValueChange = { customArmorDamage = it },
+                        label = { Text(stringResource(R.string.armor_damage)) },
+                        modifier = Modifier.weight(1f),
+                    )
+                    TextField(
+                        value = customProjectiles,
+                        onValueChange = { customProjectiles = it },
+                        label = { Text(stringResource(R.string.projectiles)) },
+                        modifier = Modifier.weight(1f),
+                    )
+                }
+                Button(
+                    onClick = {
+                        onCustom(
+                            customName.ifBlank { editable.localizedName() },
+                            customDamage.toDoubleOrNull() ?: editable.damage,
+                            customPenetration.toDoubleOrNull() ?: editable.penetrationPower,
+                            customArmorDamage.toDoubleOrNull() ?: editable.armorDamagePercent,
+                            customProjectiles.toIntOrNull() ?: editable.projectileCount,
+                        )
+                    },
+                    modifier = Modifier.fillMaxWidth(),
+                ) {
+                    Text(stringResource(R.string.use_manual_ammo))
+                }
+            }
+            LazyColumn(Modifier.height(if (manualOpen) 280.dp else 480.dp)) {
                 items(ammo, key = { it.id }) { item ->
                     TextButton(onClick = { onSelect(item) }, modifier = Modifier.fillMaxWidth()) {
                         Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
-                            Text("${item.shortName} · ${item.caliber}")
+                            AmmoIcon(item, Modifier.width(44.dp).height(44.dp))
+                            Column(Modifier.weight(1f)) {
+                                Text("${item.shortName} · ${item.localizedName()}")
+                                if (item.localizedName() != item.name) {
+                                    Text(item.name, fontSize = 12.sp)
+                                }
+                            }
                             Text(
                                 stringResource(
                                     R.string.ammo_damage_pen,
@@ -395,10 +544,71 @@ private fun ArmorSheet(
 ) {
     var armorClass by remember(current) { mutableIntStateOf(current.armorClass) }
     var material by remember(current) { mutableStateOf(current.material) }
-    var durability by remember(current) { mutableStateOf(current.durability) }
+    var durabilityText by remember(current) { mutableStateOf(current.durability.toString()) }
+    var maximumText by remember(current) { mutableStateOf(current.maximum.toString()) }
+    var layerName by remember(current) { mutableStateOf(current.name) }
+    var carrierId by remember(current) { mutableStateOf(current.carrierId) }
+    var slot by remember(current) { mutableStateOf(current.slot) }
+    val initialCarrier = armorCarrierPresets.firstOrNull { it.id == carrierId }
+        ?: armorCarrierPresets.first()
+    var plateId by remember(current) {
+        mutableStateOf(initialCarrier.defaults[slot] ?: initialCarrier.defaults.values.first())
+    }
+    val useChinese = Locale.getDefault().language.startsWith("zh")
+
+    fun applyPlate(id: String) {
+        val plate = armorPlatePresets.first { it.id == id }
+        plateId = id
+        armorClass = plate.armorClass
+        material = plate.material
+        durabilityText = plate.durability.toString()
+        maximumText = plate.durability.toString()
+        layerName = if (useChinese) plate.nameZh else plate.nameEn
+    }
+
     ModalBottomSheet(onDismissRequest = onDismiss) {
         Column(Modifier.fillMaxWidth().padding(18.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
             Text(stringResource(R.string.armor_layers), fontSize = 22.sp, fontWeight = FontWeight.Bold)
+            SelectionDropdown(
+                stringResource(R.string.armor_carrier),
+                armorCarrierPresets.first { it.id == carrierId }.let {
+                    if (useChinese) it.nameZh else it.nameEn
+                },
+                armorCarrierPresets.map {
+                    it.id to if (useChinese) it.nameZh else it.nameEn
+                },
+            ) { selectedCarrier ->
+                carrierId = selectedCarrier
+                val carrier = armorCarrierPresets.first { it.id == selectedCarrier }
+                slot = carrier.defaults.keys.first()
+                applyPlate(carrier.defaults.getValue(slot))
+            }
+            val carrier = armorCarrierPresets.first { it.id == carrierId }
+            SelectionDropdown(
+                stringResource(R.string.plate_slot),
+                slotLabel(slot),
+                carrier.defaults.keys.map { it to slotLabel(it) },
+            ) { selectedSlot ->
+                slot = selectedSlot
+                applyPlate(carrier.defaults.getValue(selectedSlot))
+            }
+            val compatiblePlates = armorPlatePresets.filter { slot in it.slots }
+            SelectionDropdown(
+                stringResource(R.string.specific_plate),
+                armorPlatePresets.first { it.id == plateId }.let {
+                    if (useChinese) it.nameZh else it.nameEn
+                },
+                compatiblePlates.map {
+                    it.id to (
+                        (if (useChinese) it.nameZh else it.nameEn) +
+                            " · ${it.armorClass} · ${it.durability.toInt()}"
+                        )
+                },
+            ) { applyPlate(it) }
+            ArmorPlateIcon(
+                armorPlatePresets.first { it.id == plateId },
+                Modifier.width(72.dp).height(72.dp).align(Alignment.CenterHorizontally),
+            )
             FlowRow(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
                 (1..6).forEach { value ->
                     Button(onClick = { armorClass = value }) {
@@ -411,31 +621,131 @@ private fun ArmorSheet(
                     Button(onClick = { material = value }) { Text(materialLabel(value)) }
                 }
             }
-            Text(
-                stringResource(
-                    R.string.durability_value,
-                    durability.toInt(),
-                    current.maximum.toInt(),
-                ),
+            TextField(
+                value = layerName,
+                onValueChange = { layerName = it },
+                label = { Text(stringResource(R.string.layer_name)) },
+                modifier = Modifier.fillMaxWidth(),
             )
+            Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                TextField(
+                    value = durabilityText,
+                    onValueChange = { durabilityText = it },
+                    label = { Text(stringResource(R.string.current_durability)) },
+                    modifier = Modifier.weight(1f),
+                )
+                TextField(
+                    value = maximumText,
+                    onValueChange = { maximumText = it },
+                    label = { Text(stringResource(R.string.original_durability)) },
+                    modifier = Modifier.weight(1f),
+                )
+            }
+            val maximum = (maximumText.toFloatOrNull() ?: current.maximum).coerceAtLeast(0.1f)
+            val durability = (durabilityText.toFloatOrNull() ?: current.durability)
+                .coerceIn(0f, maximum)
             Slider(
                 value = durability,
-                onValueChange = { durability = it },
-                valueRange = 0f..current.maximum,
+                onValueChange = { durabilityText = "%.1f".format(Locale.ROOT, it) },
+                valueRange = 0f..maximum,
             )
             Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                 Button(onClick = {
-                    onUpdate(current.copy(armorClass = armorClass, material = material, durability = durability))
+                    onUpdate(
+                        ArmorInput(
+                            armorClass,
+                            material,
+                            durability,
+                            maximum,
+                            layerName,
+                            carrierId,
+                            slot,
+                        ),
+                    )
                     onDismiss()
                 }) { Text(stringResource(R.string.update_current_layer)) }
                 Button(onClick = {
-                    onAdd(ArmorInput(armorClass, material, 45f, 45f))
+                    onAdd(
+                        ArmorInput(
+                            armorClass,
+                            material,
+                            durability,
+                            maximum,
+                            layerName,
+                            carrierId,
+                            slot,
+                        ),
+                    )
                 }) { Text(stringResource(R.string.append_next_layer)) }
             }
             Spacer(Modifier.height(20.dp))
         }
     }
 }
+
+@Composable
+private fun SelectionDropdown(
+    label: String,
+    value: String,
+    options: List<Pair<String, String>>,
+    onSelect: (String) -> Unit,
+) {
+    var expanded by remember { mutableStateOf(false) }
+    Box(Modifier.fillMaxWidth()) {
+        Button(onClick = { expanded = true }, modifier = Modifier.fillMaxWidth()) {
+            Text("$label · $value")
+        }
+        DropdownMenu(expanded = expanded, onDismissRequest = { expanded = false }) {
+            options.forEach { (id, title) ->
+                DropdownMenuItem(
+                    text = { Text(title) },
+                    onClick = {
+                        onSelect(id)
+                        expanded = false
+                    },
+                )
+            }
+        }
+    }
+}
+
+@Composable
+private fun ArmorPlateIcon(plate: ArmorPlatePreset, modifier: Modifier = Modifier) {
+    val context = LocalContext.current
+    val path = remember(plate.id, plate.material) {
+        when (plate.id) {
+            "kiteco" -> "armor/uhmwpe-kiteco.png"
+            "monoclete" -> "armor/uhmwpe.png"
+            "global-steel" -> "armor/steel.png"
+            "omega" -> "armor/combined.webp"
+            "titan" -> "armor/titanium.png"
+            "esapi-iv" -> "armor/ceramic.png"
+            else -> if (plate.material == "combined") {
+                "armor/combined.webp"
+            } else {
+                "armor/${plate.material}.png"
+            }
+        }
+    }
+    val bitmap = remember(path) {
+        runCatching {
+            context.assets.open(path).use(BitmapFactory::decodeStream)
+        }.getOrNull()
+    }
+    if (bitmap != null) {
+        Image(bitmap.asImageBitmap(), plate.nameEn, modifier)
+    }
+}
+
+@Composable
+private fun slotLabel(slot: String): String = stringResource(
+    when (slot) {
+        "back" -> R.string.slot_back
+        "left" -> R.string.slot_left
+        "right" -> R.string.slot_right
+        else -> R.string.slot_front
+    },
+)
 
 @Composable
 private fun CompareScreen(

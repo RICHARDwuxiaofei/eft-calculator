@@ -24,8 +24,56 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 data class ArmorInput(
     val armorClass: Int = 5,
     val material: String = "ceramic",
-    val durability: Float = 45f,
-    val maximum: Float = 45f,
+    val durability: Float = 50f,
+    val maximum: Float = 50f,
+    val name: String = "SAPI level III+ ballistic plate",
+    val carrierId: String = "free",
+    val slot: String = "front",
+)
+
+data class ArmorPlatePreset(
+    val id: String,
+    val nameEn: String,
+    val nameZh: String,
+    val armorClass: Int,
+    val durability: Float,
+    val material: String,
+    val slots: Set<String>,
+)
+
+data class ArmorCarrierPreset(
+    val id: String,
+    val nameEn: String,
+    val nameZh: String,
+    val defaults: Map<String, String>,
+)
+
+val armorPlatePresets = listOf(
+    ArmorPlatePreset("tackek-replica", "Tac-Kek SAPI III+ plate (Replica)", "Tac-Kek SAPI III+ 插板（仿制）", 1, 90f, "uhmwpe", setOf("front", "back")),
+    ArmorPlatePreset("zhuk-3-front", "Zhuk-3 plate (Front)", "Zhuk-3 插板（前）", 3, 40f, "uhmwpe", setOf("front")),
+    ArmorPlatePreset("6b23-2-back", "6B23-2 plate (Back)", "6B23-2 插板（后）", 4, 40f, "steel", setOf("back")),
+    ArmorPlatePreset("6b33-front", "6B33 plate (Front)", "6B33 插板（前）", 4, 50f, "steel", setOf("front")),
+    ArmorPlatePreset("monoclete", "Monoclete level III PE plate", "Monoclete III 级 PE 插板", 4, 40f, "uhmwpe", setOf("front", "back")),
+    ArmorPlatePreset("global-steel", "Global Armor Steel plate", "Global Armor 钢制插板", 4, 45f, "steel", setOf("front", "back")),
+    ArmorPlatePreset("elaphros", "SPRTN Elaphros plate", "SPRTN Elaphros 插板", 4, 45f, "ceramic", setOf("front", "back")),
+    ArmorPlatePreset("omega", "SPRTN Omega plate", "SPRTN Omega 插板", 4, 50f, "combined", setOf("front", "back")),
+    ArmorPlatePreset("titan", "Kiba Arms Titan plate", "Kiba Arms Titan 插板", 4, 55f, "titanium", setOf("front", "back")),
+    ArmorPlatePreset("korund-front", "Korund-VM plate (Front)", "Korund-VM 插板（前）", 5, 60f, "steel", setOf("front")),
+    ArmorPlatePreset("korund-back", "Korund-VM plate (Back)", "Korund-VM 插板（后）", 5, 40f, "steel", setOf("back")),
+    ArmorPlatePreset("gac-3s15m", "GAC 3s15m plate", "GAC 3s15m 插板", 5, 45f, "uhmwpe", setOf("front", "back")),
+    ArmorPlatePreset("sapi-iii-plus", "SAPI level III+ plate", "SAPI III+ 插板", 5, 50f, "ceramic", setOf("front", "back")),
+    ArmorPlatePreset("korund-side", "Korund-VM plate (Side)", "Korund-VM 插板（侧）", 5, 25f, "steel", setOf("left", "right")),
+    ArmorPlatePreset("kiteco", "KITECO SC-IV SA plate", "KITECO SC-IV SA 插板", 6, 45f, "uhmwpe", setOf("front", "back")),
+    ArmorPlatePreset("kiba-steel", "Kiba Arms Steel plate", "Kiba Arms 钢制插板", 6, 50f, "steel", setOf("front", "back")),
+    ArmorPlatePreset("esapi-iv", "ESAPI level IV plate", "ESAPI IV 级插板", 6, 55f, "ceramic", setOf("front", "back")),
+)
+
+val armorCarrierPresets = listOf(
+    ArmorCarrierPreset("free", "No carrier restriction", "不限载具（手动搭配）", mapOf("front" to "monoclete", "back" to "monoclete", "left" to "korund-side", "right" to "korund-side")),
+    ArmorCarrierPreset("6b23-2", "6B23-2 body armor", "6B23-2 防弹衣", mapOf("front" to "6b33-front", "back" to "6b23-2-back")),
+    ArmorCarrierPreset("bagariy", "NPP KlASS Bagariy", "NPP KlASS Bagariy 防弹胸挂", mapOf("front" to "korund-front", "back" to "korund-back", "left" to "korund-side", "right" to "korund-side")),
+    ArmorCarrierPreset("slick", "LBT-6094A Slick", "LBT-6094A Slick 板甲", mapOf("front" to "kiba-steel", "back" to "kiba-steel")),
+    ArmorCarrierPreset("trooper", "HighCom Trooper TFO", "HighCom Trooper TFO 防弹衣", mapOf("front" to "monoclete", "back" to "monoclete")),
 )
 
 data class CalculatorState(
@@ -70,6 +118,30 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         calculate()
     }
 
+    fun useCustomAmmo(
+        name: String,
+        damage: Double,
+        penetration: Double,
+        armorDamage: Double,
+        projectileCount: Int,
+    ) {
+        val base = _state.value.selectedAmmo ?: return
+        selectAmmo(
+            base.copy(
+                id = "custom-${base.id}",
+                name = name,
+                shortName = name,
+                damage = damage,
+                penetrationPower = penetration,
+                armorDamagePercent = armorDamage,
+                projectileCount = projectileCount,
+                source = "manual-override",
+                searchText = name,
+                nameZh = name,
+            ),
+        )
+    }
+
     fun toggleFavorite() {
         val selected = _state.value.selectedAmmo ?: return
         viewModelScope.launch {
@@ -96,6 +168,24 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     fun resetArmor() {
         _state.value = _state.value.copy(armor = listOf(ArmorInput()))
         calculate()
+    }
+
+    fun resetAmmo() {
+        viewModelScope.launch {
+            val default = database.ammoDao().all().firstOrNull {
+                it.shortName.equals("M855A1", ignoreCase = true)
+            } ?: database.ammoDao().all().firstOrNull()
+            if (default != null) selectAmmo(default)
+        }
+    }
+
+    fun resetAll() {
+        _state.value = _state.value.copy(
+            armor = listOf(ArmorInput()),
+            distance = 0,
+            shots = 3,
+        )
+        resetAmmo()
     }
 
     fun updateConditions(distance: Int = _state.value.distance, shots: Int = _state.value.shots) {
@@ -156,7 +246,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
             layers.put(
                 JSONObject()
                     .put("id", "android-$index")
-                    .put("name", "Armor layer ${index + 1}")
+                    .put("name", armor.name.ifBlank { "Armor layer ${index + 1}" })
                     .put("layer_type", if (armor.material == "aramid") "soft" else "plate")
                     .put("armor_class", armor.armorClass)
                     .put("current_durability", armor.durability)
@@ -188,14 +278,14 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     private fun bundledAmmo() = listOf(
-        AmmoEntity("m855a1", "5.56x45mm M855A1", "M855A1", "5.56x45", 47.0, 40.0, 52.0, 1, 945.0, "bundled", "5.56x45mm M855A1 M855A1 5.56x45"),
-        AmmoEntity("m855", "5.56x45mm M855", "M855", "5.56x45", 53.0, 31.0, 37.0, 1, 922.0, "bundled", "5.56x45mm M855 M855 5.56x45"),
-        AmmoEntity("m995", "5.56x45mm M995", "M995", "5.56x45", 42.0, 53.0, 58.0, 1, 1013.0, "bundled", "5.56x45mm M995 M995 5.56x45"),
-        AmmoEntity("762bp", "7.62x39mm BP gzh", "BP", "7.62x39", 58.0, 47.0, 63.0, 1, 730.0, "bundled", "7.62x39mm BP gzh BP 7.62x39"),
-        AmmoEntity("7n40", "5.45x39mm 7N40", "7N40", "5.45x39", 52.0, 42.0, 50.0, 1, 915.0, "bundled", "5.45x39mm 7N40 5.45x39"),
-        AmmoEntity("545bp", "5.45x39mm BP gs", "BP", "5.45x39", 48.0, 45.0, 48.0, 1, 890.0, "bundled", "5.45x39mm BP gs BP 5.45x39"),
-        AmmoEntity("m80", "7.62x51mm M80", "M80", "7.62x51", 80.0, 41.0, 66.0, 1, 833.0, "bundled", "7.62x51mm M80 7.62x51"),
-        AmmoEntity("ap20", "12/70 AP-20", "AP-20", "12/70", 164.0, 37.0, 65.0, 1, 510.0, "bundled", "12/70 AP-20"),
-        AmmoEntity("buckshot", "12/70 Magnum buckshot", "Magnum", "12/70", 50.0, 2.0, 26.0, 8, 385.0, "bundled", "12/70 Magnum buckshot"),
+        AmmoEntity("m855a1", "5.56x45mm M855A1", "M855A1", "5.56x45", 47.0, 40.0, 52.0, 1, 945.0, "bundled", "5.56x45mm M855A1 5.56x45毫米 M855A1 855a1", "5.56x45毫米 M855A1"),
+        AmmoEntity("m855", "5.56x45mm M855", "M855", "5.56x45", 54.0, 31.0, 37.0, 1, 922.0, "bundled", "5.56x45mm M855 5.56x45毫米 M855 855", "5.56x45毫米 M855"),
+        AmmoEntity("m995", "5.56x45mm M995", "M995", "5.56x45", 42.0, 53.0, 58.0, 1, 1013.0, "bundled", "5.56x45mm M995 5.56x45毫米 M995 995", "5.56x45毫米 M995"),
+        AmmoEntity("762bp", "7.62x39mm BP gzh", "BP", "7.62x39", 58.0, 47.0, 63.0, 1, 730.0, "bundled", "7.62x39mm BP gzh 7.62x39毫米 BP gzh 762bp 7n23", "7.62x39毫米 BP gzh"),
+        AmmoEntity("7n40", "5.45x39mm 7N40", "7N40", "5.45x39", 52.0, 42.0, 50.0, 1, 915.0, "bundled", "5.45x39mm 7N40 5.45x39毫米 7N40", "5.45x39毫米 7N40"),
+        AmmoEntity("545bp", "5.45x39mm BP gs", "BP", "5.45x39", 48.0, 45.0, 48.0, 1, 890.0, "bundled", "5.45x39mm BP gs 5.45x39毫米 BP gs 545bp", "5.45x39毫米 BP gs"),
+        AmmoEntity("m80", "7.62x51mm M80", "M80", "7.62x51", 80.0, 41.0, 66.0, 1, 833.0, "bundled", "7.62x51mm M80 7.62x51毫米 M80 308", "7.62x51毫米 M80"),
+        AmmoEntity("ap20", "12/70 AP-20 armor-piercing slug", "AP-20", "12/70", 164.0, 37.0, 65.0, 1, 510.0, "bundled", "12/70 AP-20 armor-piercing slug 穿甲独头弹 ap20", "12/70 AP-20 穿甲独头弹"),
+        AmmoEntity("buckshot", "12/70 8.5mm Magnum buckshot", "Magnum", "12/70", 50.0, 2.0, 26.0, 8, 385.0, "bundled", "12/70 8.5mm Magnum buckshot 马格南 鹿弹 8.5", "12/70 8.5毫米“马格南”鹿弹"),
     )
 }

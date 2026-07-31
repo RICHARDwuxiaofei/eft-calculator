@@ -1,6 +1,12 @@
 import json
 
-from tarkov_armor_sim.data import SEED_AMMO, Database, default_armor_presets
+from tarkov_armor_sim.data import (
+    ARMOR_CARRIERS,
+    SEED_AMMO,
+    Database,
+    armor_plate_by_id,
+    default_armor_presets,
+)
 from tarkov_armor_sim.engine import analyze
 from tarkov_armor_sim.models import ShotScenario
 from tarkov_armor_sim.rulesets import CurrentApproximation
@@ -15,10 +21,29 @@ def test_search_alias_caliber_and_favorite(tmp_path) -> None:
     assert db.is_favorite("m855a1")
 
 
-def test_exports(tmp_path) -> None:
-    scenario = ShotScenario(
-        SEED_AMMO[0], default_armor_presets()["5级陶瓷插板 + 3级软甲"]
+def test_bilingual_partial_search_ranks_exact_short_name_first(tmp_path) -> None:
+    db = Database(tmp_path / "bilingual.sqlite3")
+    results = db.search_ammo("855", locale="zh_CN")
+    assert results[0].id == "m855"
+    assert any(item.id == "m855a1" for item in results)
+    assert db.search_ammo("穿甲独头", locale="zh_CN")[0].id == "ap20"
+    assert db.search_ammo("armor-piercing", locale="zh_CN")[0].id == "ap20"
+
+
+def test_carrier_defaults_reference_real_plate_values() -> None:
+    bagariy = next(item for item in ARMOR_CARRIERS if item.id == "bagariy")
+    front = armor_plate_by_id(bagariy.defaults["front"])
+    side = armor_plate_by_id(bagariy.defaults["left"])
+    assert (front.armor_class, front.durability, front.material.value) == (
+        5,
+        60,
+        "steel",
     )
+    assert side.slots == ("left", "right")
+
+
+def test_exports(tmp_path) -> None:
+    scenario = ShotScenario(SEED_AMMO[0], default_armor_presets()["5级陶瓷插板 + 3级软甲"])
     result = analyze(scenario, CurrentApproximation())
     json_path = tmp_path / "result.json"
     csv_path = tmp_path / "result.csv"

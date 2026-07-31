@@ -8,7 +8,7 @@ from .serialization import dump_json, load_payload, result_to_dict, scenario_fro
 from .validation import validate_scenario_payload
 
 SCHEMA_VERSION = 1
-CORE_VERSION = "2.0.0"
+CORE_VERSION = "2.1.0"
 
 
 def _ruleset(payload: dict[str, Any]):

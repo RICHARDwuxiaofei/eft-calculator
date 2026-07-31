@@ -53,8 +53,11 @@ class Ammo:
     ballistic_coefficient: float | None = None
     fragmentation_chance: float | None = None
     ricochet_chance: float | None = None
-    source_version: str = "bundled-snapshot-2026-07-30"
+    source_version: str = "bundled-snapshot-2026-07-31"
     aliases: tuple[str, ...] = ()
+    localized_names: dict[str, str] = field(default_factory=dict)
+    image_url: str | None = None
+    wiki_url: str | None = None
 
     def __post_init__(self) -> None:
         if self.damage < 0 or self.penetration_power < 0:
@@ -63,6 +66,10 @@ class Ammo:
             raise ValueError("甲伤百分比必须在 0 到 100 之间")
         if self.projectile_count < 1:
             raise ValueError("弹丸数量必须为正整数")
+
+    def display_name(self, locale: str = "en_US") -> str:
+        language = "zh" if locale.lower().startswith("zh") else "en"
+        return self.localized_names.get(language) or self.localized_names.get("en") or self.name
 
 
 @dataclass
@@ -165,7 +172,7 @@ class SimulationResult:
     kill_probability_by_shot: list[float]
     penetration_probability_by_shot: list[float] = field(default_factory=list)
     confidence: CalculationConfidence = CalculationConfidence.APPROXIMATION
-    data_version: str = "bundled-snapshot-2026-07-30"
+    data_version: str = "bundled-snapshot-2026-07-31"
     ruleset_version: str = "community-approx-2026.07-v1"
 
     @property

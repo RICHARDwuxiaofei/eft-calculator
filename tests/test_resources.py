@@ -20,10 +20,11 @@ def test_armor_and_application_icons_exist() -> None:
         "uhmwpe",
         "aramid",
         "titanium",
-        "combined",
         "helmet",
     ):
         assert resource_path("items", "armor", f"{name}.png").exists()
+    assert resource_path("items", "armor", "combined.webp").exists()
+    assert resource_path("items", "armor", "uhmwpe-kiteco.png").exists()
     assert resource_path("icons", "app-icon.ico").exists()
     app_icon = QImage(str(resource_path("icons", "app-icon.png")))
     assert not app_icon.isNull()

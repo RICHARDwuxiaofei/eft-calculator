@@ -29,8 +29,8 @@ android {
         applicationId = "com.eftcalculator"
         minSdk = 24
         targetSdk = 36
-        versionCode = 20000
-        versionName = "2.0.0"
+        versionCode = 20100
+        versionName = "2.1.0"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
         ndk.abiFilters += listOf("arm64-v8a", "x86_64")
@@ -69,6 +69,9 @@ android {
     buildFeatures.compose = true
     packaging.resources.excludes += "/META-INF/{AL2.0,LGPL2.1}"
     sourceSets.getByName("main").assets.srcDir("../../shared/test_vectors")
+    sourceSets.getByName("main").assets.srcDir(
+        "../../src/tarkov_armor_sim/resources/items",
+    )
 }
 
 chaquopy {

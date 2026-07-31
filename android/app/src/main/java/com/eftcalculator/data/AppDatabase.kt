@@ -10,6 +10,8 @@ import androidx.room.PrimaryKey
 import androidx.room.Query
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.migration.Migration
+import androidx.sqlite.db.SupportSQLiteDatabase
 import kotlinx.coroutines.flow.Flow
 
 @Entity(tableName = "ammo")
@@ -25,6 +27,7 @@ data class AmmoEntity(
     val initialSpeed: Double?,
     val source: String,
     val searchText: String,
+    val nameZh: String? = null,
 )
 
 @Entity(tableName = "favorites")
@@ -70,19 +73,24 @@ interface AmmoDao {
     suspend fun removeFavorite(id: String)
 }
 
-@Database(entities = [AmmoEntity::class, FavoriteEntity::class], version = 1, exportSchema = false)
+@Database(entities = [AmmoEntity::class, FavoriteEntity::class], version = 2, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun ammoDao(): AmmoDao
 
     companion object {
         @Volatile private var instance: AppDatabase? = null
+        private val migration1To2 = object : Migration(1, 2) {
+            override fun migrate(db: SupportSQLiteDatabase) {
+                db.execSQL("ALTER TABLE ammo ADD COLUMN nameZh TEXT")
+            }
+        }
 
         fun get(context: Context): AppDatabase = instance ?: synchronized(this) {
             instance ?: Room.databaseBuilder(
                 context.applicationContext,
                 AppDatabase::class.java,
                 "eft-calculator.sqlite3",
-            ).build().also { instance = it }
+            ).addMigrations(migration1To2).build().also { instance = it }
         }
     }
 }

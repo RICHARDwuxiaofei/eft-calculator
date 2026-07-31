@@ -57,9 +57,7 @@ class SnapshotStore:
         snapshot = self.read()
         if not snapshot:
             return True
-        return datetime.now(UTC) - datetime.fromisoformat(
-            snapshot["created_at"]
-        ) >= SYNC_INTERVAL
+        return datetime.now(UTC) - datetime.fromisoformat(snapshot["created_at"]) >= SYNC_INTERVAL
 
     def atomic_write(self, payload: dict) -> None:
         self.directory.mkdir(parents=True, exist_ok=True)
@@ -101,16 +99,15 @@ class DataSynchronizer:
         failures: list[str] = []
         results = []
         adapters = sorted(self.adapters, key=lambda item: item.priority, reverse=True)
-        for attempt, adapter in enumerate(
-            adapters
-        ):
+        for attempt, adapter in enumerate(adapters):
             try:
                 result = await adapter.fetch()
                 self._validate(result.ammo)
                 results.append(result)
             except (httpx.HTTPError, OSError, RuntimeError, TypeError, ValueError) as exc:
                 failures.append(f"{adapter.name}: {exc}")
-                LOGGER.warning("Data source %s failed: %s", adapter.name, exc)
+                if "atexit after shutdown" not in str(exc):
+                    LOGGER.warning("Data source %s failed: %s", adapter.name, exc)
                 if attempt + 1 < len(adapters):
                     await asyncio.sleep(min(2**attempt, 4))
         if results:
@@ -165,6 +162,9 @@ class DataSynchronizer:
             "penetration_power",
             "armor_damage_percent",
             "projectile_count",
+            "localized_names",
+            "image_url",
+            "wiki_url",
         )
         for result in ordered:
             for ammo in result.ammo:
@@ -181,9 +181,7 @@ class DataSynchronizer:
                             "id": ammo.id,
                             "field": field,
                             "chosen": selected,
-                            "chosen_source": chosen_provenance[ammo.id]
-                            .get(field, {})
-                            .source
+                            "chosen_source": chosen_provenance[ammo.id].get(field, {}).source
                             if chosen_provenance[ammo.id].get(field)
                             else ordered[0].manifest.source,
                             "rejected": candidate,
@@ -196,8 +194,7 @@ class DataSynchronizer:
             item = asdict(ammo)
             item["aliases"] = list(ammo.aliases)
             item["provenance"] = {
-                field: asdict(value)
-                for field, value in chosen_provenance.get(ammo.id, {}).items()
+                field: asdict(value) for field, value in chosen_provenance.get(ammo.id, {}).items()
             }
             records.append(item)
         canonical = json.dumps(records, ensure_ascii=False, sort_keys=True, separators=(",", ":"))

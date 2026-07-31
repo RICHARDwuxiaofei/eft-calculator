@@ -22,7 +22,9 @@ def test_shared_vectors_validate_and_calculate(path: Path) -> None:
     assert 0 <= result["result"]["final_penetration_probability"] <= 1
     for key, expected in vector["expected"].items():
         actual = result["result"][key]
-        assert actual == pytest.approx(expected) if isinstance(expected, float) else actual == expected
+        assert (
+            actual == pytest.approx(expected) if isinstance(expected, float) else actual == expected
+        )
 
 
 def test_shared_monte_carlo_is_deterministic() -> None:
@@ -33,4 +35,4 @@ def test_shared_monte_carlo_is_deterministic() -> None:
 def test_engine_metadata_is_versioned() -> None:
     metadata = json.loads(get_engine_metadata_json())
     assert metadata["schema_version"] == 1
-    assert metadata["core_version"] == "2.0.0"
+    assert metadata["core_version"] == "2.1.0"

@@ -20,6 +20,11 @@ The small ammunition, armor plate, soft armor, and helmet images under
 MediaWiki API. Exact file titles, description pages, original URLs, sizes, and
 retrieval time are recorded in `resources/items/sources.json`.
 
+The material mapping was visually re-audited on 2026-07-31. KITECO SC-IV is
+classified as UHMWPE, ESAPI level IV as ceramic, and SPRTN Omega as combined
+materials. The Omega fallback icon was retrieved from its Tarkov Market item
+record and cross-checked against the EFT Wiki item page and stable EFT item ID.
+
 These item images are reference assets associated with Escape from Tarkov. They
 are **not licensed under this project's MIT License**. Rights remain with
 Battlestate Games and/or the respective file owners. Their inclusion does not
@@ -31,4 +36,3 @@ Data/API and category references:
 - https://escapefromtarkov.fandom.com/wiki/Category:Ammunition_icons
 - https://escapefromtarkov.fandom.com/api.php
 - https://github.com/the-hideout/tarkov-api/blob/main/docs/graphql-examples.md
-

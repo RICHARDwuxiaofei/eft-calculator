@@ -13,6 +13,9 @@
     <string name="ammo_summary">%1$s · %2$s  伤 %3$d / 穿 %4$d</string>
     <string name="choose_ammo">选择弹药</string>
     <string name="toggle_favorite">☆ 收藏 / 取消收藏当前弹药</string>
+    <string name="reset_ammo">重置弹药</string>
+    <string name="reset_armor">重置护甲</string>
+    <string name="reset_all">重置所有</string>
     <string name="armor_summary">%1$d 级 %2$s</string>
     <string name="distance_value">距离 %1$d m</string>
     <string name="burst_value">连续射击 %1$d 发</string>
@@ -31,8 +34,25 @@
     <string name="burst_details">连续射击</string>
     <string name="search_hint">名称、简称、别名或口径</string>
     <string name="ammo_damage_pen">伤 %1$d  穿 %2$d</string>
+    <string name="manual_ammo_values">手动修改弹药数值…</string>
+    <string name="custom_name">自定义名称</string>
+    <string name="damage">伤害</string>
+    <string name="penetration">穿深</string>
+    <string name="armor_damage">甲伤 %</string>
+    <string name="projectiles">弹丸数</string>
+    <string name="use_manual_ammo">使用这些弹药数值</string>
     <string name="armor_layers">护甲层</string>
     <string name="armor_class">%1$d 级</string>
+    <string name="armor_carrier">护甲载具</string>
+    <string name="plate_slot">插板位置</string>
+    <string name="specific_plate">具体插板</string>
+    <string name="slot_front">前插板</string>
+    <string name="slot_back">后插板</string>
+    <string name="slot_left">左侧插板</string>
+    <string name="slot_right">右侧插板</string>
+    <string name="layer_name">层名称</string>
+    <string name="current_durability">当前耐久</string>
+    <string name="original_durability">出厂耐久</string>
     <string name="durability_value">耐久 %1$d / %2$d</string>
     <string name="update_current_layer">更新当前层</string>
     <string name="append_next_layer">追加下一层</string>
@@ -55,6 +75,7 @@
     <string name="material_uhmwpe">UHMWPE</string>
     <string name="material_aramid">芳纶</string>
     <string name="material_titanium">钛</string>
+    <string name="material_combined">复合材料</string>
     <string name="layer_result">%1$s · 条件穿透 %2$d%% · 剩余耐久 %3$.1f</string>
     <string name="burst_result">第 %1$d 发 · 穿透 %2$d%% · 累计致死 %3$d%%</string>
 </resources>

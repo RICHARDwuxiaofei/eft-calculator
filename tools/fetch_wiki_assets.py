@@ -22,13 +22,28 @@ ASSETS = {
     "ammo/m80.png": "File:M80ICON.png",
     "ammo/ap20.png": "File:12-70 AP-20.png",
     "ammo/buckshot.png": "File:12x70BUCKSHOTIMAGE.png",
-    "armor/ceramic.png": "File:KITECO SC-IV SA ballistic plate icon.png",
+    "armor/uhmwpe-kiteco.png": "File:KITECO SC-IV SA ballistic plate icon.png",
     "armor/steel.png": "File:Global Armor's Steel ballistic plate icon.png",
     "armor/uhmwpe.png": "File:Monoclete level III PE ballistic plate icon.png",
     "armor/aramid.png": "File:PACA Soft Armor.png",
     "armor/titanium.png": "File:Kiba Arms Titan Ballistic plate icon.png",
-    "armor/combined.png": "File:ESAPI level IV ballistic plate icon.png",
+    "armor/ceramic.png": "File:ESAPI level IV ballistic plate icon.png",
     "armor/helmet.png": "File:Kiver-M Helmet icon.png",
+}
+
+EXTERNAL_ASSETS = {
+    "armor/combined.webp": {
+        "item_id": "656f9fa0498d1b7e3e071d98",
+        "item_name": "SPRTN Omega ballistic plate",
+        "description_url": ("https://tarkov-market.com/item/sprtn_omega_ballistic_plate"),
+        "original_url": (
+            "https://cdn.tarkov-market.app/images/items/"
+            "3650767d-984c-49de-a83c-c19d3e53838d_enImg.webp?r=1736025185693"
+        ),
+        "verified_against": (
+            "https://escapefromtarkov.fandom.com/wiki/SPRTN_Omega_ballistic_plate"
+        ),
+    }
 }
 
 
@@ -71,10 +86,29 @@ def main() -> int:
                 }
             )
             print(f"Downloaded {wiki_title} -> {relative_path}")
+        for relative_path, source_record in EXTERNAL_ASSETS.items():
+            image_response = client.get(source_record["original_url"])
+            image_response.raise_for_status()
+            with Image.open(BytesIO(image_response.content)) as source:
+                image = source.convert("RGBA")
+                image.thumbnail((128, 128), Image.Resampling.LANCZOS)
+                target = RESOURCE_ROOT / relative_path
+                target.parent.mkdir(parents=True, exist_ok=True)
+                image.save(target, "WEBP", lossless=True)
+            records.append(
+                {
+                    "path": relative_path,
+                    **source_record,
+                    "original_size": len(image_response.content),
+                }
+            )
+            print(f"Downloaded {source_record['item_name']} -> {relative_path}")
 
     metadata = {
         "retrieved_at": datetime.now(UTC).isoformat(),
-        "source": "Escape from Tarkov Wiki via MediaWiki API",
+        "source": (
+            "Escape from Tarkov Wiki via MediaWiki API; SPRTN Omega fallback via Tarkov Market"
+        ),
         "source_api": API,
         "notice": (
             "These item images are third-party game reference assets and are not licensed "

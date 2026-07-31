@@ -13,6 +13,9 @@
     <string name="ammo_summary">%1$s · %2$s  Damage %3$d / Pen %4$d</string>
     <string name="choose_ammo">Choose ammo</string>
     <string name="toggle_favorite">☆ Favorite / unfavorite current ammo</string>
+    <string name="reset_ammo">Reset ammo</string>
+    <string name="reset_armor">Reset armor</string>
+    <string name="reset_all">Reset all</string>
     <string name="armor_summary">Class %1$d %2$s</string>
     <string name="distance_value">Distance %1$d m</string>
     <string name="burst_value">Burst %1$d shots</string>
@@ -31,8 +34,25 @@
     <string name="burst_details">Burst</string>
     <string name="search_hint">Name, abbreviation, alias, or caliber</string>
     <string name="ammo_damage_pen">Damage %1$d  Pen %2$d</string>
+    <string name="manual_ammo_values">Manual ammo values…</string>
+    <string name="custom_name">Custom name</string>
+    <string name="damage">Damage</string>
+    <string name="penetration">Penetration</string>
+    <string name="armor_damage">Armor damage %</string>
+    <string name="projectiles">Projectiles</string>
+    <string name="use_manual_ammo">Use these ammo values</string>
     <string name="armor_layers">Armor layers</string>
     <string name="armor_class">Class %1$d</string>
+    <string name="armor_carrier">Armor carrier</string>
+    <string name="plate_slot">Plate slot</string>
+    <string name="specific_plate">Specific plate</string>
+    <string name="slot_front">Front plate</string>
+    <string name="slot_back">Back plate</string>
+    <string name="slot_left">Left side plate</string>
+    <string name="slot_right">Right side plate</string>
+    <string name="layer_name">Layer name</string>
+    <string name="current_durability">Current durability</string>
+    <string name="original_durability">Original durability</string>
     <string name="durability_value">Durability %1$d / %2$d</string>
     <string name="update_current_layer">Update current layer</string>
     <string name="append_next_layer">Append next layer</string>
@@ -55,6 +75,7 @@
     <string name="material_uhmwpe">UHMWPE</string>
     <string name="material_aramid">Aramid</string>
     <string name="material_titanium">Titanium</string>
+    <string name="material_combined">Combined materials</string>
     <string name="layer_result">%1$s · Conditional penetration %2$d%% · Durability after %3$.1f</string>
     <string name="burst_result">Shot %1$d · Penetration %2$d%% · Cumulative kill %3$d%%</string>
 </resources>

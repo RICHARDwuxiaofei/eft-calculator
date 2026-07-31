@@ -1,4 +1,4 @@
-# EFT Calculator v2.0.0
+# EFT Calculator v2.1.0
 
 [中文](#中文说明) · [English](#english)
 
@@ -8,10 +8,10 @@ Escape from Tarkov 分层护甲与弹药模拟器是一款面向游戏中快速�
 工具。它离线优先搜索弹药，把弹丸依次送入任意数量的护甲层，并显示每层条件穿透率、累计穿透率、
 停止概率、耐久损失、钝伤和连续射击结果。
 
-> 当前数据快照：`eft-1.0.6.0-snapshot-2026-07-30`  
+> 当前数据快照：`eft-1.0.6.0-snapshot-2026-07-31`
 > 默认规则：`community-approx-2026.07-v1`（**社区近似，不是官方精确公式**）
 >
-> 当前正式版本：`v2.0.0`
+> 当前正式版本：`v2.1.0`
 
 ## 界面
 
@@ -20,9 +20,11 @@ Windows 2.0 使用顶部全局动作、左侧紧凑查询轨和右侧结果工�
 
 ## 已支持
 
-- 中文/英文名、简称、别名和口径即时搜索；收藏与最近使用写入 SQLite
+- 当前界面语言与英文名、简称、别名、口径的子串搜索；输入 `855` 即时联想 M855/M855A1
+- 选中弹药后自动填入伤害、穿深、甲伤和弹丸数，仍可手动覆写
 - Ctrl+K 本地弹药搜索面板、收藏/最近优先与弹药图标
-- 首页护甲路径预设；独立编辑器按类型、等级和材质追加、排序、停用或删除层
+- 首页护甲路径预设；独立编辑器按真实载具、插槽、具体插板自动填入等级、材质与耐久
+- 自动值均可手动修改；每次确认追加一层，可继续添加第二层及后续层
 - 分别重置弹药、护甲层或全部参数
 - 护甲预设；任意层添加/删除；出厂、维修上限和当前耐久严格区分
 - 快速解析；NumPy 批量蒙特卡洛；固定种子；后台线程、进度和取消旧任务
@@ -48,7 +50,8 @@ python -m tarkov_armor_sim
 
 ## 数据更新
 
-2.0 立即使用最后有效缓存，并后台从 tarkov.dev 同步；服务不可用时退回 TarkovTracker 的结构化
+2.1 立即使用最后有效缓存，并后台从 tarkov.dev 分别取得英文和当前中文名称、按稳定 EFT 物品
+ID 合并；服务不可用时退回 TarkovTracker 的结构化
 数据。6 小时内跳过重复同步，48 小时标记过期。记录在写入前经过数量、唯一 ID、字段范围和
 SHA-256 校验，JSON 与 SQLite 都使用原子切换；失败保留旧版。
 
@@ -141,9 +144,9 @@ an offline-first ammunition database, sends each projectile through an arbitrary
 layers, and reports conditional and cumulative penetration, stopping probability, durability loss,
 blunt damage, and burst behavior.
 
-> Current data snapshot: `eft-1.0.6.0-snapshot-2026-07-30`
+> Current data snapshot: `eft-1.0.6.0-snapshot-2026-07-31`
 > Default ruleset: `community-approx-2026.07-v1` (**community approximation, not an official formula**)
-> Current stable release: `v2.0.0`
+> Current stable release: `v2.1.0`
 
 ### Interface and workflow
 
@@ -152,8 +155,9 @@ right. The full ammo browser and armor-path editor open only when needed. The ma
 first-shot penetration, six core metrics, layered results, burst results, charts, and comparison close
 at hand.
 
-- Large caliber and ammo buttons, local Ctrl+K search, favorites, recent items, and item thumbnails.
-- Armor type, class, and material selection; each confirmation appends the next layer.
+- Substring autocomplete over the active UI language and English; `855` suggests M855 and M855A1.
+- Ammo presets auto-fill combat values while keeping every value manually editable.
+- Real carrier → slot → plate presets auto-fill class, material, and durability; each confirmation appends a layer.
 - Common armor presets plus independent Reset ammo, Reset armor, and Reset all actions.
 - Numeric durability input and New / 75% / 50% / 25% / Broken shortcuts.
 - Distance, 1–100 shots, quick analysis, seeded Monte Carlo, and cancellable background work.
@@ -176,8 +180,9 @@ and simulation continue to work without a network connection.
 
 ### Data synchronization
 
-Version 2.0 opens the last valid cache immediately, then synchronizes from tarkov.dev in the background
-with TarkovTracker/tarkovdata as a fallback. It skips duplicate syncs for six hours and marks data stale
+Version 2.1 opens the last valid cache immediately, then fetches English and Chinese names from
+tarkov.dev and merges them by stable EFT item ID, with TarkovTracker/tarkovdata as a fallback. It
+skips duplicate syncs for six hours and marks data stale
 after 48 hours. Record count, unique IDs, value ranges, and SHA-256 are validated before atomic JSON and
 SQLite replacement; any failure preserves the previous snapshot.
 

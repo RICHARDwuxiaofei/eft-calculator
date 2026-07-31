@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import logging
 import os
+from dataclasses import replace
 from pathlib import Path
 
 import pyqtgraph as pg
@@ -10,6 +11,7 @@ from PySide6.QtCore import (
     QRunnable,
     QSettings,
     QSize,
+    QStringListModel,
     Qt,
     QThreadPool,
     QTimer,
@@ -22,6 +24,7 @@ from PySide6.QtWidgets import (
     QApplication,
     QButtonGroup,
     QComboBox,
+    QCompleter,
     QDialog,
     QDialogButtonBox,
     QDoubleSpinBox,
@@ -48,7 +51,16 @@ from PySide6.QtWidgets import (
     QWidget,
 )
 
-from .data import DATA_VERSION, Database, default_armor_presets, default_database_path
+from .data import (
+    ARMOR_CARRIERS,
+    ARMOR_PLATES,
+    ARMOR_SLOT_NAMES,
+    DATA_VERSION,
+    Database,
+    armor_plate_by_id,
+    default_armor_presets,
+    default_database_path,
+)
 from .i18n import I18n
 from .models import Ammo, ArmorLayer, ArmorLayerType, ArmorMaterial, BodyPart, ShotScenario
 from .rulesets import CurrentApproximation, ExperimentalRuleset
@@ -104,7 +116,12 @@ class SyncWorker(QRunnable):
 
     @Slot()
     def run(self) -> None:
-        self.signals.result.emit(run_sync(self.store, force=self.force))
+        result = run_sync(self.store, force=self.force)
+        try:
+            self.signals.result.emit(result)
+        except RuntimeError:
+            # The window may have closed while the network request was finishing.
+            return
 
 
 class MainWindow(QMainWindow):
@@ -179,6 +196,7 @@ class MainWindow(QMainWindow):
         self.settings.setValue("language", self.i18n.locale)
         self._apply_i18n()
         self._refresh_ammo()
+        self._refresh_armor_preset_labels()
         self._refresh_layers()
         if self.selected_ammo:
             self._render_selected_ammo()
@@ -391,7 +409,9 @@ class MainWindow(QMainWindow):
         hero_text.addWidget(self.conclusion)
         hero_layout.addLayout(hero_text, 1)
         self.result_context = QLabel("快速模式\n社区近似")
-        self.result_context.setAlignment(Qt.AlignmentFlag.AlignRight | Qt.AlignmentFlag.AlignVCenter)
+        self.result_context.setAlignment(
+            Qt.AlignmentFlag.AlignRight | Qt.AlignmentFlag.AlignVCenter
+        )
         self.result_context.setObjectName("muted")
         hero_layout.addWidget(self.result_context)
         layout.addWidget(hero)
@@ -496,6 +516,14 @@ class MainWindow(QMainWindow):
         self.search_input.setPlaceholderText("名称 / 简称 / 别名 / 口径")
         self.search_input.textChanged.connect(self._search_dialog_changed)
         layout.addWidget(self.search_input)
+        self.completion_model = QStringListModel(self)
+        self.completion_lookup: dict[str, str] = {}
+        self.ammo_completer = QCompleter(self.completion_model, self)
+        self.ammo_completer.setCaseSensitivity(Qt.CaseSensitivity.CaseInsensitive)
+        self.ammo_completer.setFilterMode(Qt.MatchFlag.MatchContains)
+        self.ammo_completer.setCompletionMode(QCompleter.CompletionMode.PopupCompletion)
+        self.ammo_completer.activated.connect(self._use_ammo_completion)
+        self.global_search.setCompleter(self.ammo_completer)
         self.caliber_filter = QComboBox()
         self.caliber_filter.addItem("全部口径", "")
         for caliber in ("5.56x45", "5.45x39", "7.62x39", "7.62x51", "12/70"):
@@ -527,7 +555,29 @@ class MainWindow(QMainWindow):
         self.ammo_choice_host = QWidget()
         self.ammo_choice_grid = QGridLayout(self.ammo_choice_host)
         layout.addWidget(self.ammo_choice_host)
+        editor = QFrame()
+        editor.setObjectName("card")
+        editor_layout = QFormLayout(editor)
+        self.custom_ammo_name = QLineEdit()
+        self.custom_ammo_damage = QDoubleSpinBox()
+        self.custom_ammo_damage.setRange(0, 1000)
+        self.custom_ammo_penetration = QDoubleSpinBox()
+        self.custom_ammo_penetration.setRange(0, 200)
+        self.custom_ammo_armor_damage = QDoubleSpinBox()
+        self.custom_ammo_armor_damage.setRange(0, 100)
+        self.custom_ammo_projectiles = QSpinBox()
+        self.custom_ammo_projectiles.setRange(1, 64)
+        editor_layout.addRow("自定义名称", self.custom_ammo_name)
+        editor_layout.addRow("伤害", self.custom_ammo_damage)
+        editor_layout.addRow("穿深", self.custom_ammo_penetration)
+        editor_layout.addRow("甲伤 %", self.custom_ammo_armor_damage)
+        editor_layout.addRow("弹丸数", self.custom_ammo_projectiles)
+        use_custom = QPushButton("使用这些弹药数值")
+        use_custom.clicked.connect(self._apply_custom_ammo)
+        editor_layout.addRow(use_custom)
+        layout.addWidget(editor)
         buttons = QDialogButtonBox(QDialogButtonBox.StandardButton.Close)
+        buttons.button(QDialogButtonBox.StandardButton.Close).setText("关闭")
         buttons.rejected.connect(dialog.reject)
         layout.addWidget(buttons)
         return dialog
@@ -535,14 +585,31 @@ class MainWindow(QMainWindow):
     def _build_armor_dialog(self) -> QDialog:
         dialog = QDialog(self)
         dialog.setWindowTitle("护甲路径编辑器")
-        dialog.resize(720, 620)
+        dialog.resize(780, 820)
         layout = QVBoxLayout(dialog)
-        layout.addWidget(QLabel("选择类型、等级和材质，确认后会追加为下一层。"))
+        layout.addWidget(QLabel("先选载具和插槽，再选具体插板；数值会自动填入，也可手动修改。"))
+        preset_form = QFormLayout()
+        self.carrier_combo = QComboBox()
+        for carrier in ARMOR_CARRIERS:
+            self.carrier_combo.addItem(carrier.display_name(self.i18n.locale), carrier.id)
+        self.carrier_combo.currentIndexChanged.connect(self._armor_carrier_changed)
+        self.plate_slot_combo = QComboBox()
+        self.plate_slot_combo.currentIndexChanged.connect(self._armor_slot_changed)
+        self.plate_combo = QComboBox()
+        self.plate_combo.currentIndexChanged.connect(self._armor_plate_changed)
+        preset_form.addRow("护甲载具", self.carrier_combo)
+        preset_form.addRow("插板位置", self.plate_slot_combo)
+        preset_form.addRow("具体插板", self.plate_combo)
+        layout.addLayout(preset_form)
         type_row = QHBoxLayout()
         self.armor_type_group = QButtonGroup(self)
         self.armor_type_group.setExclusive(True)
         for index, (title, value) in enumerate(
-            (("硬插板", ArmorLayerType.PLATE), ("软甲", ArmorLayerType.SOFT), ("头盔", ArmorLayerType.HELMET))
+            (
+                ("硬插板", ArmorLayerType.PLATE),
+                ("软甲", ArmorLayerType.SOFT),
+                ("头盔", ArmorLayerType.HELMET),
+            )
         ):
             button = QPushButton(title)
             button.setCheckable(True)
@@ -557,11 +624,12 @@ class MainWindow(QMainWindow):
         self.armor_class_group = QButtonGroup(self)
         self.armor_class_group.setExclusive(True)
         for armor_class in range(1, 7):
-            button = QPushButton(
-                self._t("{armor_class} 级", armor_class=armor_class)
-            )
+            button = QPushButton(self._t("{armor_class} 级", armor_class=armor_class))
             button.setCheckable(True)
             button.setProperty("armor_class", armor_class)
+            button.clicked.connect(
+                lambda _checked=False, value=armor_class: self.manual_armor_class.setValue(value)
+            )
             self.armor_class_group.addButton(button, armor_class)
             chooser.addWidget(button, armor_class, 0)
         self.armor_class_group.button(5).setChecked(True)
@@ -581,12 +649,31 @@ class MainWindow(QMainWindow):
             button = QPushButton(title)
             button.setCheckable(True)
             button.setProperty("material", material)
-            button.setIcon(QIcon(str(resource_path("items", "armor", f"{material.value}.png"))))
+            image_name = (
+                "combined.webp" if material == ArmorMaterial.COMBINED else (f"{material.value}.png")
+            )
+            button.setIcon(QIcon(str(resource_path("items", "armor", image_name))))
             button.setIconSize(QSize(36, 36))
             self.material_group.addButton(button, row)
             chooser.addWidget(button, row, 1)
         self.material_group.button(1).setChecked(True)
         layout.addLayout(chooser)
+        manual_form = QFormLayout()
+        self.layer_name_input = QLineEdit()
+        self.manual_armor_class = QSpinBox()
+        self.manual_armor_class.setRange(1, 6)
+        self.manual_armor_class.setValue(5)
+        self.manual_current_durability = QDoubleSpinBox()
+        self.manual_current_durability.setRange(0.1, 1000)
+        self.manual_current_durability.setValue(45)
+        self.manual_max_durability = QDoubleSpinBox()
+        self.manual_max_durability.setRange(0.1, 1000)
+        self.manual_max_durability.setValue(45)
+        manual_form.addRow("层名称", self.layer_name_input)
+        manual_form.addRow("手动等级", self.manual_armor_class)
+        manual_form.addRow("当前耐久", self.manual_current_durability)
+        manual_form.addRow("出厂耐久", self.manual_max_durability)
+        layout.addLayout(manual_form)
         self.confirm_layer_button = QPushButton("确认并添加为第 1 层")
         self.confirm_layer_button.setObjectName("primary")
         self.confirm_layer_button.clicked.connect(self._confirm_armor_layer)
@@ -606,12 +693,15 @@ class MainWindow(QMainWindow):
         action_row.addWidget(remove)
         layout.addLayout(action_row)
         self.layer_table = QTableWidget(0, 6)
-        self.layer_table.setHorizontalHeaderLabels(["层", "名称", "等级", "材质", "当前/出厂", "状态"])
+        self.layer_table.setHorizontalHeaderLabels(
+            ["层", "名称", "等级", "材质", "当前/出厂", "状态"]
+        )
         self.layer_table.setSelectionBehavior(QTableWidget.SelectionBehavior.SelectRows)
         self.layer_table.currentCellChanged.connect(self._layer_selection_changed)
         self.layer_table.verticalHeader().hide()
         layout.addWidget(self.layer_table)
         close = QDialogButtonBox(QDialogButtonBox.StandardButton.Close)
+        close.button(QDialogButtonBox.StandardButton.Close).setText("关闭")
         close.rejected.connect(dialog.reject)
         layout.addWidget(close)
         self.preset_combo = QComboBox()
@@ -619,6 +709,7 @@ class MainWindow(QMainWindow):
         self.preset_combo.hide()
         self.layer_actions = QWidget()
         self.layer_actions.hide()
+        self._armor_carrier_changed()
         return dialog
 
     def _build_shortcuts(self) -> None:
@@ -635,16 +726,21 @@ class MainWindow(QMainWindow):
         if hasattr(self, "search_input") and self.search_dialog.isVisible():
             query = self.search_input.text().strip()
         caliber = self.caliber_filter.currentData() if hasattr(self, "caliber_filter") else ""
-        self.ammo_items = self.database.search_ammo(query, caliber)
+        self.ammo_items = self.database.search_ammo(query, caliber, self.i18n.locale)
         if not hasattr(self, "ammo_list"):
             return
         current_id = self.selected_ammo.id if self.selected_ammo else None
         self.ammo_list.blockSignals(True)
         self.ammo_list.clear()
+        completion_labels: list[str] = []
+        self.completion_lookup = {}
         for ammo in self.ammo_items:
             prefix = "★ " if self.database.is_favorite(ammo.id) else ""
+            localized = ammo.display_name(self.i18n.locale)
+            english = ammo.localized_names.get("en", ammo.name)
+            secondary = f" / {english}" if english != localized else ""
             self.ammo_list.addItem(
-                f"{prefix}{ammo.short_name:<14}  {ammo.caliber}   "
+                f"{prefix}{ammo.short_name} · {localized}{secondary}\n{ammo.caliber}   "
                 + self._t(
                     "伤害 {damage:g} · 穿深 {penetration:g}",
                     damage=ammo.damage,
@@ -654,7 +750,11 @@ class MainWindow(QMainWindow):
             self.ammo_list.item(self.ammo_list.count() - 1).setData(
                 Qt.ItemDataRole.UserRole, ammo.id
             )
+            completion = f"{ammo.short_name} · {localized}"
+            completion_labels.append(completion)
+            self.completion_lookup[completion] = ammo.id
         self.ammo_list.blockSignals(False)
+        self.completion_model.setStringList(completion_labels)
         self._rebuild_quick_ammo_buttons()
         if current_id:
             for index, ammo in enumerate(self.ammo_items):
@@ -698,7 +798,26 @@ class MainWindow(QMainWindow):
             "ap20": "ap20.png",
             "buckshot": "buckshot.png",
         }
-        return resource_path("items", "ammo", mapping.get(ammo.id, "m855a1.png"))
+        normalized_short_name = "".join(
+            character for character in ammo.short_name.casefold() if character.isalnum()
+        )
+        fallback = {
+            "m855a1": "m855a1.png",
+            "m855": "m855.png",
+            "m995": "m995.png",
+            "m80": "m80.png",
+            "ap20": "ap20.png",
+            "7n40": "7n40.png",
+        }.get(normalized_short_name, "m855a1.png")
+        item_id = ammo.id.removeprefix("custom-")
+        return resource_path("items", "ammo", mapping.get(item_id, fallback))
+
+    def _use_ammo_completion(self, label: str) -> None:
+        item_id = self.completion_lookup.get(label)
+        if item_id:
+            self._select_ammo_by_id(item_id)
+            self.global_search.setText(label.split(" · ", 1)[0])
+            self._open_ammo_search()
 
     def _search_dialog_changed(self, text: str) -> None:
         self.global_search.blockSignals(True)
@@ -731,9 +850,38 @@ class MainWindow(QMainWindow):
 
     def _set_selected_ammo(self, ammo: Ammo) -> None:
         self.selected_ammo = ammo
-        self.database.mark_recent(ammo.id)
+        if any(item.id == ammo.id for item in self.database.all_ammo()):
+            self.database.mark_recent(ammo.id)
+        self._load_ammo_editor(ammo)
         self._render_selected_ammo()
         self._schedule_analysis()
+
+    def _load_ammo_editor(self, ammo: Ammo) -> None:
+        if not hasattr(self, "custom_ammo_name"):
+            return
+        self.custom_ammo_name.setText(ammo.display_name(self.i18n.locale))
+        self.custom_ammo_damage.setValue(ammo.damage)
+        self.custom_ammo_penetration.setValue(ammo.penetration_power)
+        self.custom_ammo_armor_damage.setValue(ammo.armor_damage_percent)
+        self.custom_ammo_projectiles.setValue(ammo.projectile_count)
+
+    def _apply_custom_ammo(self) -> None:
+        base = self.selected_ammo or self.database.all_ammo()[0]
+        custom_name = self.custom_ammo_name.text().strip() or base.display_name(self.i18n.locale)
+        custom = replace(
+            base,
+            id=f"custom-{base.id}",
+            name=custom_name,
+            short_name=custom_name,
+            damage=self.custom_ammo_damage.value(),
+            penetration_power=self.custom_ammo_penetration.value(),
+            armor_damage_percent=self.custom_ammo_armor_damage.value(),
+            projectile_count=self.custom_ammo_projectiles.value(),
+            source_version="manual-override",
+            aliases=(),
+            localized_names={"en": custom_name, "zh": custom_name},
+        )
+        self._set_selected_ammo(custom)
 
     def _render_selected_ammo(self) -> None:
         ammo = self.selected_ammo
@@ -742,7 +890,7 @@ class MainWindow(QMainWindow):
         self.selected_ammo_button.setText(
             self._t(
                 "{ammo}  ·  {caliber}\n伤害 {damage:g}    穿深 {penetration:g}    甲伤 {armor_damage:g}%",
-                ammo=ammo.short_name,
+                ammo=f"{ammo.short_name} · {ammo.display_name(self.i18n.locale)}",
                 caliber=ammo.caliber,
                 damage=ammo.damage,
                 penetration=ammo.penetration_power,
@@ -752,9 +900,7 @@ class MainWindow(QMainWindow):
         self.selected_ammo_button.setIcon(QIcon(str(self._ammo_icon(ammo))))
         self.selected_ammo_button.setIconSize(QSize(48, 48))
         self.favorite_button.setText(
-            self._t("★ 已收藏")
-            if self.database.is_favorite(ammo.id)
-            else self._t("☆ 收藏当前")
+            self._t("★ 已收藏") if self.database.is_favorite(ammo.id) else self._t("☆ 收藏当前")
         )
 
     def _toggle_favorite(self) -> None:
@@ -762,9 +908,7 @@ class MainWindow(QMainWindow):
             return
         favorite = not self.database.is_favorite(self.selected_ammo.id)
         self.database.set_favorite(self.selected_ammo.id, favorite)
-        self.favorite_button.setText(
-            self._t("★ 已收藏") if favorite else self._t("☆ 收藏当前")
-        )
+        self.favorite_button.setText(self._t("★ 已收藏") if favorite else self._t("☆ 收藏当前"))
 
     def _choose_preset(self, index: int) -> None:
         self.preset_combo.setCurrentIndex(index)
@@ -777,13 +921,99 @@ class MainWindow(QMainWindow):
         self.armor_dialog.show()
         self.armor_dialog.raise_()
 
-    def _confirm_armor_layer(self) -> None:
-        armor_class = self.armor_class_group.checkedButton().property("armor_class")
-        material = ArmorMaterial(self.material_group.checkedButton().property("material"))
-        layer_type = ArmorLayerType(
-            self.armor_type_group.checkedButton().property("armor_type")
+    def _armor_carrier_changed(self, *_args) -> None:
+        carrier_id = self.carrier_combo.currentData()
+        carrier = next(item for item in ARMOR_CARRIERS if item.id == carrier_id)
+        previous_slot = self.plate_slot_combo.currentData()
+        self.plate_slot_combo.blockSignals(True)
+        self.plate_slot_combo.clear()
+        language = "zh" if self.i18n.locale.startswith("zh") else "en"
+        for slot in carrier.defaults:
+            self.plate_slot_combo.addItem(ARMOR_SLOT_NAMES[slot][language], slot)
+        self.plate_slot_combo.blockSignals(False)
+        if previous_slot in carrier.defaults:
+            self.plate_slot_combo.setCurrentIndex(list(carrier.defaults).index(previous_slot))
+        self._armor_slot_changed()
+
+    def _refresh_armor_preset_labels(self) -> None:
+        carrier_id = self.carrier_combo.currentData()
+        self.carrier_combo.blockSignals(True)
+        self.carrier_combo.clear()
+        for carrier in ARMOR_CARRIERS:
+            self.carrier_combo.addItem(carrier.display_name(self.i18n.locale), carrier.id)
+        for index in range(self.carrier_combo.count()):
+            if self.carrier_combo.itemData(index) == carrier_id:
+                self.carrier_combo.setCurrentIndex(index)
+                break
+        self.carrier_combo.blockSignals(False)
+        self._armor_carrier_changed()
+
+    def _armor_slot_changed(self, *_args) -> None:
+        slot = self.plate_slot_combo.currentData()
+        if not slot:
+            return
+        carrier_id = self.carrier_combo.currentData()
+        carrier = next(item for item in ARMOR_CARRIERS if item.id == carrier_id)
+        self.plate_combo.blockSignals(True)
+        self.plate_combo.clear()
+        for plate in ARMOR_PLATES:
+            if slot in plate.slots:
+                label = (
+                    f"{plate.display_name(self.i18n.locale)} · "
+                    + self._t("{armor_class} 级", armor_class=plate.armor_class)
+                    + f" · {plate.durability:g}"
+                )
+                self.plate_combo.addItem(
+                    QIcon(str(self._armor_plate_icon(plate.id, plate.material))),
+                    label,
+                    plate.id,
+                )
+        default_plate = carrier.defaults.get(slot)
+        for index in range(self.plate_combo.count()):
+            if self.plate_combo.itemData(index) == default_plate:
+                self.plate_combo.setCurrentIndex(index)
+                break
+        self.plate_combo.blockSignals(False)
+        self._armor_plate_changed()
+
+    def _armor_plate_icon(self, plate_id: str, material: ArmorMaterial) -> Path:
+        exact = {
+            "kiteco": "uhmwpe-kiteco.png",
+            "monoclete": "uhmwpe.png",
+            "global-steel": "steel.png",
+            "omega": "combined.webp",
+            "titan": "titanium.png",
+            "esapi-iv": "ceramic.png",
+        }
+        material_name = (
+            "combined.webp" if material == ArmorMaterial.COMBINED else (f"{material.value}.png")
         )
-        maximum = 30.0 + armor_class * 5.0
+        return resource_path("items", "armor", exact.get(plate_id, material_name))
+
+    def _armor_plate_changed(self, *_args) -> None:
+        plate_id = self.plate_combo.currentData()
+        if not plate_id:
+            return
+        plate = armor_plate_by_id(plate_id)
+        self.layer_name_input.setText(plate.display_name(self.i18n.locale))
+        self.manual_armor_class.setValue(plate.armor_class)
+        self.manual_current_durability.setValue(plate.durability)
+        self.manual_max_durability.setValue(plate.durability)
+        class_button = self.armor_class_group.button(plate.armor_class)
+        if class_button:
+            class_button.setChecked(True)
+        for button in self.material_group.buttons():
+            if button.property("material") == plate.material:
+                button.setChecked(True)
+                break
+        self.armor_type_group.button(0).setChecked(True)
+
+    def _confirm_armor_layer(self) -> None:
+        armor_class = self.manual_armor_class.value()
+        material = ArmorMaterial(self.material_group.checkedButton().property("material"))
+        layer_type = ArmorLayerType(self.armor_type_group.checkedButton().property("armor_type"))
+        maximum = self.manual_max_durability.value()
+        current = min(self.manual_current_durability.value(), maximum)
         destructibility = {
             ArmorMaterial.CERAMIC: 0.80,
             ArmorMaterial.STEEL: 0.35,
@@ -792,24 +1022,26 @@ class MainWindow(QMainWindow):
             ArmorMaterial.TITANIUM: 0.42,
             ArmorMaterial.COMBINED: 0.55,
         }[material]
-        title = self._t(
+        title = self.layer_name_input.text().strip() or self._t(
             "{armor_class}级{material}",
             armor_class=armor_class,
             material=self.material_group.checkedButton().text(),
         )
+        slot = self.plate_slot_combo.currentData()
         self.layers.append(
             ArmorLayer(
                 id=f"custom-{len(self.layers) + 1}",
                 name=title,
                 layer_type=layer_type,
                 armor_class=armor_class,
-                current_durability=maximum,
+                current_durability=current,
                 displayed_max_durability=maximum,
                 original_max_durability=maximum,
                 material=material,
                 destructibility=destructibility,
                 blunt_throughput=0.10 if layer_type == ArmorLayerType.PLATE else 0.19,
                 is_hard_armor=layer_type != ArmorLayerType.SOFT,
+                protection_zones=(slot or "thorax",),
             )
         )
         self._refresh_layers()
@@ -836,9 +1068,7 @@ class MainWindow(QMainWindow):
                 + ("" if layer.enabled else self._t("（停用）"))
             )
         self.layer_table.blockSignals(False)
-        self.path_summary.setText(
-            "\n".join(path_parts) if path_parts else self._t("尚未添加护甲")
-        )
+        self.path_summary.setText("\n".join(path_parts) if path_parts else self._t("尚未添加护甲"))
         self.confirm_layer_button.setText(
             self._t("确认并添加为第 {layer} 层", layer=len(self.layers) + 1)
         )
@@ -952,9 +1182,7 @@ class MainWindow(QMainWindow):
         self.layers = []
         self._refresh_layers()
         self.penetration_metric.setText(self._t("— · 请添加护甲"))
-        self.conclusion.setText(
-            self._t("选择弹药后，使用护甲预设或打开路径编辑器添加第一层。")
-        )
+        self.conclusion.setText(self._t("选择弹药后，使用护甲预设或打开路径编辑器添加第一层。"))
         self._schedule_analysis()
 
     def _reset_all(self) -> None:
@@ -982,9 +1210,7 @@ class MainWindow(QMainWindow):
     def _analyze(self) -> None:
         if not self.selected_ammo or not self.layers:
             self.penetration_metric.setText(self._t("— · 请添加护甲"))
-            self.conclusion.setText(
-                self._t("选择弹药后，使用护甲预设或打开路径编辑器添加第一层。")
-            )
+            self.conclusion.setText(self._t("选择弹药后，使用护甲预设或打开路径编辑器添加第一层。"))
             for value in self.result_values.values():
                 value.setText("—")
             return
@@ -1006,9 +1232,7 @@ class MainWindow(QMainWindow):
         self.result_values["three"].setText(f"{result.three_shot_penetration_probability:.0%}")
         first = result.expected_first_penetration_shot
         self.result_values["first"].setText(
-            self._t("第 {shot:.1f} 发", shot=first)
-            if first
-            else self._t("未穿透")
+            self._t("第 {shot:.1f} 发", shot=first) if first else self._t("未穿透")
         )
         self.result_values["health"].setText(f"{result.expected_health_damage:.1f}")
         self.result_values["blunt"].setText(f"{result.expected_blunt_damage:.1f}")
@@ -1045,7 +1269,9 @@ class MainWindow(QMainWindow):
         self.burst_table.setRowCount(len(probabilities))
         for row, probability in enumerate(probabilities):
             snapshot = result.durability_timeline[min(row + 1, len(result.durability_timeline) - 1)]
-            kill = result.kill_probability_by_shot[min(row, len(result.kill_probability_by_shot) - 1)]
+            kill = result.kill_probability_by_shot[
+                min(row, len(result.kill_probability_by_shot) - 1)
+            ]
             values = (
                 str(row + 1),
                 f"{probability:.1%}",
@@ -1125,15 +1351,16 @@ class MainWindow(QMainWindow):
 
     def _toggle_advanced(self, checked: bool) -> None:
         self.advanced_panel.setVisible(checked)
-        self.advanced_button.setText(
-            self._t("高级参数  ⌄" if checked else "高级参数  ›")
-        )
+        self.advanced_button.setText(self._t("高级参数  ⌄" if checked else "高级参数  ›"))
 
     def _toggle_compact(self) -> None:
         self.input_panel.setVisible(not self.input_panel.isVisible())
 
     def _toggle_pin(self) -> None:
-        self.setWindowFlag(Qt.WindowType.WindowStaysOnTopHint, not bool(self.windowFlags() & Qt.WindowType.WindowStaysOnTopHint))
+        self.setWindowFlag(
+            Qt.WindowType.WindowStaysOnTopHint,
+            not bool(self.windowFlags() & Qt.WindowType.WindowStaysOnTopHint),
+        )
         self.show()
 
     def _focus_results(self) -> None:
@@ -1151,7 +1378,9 @@ class MainWindow(QMainWindow):
         rows = []
         for ammo in self.database.all_ammo():
             result = analyze(
-                ShotScenario(ammo=ammo, armor_layers=tuple(x.clone() for x in self.layers), shot_count=3),
+                ShotScenario(
+                    ammo=ammo, armor_layers=tuple(x.clone() for x in self.layers), shot_count=3
+                ),
                 self.ruleset,
             )
             rows.append(
@@ -1177,7 +1406,10 @@ class MainWindow(QMainWindow):
             )
             for column, display in enumerate(displays):
                 item = QTableWidgetItem(display)
-                item.setData(Qt.ItemDataRole.UserRole, ammo.id if column == 0 else values[column - 1] if column > 1 else display)
+                item.setData(
+                    Qt.ItemDataRole.UserRole,
+                    ammo.id if column == 0 else values[column - 1] if column > 1 else display,
+                )
                 self.compare_table.setItem(row, column, item)
         self.compare_table.setSortingEnabled(True)
         self.compare_table.resizeColumnsToContents()
@@ -1211,9 +1443,7 @@ class MainWindow(QMainWindow):
         snapshot = store.read()
         if snapshot:
             self.database.apply_ammo_snapshot(snapshot)
-            self.sync_button.setText(
-                self._t("数据 · {status}", status=self._t(store.status()))
-            )
+            self.sync_button.setText(self._t("数据 · {status}", status=self._t(store.status())))
             self.data_version_label.setText(snapshot["snapshot_id"])
             self._refresh_ammo()
         if store.should_sync():
@@ -1257,9 +1487,7 @@ class MainWindow(QMainWindow):
         language_combo = QComboBox()
         language_combo.addItem("简体中文", "zh_CN")
         language_combo.addItem("English", "en_US")
-        language_combo.setCurrentIndex(
-            max(0, language_combo.findData(self.i18n.locale))
-        )
+        language_combo.setCurrentIndex(max(0, language_combo.findData(self.i18n.locale)))
         language_combo.currentIndexChanged.connect(
             lambda: self._change_language(str(language_combo.currentData()))
         )
@@ -1276,11 +1504,7 @@ class MainWindow(QMainWindow):
         form.addRow(
             "记录数",
             QLabel(
-                str(
-                    len(snapshot.get("ammo", []))
-                    if snapshot
-                    else len(self.database.all_ammo())
-                )
+                str(len(snapshot.get("ammo", [])) if snapshot else len(self.database.all_ammo()))
             ),
         )
         form.addRow("策略", QLabel("6 小时间隔 · 48 小时过期 · 校验失败保留旧版"))
@@ -1313,9 +1537,7 @@ class MainWindow(QMainWindow):
                     "rejected_source",
                 )
             ):
-                conflict_table.setItem(
-                    row, column, QTableWidgetItem(str(conflict.get(key, "")))
-                )
+                conflict_table.setItem(row, column, QTableWidgetItem(str(conflict.get(key, ""))))
         conflict_table.resizeColumnsToContents()
         tabs.addTab(
             conflict_table,
