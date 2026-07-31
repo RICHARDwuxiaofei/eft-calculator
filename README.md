@@ -1,4 +1,4 @@
-# EFT Calculator v2.1.0
+# EFT Calculator v2.1.1
 
 [中文](#中文说明) · [English](#english)
 
@@ -11,7 +11,7 @@ Escape from Tarkov 分层护甲与弹药模拟器是一款面向游戏中快速�
 > 当前数据快照：`eft-1.0.6.0-snapshot-2026-07-31`
 > 默认规则：`community-approx-2026.07-v1`（**社区近似，不是官方精确公式**）
 >
-> 当前正式版本：`v2.1.0`
+> 当前正式版本：`v2.1.1`
 
 ## 界面
 
@@ -146,7 +146,7 @@ blunt damage, and burst behavior.
 
 > Current data snapshot: `eft-1.0.6.0-snapshot-2026-07-31`
 > Default ruleset: `community-approx-2026.07-v1` (**community approximation, not an official formula**)
-> Current stable release: `v2.1.0`
+> Current stable release: `v2.1.1`
 
 ### Interface and workflow
 

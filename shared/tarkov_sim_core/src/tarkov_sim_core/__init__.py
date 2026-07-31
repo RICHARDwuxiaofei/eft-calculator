@@ -17,4 +17,4 @@ __all__ = [
 ]
 
 SCHEMA_VERSION = 1
-CORE_VERSION = "2.1.0"
+CORE_VERSION = "2.1.1"

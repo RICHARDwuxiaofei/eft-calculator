@@ -5,6 +5,7 @@ import sqlite3
 from dataclasses import asdict, dataclass
 from pathlib import Path
 
+from .calibers import caliber_matches
 from .models import Ammo, ArmorLayer, ArmorLayerType, ArmorMaterial
 
 DATA_VERSION = "eft-1.0.6.0-snapshot-2026-07-31"
@@ -427,6 +428,51 @@ def default_armor_presets() -> dict[str, tuple[ArmorLayer, ...]]:
                 False,
             ),
         ),
+        "4级钢制插板": (
+            ArmorLayer(
+                "global-steel4",
+                "Global Armor 4级钢制插板",
+                ArmorLayerType.PLATE,
+                4,
+                45,
+                45,
+                45,
+                ArmorMaterial.STEEL,
+                0.35,
+                0.10,
+                True,
+            ),
+        ),
+        "4级聚乙烯插板": (
+            ArmorLayer(
+                "monoclete4",
+                "Monoclete 4级聚乙烯插板",
+                ArmorLayerType.PLATE,
+                4,
+                40,
+                40,
+                40,
+                ArmorMaterial.UHMWPE,
+                0.45,
+                0.10,
+                True,
+            ),
+        ),
+        "5级 Korund 钢板": (
+            ArmorLayer(
+                "korund5",
+                "Korund-VM 5级钢制插板",
+                ArmorLayerType.PLATE,
+                5,
+                60,
+                60,
+                60,
+                ArmorMaterial.STEEL,
+                0.35,
+                0.09,
+                True,
+            ),
+        ),
     }
 
 
@@ -557,7 +603,7 @@ class Database:
             matches = all(token in normalized_haystack for token in tokens)
             if collapsed_query:
                 matches = matches and collapsed_query in normalized_haystack
-            if matches and (not caliber or ammo.caliber == caliber):
+            if matches and caliber_matches(ammo.caliber, caliber):
                 normalized_values = [normalize(value) for value in values if value]
                 if not collapsed_query:
                     score = 10

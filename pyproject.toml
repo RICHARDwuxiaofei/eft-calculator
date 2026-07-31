@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "tarkov-armor-simulator"
-version = "2.1.0"
+version = "2.1.1"
 description = "Offline layered armor and ammunition simulator for Escape from Tarkov"
 readme = "README.md"
 requires-python = ">=3.12"
@@ -42,6 +42,7 @@ tarkov_armor_sim = [
   "resources/icons/*",
   "resources/items/*",
   "resources/items/ammo/*",
+  "resources/items/ammo-live/*",
   "resources/items/armor/*",
 ]
 
