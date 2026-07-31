@@ -12,6 +12,8 @@ venv/
 .coverage
 htmlcov/
 .test-tmp/
+.release-tmp/
+.tmp/
 pytest-cache-files-*/
 tmp/
 
@@ -30,3 +32,20 @@ logs/
 .vscode/
 .DS_Store
 Thumbs.db
+
+# Android / Gradle
+android/.gradle/
+android/local.properties
+android/**/build/
+*.jks
+*.keystore
+/signing/
+
+# Local-only engineering and Agent handoff documents
+/docs/AGENT_HANDOFF.md
+/docs/ANDROID_PERFORMANCE.md
+/docs/CURRENT_STATE.md
+/docs/DATA_SYNC.md
+/docs/UI_REDESIGN.md
+/docs/VERIFICATION.md
+/docs/screenshots/

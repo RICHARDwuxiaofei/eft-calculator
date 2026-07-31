@@ -6,6 +6,11 @@ from tarkov_armor_sim.data import Database
 from tarkov_armor_sim.ui import MainWindow
 
 
+@pytest.fixture(autouse=True)
+def _default_ui_locale(monkeypatch) -> None:
+    monkeypatch.setenv("EFT_CALCULATOR_LANG", "zh_CN")
+
+
 def test_main_window_starts_and_is_not_empty(qtbot, tmp_path) -> None:
     window = MainWindow(Database(tmp_path / "ui.sqlite3"))
     qtbot.addWidget(window)
@@ -77,3 +82,42 @@ def test_separate_resets(qtbot, tmp_path) -> None:
     window._reset_armor()
     assert len(window.layers) == 0
     assert "请添加护甲" in window.penetration_metric.text()
+
+
+def test_live_suggestion_manual_ammo_and_plate_autofill(qtbot, tmp_path) -> None:
+    window = MainWindow(Database(tmp_path / "ui-presets.sqlite3"))
+    qtbot.addWidget(window)
+
+    window.global_search.setText("855")
+    labels = window.completion_model.stringList()
+    assert labels[0].startswith("M855 ·")
+    assert any(label.startswith("M855A1 ·") for label in labels)
+
+    window._select_ammo_by_id("m855")
+    window.custom_ammo_damage.setValue(99)
+    window.custom_ammo_penetration.setValue(77)
+    window._apply_custom_ammo()
+    assert window.selected_ammo.source_version == "manual-override"
+    assert window.selected_ammo.damage == 99
+    assert window.selected_ammo.penetration_power == 77
+
+    bagariy_index = window.carrier_combo.findData("bagariy")
+    window.carrier_combo.setCurrentIndex(bagariy_index)
+    assert window.plate_slot_combo.currentData() == "front"
+    assert window.plate_combo.currentData() == "korund-front"
+    assert window.manual_armor_class.value() == 5
+    assert window.manual_max_durability.value() == 60
+    window.manual_current_durability.setValue(33)
+    window._confirm_armor_layer()
+    assert window.layers[-1].name.startswith("Korund-VM")
+    assert window.layers[-1].current_durability == 33
+
+
+def test_window_uses_english_i18n_catalog(qtbot, tmp_path, monkeypatch) -> None:
+    monkeypatch.setenv("EFT_CALCULATOR_LANG", "en_US")
+    window = MainWindow(Database(tmp_path / "ui-en.sqlite3"))
+    qtbot.addWidget(window)
+    window.show()
+    assert window.windowTitle() == "EFT Calculator · Layered Armor & Ballistics"
+    assert "Add armor" in window.penetration_metric.text()
+    assert window.confirm_layer_button.text() == "Confirm and add as layer 1"

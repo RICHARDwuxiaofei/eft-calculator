@@ -1,0 +1,13 @@
+{
+  "name": "multi_projectile",
+  "input": {
+    "schema_version": 1,
+    "ammo": {"id": "buckshot", "name": "12/70 8.5mm Magnum", "short_name": "Magnum", "caliber": "12/70", "damage": 50, "penetration_power": 2, "armor_damage_percent": 26, "projectile_count": 8},
+    "armor_layers": [{"id": "soft2", "name": "2级软甲", "layer_type": "soft", "armor_class": 2, "current_durability": 35, "displayed_max_durability": 35, "original_max_durability": 35, "material": "aramid", "destructibility": 0.3, "blunt_throughput": 0.2, "is_hard_armor": false}],
+    "distance_m": 10,
+    "shot_count": 1,
+    "simulation_iterations": 1000,
+    "random_seed": 20260731
+  },
+  "expected": {"final_penetration_probability": 0.13484631294859273, "three_shot_penetration_probability": 0.13484631294859273, "expected_health_damage": 5.7102074669213945, "expected_blunt_damage": 78.13244813326966, "ruleset_version": "community-approx-2026.07-v1"}
+}

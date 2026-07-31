@@ -1,6 +1,6 @@
 {
-  "retrieved_at": "2026-07-30T12:51:57.981401+00:00",
-  "source": "Escape from Tarkov Wiki via MediaWiki API",
+  "retrieved_at": "2026-07-31T08:17:56.738718+00:00",
+  "source": "Escape from Tarkov Wiki via MediaWiki API; SPRTN Omega fallback via Tarkov Market",
   "source_api": "https://escapefromtarkov.fandom.com/api.php",
   "notice": "These item images are third-party game reference assets and are not licensed under this project's MIT License. Rights remain with their respective owners.",
   "assets": [
@@ -68,7 +68,7 @@
       "original_size": 128083
     },
     {
-      "path": "armor/ceramic.png",
+      "path": "armor/uhmwpe-kiteco.png",
       "wiki_title": "File:KITECO SC-IV SA ballistic plate icon.png",
       "description_url": "https://escapefromtarkov.fandom.com/wiki/File:KITECO_SC-IV_SA_ballistic_plate_icon.png",
       "original_url": "https://static.wikia.nocookie.net/escapefromtarkov_gamepedia/images/a/a9/KITECO_SC-IV_SA_ballistic_plate_icon.png/revision/latest?cb=20240401220828",
@@ -103,11 +103,20 @@
       "original_size": 20920
     },
     {
-      "path": "armor/combined.png",
+      "path": "armor/ceramic.png",
       "wiki_title": "File:ESAPI level IV ballistic plate icon.png",
       "description_url": "https://escapefromtarkov.fandom.com/wiki/File:ESAPI_level_IV_ballistic_plate_icon.png",
       "original_url": "https://static.wikia.nocookie.net/escapefromtarkov_gamepedia/images/1/1d/ESAPI_level_IV_ballistic_plate_icon.png/revision/latest?cb=20240401220630",
       "original_size": 18119
+    },
+    {
+      "path": "armor/combined.webp",
+      "item_id": "656f9fa0498d1b7e3e071d98",
+      "item_name": "SPRTN Omega ballistic plate",
+      "description_url": "https://tarkov-market.com/item/sprtn_omega_ballistic_plate",
+      "original_url": "https://cdn.tarkov-market.app/images/items/3650767d-984c-49de-a83c-c19d3e53838d_enImg.webp?r=1736025185693",
+      "original_size": 1432,
+      "verified_against": "https://escapefromtarkov.fandom.com/wiki/SPRTN_Omega_ballistic_plate"
     },
     {
       "path": "armor/helmet.png",

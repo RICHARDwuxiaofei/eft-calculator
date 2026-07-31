@@ -1,0 +1,6 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://eft-calculator.local/schemas/tarkovsim.schema.json",
+  "title": ".tarkovsim.json scenario",
+  "allOf": [{"$ref": "preset.schema.json"}]
+}

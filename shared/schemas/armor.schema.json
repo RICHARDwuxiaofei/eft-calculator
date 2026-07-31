@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://eft-calculator.local/schemas/armor.schema.json",
+  "title": "ArmorLayer",
+  "type": "object",
+  "required": ["id", "name", "layer_type", "armor_class", "current_durability", "displayed_max_durability", "original_max_durability", "material", "destructibility", "blunt_throughput", "is_hard_armor"],
+  "properties": {
+    "id": {"type": "string", "minLength": 1},
+    "name": {"type": "string", "minLength": 1},
+    "layer_type": {"enum": ["plate", "soft", "helmet"]},
+    "armor_class": {"type": "integer", "minimum": 1, "maximum": 6},
+    "current_durability": {"type": "number", "minimum": 0},
+    "displayed_max_durability": {"type": "number", "exclusiveMinimum": 0},
+    "original_max_durability": {"type": "number", "exclusiveMinimum": 0},
+    "material": {"type": "string"},
+    "destructibility": {"type": "number", "exclusiveMinimum": 0},
+    "blunt_throughput": {"type": "number", "minimum": 0, "maximum": 1},
+    "is_hard_armor": {"type": "boolean"},
+    "enabled": {"type": "boolean"}
+  },
+  "additionalProperties": true
+}

@@ -8,21 +8,24 @@ from .models import ShotScenario, SimulationResult
 from .rulesets import BallisticsRuleset
 
 
-def result_summary(result: SimulationResult, shot_count: int) -> str:
+def result_summary(result: SimulationResult, shot_count: int, translate=lambda text, **values: text.format(**values)) -> str:
     p = result.final_penetration_probability
     if p < 0.15:
-        text = "首发极难击穿"
+        text = translate("首发极难击穿")
     elif p < 0.35:
-        text = "首发较难击穿"
+        text = translate("首发较难击穿")
     elif p < 0.65:
-        text = "首发胜负接近五五开"
+        text = translate("首发胜负接近五五开")
     elif p < 0.85:
-        text = "首发较易击穿"
+        text = translate("首发较易击穿")
     else:
-        text = "首发极易击穿"
+        text = translate("首发极易击穿")
     expected = result.expected_first_penetration_shot
     if shot_count > 1 and expected is not None:
-        text += f"，连续命中时预计第 {expected:.1f} 发首次穿透"
+        text += translate(
+            "，连续命中时预计第 {expected:.1f} 发首次穿透",
+            expected=expected,
+        )
     return text + "。"
 
 
@@ -68,4 +71,3 @@ class SimulationService:
         from .engine import analyze
 
         return analyze(scenario, self.ruleset)
-

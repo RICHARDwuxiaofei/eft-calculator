@@ -1,0 +1,13 @@
+{
+  "name": "damaged_plate",
+  "input": {
+    "schema_version": 1,
+    "ammo": {"id": "m80", "name": "7.62x51mm M80", "short_name": "M80", "caliber": "7.62x51", "damage": 80, "penetration_power": 41, "armor_damage_percent": 66, "projectile_count": 1},
+    "armor_layers": [{"id": "plate5damaged", "name": "受损5级板", "layer_type": "plate", "armor_class": 5, "current_durability": 12, "displayed_max_durability": 45, "original_max_durability": 45, "material": "ceramic", "destructibility": 0.8, "blunt_throughput": 0.1, "is_hard_armor": true}],
+    "distance_m": 100,
+    "shot_count": 2,
+    "simulation_iterations": 1000,
+    "random_seed": 20260731
+  },
+  "expected": {"final_penetration_probability": 0.7623407221416363, "three_shot_penetration_probability": 0.9526499506759825, "expected_health_damage": 43.8971034623597, "expected_blunt_damage": 1.7967041406092297, "ruleset_version": "community-approx-2026.07-v1"}
+}
