@@ -179,12 +179,16 @@ jobs:
         with:
           name: emulator-apks
           path: emulator-apks
+      - uses: actions/download-artifact@v4
+        with:
+          name: release-android
+          path: delivery-apk
       - name: Enable KVM
         run: |
           echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
           sudo udevadm control --reload-rules
           sudo udevadm trigger --name-match=kvm
-      - name: Run shared numerical vectors and real Android UI
+      - name: Run shared vectors and install the actual signed delivery APK
         uses: reactivecircus/android-emulator-runner@v2
         with:
           api-level: 35
@@ -199,13 +203,25 @@ jobs:
             adb install -r emulator-apks/app-debug-androidTest.apk
             adb shell am instrument -w com.eftcalculator.test/androidx.test.runner.AndroidJUnitRunner | tee artifacts/android-runtime/instrumentation.txt
             grep -Eq 'OK \([0-9]+ tests?\)' artifacts/android-runtime/instrumentation.txt
-            adb shell am start -n com.eftcalculator/.MainActivity
-            sleep 3
-            adb exec-out screencap -p > artifacts/android-runtime/portrait.png
+            adb uninstall com.eftcalculator.test
+            adb uninstall com.eftcalculator
+            adb install -r delivery-apk/*.apk
+            sha256sum delivery-apk/*.apk > artifacts/android-runtime/installed-apk-sha256.txt
+            adb shell am start -W -n com.eftcalculator/.MainActivity
+            sleep 8
+            adb shell pidof com.eftcalculator
+            adb exec-out screencap -p > artifacts/android-runtime/signed-portrait.png
             adb shell settings put system accelerometer_rotation 0
             adb shell settings put system user_rotation 1
-            sleep 3
-            adb exec-out screencap -p > artifacts/android-runtime/landscape.png
+            sleep 4
+            adb shell pidof com.eftcalculator
+            adb exec-out screencap -p > artifacts/android-runtime/signed-landscape.png
+            adb shell settings put system user_rotation 0
+            adb shell wm size 1600x1000
+            adb shell wm density 160
+            sleep 5
+            adb shell pidof com.eftcalculator
+            adb exec-out screencap -p > artifacts/android-runtime/signed-wide.png
             adb logcat -d > artifacts/android-runtime/logcat.txt
       - uses: actions/upload-artifact@v4
         if: always()
@@ -239,7 +255,7 @@ jobs:
           cd release-files
           sha256sum *.zip *.apk > SHA256SUMS.txt
           cd ..
-          printf '## Verified build\n\nSource commit: `%s`\n\nNumerical regression, actual Windows EXE startup, Android compilation and emulator tests passed for this commit.\n\nThis is a documented community ballistic model, not an assertion of exact current proprietary game behavior. See docs/RESEARCH.md and docs/REVIEW_2026-09-16.md.\n\n' "$GITHUB_SHA" > release-notes.md
+          printf '## Verified build\n\nSource commit: `%s`\n\nNumerical regression, actual Windows EXE startup, Android compilation, emulator consistency tests and signed delivery APK startup passed for this commit.\n\nThis is a documented community ballistic model, not an assertion of exact current proprietary game behavior. See docs/RESEARCH.md and docs/REVIEW_2026-09-16.md.\n\n' "$GITHUB_SHA" > release-notes.md
           cat release-files/android-build.txt >> release-notes.md
           if gh release view "$tag" >/dev/null 2>&1; then
             echo "Release $tag already exists; leave its tag and assets unchanged. Current build remains available in Actions."
