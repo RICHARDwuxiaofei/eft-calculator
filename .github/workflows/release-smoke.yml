@@ -3,12 +3,8 @@ on:
   workflow_dispatch:
     inputs:
       source_run:
-        description: Successful build run containing the release-android artifact
+        description: Build run containing the release-android artifact to verify
         required: true
-        default: '35058067582'
-  push:
-    branches: [main]
-    paths: ['.github/workflows/release-smoke.yml']
 permissions:
   contents: read
   actions: read
@@ -21,7 +17,7 @@ jobs:
         with:
           name: release-android
           path: release-files
-          run-id: ${{ inputs.source_run || '35058067582' }}
+          run-id: ${{ inputs.source_run }}
           github-token: ${{ github.token }}
       - name: Record the exact installed package
         run: |
