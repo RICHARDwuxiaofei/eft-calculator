@@ -11,6 +11,7 @@ on:
       - 'tools/**'
       - 'tests/**'
       - 'packaging/**'
+      - '.github/workflows/**'
       - 'pyproject.toml'
 
 permissions:
