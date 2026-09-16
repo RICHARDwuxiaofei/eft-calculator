@@ -1,0 +1,238 @@
+name: Verified desktop and Android release
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: verified-release-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    outputs:
+      version: ${{ steps.version.outputs.version }}
+    env:
+      QT_QPA_PLATFORM: offscreen
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - run: sudo apt-get update && sudo apt-get install -y libegl1 libopengl0 libxkbcommon0 fonts-noto-cjk
+      - run: python -m pip install -e '.[dev]'
+      - id: version
+        run: python -c "import tomllib,os; v=tomllib.load(open('pyproject.toml','rb'))['project']['version']; print('version='+v, file=open(os.environ['GITHUB_OUTPUT'],'a'))"
+      - run: ruff check .
+      - run: pytest --junitxml=artifacts/pytest.xml
+      - run: python tools/verify_ui.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: numerical-and-Qt-evidence
+          path: artifacts/
+          if-no-files-found: error
+
+  windows:
+    needs: verify
+    runs-on: windows-latest
+    timeout-minutes: 25
+    env:
+      QT_QPA_PLATFORM: offscreen
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - run: python -m pip install -e '.[dev]'
+      - run: python tools/build_windows.py
+      - name: Launch the actual packaged executable
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Force artifacts | Out-Null
+          $env:EFT_SMOKE_SCREENSHOT = Join-Path $PWD 'artifacts/windows-smoke.png'
+          $process = Start-Process -FilePath 'dist/TarkovArmorSimulator/TarkovArmorSimulator.exe' -ArgumentList '--smoke-test' -PassThru
+          if (-not $process.WaitForExit(90000)) { $process.Kill(); throw 'Packaged application timed out' }
+          if ($process.ExitCode -ne 0) { throw "Packaged application exited $($process.ExitCode)" }
+          if (-not (Test-Path $env:EFT_SMOKE_SCREENSHOT)) { throw 'Missing rendered application screenshot' }
+      - name: Package Windows application
+        shell: pwsh
+        env:
+          APP_VERSION: ${{ needs.verify.outputs.version }}
+        run: |
+          New-Item -ItemType Directory -Force release-files | Out-Null
+          Compress-Archive -Path dist/TarkovArmorSimulator -DestinationPath "release-files/EFT-Calculator-Windows-$env:APP_VERSION.zip"
+          "Source commit: $env:GITHUB_SHA" | Out-File release-files/windows-build.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: release-windows
+          path: release-files/
+          if-no-files-found: error
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: windows-runtime-evidence
+          path: artifacts/
+          if-no-files-found: warn
+
+  android:
+    needs: verify
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+          cache: gradle
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Install Android SDK
+        run: |
+          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" 'platforms;android-36.1' 'build-tools;36.0.0'
+          chmod +x android/gradlew
+      - name: Prepare optional production signing
+        env:
+          KEYSTORE_BASE64: ${{ secrets.ANDROID_RELEASE_KEYSTORE_BASE64 }}
+          STORE_PASSWORD: ${{ secrets.ANDROID_RELEASE_STORE_PASSWORD }}
+          KEY_ALIAS: ${{ secrets.ANDROID_RELEASE_KEY_ALIAS }}
+          KEY_PASSWORD: ${{ secrets.ANDROID_RELEASE_KEY_PASSWORD }}
+        run: |
+          if [ -n "$KEYSTORE_BASE64" ] && [ -n "$STORE_PASSWORD" ] && [ -n "$KEY_ALIAS" ] && [ -n "$KEY_PASSWORD" ]; then
+            printf '%s' "$KEYSTORE_BASE64" | base64 -d > "$RUNNER_TEMP/release.jks"
+            echo "EFT_RELEASE_STORE_FILE=$RUNNER_TEMP/release.jks" >> "$GITHUB_ENV"
+          else
+            echo 'Production signing is not configured; publish an explicitly labelled debug-signed APK.'
+          fi
+      - name: Compile both variants and Android tests
+        working-directory: android
+        env:
+          EFT_RELEASE_STORE_PASSWORD: ${{ secrets.ANDROID_RELEASE_STORE_PASSWORD }}
+          EFT_RELEASE_KEY_ALIAS: ${{ secrets.ANDROID_RELEASE_KEY_ALIAS }}
+          EFT_RELEASE_KEY_PASSWORD: ${{ secrets.ANDROID_RELEASE_KEY_PASSWORD }}
+        run: ./gradlew --no-daemon --max-workers=2 testDebugUnitTest assembleDebug assembleDebugAndroidTest assembleRelease
+      - name: Collect only installable signed APKs
+        env:
+          APP_VERSION: ${{ needs.verify.outputs.version }}
+        run: |
+          mkdir -p release-files emulator-apks
+          cp android/app/build/outputs/apk/debug/app-debug.apk emulator-apks/
+          cp android/app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk emulator-apks/
+          if [ -f android/app/build/outputs/apk/release/app-release.apk ]; then
+            cp android/app/build/outputs/apk/release/app-release.apk "release-files/EFT-Calculator-Android-$APP_VERSION.apk"
+            printf 'Signing: production release key\n' > release-files/android-build.txt
+          else
+            cp android/app/build/outputs/apk/debug/app-debug.apk "release-files/EFT-Calculator-Android-$APP_VERSION-debug-signed.apk"
+            printf 'Signing: ephemeral CI debug key; not production signing. Upgrading from another signing key may require reinstalling.\n' > release-files/android-build.txt
+          fi
+          printf 'Source commit: %s\n' "$GITHUB_SHA" >> release-files/android-build.txt
+          "$ANDROID_HOME/build-tools/36.0.0/apksigner" verify --verbose release-files/*.apk >> release-files/android-build.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: release-android
+          path: release-files/
+          if-no-files-found: error
+      - uses: actions/upload-artifact@v4
+        with:
+          name: emulator-apks
+          path: emulator-apks/
+          if-no-files-found: error
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: android-unit-test-evidence
+          path: |
+            android/app/build/reports/tests/
+            android/app/build/test-results/
+          if-no-files-found: warn
+
+  android-runtime:
+    needs: android
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: emulator-apks
+          path: emulator-apks
+      - name: Enable KVM
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+      - name: Run shared numerical vectors and real Android UI
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 35
+          target: google_apis
+          arch: x86_64
+          profile: pixel_2
+          disable-animations: true
+          emulator-options: -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
+          script: |
+            mkdir -p artifacts/android-runtime
+            adb install -r emulator-apks/app-debug.apk
+            adb install -r emulator-apks/app-debug-androidTest.apk
+            adb shell am instrument -w com.eftcalculator.test/androidx.test.runner.AndroidJUnitRunner | tee artifacts/android-runtime/instrumentation.txt
+            grep -Eq 'OK \([0-9]+ tests?\)' artifacts/android-runtime/instrumentation.txt
+            adb shell am start -n com.eftcalculator/.MainActivity
+            sleep 3
+            adb exec-out screencap -p > artifacts/android-runtime/portrait.png
+            adb shell settings put system accelerometer_rotation 0
+            adb shell settings put system user_rotation 1
+            sleep 3
+            adb exec-out screencap -p > artifacts/android-runtime/landscape.png
+            adb logcat -d > artifacts/android-runtime/logcat.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: android-runtime-evidence
+          path: artifacts/
+          if-no-files-found: warn
+
+  publish:
+    needs: [verify, windows, android, android-runtime]
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: release-*
+          path: release-files
+          merge-multiple: true
+      - name: Publish exactly the tested source revision
+        env:
+          GH_TOKEN: ${{ github.token }}
+          APP_VERSION: ${{ needs.verify.outputs.version }}
+        run: |
+          set -euo pipefail
+          tag="v$APP_VERSION"
+          cd release-files
+          sha256sum *.zip *.apk > SHA256SUMS.txt
+          cd ..
+          printf '## Verified build\n\nSource commit: `%s`\n\nNumerical regression, actual Windows EXE startup, Android compilation and emulator tests passed for this commit.\n\nThis is a documented community ballistic model, not an assertion of exact current proprietary game behavior. See docs/RESEARCH.md and docs/REVIEW_2026-09-16.md.\n\n' "$GITHUB_SHA" > release-notes.md
+          cat release-files/android-build.txt >> release-notes.md
+          if gh release view "$tag" >/dev/null 2>&1; then
+            echo "Release $tag already exists; leave its tag and assets unchanged. Current build remains available in Actions."
+            exit 0
+          fi
+          gh release create "$tag" release-files/* --target "$GITHUB_SHA" --title "EFT Calculator $APP_VERSION - verified community model" --notes-file release-notes.md --prerelease
