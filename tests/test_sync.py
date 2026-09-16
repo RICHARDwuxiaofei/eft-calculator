@@ -72,4 +72,4 @@ def test_conflicts_keep_higher_priority_and_are_recorded(tmp_path) -> None:
     assert report.ok
     assert report.conflicts == 1
     assert snapshot["conflicts"][0]["field"] == "damage"
-    assert next(item for item in snapshot["ammo"] if item["id"] == "item-0")["damage"] == 47
+    assert next(item for item in snapshot["ammo"] if item["id"] == "item-0")["damage"] == SEED_AMMO[0].damage

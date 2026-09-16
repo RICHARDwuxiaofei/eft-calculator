@@ -1,0 +1,4236 @@
+{
+  "schema_version": 1,
+  "version": "wiki-reviewed-2026-09-16",
+  "ammo": [
+    {
+      "id": "54527a984bdc2d4e668b4567",
+      "name": "5.56x45mm M855",
+      "short_name": "M855",
+      "caliber": "5.56x45",
+      "damage": 54.0,
+      "penetration_power": 31.0,
+      "armor_damage_percent": 37.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 922.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [
+        "m855"
+      ],
+      "localized_names": {
+        "en": "5.56x45mm M855",
+        "zh": "5.56x45毫米 M855"
+      },
+      "image_url": "https://assets.tarkov.dev/54527a984bdc2d4e668b4567-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/54527a984bdc2d4e668b4567.html"
+    },
+    {
+      "id": "54527ac44bdc2d36668b4567",
+      "name": "5.56x45mm M855A1",
+      "short_name": "M855A1",
+      "caliber": "5.56x45",
+      "damage": 49.0,
+      "penetration_power": 44.0,
+      "armor_damage_percent": 47.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 945.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [
+        "m855a1"
+      ],
+      "localized_names": {
+        "en": "5.56x45mm M855A1",
+        "zh": "5.56x45毫米 M855A1"
+      },
+      "image_url": "https://assets.tarkov.dev/54527ac44bdc2d36668b4567-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/54527ac44bdc2d36668b4567.html"
+    },
+    {
+      "id": "560d5e524bdc2d25448b4571",
+      "name": "12/70 7mm buckshot",
+      "short_name": "7mm",
+      "caliber": "12/70",
+      "damage": 39.0,
+      "penetration_power": 3.0,
+      "armor_damage_percent": 26.0,
+      "projectile_count": 8,
+      "muzzle_velocity": 415.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "12/70 7mm buckshot",
+        "zh": "12/70 7毫米鹿弹"
+      },
+      "image_url": "https://assets.tarkov.dev/560d5e524bdc2d25448b4571-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/560d5e524bdc2d25448b4571.html"
+    },
+    {
+      "id": "560d61e84bdc2da74d8b4571",
+      "name": "7.62x54mm R SNB gzh",
+      "short_name": "SNB",
+      "caliber": "7.62x54",
+      "damage": 75.0,
+      "penetration_power": 62.0,
+      "armor_damage_percent": 87.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 875.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "7.62x54mm R SNB gzh",
+        "zh": "7.62x54R SNB"
+      },
+      "image_url": "https://assets.tarkov.dev/560d61e84bdc2da74d8b4571-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/560d61e84bdc2da74d8b4571.html"
+    },
+    {
+      "id": "5656d7c34bdc2d9d198b4587",
+      "name": "7.62x39mm PS gzh",
+      "short_name": "PS",
+      "caliber": "7.62x39",
+      "damage": 61.0,
+      "penetration_power": 35.0,
+      "armor_damage_percent": 52.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 717.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "7.62x39mm PS gzh",
+        "zh": "7.62x39毫米 PS"
+      },
+      "image_url": "https://assets.tarkov.dev/5656d7c34bdc2d9d198b4587-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/5656d7c34bdc2d9d198b4587.html"
+    },
+    {
+      "id": "56d59d3ad2720bdb418b4577",
+      "name": "9x19mm Pst gzh",
+      "short_name": "Pst",
+      "caliber": "9x19",
+      "damage": 54.0,
+      "penetration_power": 20.0,
+      "armor_damage_percent": 33.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 457.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "9x19mm Pst gzh",
+        "zh": "9x19 毫米 Pst"
+      },
+      "image_url": "https://assets.tarkov.dev/56d59d3ad2720bdb418b4577-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/56d59d3ad2720bdb418b4577.html"
+    },
+    {
+      "id": "56dfef82d2720bbd668b4567",
+      "name": "5.45x39mm BP gs",
+      "short_name": "BP",
+      "caliber": "5.45x39",
+      "damage": 48.0,
+      "penetration_power": 45.0,
+      "armor_damage_percent": 46.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 890.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "5.45x39mm BP gs",
+        "zh": "5.45x39毫米 BP"
+      },
+      "image_url": "https://assets.tarkov.dev/56dfef82d2720bbd668b4567-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/56dfef82d2720bbd668b4567.html"
+    },
+    {
+      "id": "56dff026d2720bb8668b4567",
+      "name": "5.45x39mm BS gs",
+      "short_name": "BS",
+      "caliber": "5.45x39",
+      "damage": 45.0,
+      "penetration_power": 54.0,
+      "armor_damage_percent": 57.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 830.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [
+        "545bp"
+      ],
+      "localized_names": {
+        "en": "5.45x39mm BS gs",
+        "zh": "5.45x39毫米 BS"
+      },
+      "image_url": "https://assets.tarkov.dev/56dff026d2720bb8668b4567-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/56dff026d2720bb8668b4567.html"
+    },
+    {
+      "id": "56dff061d2720bb5668b4567",
+      "name": "5.45x39mm BT gs",
+      "short_name": "BT",
+      "caliber": "5.45x39",
+      "damage": 54.0,
+      "penetration_power": 37.0,
+      "armor_damage_percent": 44.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 880.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "5.45x39mm BT gs",
+        "zh": "5.45x39毫米 BT"
+      },
+      "image_url": "https://assets.tarkov.dev/56dff061d2720bb5668b4567-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/56dff061d2720bb5668b4567.html"
+    },
+    {
+      "id": "56dff0bed2720bb0668b4567",
+      "name": "5.45x39mm FMJ",
+      "short_name": "FMJ",
+      "caliber": "5.45x39",
+      "damage": 55.0,
+      "penetration_power": 24.0,
+      "armor_damage_percent": 38.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 884.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "5.45x39mm FMJ",
+        "zh": "5.45x39毫米 FMJ"
+      },
+      "image_url": "https://assets.tarkov.dev/56dff0bed2720bb0668b4567-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/56dff0bed2720bb0668b4567.html"
+    },
+    {
+      "id": "56dff216d2720bbd668b4568",
+      "name": "5.45x39mm HP",
+      "short_name": "HP",
+      "caliber": "5.45x39",
+      "damage": 76.0,
+      "penetration_power": 9.0,
+      "armor_damage_percent": 15.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 884.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "5.45x39mm HP",
+        "zh": "5.45x39毫米 HP"
+      },
+      "image_url": "https://assets.tarkov.dev/56dff216d2720bbd668b4568-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/56dff216d2720bbd668b4568.html"
+    },
+    {
+      "id": "56dff2ced2720bb4668b4567",
+      "name": "5.45x39mm PP gs",
+      "short_name": "PP",
+      "caliber": "5.45x39",
+      "damage": 51.0,
+      "penetration_power": 34.0,
+      "armor_damage_percent": 42.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 886.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "5.45x39mm PP gs",
+        "zh": "5.45x39毫米 PP"
+      },
+      "image_url": "https://assets.tarkov.dev/56dff2ced2720bb4668b4567-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/56dff2ced2720bb4668b4567.html"
+    },
+    {
+      "id": "56dff338d2720bbd668b4569",
+      "name": "5.45x39mm PRS gs",
+      "short_name": "PRS",
+      "caliber": "5.45x39",
+      "damage": 70.0,
+      "penetration_power": 13.0,
+      "armor_damage_percent": 24.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 866.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "5.45x39mm PRS gs",
+        "zh": "5.45x39毫米 PRS"
+      },
+      "image_url": "https://assets.tarkov.dev/56dff338d2720bbd668b4569-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/56dff338d2720bbd668b4569.html"
+    },
+    {
+      "id": "56dff3afd2720bba668b4567",
+      "name": "5.45x39mm PS gs",
+      "short_name": "PS",
+      "caliber": "5.45x39",
+      "damage": 56.0,
+      "penetration_power": 28.0,
+      "armor_damage_percent": 40.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 890.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "5.45x39mm PS gs",
+        "zh": "5.45x39毫米 PS"
+      },
+      "image_url": "https://assets.tarkov.dev/56dff3afd2720bba668b4567-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/56dff3afd2720bba668b4567.html"
+    },
+    {
+      "id": "56dff421d2720b5f5a8b4567",
+      "name": "5.45x39mm SP",
+      "short_name": "SP",
+      "caliber": "5.45x39",
+      "damage": 67.0,
+      "penetration_power": 15.0,
+      "armor_damage_percent": 31.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 873.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "5.45x39mm SP",
+        "zh": "5.45x39毫米 SP"
+      },
+      "image_url": "https://assets.tarkov.dev/56dff421d2720b5f5a8b4567-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/56dff421d2720b5f5a8b4567.html"
+    },
+    {
+      "id": "56dff4a2d2720bbd668b456a",
+      "name": "5.45x39mm T gs",
+      "short_name": "T",
+      "caliber": "5.45x39",
+      "damage": 59.0,
+      "penetration_power": 20.0,
+      "armor_damage_percent": 36.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 883.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "5.45x39mm T gs",
+        "zh": "5.45x39毫米 T"
+      },
+      "image_url": "https://assets.tarkov.dev/56dff4a2d2720bbd668b456a-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/56dff4a2d2720bbd668b456a.html"
+    },
+    {
+      "id": "56dff4ecd2720b5f5a8b4568",
+      "name": "5.45x39mm US gs",
+      "short_name": "US",
+      "caliber": "5.45x39",
+      "damage": 65.0,
+      "penetration_power": 17.0,
+      "armor_damage_percent": 33.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 303.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "5.45x39mm US gs",
+        "zh": "5.45x39毫米 US"
+      },
+      "image_url": "https://assets.tarkov.dev/56dff4ecd2720b5f5a8b4568-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/56dff4ecd2720b5f5a8b4568.html"
+    },
+    {
+      "id": "5735fdcd2459776445391d61",
+      "name": "7.62x25mm TT AKBS",
+      "short_name": "AKBS",
+      "caliber": "7.62x25",
+      "damage": 58.0,
+      "penetration_power": 12.0,
+      "armor_damage_percent": 32.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 425.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "7.62x25mm TT AKBS",
+        "zh": "7.62x25毫米TT AKBS"
+      },
+      "image_url": "https://assets.tarkov.dev/5735fdcd2459776445391d61-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/5735fdcd2459776445391d61.html"
+    },
+    {
+      "id": "5735ff5c245977640e39ba7e",
+      "name": "7.62x25mm TT FMJ43",
+      "short_name": "FMJ43",
+      "caliber": "7.62x25",
+      "damage": 60.0,
+      "penetration_power": 11.0,
+      "armor_damage_percent": 29.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 427.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "7.62x25mm TT FMJ43",
+        "zh": "7.62x25毫米TT FMJ43"
+      },
+      "image_url": "https://assets.tarkov.dev/5735ff5c245977640e39ba7e-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/5735ff5c245977640e39ba7e.html"
+    },
+    {
+      "id": "573601b42459776410737435",
+      "name": "7.62x25mm TT LRN",
+      "short_name": "LRN",
+      "caliber": "7.62x25",
+      "damage": 64.0,
+      "penetration_power": 8.0,
+      "armor_damage_percent": 28.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 375.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "7.62x25mm TT LRN",
+        "zh": "7.62x25毫米TT LRN"
+      },
+      "image_url": "https://assets.tarkov.dev/573601b42459776410737435-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/573601b42459776410737435.html"
+    },
+    {
+      "id": "573602322459776445391df1",
+      "name": "7.62x25mm TT LRNPC",
+      "short_name": "LRNPC",
+      "caliber": "7.62x25",
+      "damage": 66.0,
+      "penetration_power": 7.0,
+      "armor_damage_percent": 27.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 385.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "7.62x25mm TT LRNPC",
+        "zh": "7.62x25毫米TT LRNPC"
+      },
+      "image_url": "https://assets.tarkov.dev/573602322459776445391df1-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/573602322459776445391df1.html"
+    },
+    {
+      "id": "5736026a245977644601dc61",
+      "name": "7.62x25mm TT P gl",
+      "short_name": "P",
+      "caliber": "7.62x25",
+      "damage": 58.0,
+      "penetration_power": 14.0,
+      "armor_damage_percent": 32.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 430.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "7.62x25mm TT P gl",
+        "zh": "7.62x25毫米TT P gl"
+      },
+      "image_url": "https://assets.tarkov.dev/5736026a245977644601dc61-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/5736026a245977644601dc61.html"
+    },
+    {
+      "id": "573603562459776430731618",
+      "name": "7.62x25mm TT Pst gzh",
+      "short_name": "Pst",
+      "caliber": "7.62x25",
+      "damage": 50.0,
+      "penetration_power": 25.0,
+      "armor_damage_percent": 36.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 430.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "7.62x25mm TT Pst gzh",
+        "zh": "7.62x25毫米TT Pst gzh"
+      },
+      "image_url": "https://assets.tarkov.dev/573603562459776430731618-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/573603562459776430731618.html"
+    },
+    {
+      "id": "573603c924597764442bd9cb",
+      "name": "7.62x25mm TT PT gzh",
+      "short_name": "PT",
+      "caliber": "7.62x25",
+      "damage": 55.0,
+      "penetration_power": 18.0,
+      "armor_damage_percent": 34.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 415.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "7.62x25mm TT PT gzh",
+        "zh": "7.62x25毫米TT PT gzh"
+      },
+      "image_url": "https://assets.tarkov.dev/573603c924597764442bd9cb-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/573603c924597764442bd9cb.html"
+    },
+    {
+      "id": "573718ba2459775a75491131",
+      "name": "9x18mm PM BZhT gzh",
+      "short_name": "BZhT",
+      "caliber": "9x18",
+      "damage": 53.0,
+      "penetration_power": 18.0,
+      "armor_damage_percent": 28.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 325.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "9x18mm PM BZhT gzh",
+        "zh": "9x18毫米PM 9 BZT gzh"
+      },
+      "image_url": "https://assets.tarkov.dev/573718ba2459775a75491131-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/573718ba2459775a75491131.html"
+    },
+    {
+      "id": "573719762459775a626ccbc1",
+      "name": "9x18mm PM P gzh",
+      "short_name": "P",
+      "caliber": "9x18",
+      "damage": 50.0,
+      "penetration_power": 5.0,
+      "armor_damage_percent": 16.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 302.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "9x18mm PM P gzh",
+        "zh": "9x18毫米PM 9 P gzh"
+      },
+      "image_url": "https://assets.tarkov.dev/573719762459775a626ccbc1-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/573719762459775a626ccbc1.html"
+    },
+    {
+      "id": "573719df2459775a626ccbc2",
+      "name": "9x18mm PM PBM gzh",
+      "short_name": "PBM",
+      "caliber": "9x18",
+      "damage": 40.0,
+      "penetration_power": 28.0,
+      "armor_damage_percent": 30.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 519.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "9x18mm PM PBM gzh",
+        "zh": "9x18毫米 PM PBM"
+      },
+      "image_url": "https://assets.tarkov.dev/573719df2459775a626ccbc2-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/573719df2459775a626ccbc2.html"
+    },
+    {
+      "id": "57371aab2459775a77142f22",
+      "name": "9x18mm PMM PstM gzh",
+      "short_name": "PstM",
+      "caliber": "9x18",
+      "damage": 58.0,
+      "penetration_power": 24.0,
+      "armor_damage_percent": 33.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 420.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "9x18mm PMM PstM gzh",
+        "zh": "9x18毫米PM PMM"
+      },
+      "image_url": "https://assets.tarkov.dev/57371aab2459775a77142f22-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/57371aab2459775a77142f22.html"
+    },
+    {
+      "id": "57371b192459775a9f58a5e0",
+      "name": "9x18mm PM PPe gzh",
+      "short_name": "Ppe",
+      "caliber": "9x18",
+      "damage": 61.0,
+      "penetration_power": 7.0,
+      "armor_damage_percent": 15.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 297.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "9x18mm PM PPe gzh",
+        "zh": "9x18毫米PM PPe gzh"
+      },
+      "image_url": "https://assets.tarkov.dev/57371b192459775a9f58a5e0-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/57371b192459775a9f58a5e0.html"
+    },
+    {
+      "id": "57371e4124597760ff7b25f1",
+      "name": "9x18mm PM PPT gzh",
+      "short_name": "PPT",
+      "caliber": "9x18",
+      "damage": 59.0,
+      "penetration_power": 8.0,
+      "armor_damage_percent": 22.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 301.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "9x18mm PM PPT gzh",
+        "zh": "9x18毫米PM PPT gzh"
+      },
+      "image_url": "https://assets.tarkov.dev/57371e4124597760ff7b25f1-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/57371e4124597760ff7b25f1.html"
+    },
+    {
+      "id": "57371eb62459776125652ac1",
+      "name": "9x18mm PM PRS gs",
+      "short_name": "PRS",
+      "caliber": "9x18",
+      "damage": 58.0,
+      "penetration_power": 6.0,
+      "armor_damage_percent": 16.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 302.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "9x18mm PM PRS gs",
+        "zh": "9x18毫米PM PRS gs"
+      },
+      "image_url": "https://assets.tarkov.dev/57371eb62459776125652ac1-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/57371eb62459776125652ac1.html"
+    },
+    {
+      "id": "57371f2b24597761224311f1",
+      "name": "9x18mm PM PS gs PPO",
+      "short_name": "PS PPO",
+      "caliber": "9x18",
+      "damage": 55.0,
+      "penetration_power": 6.0,
+      "armor_damage_percent": 16.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 330.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "9x18mm PM PS gs PPO",
+        "zh": "9x18毫米PM PS gs PPO"
+      },
+      "image_url": "https://assets.tarkov.dev/57371f2b24597761224311f1-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/57371f2b24597761224311f1.html"
+    },
+    {
+      "id": "57371f8d24597761006c6a81",
+      "name": "9x18mm PM PSO gzh",
+      "short_name": "PSO",
+      "caliber": "9x18",
+      "damage": 54.0,
+      "penetration_power": 5.0,
+      "armor_damage_percent": 13.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 315.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "9x18mm PM PSO gzh",
+        "zh": "9x18毫米PM PSO gzh"
+      },
+      "image_url": "https://assets.tarkov.dev/57371f8d24597761006c6a81-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/57371f8d24597761006c6a81.html"
+    },
+    {
+      "id": "5737201124597760fc4431f1",
+      "name": "9x18mm PM Pst gzh",
+      "short_name": "Pst",
+      "caliber": "9x18",
+      "damage": 50.0,
+      "penetration_power": 12.0,
+      "armor_damage_percent": 26.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 298.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "9x18mm PM Pst gzh",
+        "zh": "9x18毫米PM Pst gzh"
+      },
+      "image_url": "https://assets.tarkov.dev/5737201124597760fc4431f1-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/5737201124597760fc4431f1.html"
+    },
+    {
+      "id": "5737207f24597760ff7b25f2",
+      "name": "9x18mm PM PSV",
+      "short_name": "PSV",
+      "caliber": "9x18",
+      "damage": 69.0,
+      "penetration_power": 3.0,
+      "armor_damage_percent": 5.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 280.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "9x18mm PM PSV",
+        "zh": "9x18毫米PM PSV"
+      },
+      "image_url": "https://assets.tarkov.dev/5737207f24597760ff7b25f2-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/5737207f24597760ff7b25f2.html"
+    },
+    {
+      "id": "573720e02459776143012541",
+      "name": "9x18mm PM RG028 gzh",
+      "short_name": "RG028",
+      "caliber": "9x18",
+      "damage": 65.0,
+      "penetration_power": 13.0,
+      "armor_damage_percent": 26.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 330.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "9x18mm PM RG028 gzh",
+        "zh": "9x18毫米PM RG028 gzh"
+      },
+      "image_url": "https://assets.tarkov.dev/573720e02459776143012541-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/573720e02459776143012541.html"
+    },
+    {
+      "id": "57372140245977611f70ee91",
+      "name": "9x18mm PM SP7 gzh",
+      "short_name": "SP7",
+      "caliber": "9x18",
+      "damage": 77.0,
+      "penetration_power": 2.0,
+      "armor_damage_percent": 5.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 420.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "9x18mm PM SP7 gzh",
+        "zh": "9x18毫米PM SP7 gzh"
+      },
+      "image_url": "https://assets.tarkov.dev/57372140245977611f70ee91-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/57372140245977611f70ee91.html"
+    },
+    {
+      "id": "5737218f245977612125ba51",
+      "name": "9x18mm PM SP8 gzh",
+      "short_name": "SP8",
+      "caliber": "9x18",
+      "damage": 67.0,
+      "penetration_power": 1.0,
+      "armor_damage_percent": 2.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 250.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "9x18mm PM SP8 gzh",
+        "zh": "9x18毫米PM SP8 gzh"
+      },
+      "image_url": "https://assets.tarkov.dev/5737218f245977612125ba51-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/5737218f245977612125ba51.html"
+    },
+    {
+      "id": "57a0dfb82459774d3078b56c",
+      "name": "9x39mm SP-5 gs",
+      "short_name": "SP-5",
+      "caliber": "9x39",
+      "damage": 71.0,
+      "penetration_power": 28.0,
+      "armor_damage_percent": 39.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 290.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "9x39mm SP-5 gs",
+        "zh": "9x39毫米 SP-5"
+      },
+      "image_url": "https://assets.tarkov.dev/57a0dfb82459774d3078b56c-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/57a0dfb82459774d3078b56c.html"
+    },
+    {
+      "id": "57a0e5022459774d1673f889",
+      "name": "9x39mm SP-6 gs",
+      "short_name": "SP-6",
+      "caliber": "9x39",
+      "damage": 60.0,
+      "penetration_power": 48.0,
+      "armor_damage_percent": 64.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 305.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "9x39mm SP-6 gs",
+        "zh": "9x39毫米 SP-6"
+      },
+      "image_url": "https://assets.tarkov.dev/57a0e5022459774d1673f889-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/57a0e5022459774d1673f889.html"
+    },
+    {
+      "id": "58820d1224597753c90aeb13",
+      "name": "12/70 lead slug",
+      "short_name": "Slug",
+      "caliber": "12/70",
+      "damage": 167.0,
+      "penetration_power": 15.0,
+      "armor_damage_percent": 55.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 370.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "12/70 lead slug",
+        "zh": "12/70 铅头弹"
+      },
+      "image_url": "https://assets.tarkov.dev/58820d1224597753c90aeb13-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/58820d1224597753c90aeb13.html"
+    },
+    {
+      "id": "58864a4f2459770fcc257101",
+      "name": "9x19mm PSO gzh",
+      "short_name": "PSO",
+      "caliber": "9x19",
+      "damage": 59.0,
+      "penetration_power": 10.0,
+      "armor_damage_percent": 32.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 340.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "9x19mm PSO gzh",
+        "zh": "9x19毫米 PSO gzh"
+      },
+      "image_url": "https://assets.tarkov.dev/58864a4f2459770fcc257101-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/58864a4f2459770fcc257101.html"
+    },
+    {
+      "id": "5887431f2459777e1612938f",
+      "name": "7.62x54mm R LPS gzh",
+      "short_name": "LPS",
+      "caliber": "7.62x54",
+      "damage": 81.0,
+      "penetration_power": 42.0,
+      "armor_damage_percent": 78.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 865.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "7.62x54mm R LPS gzh",
+        "zh": "7.62x54R LPS Gzh"
+      },
+      "image_url": "https://assets.tarkov.dev/5887431f2459777e1612938f-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/5887431f2459777e1612938f.html"
+    },
+    {
+      "id": "58dd3ad986f77403051cba8f",
+      "name": "7.62x51mm M80",
+      "short_name": "M80",
+      "caliber": "7.62x51",
+      "damage": 80.0,
+      "penetration_power": 43.0,
+      "armor_damage_percent": 67.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 820.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [
+        "m80"
+      ],
+      "localized_names": {
+        "en": "7.62x51mm M80",
+        "zh": "7.62x51毫米 M80"
+      },
+      "image_url": "https://assets.tarkov.dev/58dd3ad986f77403051cba8f-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/58dd3ad986f77403051cba8f.html"
+    },
+    {
+      "id": "59e0d99486f7744a32234762",
+      "name": "7.62x39mm BP gzh",
+      "short_name": "BP",
+      "caliber": "7.62x39",
+      "damage": 58.0,
+      "penetration_power": 47.0,
+      "armor_damage_percent": 63.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 730.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [
+        "762bp"
+      ],
+      "localized_names": {
+        "en": "7.62x39mm BP gzh",
+        "zh": "7.62x39毫米 BP"
+      },
+      "image_url": "https://assets.tarkov.dev/59e0d99486f7744a32234762-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/59e0d99486f7744a32234762.html"
+    },
+    {
+      "id": "59e4cf5286f7741778269d8a",
+      "name": "7.62x39mm T-45M1 gzh",
+      "short_name": "T-45M1",
+      "caliber": "7.62x39",
+      "damage": 65.0,
+      "penetration_power": 30.0,
+      "armor_damage_percent": 46.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 720.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "7.62x39mm T-45M1 gzh",
+        "zh": "7.62x39毫米 T45M1"
+      },
+      "image_url": "https://assets.tarkov.dev/59e4cf5286f7741778269d8a-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/59e4cf5286f7741778269d8a.html"
+    },
+    {
+      "id": "59e4d24686f7741776641ac7",
+      "name": "7.62x39mm US gzh",
+      "short_name": "US",
+      "caliber": "7.62x39",
+      "damage": 56.0,
+      "penetration_power": 29.0,
+      "armor_damage_percent": 42.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 301.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "7.62x39mm US gzh",
+        "zh": "7.62x39毫米 US"
+      },
+      "image_url": "https://assets.tarkov.dev/59e4d24686f7741776641ac7-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/59e4d24686f7741776641ac7.html"
+    },
+    {
+      "id": "59e4d3d286f774176a36250a",
+      "name": "7.62x39mm HP",
+      "short_name": "HP",
+      "caliber": "7.62x39",
+      "damage": 80.0,
+      "penetration_power": 15.0,
+      "armor_damage_percent": 20.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 754.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "7.62x39mm HP",
+        "zh": "7.62x39毫米 HP"
+      },
+      "image_url": "https://assets.tarkov.dev/59e4d3d286f774176a36250a-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/59e4d3d286f774176a36250a.html"
+    },
+    {
+      "id": "59e6542b86f77411dc52a77a",
+      "name": ".366 TKM FMJ",
+      "short_name": "FMJ",
+      "caliber": ".366 TKM",
+      "damage": 98.0,
+      "penetration_power": 23.0,
+      "armor_damage_percent": 48.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 580.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": ".366 TKM FMJ",
+        "zh": ".366 TKM FMJ"
+      },
+      "image_url": "https://assets.tarkov.dev/59e6542b86f77411dc52a77a-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/59e6542b86f77411dc52a77a.html"
+    },
+    {
+      "id": "59e655cb86f77411dc52a77b",
+      "name": ".366 TKM EKO",
+      "short_name": "EKO",
+      "caliber": ".366 TKM",
+      "damage": 73.0,
+      "penetration_power": 30.0,
+      "armor_damage_percent": 40.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 770.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": ".366 TKM EKO",
+        "zh": ".366 TKM EKO"
+      },
+      "image_url": "https://assets.tarkov.dev/59e655cb86f77411dc52a77b-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/59e655cb86f77411dc52a77b.html"
+    },
+    {
+      "id": "59e6658b86f77411d949b250",
+      "name": ".366 TKM Geksa",
+      "short_name": "Geksa",
+      "caliber": ".366 TKM",
+      "damage": 110.0,
+      "penetration_power": 14.0,
+      "armor_damage_percent": 38.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 550.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": ".366 TKM Geksa",
+        "zh": ".366 TKM Geksa"
+      },
+      "image_url": "https://assets.tarkov.dev/59e6658b86f77411d949b250-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/59e6658b86f77411d949b250.html"
+    },
+    {
+      "id": "59e68f6f86f7746c9f75e846",
+      "name": "5.56x45mm M856",
+      "short_name": "M856",
+      "caliber": "5.56x45",
+      "damage": 60.0,
+      "penetration_power": 18.0,
+      "armor_damage_percent": 26.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 874.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "5.56x45mm M856",
+        "zh": "5.56x45毫米 M856"
+      },
+      "image_url": "https://assets.tarkov.dev/59e68f6f86f7746c9f75e846-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/59e68f6f86f7746c9f75e846.html"
+    },
+    {
+      "id": "59e6906286f7746c9f75e847",
+      "name": "5.56x45mm M856A1",
+      "short_name": "M856A1",
+      "caliber": "5.56x45",
+      "damage": 52.0,
+      "penetration_power": 38.0,
+      "armor_damage_percent": 44.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 940.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "5.56x45mm M856A1",
+        "zh": "5.56x45毫米 M856A1"
+      },
+      "image_url": "https://assets.tarkov.dev/59e6906286f7746c9f75e847-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/59e6906286f7746c9f75e847.html"
+    },
+    {
+      "id": "59e690b686f7746c9f75e848",
+      "name": "5.56x45mm M995",
+      "short_name": "M995",
+      "caliber": "5.56x45",
+      "damage": 42.0,
+      "penetration_power": 53.0,
+      "armor_damage_percent": 52.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 1013.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [
+        "m995"
+      ],
+      "localized_names": {
+        "en": "5.56x45mm M995",
+        "zh": "5.56x45毫米 M995"
+      },
+      "image_url": "https://assets.tarkov.dev/59e690b686f7746c9f75e848-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/59e690b686f7746c9f75e848.html"
+    },
+    {
+      "id": "59e6918f86f7746c9f75e849",
+      "name": "5.56x45mm MK 255 Mod 0 (RRLP)",
+      "short_name": "RRLP",
+      "caliber": "5.56x45",
+      "damage": 72.0,
+      "penetration_power": 11.0,
+      "armor_damage_percent": 24.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 936.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "5.56x45mm MK 255 Mod 0 (RRLP)",
+        "zh": "5.56x45毫米 Mk 255 Mod 0"
+      },
+      "image_url": "https://assets.tarkov.dev/59e6918f86f7746c9f75e849-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/59e6918f86f7746c9f75e849.html"
+    },
+    {
+      "id": "59e6920f86f77411d82aa167",
+      "name": "5.56x45mm FMJ",
+      "short_name": "FMJ",
+      "caliber": "5.56x45",
+      "damage": 57.0,
+      "penetration_power": 23.0,
+      "armor_damage_percent": 33.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 957.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "5.56x45mm FMJ",
+        "zh": "5.56x45毫米 55 FMJ"
+      },
+      "image_url": "https://assets.tarkov.dev/59e6920f86f77411d82aa167-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/59e6920f86f77411d82aa167.html"
+    },
+    {
+      "id": "59e6927d86f77411da468256",
+      "name": "5.56x45mm HP",
+      "short_name": "HP",
+      "caliber": "5.56x45",
+      "damage": 79.0,
+      "penetration_power": 7.0,
+      "armor_damage_percent": 22.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 947.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "5.56x45mm HP",
+        "zh": "5.56x45毫米 55 HP"
+      },
+      "image_url": "https://assets.tarkov.dev/59e6927d86f77411da468256-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/59e6927d86f77411da468256.html"
+    },
+    {
+      "id": "59e77a2386f7742ee578960a",
+      "name": "7.62x54mm R PS gzh",
+      "short_name": "PS",
+      "caliber": "7.62x54",
+      "damage": 84.0,
+      "penetration_power": 45.0,
+      "armor_damage_percent": 84.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 875.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "7.62x54mm R PS gzh",
+        "zh": "7.62x54R 7N1狙击弹"
+      },
+      "image_url": "https://assets.tarkov.dev/59e77a2386f7742ee578960a-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/59e77a2386f7742ee578960a.html"
+    },
+    {
+      "id": "5a269f97c4a282000b151807",
+      "name": "9x21mm PS gzh",
+      "short_name": "PS",
+      "caliber": "9x21",
+      "damage": 59.0,
+      "penetration_power": 22.0,
+      "armor_damage_percent": 39.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 410.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "9x21mm PS gzh",
+        "zh": "9x21毫米 SP10"
+      },
+      "image_url": "https://assets.tarkov.dev/5a269f97c4a282000b151807-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/5a269f97c4a282000b151807.html"
+    },
+    {
+      "id": "5a26abfac4a28232980eabff",
+      "name": "9x21mm P gzh",
+      "short_name": "P",
+      "caliber": "9x21",
+      "damage": 65.0,
+      "penetration_power": 18.0,
+      "armor_damage_percent": 44.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 413.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "9x21mm P gzh",
+        "zh": "9x21毫米 SP11"
+      },
+      "image_url": "https://assets.tarkov.dev/5a26abfac4a28232980eabff-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/5a26abfac4a28232980eabff.html"
+    },
+    {
+      "id": "5a26ac06c4a282000c5a90a8",
+      "name": "9x21mm PE gzh",
+      "short_name": "PE",
+      "caliber": "9x21",
+      "damage": 80.0,
+      "penetration_power": 15.0,
+      "armor_damage_percent": 63.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 415.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "9x21mm PE gzh",
+        "zh": "9x21毫米 SP12"
+      },
+      "image_url": "https://assets.tarkov.dev/5a26ac06c4a282000c5a90a8-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/5a26ac06c4a282000c5a90a8.html"
+    },
+    {
+      "id": "5a26ac0ec4a28200741e1e18",
+      "name": "9x21mm BT gzh",
+      "short_name": "BT",
+      "caliber": "9x21",
+      "damage": 52.0,
+      "penetration_power": 32.0,
+      "armor_damage_percent": 42.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 410.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "9x21mm BT gzh",
+        "zh": "9x21毫米 SP13"
+      },
+      "image_url": "https://assets.tarkov.dev/5a26ac0ec4a28200741e1e18-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/5a26ac0ec4a28200741e1e18.html"
+    },
+    {
+      "id": "5a38ebd9c4a282000d722a5b",
+      "name": "20/70 7.5mm buckshot",
+      "short_name": "7.5mm",
+      "caliber": "20/70",
+      "damage": 25.0,
+      "penetration_power": 3.0,
+      "armor_damage_percent": 14.0,
+      "projectile_count": 8,
+      "muzzle_velocity": 430.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "20/70 7.5mm buckshot",
+        "zh": "20/70 7.5毫米鹿弹"
+      },
+      "image_url": "https://assets.tarkov.dev/5a38ebd9c4a282000d722a5b-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/5a38ebd9c4a282000d722a5b.html"
+    },
+    {
+      "id": "5a3c16fe86f77452b62de32a",
+      "name": "9x19mm Luger CCI",
+      "short_name": "Luger CCI",
+      "caliber": "9x19",
+      "damage": 70.0,
+      "penetration_power": 10.0,
+      "armor_damage_percent": 38.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 420.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "9x19mm Luger CCI",
+        "zh": "9x19毫米 Luger CCI"
+      },
+      "image_url": "https://assets.tarkov.dev/5a3c16fe86f77452b62de32a-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/5a3c16fe86f77452b62de32a.html"
+    },
+    {
+      "id": "5a6086ea4f39f99cd479502f",
+      "name": "7.62x51mm M61",
+      "short_name": "M61",
+      "caliber": "7.62x51",
+      "damage": 73.0,
+      "penetration_power": 60.0,
+      "armor_damage_percent": 79.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 833.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "7.62x51mm M61",
+        "zh": "7.62x51毫米 M61"
+      },
+      "image_url": "https://assets.tarkov.dev/5a6086ea4f39f99cd479502f-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/5a6086ea4f39f99cd479502f.html"
+    },
+    {
+      "id": "5a608bf24f39f98ffc77720e",
+      "name": "7.62x51mm M62 Tracer",
+      "short_name": "M62",
+      "caliber": "7.62x51",
+      "damage": 82.0,
+      "penetration_power": 42.0,
+      "armor_damage_percent": 65.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 820.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "7.62x51mm M62 Tracer",
+        "zh": "7.62x51毫米 M62"
+      },
+      "image_url": "https://assets.tarkov.dev/5a608bf24f39f98ffc77720e-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/5a608bf24f39f98ffc77720e.html"
+    },
+    {
+      "id": "5ba2678ad4351e44f824b344",
+      "name": "4.6x30mm FMJ SX",
+      "short_name": "FMJ SX",
+      "caliber": "4.6x30",
+      "damage": 43.0,
+      "penetration_power": 40.0,
+      "armor_damage_percent": 41.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 620.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "4.6x30mm FMJ SX",
+        "zh": "4.6x30毫米 FMJ SX"
+      },
+      "image_url": "https://assets.tarkov.dev/5ba2678ad4351e44f824b344-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/5ba2678ad4351e44f824b344.html"
+    },
+    {
+      "id": "5ba26812d4351e003201fef1",
+      "name": "4.6x30mm Action SX",
+      "short_name": "Action SX",
+      "caliber": "4.6x30",
+      "damage": 65.0,
+      "penetration_power": 18.0,
+      "armor_damage_percent": 28.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 690.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "4.6x30mm Action SX",
+        "zh": "4.6x30毫米 Action SX"
+      },
+      "image_url": "https://assets.tarkov.dev/5ba26812d4351e003201fef1-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/5ba26812d4351e003201fef1.html"
+    },
+    {
+      "id": "5ba26835d4351e0035628ff5",
+      "name": "4.6x30mm AP SX",
+      "short_name": "AP SX",
+      "caliber": "4.6x30",
+      "damage": 35.0,
+      "penetration_power": 53.0,
+      "armor_damage_percent": 46.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 680.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "4.6x30mm AP SX",
+        "zh": "4.6x30毫米 AP SX"
+      },
+      "image_url": "https://assets.tarkov.dev/5ba26835d4351e0035628ff5-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/5ba26835d4351e0035628ff5.html"
+    },
+    {
+      "id": "5ba26844d4351e00334c9475",
+      "name": "4.6x30mm Subsonic SX",
+      "short_name": "Subsonic SX",
+      "caliber": "4.6x30",
+      "damage": 52.0,
+      "penetration_power": 23.0,
+      "armor_damage_percent": 33.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 290.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "4.6x30mm Subsonic SX",
+        "zh": "4.6x30毫米 Subsonic SX"
+      },
+      "image_url": "https://assets.tarkov.dev/5ba26844d4351e00334c9475-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/5ba26844d4351e00334c9475.html"
+    },
+    {
+      "id": "5c0d56a986f774449d5de529",
+      "name": "9x19mm RIP",
+      "short_name": "RIP",
+      "caliber": "9x19",
+      "damage": 102.0,
+      "penetration_power": 2.0,
+      "armor_damage_percent": 11.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 381.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "9x19mm RIP",
+        "zh": "9x19毫米 RIP"
+      },
+      "image_url": "https://assets.tarkov.dev/5c0d56a986f774449d5de529-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/5c0d56a986f774449d5de529.html"
+    },
+    {
+      "id": "5c0d591486f7744c505b416f",
+      "name": "12/70 RIP",
+      "short_name": "RIP",
+      "caliber": "12/70",
+      "damage": 265.0,
+      "penetration_power": 2.0,
+      "armor_damage_percent": 11.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 410.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "12/70 RIP",
+        "zh": "12/70 RIP"
+      },
+      "image_url": "https://assets.tarkov.dev/5c0d591486f7744c505b416f-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/5c0d591486f7744c505b416f.html"
+    },
+    {
+      "id": "5c0d5ae286f7741e46554302",
+      "name": "5.56x45mm Warmageddon",
+      "short_name": "Warmage",
+      "caliber": "5.56x45",
+      "damage": 88.0,
+      "penetration_power": 3.0,
+      "armor_damage_percent": 11.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 936.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "5.56x45mm Warmageddon",
+        "zh": "5.56x45毫米 Warmage"
+      },
+      "image_url": "https://assets.tarkov.dev/5c0d5ae286f7741e46554302-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/5c0d5ae286f7741e46554302.html"
+    },
+    {
+      "id": "5c0d5e4486f77478390952fe",
+      "name": "5.45x39mm PPBS gs Igolnik",
+      "short_name": "PPBS",
+      "caliber": "5.45x39",
+      "damage": 37.0,
+      "penetration_power": 62.0,
+      "armor_damage_percent": 59.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 905.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "5.45x39mm PPBS gs Igolnik",
+        "zh": "5.45x39毫米 7N39“针刺”"
+      },
+      "image_url": "https://assets.tarkov.dev/5c0d5e4486f77478390952fe-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/5c0d5e4486f77478390952fe.html"
+    },
+    {
+      "id": "5c0d668f86f7747ccb7f13b2",
+      "name": "9x39mm SPP gs",
+      "short_name": "SPP",
+      "caliber": "9x39",
+      "damage": 68.0,
+      "penetration_power": 35.0,
+      "armor_damage_percent": 48.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 310.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "9x39mm SPP gs",
+        "zh": "9x39毫米 7N9 SPP"
+      },
+      "image_url": "https://assets.tarkov.dev/5c0d668f86f7747ccb7f13b2-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/5c0d668f86f7747ccb7f13b2.html"
+    },
+    {
+      "id": "5c0d688c86f77413ae3407b2",
+      "name": "9x39mm BP gs",
+      "short_name": "BP",
+      "caliber": "9x39",
+      "damage": 58.0,
+      "penetration_power": 54.0,
+      "armor_damage_percent": 69.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 295.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "9x39mm BP gs",
+        "zh": "9x39毫米 BP"
+      },
+      "image_url": "https://assets.tarkov.dev/5c0d688c86f77413ae3407b2-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/5c0d688c86f77413ae3407b2.html"
+    },
+    {
+      "id": "5c3df7d588a4501f290594e5",
+      "name": "9x19mm Green Tracer",
+      "short_name": "T",
+      "caliber": "9x19",
+      "damage": 58.0,
+      "penetration_power": 14.0,
+      "armor_damage_percent": 33.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 365.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "9x19mm Green Tracer",
+        "zh": "9x19毫米 绿色曳光弹"
+      },
+      "image_url": "https://assets.tarkov.dev/5c3df7d588a4501f290594e5-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/5c3df7d588a4501f290594e5.html"
+    },
+    {
+      "id": "5c925fa22e221601da359b7b",
+      "name": "9x19mm AP 6.3",
+      "short_name": "AP 6.3",
+      "caliber": "9x19",
+      "damage": 52.0,
+      "penetration_power": 30.0,
+      "armor_damage_percent": 48.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 392.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "9x19mm AP 6.3",
+        "zh": "9x19毫米 AP 6.3"
+      },
+      "image_url": "https://assets.tarkov.dev/5c925fa22e221601da359b7b-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/5c925fa22e221601da359b7b.html"
+    },
+    {
+      "id": "5cadf6ddae9215051e1c23b2",
+      "name": "12.7x55mm PS12",
+      "short_name": "PS12",
+      "caliber": "12.7x55",
+      "damage": 115.0,
+      "penetration_power": 28.0,
+      "armor_damage_percent": 60.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 300.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "12.7x55mm PS12",
+        "zh": "12.7x55毫米 PS12"
+      },
+      "image_url": "https://assets.tarkov.dev/5cadf6ddae9215051e1c23b2-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/5cadf6ddae9215051e1c23b2.html"
+    },
+    {
+      "id": "5cadf6e5ae921500113bb973",
+      "name": "12.7x55mm PS12A",
+      "short_name": "PS12A",
+      "caliber": "12.7x55",
+      "damage": 165.0,
+      "penetration_power": 10.0,
+      "armor_damage_percent": 22.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 870.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "12.7x55mm PS12A",
+        "zh": "12.7x55毫米 PS12A"
+      },
+      "image_url": "https://assets.tarkov.dev/5cadf6e5ae921500113bb973-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/5cadf6e5ae921500113bb973.html"
+    },
+    {
+      "id": "5cadf6eeae921500134b2799",
+      "name": "12.7x55mm PS12B",
+      "short_name": "PS12B",
+      "caliber": "12.7x55",
+      "damage": 102.0,
+      "penetration_power": 46.0,
+      "armor_damage_percent": 57.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 570.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "12.7x55mm PS12B",
+        "zh": "12.7x55毫米 PS12B"
+      },
+      "image_url": "https://assets.tarkov.dev/5cadf6eeae921500134b2799-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/5cadf6eeae921500134b2799.html"
+    },
+    {
+      "id": "5cc80f38e4a949001152b560",
+      "name": "5.7x28mm SS190",
+      "short_name": "SS190",
+      "caliber": "5.7x28",
+      "damage": 49.0,
+      "penetration_power": 37.0,
+      "armor_damage_percent": 43.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 715.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "5.7x28mm SS190",
+        "zh": "5.7x28毫米 SS190"
+      },
+      "image_url": "https://assets.tarkov.dev/5cc80f38e4a949001152b560-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/5cc80f38e4a949001152b560.html"
+    },
+    {
+      "id": "5cc80f53e4a949000e1ea4f8",
+      "name": "5.7x28mm L191",
+      "short_name": "L191",
+      "caliber": "5.7x28",
+      "damage": 53.0,
+      "penetration_power": 33.0,
+      "armor_damage_percent": 41.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 715.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "5.7x28mm L191",
+        "zh": "5.7x28毫米 L191"
+      },
+      "image_url": "https://assets.tarkov.dev/5cc80f53e4a949000e1ea4f8-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/5cc80f53e4a949000e1ea4f8.html"
+    },
+    {
+      "id": "5cc80f67e4a949035e43bbba",
+      "name": "5.7x28mm SB193",
+      "short_name": "SB193",
+      "caliber": "5.7x28",
+      "damage": 59.0,
+      "penetration_power": 27.0,
+      "armor_damage_percent": 37.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 299.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "5.7x28mm SB193",
+        "zh": "5.7x28毫米 SB193"
+      },
+      "image_url": "https://assets.tarkov.dev/5cc80f67e4a949035e43bbba-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/5cc80f67e4a949035e43bbba.html"
+    },
+    {
+      "id": "5cc80f79e4a949033c7343b2",
+      "name": "5.7x28mm SS198LF",
+      "short_name": "SS198LF",
+      "caliber": "5.7x28",
+      "damage": 70.0,
+      "penetration_power": 17.0,
+      "armor_damage_percent": 19.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 792.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "5.7x28mm SS198LF",
+        "zh": "5.7x28毫米 SS198LF"
+      },
+      "image_url": "https://assets.tarkov.dev/5cc80f79e4a949033c7343b2-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/5cc80f79e4a949033c7343b2.html"
+    },
+    {
+      "id": "5cc80f8fe4a949033b0224a2",
+      "name": "5.7x28mm SS197SR",
+      "short_name": "SS197SR",
+      "caliber": "5.7x28",
+      "damage": 62.0,
+      "penetration_power": 25.0,
+      "armor_damage_percent": 22.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 594.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "5.7x28mm SS197SR",
+        "zh": "5.7x28毫米 SS197SR"
+      },
+      "image_url": "https://assets.tarkov.dev/5cc80f8fe4a949033b0224a2-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/5cc80f8fe4a949033b0224a2.html"
+    },
+    {
+      "id": "5cc86832d7f00c000d3a6e6c",
+      "name": "5.7x28mm R37.F",
+      "short_name": "R37.F",
+      "caliber": "5.7x28",
+      "damage": 98.0,
+      "penetration_power": 8.0,
+      "armor_damage_percent": 7.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 729.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "5.7x28mm R37.F",
+        "zh": "5.7x28毫米 R37.F"
+      },
+      "image_url": "https://assets.tarkov.dev/5cc86832d7f00c000d3a6e6c-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/5cc86832d7f00c000d3a6e6c.html"
+    },
+    {
+      "id": "5cc86840d7f00c002412c56c",
+      "name": "5.7x28mm R37.X",
+      "short_name": "R37.X",
+      "caliber": "5.7x28",
+      "damage": 81.0,
+      "penetration_power": 11.0,
+      "armor_damage_percent": 9.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 724.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "5.7x28mm R37.X",
+        "zh": "5.7x28毫米 R37.X"
+      },
+      "image_url": "https://assets.tarkov.dev/5cc86840d7f00c002412c56c-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/5cc86840d7f00c002412c56c.html"
+    },
+    {
+      "id": "5d6e6772a4b936088465b17c",
+      "name": "12/70 5.25mm buckshot",
+      "short_name": "5.25mm",
+      "caliber": "12/70",
+      "damage": 37.0,
+      "penetration_power": 1.0,
+      "armor_damage_percent": 15.0,
+      "projectile_count": 8,
+      "muzzle_velocity": 330.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "12/70 5.25mm buckshot",
+        "zh": "12/70 5.25毫米鹿弹"
+      },
+      "image_url": "https://assets.tarkov.dev/5d6e6772a4b936088465b17c-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/5d6e6772a4b936088465b17c.html"
+    },
+    {
+      "id": "5d6e67fba4b9361bc73bc779",
+      "name": "12/70 6.5mm Express buckshot",
+      "short_name": "Express",
+      "caliber": "12/70",
+      "damage": 35.0,
+      "penetration_power": 3.0,
+      "armor_damage_percent": 26.0,
+      "projectile_count": 9,
+      "muzzle_velocity": 430.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "12/70 6.5mm Express buckshot",
+        "zh": "12/70 Express 6.5 毫米鹿弹"
+      },
+      "image_url": "https://assets.tarkov.dev/5d6e67fba4b9361bc73bc779-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/5d6e67fba4b9361bc73bc779.html"
+    },
+    {
+      "id": "5d6e6806a4b936088465b17e",
+      "name": "12/70 8.5mm Magnum buckshot",
+      "short_name": "Magnum",
+      "caliber": "12/70",
+      "damage": 50.0,
+      "penetration_power": 2.0,
+      "armor_damage_percent": 26.0,
+      "projectile_count": 8,
+      "muzzle_velocity": 385.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [
+        "buckshot"
+      ],
+      "localized_names": {
+        "en": "12/70 8.5mm Magnum buckshot",
+        "zh": "12/70 Magnum 8.5 毫米鹿弹"
+      },
+      "image_url": "https://assets.tarkov.dev/5d6e6806a4b936088465b17e-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/5d6e6806a4b936088465b17e.html"
+    },
+    {
+      "id": "5d6e6869a4b9361c140bcfde",
+      "name": "12/70 Grizzly 40 slug",
+      "short_name": "Grizzly 40",
+      "caliber": "12/70",
+      "damage": 190.0,
+      "penetration_power": 12.0,
+      "armor_damage_percent": 48.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 390.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "12/70 Grizzly 40 slug",
+        "zh": "12/70 Grizzly 40独头弹"
+      },
+      "image_url": "https://assets.tarkov.dev/5d6e6869a4b9361c140bcfde-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/5d6e6869a4b9361c140bcfde.html"
+    },
+    {
+      "id": "5d6e6891a4b9361bd473feea",
+      "name": "12/70 Poleva-3 slug",
+      "short_name": "Poleva-3",
+      "caliber": "12/70",
+      "damage": 140.0,
+      "penetration_power": 17.0,
+      "armor_damage_percent": 40.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 410.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "12/70 Poleva-3 slug",
+        "zh": "12/70 Poleva-3 独头弹"
+      },
+      "image_url": "https://assets.tarkov.dev/5d6e6891a4b9361bd473feea-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/5d6e6891a4b9361bd473feea.html"
+    },
+    {
+      "id": "5d6e689ca4b9361bc8618956",
+      "name": "12/70 Poleva-6u slug",
+      "short_name": "Poleva-6u",
+      "caliber": "12/70",
+      "damage": 150.0,
+      "penetration_power": 20.0,
+      "armor_damage_percent": 50.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 430.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "12/70 Poleva-6u slug",
+        "zh": "12/70 Poleva-6U 独头弹"
+      },
+      "image_url": "https://assets.tarkov.dev/5d6e689ca4b9361bc8618956-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/5d6e689ca4b9361bc8618956.html"
+    },
+    {
+      "id": "5d6e68a8a4b9360b6c0d54e2",
+      "name": "12/70 AP-20 armor-piercing slug",
+      "short_name": "AP-20",
+      "caliber": "12/70",
+      "damage": 164.0,
+      "penetration_power": 37.0,
+      "armor_damage_percent": 65.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 510.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [
+        "ap20",
+        "ap20",
+        "穿甲独头",
+        "armor-piercing"
+      ],
+      "localized_names": {
+        "en": "12/70 AP-20 armor-piercing slug",
+        "zh": "12/70 AP-20独头弹"
+      },
+      "image_url": "https://assets.tarkov.dev/5d6e68a8a4b9360b6c0d54e2-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/5d6e68a8a4b9360b6c0d54e2.html"
+    },
+    {
+      "id": "5d6e68b3a4b9361bca7e50b5",
+      "name": "12/70 Copper Sabot Premier HP slug",
+      "short_name": "CSP",
+      "caliber": "12/70",
+      "damage": 206.0,
+      "penetration_power": 14.0,
+      "armor_damage_percent": 46.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 442.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "12/70 Copper Sabot Premier HP slug",
+        "zh": "12/70 Copper Sabot Premier 空尖独头弹"
+      },
+      "image_url": "https://assets.tarkov.dev/5d6e68b3a4b9361bca7e50b5-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/5d6e68b3a4b9361bca7e50b5.html"
+    },
+    {
+      "id": "5d6e68c4a4b9361b93413f79",
+      "name": "12/70 makeshift .50 BMG slug",
+      "short_name": ".50 BMG",
+      "caliber": "12/70",
+      "damage": 197.0,
+      "penetration_power": 26.0,
+      "armor_damage_percent": 57.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 410.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "12/70 makeshift .50 BMG slug",
+        "zh": "12/70 .50 BMG 简易独头弹"
+      },
+      "image_url": "https://assets.tarkov.dev/5d6e68c4a4b9361b93413f79-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/5d6e68c4a4b9361b93413f79.html"
+    },
+    {
+      "id": "5d6e68d1a4b93622fe60e845",
+      "name": "12/70 SuperFormance HP slug",
+      "short_name": "SFormance",
+      "caliber": "12/70",
+      "damage": 220.0,
+      "penetration_power": 5.0,
+      "armor_damage_percent": 12.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 594.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "12/70 SuperFormance HP slug",
+        "zh": "12/70 SuperFormance 空尖独头弹"
+      },
+      "image_url": "https://assets.tarkov.dev/5d6e68d1a4b93622fe60e845-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/5d6e68d1a4b93622fe60e845.html"
+    },
+    {
+      "id": "5d6e68dea4b9361bcc29e659",
+      "name": "12/70 Dual Sabot slug",
+      "short_name": "DualSabot",
+      "caliber": "12/70",
+      "damage": 85.0,
+      "penetration_power": 17.0,
+      "armor_damage_percent": 65.0,
+      "projectile_count": 2,
+      "muzzle_velocity": 415.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "12/70 Dual Sabot slug",
+        "zh": "12/70 Dual Sabot 独头弹"
+      },
+      "image_url": "https://assets.tarkov.dev/5d6e68dea4b9361bcc29e659-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/5d6e68dea4b9361bcc29e659.html"
+    },
+    {
+      "id": "5d6e68e6a4b9361c140bcfe0",
+      "name": "12/70 FTX Custom Lite slug",
+      "short_name": "FTX",
+      "caliber": "12/70",
+      "damage": 183.0,
+      "penetration_power": 20.0,
+      "armor_damage_percent": 50.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 480.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "12/70 FTX Custom Lite slug",
+        "zh": "12/70 FTX Custom Lite独头弹"
+      },
+      "image_url": "https://assets.tarkov.dev/5d6e68e6a4b9361c140bcfe0-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/5d6e68e6a4b9361c140bcfe0.html"
+    },
+    {
+      "id": "5d6e6911a4b9361bd5780d52",
+      "name": "12/70 flechette",
+      "short_name": "Flechette",
+      "caliber": "12/70",
+      "damage": 25.0,
+      "penetration_power": 31.0,
+      "armor_damage_percent": 26.0,
+      "projectile_count": 8,
+      "muzzle_velocity": 320.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "12/70 flechette",
+        "zh": "12/70 箭形弹"
+      },
+      "image_url": "https://assets.tarkov.dev/5d6e6911a4b9361bd5780d52-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/5d6e6911a4b9361bd5780d52.html"
+    },
+    {
+      "id": "5d6e695fa4b936359b35d852",
+      "name": "20/70 5.6mm buckshot",
+      "short_name": "5.6mm",
+      "caliber": "20/70",
+      "damage": 26.0,
+      "penetration_power": 1.0,
+      "armor_damage_percent": 12.0,
+      "projectile_count": 8,
+      "muzzle_velocity": 340.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "20/70 5.6mm buckshot",
+        "zh": "20/70 5.6毫米鹿弹"
+      },
+      "image_url": "https://assets.tarkov.dev/5d6e695fa4b936359b35d852-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/5d6e695fa4b936359b35d852.html"
+    },
+    {
+      "id": "5d6e69b9a4b9361bc8618958",
+      "name": "20/70 6.2mm buckshot",
+      "short_name": "6.2mm",
+      "caliber": "20/70",
+      "damage": 22.0,
+      "penetration_power": 2.0,
+      "armor_damage_percent": 13.0,
+      "projectile_count": 8,
+      "muzzle_velocity": 410.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "20/70 6.2mm buckshot",
+        "zh": "20/70 6.2毫米鹿弹"
+      },
+      "image_url": "https://assets.tarkov.dev/5d6e69b9a4b9361bc8618958-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/5d6e69b9a4b9361bc8618958.html"
+    },
+    {
+      "id": "5d6e69c7a4b9360b6c0d54e4",
+      "name": "20/70 7.3mm buckshot",
+      "short_name": "7.3mm",
+      "caliber": "20/70",
+      "damage": 23.0,
+      "penetration_power": 3.0,
+      "armor_damage_percent": 13.0,
+      "projectile_count": 9,
+      "muzzle_velocity": 475.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "20/70 7.3mm buckshot",
+        "zh": "20/70 7.3毫米鹿弹"
+      },
+      "image_url": "https://assets.tarkov.dev/5d6e69c7a4b9360b6c0d54e4-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/5d6e69c7a4b9360b6c0d54e4.html"
+    },
+    {
+      "id": "5d6e6a05a4b93618084f58d0",
+      "name": "20/70 Star slug",
+      "short_name": "Star",
+      "caliber": "20/70",
+      "damage": 154.0,
+      "penetration_power": 16.0,
+      "armor_damage_percent": 42.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 415.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "20/70 Star slug",
+        "zh": "20/70 Star独头弹"
+      },
+      "image_url": "https://assets.tarkov.dev/5d6e6a05a4b93618084f58d0-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/5d6e6a05a4b93618084f58d0.html"
+    },
+    {
+      "id": "5d6e6a42a4b9364f07165f52",
+      "name": "20/70 Poleva-6u slug",
+      "short_name": "Poleva-6u",
+      "caliber": "20/70",
+      "damage": 135.0,
+      "penetration_power": 17.0,
+      "armor_damage_percent": 40.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 445.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "20/70 Poleva-6u slug",
+        "zh": "20/70 Poleva-6U 独头弹"
+      },
+      "image_url": "https://assets.tarkov.dev/5d6e6a42a4b9364f07165f52-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/5d6e6a42a4b9364f07165f52.html"
+    },
+    {
+      "id": "5d6e6a53a4b9361bd473feec",
+      "name": "20/70 Poleva-3 slug",
+      "short_name": "Poleva-3",
+      "caliber": "20/70",
+      "damage": 120.0,
+      "penetration_power": 14.0,
+      "armor_damage_percent": 35.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 425.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "20/70 Poleva-3 slug",
+        "zh": "20/70 Poleva-3 独头弹"
+      },
+      "image_url": "https://assets.tarkov.dev/5d6e6a53a4b9361bd473feec-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/5d6e6a53a4b9361bd473feec.html"
+    },
+    {
+      "id": "5d6e6a5fa4b93614ec501745",
+      "name": "20/70 Devastator slug",
+      "short_name": "Devastator",
+      "caliber": "20/70",
+      "damage": 198.0,
+      "penetration_power": 5.0,
+      "armor_damage_percent": 13.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 405.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "20/70 Devastator slug",
+        "zh": "20/70 Devastator独头弹"
+      },
+      "image_url": "https://assets.tarkov.dev/5d6e6a5fa4b93614ec501745-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/5d6e6a5fa4b93614ec501745.html"
+    },
+    {
+      "id": "5e023cf8186a883be655e54f",
+      "name": "7.62x54mm R T-46M gzh",
+      "short_name": "T-46M",
+      "caliber": "7.62x54",
+      "damage": 82.0,
+      "penetration_power": 41.0,
+      "armor_damage_percent": 83.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 800.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "7.62x54mm R T-46M gzh",
+        "zh": "7.62x54R T-46M"
+      },
+      "image_url": "https://assets.tarkov.dev/5e023cf8186a883be655e54f-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/5e023cf8186a883be655e54f.html"
+    },
+    {
+      "id": "5e023d34e8a400319a28ed44",
+      "name": "7.62x54mm R BT gzh",
+      "short_name": "BT",
+      "caliber": "7.62x54",
+      "damage": 78.0,
+      "penetration_power": 55.0,
+      "armor_damage_percent": 87.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 875.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "7.62x54mm R BT gzh",
+        "zh": "7.62x54R 7BT1"
+      },
+      "image_url": "https://assets.tarkov.dev/5e023d34e8a400319a28ed44-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/5e023d34e8a400319a28ed44.html"
+    },
+    {
+      "id": "5e023d48186a883be655e551",
+      "name": "7.62x54mm R BS gs",
+      "short_name": "BS",
+      "caliber": "7.62x54",
+      "damage": 72.0,
+      "penetration_power": 70.0,
+      "armor_damage_percent": 88.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 785.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "7.62x54mm R BS gs",
+        "zh": "7.62x54R 7N37"
+      },
+      "image_url": "https://assets.tarkov.dev/5e023d48186a883be655e551-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/5e023d48186a883be655e551.html"
+    },
+    {
+      "id": "5e023e53d4353e3302577c4c",
+      "name": "7.62x51mm BCP FMJ",
+      "short_name": "BCP FMJ",
+      "caliber": "7.62x51",
+      "damage": 83.0,
+      "penetration_power": 37.0,
+      "armor_damage_percent": 56.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 840.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "7.62x51mm BCP FMJ",
+        "zh": "7.62x51毫米 BPZ FMJ"
+      },
+      "image_url": "https://assets.tarkov.dev/5e023e53d4353e3302577c4c-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/5e023e53d4353e3302577c4c.html"
+    },
+    {
+      "id": "5e023e6e34d52a55c3304f71",
+      "name": "7.62x51mm TCW SP",
+      "short_name": "TCW SP",
+      "caliber": "7.62x51",
+      "damage": 85.0,
+      "penetration_power": 30.0,
+      "armor_damage_percent": 25.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 800.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "7.62x51mm TCW SP",
+        "zh": "7.62x51毫米 TCW SP"
+      },
+      "image_url": "https://assets.tarkov.dev/5e023e6e34d52a55c3304f71-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/5e023e6e34d52a55c3304f71.html"
+    },
+    {
+      "id": "5e023e88277cce2b522ff2b1",
+      "name": "7.62x51mm Ultra Nosler",
+      "short_name": "Ultra Nosler",
+      "caliber": "7.62x51",
+      "damage": 105.0,
+      "penetration_power": 15.0,
+      "armor_damage_percent": 40.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 800.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "7.62x51mm Ultra Nosler",
+        "zh": "7.62x51毫米 Ultra Nosler"
+      },
+      "image_url": "https://assets.tarkov.dev/5e023e88277cce2b522ff2b1-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/5e023e88277cce2b522ff2b1.html"
+    },
+    {
+      "id": "5e81f423763d9f754677bf2e",
+      "name": ".45 ACP Match FMJ",
+      "short_name": "FMJ",
+      "caliber": ".45 ACP",
+      "damage": 72.0,
+      "penetration_power": 25.0,
+      "armor_damage_percent": 36.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 340.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": ".45 ACP Match FMJ",
+        "zh": ".45 ACP FMJ"
+      },
+      "image_url": "https://assets.tarkov.dev/5e81f423763d9f754677bf2e-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/5e81f423763d9f754677bf2e.html"
+    },
+    {
+      "id": "5e85a9a6eacf8c039e4e2ac1",
+      "name": "23x75mm Shrapnel-10 buckshot",
+      "short_name": "Shrap-10",
+      "caliber": "23x75",
+      "damage": 87.0,
+      "penetration_power": 11.0,
+      "armor_damage_percent": 20.0,
+      "projectile_count": 8,
+      "muzzle_velocity": 270.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "23x75mm Shrapnel-10 buckshot",
+        "zh": "23x75 毫米“破片-10”霰弹"
+      },
+      "image_url": "https://assets.tarkov.dev/5e85a9a6eacf8c039e4e2ac1-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/5e85a9a6eacf8c039e4e2ac1.html"
+    },
+    {
+      "id": "5e85a9f4add9fe03027d9bf1",
+      "name": "23x75mm Zvezda flashbang round",
+      "short_name": "Zvezda",
+      "caliber": "23x75",
+      "damage": 0.0,
+      "penetration_power": 0.0,
+      "armor_damage_percent": 0.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 80.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "23x75mm Zvezda flashbang round",
+        "zh": "23x75 毫米“红星”闪光弹"
+      },
+      "image_url": "https://assets.tarkov.dev/5e85a9f4add9fe03027d9bf1-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/5e85a9f4add9fe03027d9bf1.html"
+    },
+    {
+      "id": "5e85aa1a988a8701445df1f5",
+      "name": "23x75mm Barrikada slug",
+      "short_name": "Barrikada",
+      "caliber": "23x75",
+      "damage": 192.0,
+      "penetration_power": 39.0,
+      "armor_damage_percent": 75.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 420.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "23x75mm Barrikada slug",
+        "zh": "23x75 毫米破障独头弹"
+      },
+      "image_url": "https://assets.tarkov.dev/5e85aa1a988a8701445df1f5-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/5e85aa1a988a8701445df1f5.html"
+    },
+    {
+      "id": "5ea2a8e200685063ec28c05a",
+      "name": ".45 ACP RIP",
+      "short_name": "RIP",
+      "caliber": ".45 ACP",
+      "damage": 130.0,
+      "penetration_power": 3.0,
+      "armor_damage_percent": 12.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 293.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": ".45 ACP RIP",
+        "zh": ".45 RIP"
+      },
+      "image_url": "https://assets.tarkov.dev/5ea2a8e200685063ec28c05a-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/5ea2a8e200685063ec28c05a.html"
+    },
+    {
+      "id": "5efb0c1bd79ff02a1f5e68d9",
+      "name": "7.62x51mm M993",
+      "short_name": "M993",
+      "caliber": "7.62x51",
+      "damage": 70.0,
+      "penetration_power": 65.0,
+      "armor_damage_percent": 85.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 930.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "7.62x51mm M993",
+        "zh": "7.62x51 毫米 M993"
+      },
+      "image_url": "https://assets.tarkov.dev/5efb0c1bd79ff02a1f5e68d9-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/5efb0c1bd79ff02a1f5e68d9.html"
+    },
+    {
+      "id": "5efb0cabfb3e451d70735af5",
+      "name": ".45 ACP AP",
+      "short_name": "AP",
+      "caliber": ".45 ACP",
+      "damage": 66.0,
+      "penetration_power": 38.0,
+      "armor_damage_percent": 48.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 299.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": ".45 ACP AP",
+        "zh": ".45 ACP AP"
+      },
+      "image_url": "https://assets.tarkov.dev/5efb0cabfb3e451d70735af5-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/5efb0cabfb3e451d70735af5.html"
+    },
+    {
+      "id": "5efb0d4f4bc50b58e81710f3",
+      "name": ".45 ACP Lasermatch FMJ",
+      "short_name": "Lasermatch",
+      "caliber": ".45 ACP",
+      "damage": 76.0,
+      "penetration_power": 19.0,
+      "armor_damage_percent": 37.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 290.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": ".45 ACP Lasermatch FMJ",
+        "zh": ".45 ACP Lasermatch FMJ"
+      },
+      "image_url": "https://assets.tarkov.dev/5efb0d4f4bc50b58e81710f3-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/5efb0d4f4bc50b58e81710f3.html"
+    },
+    {
+      "id": "5efb0da7a29a85116f6ea05f",
+      "name": "9x19mm PBP gzh",
+      "short_name": "PBP",
+      "caliber": "9x19",
+      "damage": 44.0,
+      "penetration_power": 39.0,
+      "armor_damage_percent": 55.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 560.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "9x19mm PBP gzh",
+        "zh": "9x19 毫米 7N31"
+      },
+      "image_url": "https://assets.tarkov.dev/5efb0da7a29a85116f6ea05f-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/5efb0da7a29a85116f6ea05f.html"
+    },
+    {
+      "id": "5efb0e16aeb21837e749c7ff",
+      "name": "9x19mm QuakeMaker",
+      "short_name": "QuakeMaker",
+      "caliber": "9x19",
+      "damage": 85.0,
+      "penetration_power": 8.0,
+      "armor_damage_percent": 22.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 290.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "9x19mm QuakeMaker",
+        "zh": "9x19 毫米 QuakeMaker"
+      },
+      "image_url": "https://assets.tarkov.dev/5efb0e16aeb21837e749c7ff-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/5efb0e16aeb21837e749c7ff.html"
+    },
+    {
+      "id": "5efb0fc6aeb21837e749c801",
+      "name": ".45 ACP Hydra-Shok",
+      "short_name": "HydraShok",
+      "caliber": ".45 ACP",
+      "damage": 100.0,
+      "penetration_power": 13.0,
+      "armor_damage_percent": 30.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 274.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": ".45 ACP Hydra-Shok",
+        "zh": ".45 ACP Hydra-Shok"
+      },
+      "image_url": "https://assets.tarkov.dev/5efb0fc6aeb21837e749c801-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/5efb0fc6aeb21837e749c801.html"
+    },
+    {
+      "id": "5f0596629e22f464da6bbdd9",
+      "name": ".366 TKM AP-M",
+      "short_name": "AP-M",
+      "caliber": ".366 TKM",
+      "damage": 90.0,
+      "penetration_power": 42.0,
+      "armor_damage_percent": 60.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 602.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": ".366 TKM AP-M",
+        "zh": ".366 AP"
+      },
+      "image_url": "https://assets.tarkov.dev/5f0596629e22f464da6bbdd9-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/5f0596629e22f464da6bbdd9.html"
+    },
+    {
+      "id": "5f647f31b6238e5dd066e196",
+      "name": "23x75mm Shrapnel-25 buckshot",
+      "short_name": "Shrap-25",
+      "caliber": "23x75",
+      "damage": 78.0,
+      "penetration_power": 10.0,
+      "armor_damage_percent": 20.0,
+      "projectile_count": 8,
+      "muzzle_velocity": 375.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "23x75mm Shrapnel-25 buckshot",
+        "zh": "23x75 毫米“破片-25”霰弹"
+      },
+      "image_url": "https://assets.tarkov.dev/5f647f31b6238e5dd066e196-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/5f647f31b6238e5dd066e196.html"
+    },
+    {
+      "id": "5fbe3ffdf8b6a877a729ea82",
+      "name": ".300 Blackout BCP FMJ",
+      "short_name": "BCP FMJ",
+      "caliber": ".300 BLK",
+      "damage": 60.0,
+      "penetration_power": 30.0,
+      "armor_damage_percent": 36.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 605.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": ".300 Blackout BCP FMJ",
+        "zh": ".300 Blackout BPZ FMJ"
+      },
+      "image_url": "https://assets.tarkov.dev/5fbe3ffdf8b6a877a729ea82-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/5fbe3ffdf8b6a877a729ea82.html"
+    },
+    {
+      "id": "5fc275cf85fd526b824a571a",
+      "name": ".338 Lapua Magnum FMJ",
+      "short_name": "FMJ",
+      "caliber": ".338 Lapua Magnum",
+      "damage": 122.0,
+      "penetration_power": 47.0,
+      "armor_damage_percent": 83.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 900.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": ".338 Lapua Magnum FMJ",
+        "zh": ".338 Lapua Magnum FMJ"
+      },
+      "image_url": "https://assets.tarkov.dev/5fc275cf85fd526b824a571a-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/5fc275cf85fd526b824a571a.html"
+    },
+    {
+      "id": "5fc382a9d724d907e2077dab",
+      "name": ".338 Lapua Magnum AP",
+      "short_name": "AP",
+      "caliber": ".338 Lapua Magnum",
+      "damage": 115.0,
+      "penetration_power": 79.0,
+      "armor_damage_percent": 89.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 849.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": ".338 Lapua Magnum AP",
+        "zh": ".338 Lapua Magnum AP"
+      },
+      "image_url": "https://assets.tarkov.dev/5fc382a9d724d907e2077dab-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/5fc382a9d724d907e2077dab.html"
+    },
+    {
+      "id": "5fc382b6d6fa9c00c571bbc3",
+      "name": ".338 Lapua Magnum TAC-X",
+      "short_name": "TAC-X",
+      "caliber": ".338 Lapua Magnum",
+      "damage": 196.0,
+      "penetration_power": 18.0,
+      "armor_damage_percent": 55.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 880.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": ".338 Lapua Magnum TAC-X",
+        "zh": ".338 Lapua Magnum TAC-X"
+      },
+      "image_url": "https://assets.tarkov.dev/5fc382b6d6fa9c00c571bbc3-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/5fc382b6d6fa9c00c571bbc3.html"
+    },
+    {
+      "id": "5fc382c1016cce60e8341b20",
+      "name": ".338 Lapua Magnum UCW",
+      "short_name": "UCW",
+      "caliber": ".338 Lapua Magnum",
+      "damage": 142.0,
+      "penetration_power": 32.0,
+      "armor_damage_percent": 70.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 849.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": ".338 Lapua Magnum UCW",
+        "zh": ".338 UPZ Lapua Magnum"
+      },
+      "image_url": "https://assets.tarkov.dev/5fc382c1016cce60e8341b20-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/5fc382c1016cce60e8341b20.html"
+    },
+    {
+      "id": "5fd20ff893a8961fc660a954",
+      "name": ".300 Blackout AP",
+      "short_name": "AP",
+      "caliber": ".300 BLK",
+      "damage": 51.0,
+      "penetration_power": 48.0,
+      "armor_damage_percent": 65.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 635.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": ".300 Blackout AP",
+        "zh": ".300 Blackout AP"
+      },
+      "image_url": "https://assets.tarkov.dev/5fd20ff893a8961fc660a954-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/5fd20ff893a8961fc660a954.html"
+    },
+    {
+      "id": "60194943740c5d77f6705eea",
+      "name": "5.56x45mm MK 318 Mod 0 (SOST)",
+      "short_name": "SOST",
+      "caliber": "5.56x45",
+      "damage": 53.0,
+      "penetration_power": 33.0,
+      "armor_damage_percent": 39.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 902.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "5.56x45mm MK 318 Mod 0 (SOST)",
+        "zh": "5.56x45毫米 Mk 318 Mod 0 (SOST)"
+      },
+      "image_url": "https://assets.tarkov.dev/60194943740c5d77f6705eea-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/60194943740c5d77f6705eea.html"
+    },
+    {
+      "id": "601949593ae8f707c4608daa",
+      "name": "5.56x45mm SSA AP",
+      "short_name": "SSA AP",
+      "caliber": "5.56x45",
+      "damage": 38.0,
+      "penetration_power": 57.0,
+      "armor_damage_percent": 58.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 1013.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "5.56x45mm SSA AP",
+        "zh": "5.56x45毫米 SSA AP"
+      },
+      "image_url": "https://assets.tarkov.dev/601949593ae8f707c4608daa-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/601949593ae8f707c4608daa.html"
+    },
+    {
+      "id": "601aa3d2b2bcb34913271e6d",
+      "name": "7.62x39mm MAI AP",
+      "short_name": "MAI AP",
+      "caliber": "7.62x39",
+      "damage": 53.0,
+      "penetration_power": 58.0,
+      "armor_damage_percent": 76.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 875.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "7.62x39mm MAI AP",
+        "zh": "7.62x39毫米 MAI AP"
+      },
+      "image_url": "https://assets.tarkov.dev/601aa3d2b2bcb34913271e6d-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/601aa3d2b2bcb34913271e6d.html"
+    },
+    {
+      "id": "61962b617c6c7b169525f168",
+      "name": "5.45x39mm 7N40",
+      "short_name": "7N40",
+      "caliber": "5.45x39",
+      "damage": 55.0,
+      "penetration_power": 42.0,
+      "armor_damage_percent": 45.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 915.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [
+        "7n40"
+      ],
+      "localized_names": {
+        "en": "5.45x39mm 7N40",
+        "zh": "5.45x39毫米 7N40 gs"
+      },
+      "image_url": "https://assets.tarkov.dev/61962b617c6c7b169525f168-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/61962b617c6c7b169525f168.html"
+    },
+    {
+      "id": "61962d879bb3d20b0946d385",
+      "name": "9x39mm PAB-9 gs",
+      "short_name": "PAB-9",
+      "caliber": "9x39",
+      "damage": 62.0,
+      "penetration_power": 43.0,
+      "armor_damage_percent": 57.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 320.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "9x39mm PAB-9 gs",
+        "zh": "9x39毫米 PAB-9"
+      },
+      "image_url": "https://assets.tarkov.dev/61962d879bb3d20b0946d385-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/61962d879bb3d20b0946d385.html"
+    },
+    {
+      "id": "6196364158ef8c428c287d9f",
+      "name": ".300 Blackout V-Max",
+      "short_name": "V-Max",
+      "caliber": ".300 BLK",
+      "damage": 72.0,
+      "penetration_power": 20.0,
+      "armor_damage_percent": 25.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 723.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": ".300 Blackout V-Max",
+        "zh": ".300 Blackout V-Max"
+      },
+      "image_url": "https://assets.tarkov.dev/6196364158ef8c428c287d9f-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/6196364158ef8c428c287d9f.html"
+    },
+    {
+      "id": "6196365d58ef8c428c287da1",
+      "name": ".300 Whisper",
+      "short_name": "Whisper",
+      "caliber": ".300 BLK",
+      "damage": 90.0,
+      "penetration_power": 14.0,
+      "armor_damage_percent": 18.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 853.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": ".300 Whisper",
+        "zh": ".300 Whisper"
+      },
+      "image_url": "https://assets.tarkov.dev/6196365d58ef8c428c287da1-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/6196365d58ef8c428c287da1.html"
+    },
+    {
+      "id": "619636be6db0f2477964e710",
+      "name": ".300 Blackout M62 Tracer",
+      "short_name": "M62",
+      "caliber": ".300 BLK",
+      "damage": 54.0,
+      "penetration_power": 36.0,
+      "armor_damage_percent": 40.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 442.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": ".300 Blackout M62 Tracer",
+        "zh": ".300 Blackout M62 曳光弹"
+      },
+      "image_url": "https://assets.tarkov.dev/619636be6db0f2477964e710-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/619636be6db0f2477964e710.html"
+    },
+    {
+      "id": "62330b3ed4dc74626d570b95",
+      "name": ".357 Magnum FMJ",
+      "short_name": "FMJ",
+      "caliber": ".357 Magnum",
+      "damage": 70.0,
+      "penetration_power": 35.0,
+      "armor_damage_percent": 43.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 385.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": ".357 Magnum FMJ",
+        "zh": ".357 Magnum FMJ"
+      },
+      "image_url": "https://assets.tarkov.dev/62330b3ed4dc74626d570b95-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/62330b3ed4dc74626d570b95.html"
+    },
+    {
+      "id": "62330bfadc5883093563729b",
+      "name": ".357 Magnum HP",
+      "short_name": ".357 HP",
+      "caliber": ".357 Magnum",
+      "damage": 99.0,
+      "penetration_power": 18.0,
+      "armor_damage_percent": 20.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 481.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": ".357 Magnum HP",
+        "zh": ".357 Magnum Hollow Point"
+      },
+      "image_url": "https://assets.tarkov.dev/62330bfadc5883093563729b-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/62330bfadc5883093563729b.html"
+    },
+    {
+      "id": "62330c18744e5e31df12f516",
+      "name": ".357 Magnum JHP",
+      "short_name": "JHP",
+      "caliber": ".357 Magnum",
+      "damage": 88.0,
+      "penetration_power": 24.0,
+      "armor_damage_percent": 28.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 425.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": ".357 Magnum JHP",
+        "zh": ".357 Magnum JHP"
+      },
+      "image_url": "https://assets.tarkov.dev/62330c18744e5e31df12f516-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/62330c18744e5e31df12f516.html"
+    },
+    {
+      "id": "62330c40bdd19b369e1e53d1",
+      "name": ".357 Magnum SP",
+      "short_name": ".357 SP",
+      "caliber": ".357 Magnum",
+      "damage": 108.0,
+      "penetration_power": 12.0,
+      "armor_damage_percent": 15.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 455.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": ".357 Magnum SP",
+        "zh": ".357 Magnum Soft Point"
+      },
+      "image_url": "https://assets.tarkov.dev/62330c40bdd19b369e1e53d1-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/62330c40bdd19b369e1e53d1.html"
+    },
+    {
+      "id": "64b6979341772715af0f9c39",
+      "name": "4.6x30mm JSP SX",
+      "short_name": "JSP SX",
+      "caliber": "4.6x30",
+      "damage": 46.0,
+      "penetration_power": 32.0,
+      "armor_damage_percent": 37.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 579.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "4.6x30mm JSP SX",
+        "zh": "4.6x30毫米 JSP SX"
+      },
+      "image_url": "https://assets.tarkov.dev/64b6979341772715af0f9c39-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/64b6979341772715af0f9c39.html"
+    },
+    {
+      "id": "64b7af434b75259c590fa893",
+      "name": "7.62x39mm PP gzh",
+      "short_name": "PP",
+      "caliber": "7.62x39",
+      "damage": 59.0,
+      "penetration_power": 41.0,
+      "armor_damage_percent": 57.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 732.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "7.62x39mm PP gzh",
+        "zh": "7.62x39毫米 PP gzh"
+      },
+      "image_url": "https://assets.tarkov.dev/64b7af434b75259c590fa893-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/64b7af434b75259c590fa893.html"
+    },
+    {
+      "id": "64b7af5a8532cf95ee0a0dbd",
+      "name": "7.62x39mm FMJ",
+      "short_name": "FMJ",
+      "caliber": "7.62x39",
+      "damage": 63.0,
+      "penetration_power": 26.0,
+      "armor_damage_percent": 33.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 775.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "7.62x39mm FMJ",
+        "zh": "7.62x39毫米 FMJ"
+      },
+      "image_url": "https://assets.tarkov.dev/64b7af5a8532cf95ee0a0dbd-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/64b7af5a8532cf95ee0a0dbd.html"
+    },
+    {
+      "id": "64b7af734b75259c590fa895",
+      "name": "7.62x39mm SP",
+      "short_name": "SP",
+      "caliber": "7.62x39",
+      "damage": 68.0,
+      "penetration_power": 20.0,
+      "armor_damage_percent": 27.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 772.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "7.62x39mm SP",
+        "zh": "7.62x39毫米 SP"
+      },
+      "image_url": "https://assets.tarkov.dev/64b7af734b75259c590fa895-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/64b7af734b75259c590fa895.html"
+    },
+    {
+      "id": "64b7bbb74b75259c590fa897",
+      "name": "9x19mm FMJ M882",
+      "short_name": "M882",
+      "caliber": "9x19",
+      "damage": 56.0,
+      "penetration_power": 18.0,
+      "armor_damage_percent": 35.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 385.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "9x19mm FMJ M882",
+        "zh": "9x19毫米 FMJ M882"
+      },
+      "image_url": "https://assets.tarkov.dev/64b7bbb74b75259c590fa897-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/64b7bbb74b75259c590fa897.html"
+    },
+    {
+      "id": "64b8725c4b75259c590fa899",
+      "name": ".300 Blackout CBJ",
+      "short_name": "Blackout CBJ",
+      "caliber": ".300 BLK",
+      "damage": 58.0,
+      "penetration_power": 43.0,
+      "armor_damage_percent": 57.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 725.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": ".300 Blackout CBJ",
+        "zh": ".300 Blackout CBJ"
+      },
+      "image_url": "https://assets.tarkov.dev/64b8725c4b75259c590fa899-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/64b8725c4b75259c590fa899.html"
+    },
+    {
+      "id": "64b8ee384b75259c590fa89b",
+      "name": "12/70 Piranha",
+      "short_name": "Piranha",
+      "caliber": "12/70",
+      "damage": 25.0,
+      "penetration_power": 24.0,
+      "armor_damage_percent": 22.0,
+      "projectile_count": 10,
+      "muzzle_velocity": 310.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "12/70 Piranha",
+        "zh": "12/70 “食人鱼”"
+      },
+      "image_url": "https://assets.tarkov.dev/64b8ee384b75259c590fa89b-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/64b8ee384b75259c590fa89b.html"
+    },
+    {
+      "id": "64b8f7968532cf95ee0a0dbf",
+      "name": "7.62x54mm R FMJ",
+      "short_name": "FMJ",
+      "caliber": "7.62x54",
+      "damage": 84.0,
+      "penetration_power": 36.0,
+      "armor_damage_percent": 63.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 760.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "7.62x54mm R FMJ",
+        "zh": "7.62x54毫米 R FMJ"
+      },
+      "image_url": "https://assets.tarkov.dev/64b8f7968532cf95ee0a0dbf-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/64b8f7968532cf95ee0a0dbf.html"
+    },
+    {
+      "id": "64b8f7b5389d7ffd620ccba2",
+      "name": "7.62x54mm R SP BT",
+      "short_name": "SP BT (Tracer)",
+      "caliber": "7.62x54",
+      "damage": 92.0,
+      "penetration_power": 31.0,
+      "armor_damage_percent": 56.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 703.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "7.62x54mm R SP BT",
+        "zh": "7.62x54毫米 R SP BT"
+      },
+      "image_url": "https://assets.tarkov.dev/64b8f7b5389d7ffd620ccba2-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/64b8f7b5389d7ffd620ccba2.html"
+    },
+    {
+      "id": "64b8f7c241772715af0f9c3d",
+      "name": "7.62x54mm R HP BT",
+      "short_name": "HP BT (Tracer)",
+      "caliber": "7.62x54",
+      "damage": 102.0,
+      "penetration_power": 26.0,
+      "armor_damage_percent": 37.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 807.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "7.62x54mm R HP BT",
+        "zh": "7.62x54毫米 R HP BT"
+      },
+      "image_url": "https://assets.tarkov.dev/64b8f7c241772715af0f9c3d-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/64b8f7c241772715af0f9c3d.html"
+    },
+    {
+      "id": "6529243824cbe3c74a05e5c1",
+      "name": "6.8x51mm SIG Hybrid",
+      "short_name": "SIG Hybrid",
+      "caliber": "6.8x51",
+      "damage": 72.0,
+      "penetration_power": 47.0,
+      "armor_damage_percent": 58.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 914.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "6.8x51mm SIG Hybrid",
+        "zh": "6.8x51毫米 SIG Hybrid"
+      },
+      "image_url": "https://assets.tarkov.dev/6529243824cbe3c74a05e5c1-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/6529243824cbe3c74a05e5c1.html"
+    },
+    {
+      "id": "6529302b8c26af6326029fb7",
+      "name": "6.8x51mm SIG FMJ",
+      "short_name": "SIG FMJ",
+      "caliber": "6.8x51",
+      "damage": 80.0,
+      "penetration_power": 36.0,
+      "armor_damage_percent": 49.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 899.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "6.8x51mm SIG FMJ",
+        "zh": "6.8x51毫米 SIG FMJ"
+      },
+      "image_url": "https://assets.tarkov.dev/6529302b8c26af6326029fb7-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/6529302b8c26af6326029fb7.html"
+    },
+    {
+      "id": "6576f4708ca9c4381d16cd9d",
+      "name": "9x21mm 7n42",
+      "short_name": "7n42",
+      "caliber": "9x21",
+      "damage": 49.0,
+      "penetration_power": 38.0,
+      "armor_damage_percent": 47.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 400.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "9x21mm 7n42",
+        "zh": "9x21毫米 7N42“凿刀”穿甲手枪弹"
+      },
+      "image_url": "https://assets.tarkov.dev/6576f4708ca9c4381d16cd9d-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/6576f4708ca9c4381d16cd9d.html"
+    },
+    {
+      "id": "6576f93989f0062e741ba952",
+      "name": "9x21mm 7U4",
+      "short_name": "7u4",
+      "caliber": "9x21",
+      "damage": 53.0,
+      "penetration_power": 27.0,
+      "armor_damage_percent": 44.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 300.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "9x21mm 7U4",
+        "zh": "9x21毫米 7U4"
+      },
+      "image_url": "https://assets.tarkov.dev/6576f93989f0062e741ba952-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/6576f93989f0062e741ba952.html"
+    },
+    {
+      "id": "6576f96220d53a5b8f3e395e",
+      "name": "9x39mm FMJ",
+      "short_name": "FMJ",
+      "caliber": "9x39",
+      "damage": 75.0,
+      "penetration_power": 17.0,
+      "armor_damage_percent": 28.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 330.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "9x39mm FMJ",
+        "zh": "9x39毫米 FMJ"
+      },
+      "image_url": "https://assets.tarkov.dev/6576f96220d53a5b8f3e395e-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/6576f96220d53a5b8f3e395e.html"
+    },
+    {
+      "id": "660137d8481cc6907a0c5cda",
+      "name": "20/70 TSS Armor Piercing Slug",
+      "short_name": "TSS Armor Piercing Slug",
+      "caliber": "20/70",
+      "damage": 155.0,
+      "penetration_power": 30.0,
+      "armor_damage_percent": 54.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 482.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "20/70 TSS Armor Piercing Slug",
+        "zh": "20/70 TSS 穿甲独头弹"
+      },
+      "image_url": "https://assets.tarkov.dev/660137d8481cc6907a0c5cda-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/660137d8481cc6907a0c5cda.html"
+    },
+    {
+      "id": "660137ef76c1b56143052be8",
+      "name": "20/70 Dangerous Game Slug",
+      "short_name": "Dangerous Game Slug",
+      "caliber": "20/70",
+      "damage": 143.0,
+      "penetration_power": 25.0,
+      "armor_damage_percent": 47.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 476.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "20/70 Dangerous Game Slug",
+        "zh": "20/70“危险猎物”独头弹 (DGS)"
+      },
+      "image_url": "https://assets.tarkov.dev/660137ef76c1b56143052be8-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/660137ef76c1b56143052be8.html"
+    },
+    {
+      "id": "6601380580e77cfd080e3418",
+      "name": "20/70 flechette",
+      "short_name": "flechette",
+      "caliber": "20/70",
+      "damage": 20.0,
+      "penetration_power": 24.0,
+      "armor_damage_percent": 24.0,
+      "projectile_count": 8,
+      "muzzle_velocity": 400.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "20/70 flechette",
+        "zh": "20/70 箭形弹"
+      },
+      "image_url": "https://assets.tarkov.dev/6601380580e77cfd080e3418-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/6601380580e77cfd080e3418.html"
+    },
+    {
+      "id": "668fe62ac62660a5d8071446",
+      "name": ".50 AE FMJ",
+      "short_name": "AE FMJ",
+      "caliber": ".50 AE",
+      "damage": 85.0,
+      "penetration_power": 40.0,
+      "armor_damage_percent": 50.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 440.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": ".50 AE FMJ",
+        "zh": ".50 AE FMJ"
+      },
+      "image_url": "https://assets.tarkov.dev/668fe62ac62660a5d8071446-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/668fe62ac62660a5d8071446.html"
+    },
+    {
+      "id": "66a0d1c87d0d369e270bb9de",
+      "name": ".50 AE JHP",
+      "short_name": "AE JHP",
+      "caliber": ".50 AE",
+      "damage": 147.0,
+      "penetration_power": 12.0,
+      "armor_damage_percent": 23.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 440.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": ".50 AE JHP",
+        "zh": ".50 AE JHP"
+      },
+      "image_url": "https://assets.tarkov.dev/66a0d1c87d0d369e270bb9de-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/66a0d1c87d0d369e270bb9de.html"
+    },
+    {
+      "id": "66a0d1e0ed648d72fe064d06",
+      "name": ".50 AE Copper Solid",
+      "short_name": "AE Copper Solid",
+      "caliber": ".50 AE",
+      "damage": 94.0,
+      "penetration_power": 33.0,
+      "armor_damage_percent": 56.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 460.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": ".50 AE Copper Solid",
+        "zh": ".50 AE实心铜弹"
+      },
+      "image_url": "https://assets.tarkov.dev/66a0d1e0ed648d72fe064d06-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/66a0d1e0ed648d72fe064d06.html"
+    },
+    {
+      "id": "66a0d1f88486c69fce00fdf6",
+      "name": ".50 AE Hawk JSP",
+      "short_name": "Hawk JSP",
+      "caliber": ".50 AE",
+      "damage": 122.0,
+      "penetration_power": 26.0,
+      "armor_damage_percent": 28.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 465.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": ".50 AE Hawk JSP",
+        "zh": ".50 AE Hawk JSP"
+      },
+      "image_url": "https://assets.tarkov.dev/66a0d1f88486c69fce00fdf6-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/66a0d1f88486c69fce00fdf6.html"
+    },
+    {
+      "id": "6768c25aa7b238f14a08d3f6",
+      "name": "7.62x51mm M80A1",
+      "short_name": "M80A1",
+      "caliber": "7.62x51",
+      "damage": 75.0,
+      "penetration_power": 55.0,
+      "armor_damage_percent": 74.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 929.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "7.62x51mm M80A1",
+        "zh": "7.62x51毫米 M80A1"
+      },
+      "image_url": "https://assets.tarkov.dev/6768c25aa7b238f14a08d3f6-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/6768c25aa7b238f14a08d3f6.html"
+    },
+    {
+      "id": "67c540c3d0538d12ec036c08",
+      "name": ".308 ME",
+      "short_name": "ME",
+      "caliber": ".308 ME",
+      "damage": 80.0,
+      "penetration_power": 42.0,
+      "armor_damage_percent": 78.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 838.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": ".308 ME",
+        "zh": ".308 ME"
+      },
+      "image_url": "https://assets.tarkov.dev/67c540c3d0538d12ec036c08-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/67c540c3d0538d12ec036c08.html"
+    },
+    {
+      "id": "67c540cfb032bbdb530201b8",
+      "name": ".308 ME LOKT",
+      "short_name": "ME LOKT",
+      "caliber": ".308 ME",
+      "damage": 96.0,
+      "penetration_power": 24.0,
+      "armor_damage_percent": 55.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 838.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": ".308 ME LOKT",
+        "zh": ".308 ME LOKT"
+      },
+      "image_url": "https://assets.tarkov.dev/67c540cfb032bbdb530201b8-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/67c540cfb032bbdb530201b8.html"
+    },
+    {
+      "id": "67d41936f378a36c4706eeb9",
+      "name": ".50 BMG HP",
+      "short_name": "HP",
+      "caliber": ".50 BMG",
+      "damage": 260.0,
+      "penetration_power": 34.0,
+      "armor_damage_percent": 22.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 880.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": ".50 BMG HP",
+        "zh": ".50 BMG HP"
+      },
+      "image_url": "https://assets.tarkov.dev/67d41936f378a36c4706eeb9-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/67d41936f378a36c4706eeb9.html"
+    },
+    {
+      "id": "67dc212493ce32834b0fa446",
+      "name": ".50 BMG M21",
+      "short_name": "M21 (Tracer)",
+      "caliber": ".50 BMG",
+      "damage": 220.0,
+      "penetration_power": 45.0,
+      "armor_damage_percent": 55.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 867.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": ".50 BMG M21",
+        "zh": ".50 BMG M21"
+      },
+      "image_url": "https://assets.tarkov.dev/67dc212493ce32834b0fa446-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/67dc212493ce32834b0fa446.html"
+    },
+    {
+      "id": "67dc255ee3028a8b120efc48",
+      "name": ".50 BMG M33",
+      "short_name": "M33",
+      "caliber": ".50 BMG",
+      "damage": 190.0,
+      "penetration_power": 56.0,
+      "armor_damage_percent": 85.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 887.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": ".50 BMG M33",
+        "zh": ".50 BMG M33"
+      },
+      "image_url": "https://assets.tarkov.dev/67dc255ee3028a8b120efc48-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/67dc255ee3028a8b120efc48.html"
+    },
+    {
+      "id": "67dc2648ba5b79876906a166",
+      "name": ".50 BMG M903 SLAP",
+      "short_name": "M903 SLAP",
+      "caliber": ".50 BMG",
+      "damage": 160.0,
+      "penetration_power": 115.0,
+      "armor_damage_percent": 90.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 1220.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": ".50 BMG M903 SLAP",
+        "zh": ".50 BMG M903 SLAP"
+      },
+      "image_url": "https://assets.tarkov.dev/67dc2648ba5b79876906a166-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/67dc2648ba5b79876906a166.html"
+    },
+    {
+      "id": "68aeed8a8906b00bc800fdd6",
+      "name": "9.3x64mm SP",
+      "short_name": "SP",
+      "caliber": "9.3x64",
+      "damage": 129.0,
+      "penetration_power": 37.0,
+      "armor_damage_percent": 55.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 697.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "9.3x64mm SP",
+        "zh": "9.3x64毫米 SP"
+      },
+      "image_url": "https://assets.tarkov.dev/68aeed8a8906b00bc800fdd6-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/68aeed8a8906b00bc800fdd6.html"
+    },
+    {
+      "id": "68bac6ca653ee6b1e406d978",
+      "name": "9.3x64mm FMJ",
+      "short_name": "FMJ",
+      "caliber": "9.3x64",
+      "damage": 115.0,
+      "penetration_power": 44.0,
+      "armor_damage_percent": 55.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 793.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "9.3x64mm FMJ",
+        "zh": "9.3x64毫米 FMJ"
+      },
+      "image_url": "https://assets.tarkov.dev/68bac6ca653ee6b1e406d978-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/68bac6ca653ee6b1e406d978.html"
+    },
+    {
+      "id": "68bad8376cb22acf1107a586",
+      "name": "9.3x64mm 7N33",
+      "short_name": "7N33",
+      "caliber": "9.3x64",
+      "damage": 108.0,
+      "penetration_power": 56.0,
+      "armor_damage_percent": 55.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 790.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "9.3x64mm 7N33",
+        "zh": "9.3x64毫米 7N33"
+      },
+      "image_url": "https://assets.tarkov.dev/68bad8376cb22acf1107a586-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/68bad8376cb22acf1107a586.html"
+    },
+    {
+      "id": "68c15a033173b556890b5959",
+      "name": "7.62x25mm TT M855A1",
+      "short_name": "TT M855A1",
+      "caliber": "7.62x25",
+      "damage": 34.0,
+      "penetration_power": 31.0,
+      "armor_damage_percent": 33.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 900.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "7.62x25mm TT M855A1",
+        "zh": "7.62x25毫米 TT M855A1"
+      },
+      "image_url": "https://assets.tarkov.dev/68c15a033173b556890b5959-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/68c15a033173b556890b5959.html"
+    },
+    {
+      "id": "68c15b4bb30038a118088bd6",
+      "name": "7.62x25mm TT M856A1",
+      "short_name": "TT M856A1 (Tracer)",
+      "caliber": "7.62x25",
+      "damage": 36.0,
+      "penetration_power": 27.0,
+      "armor_damage_percent": 31.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 900.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "7.62x25mm TT M856A1",
+        "zh": "7.62x25毫米 TT M856A1"
+      },
+      "image_url": "https://assets.tarkov.dev/68c15b4bb30038a118088bd6-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/68c15b4bb30038a118088bd6.html"
+    },
+    {
+      "id": "68c15f77ed3d7df9220debd6",
+      "name": "7.62x25mm TT M995",
+      "short_name": "TT M995",
+      "caliber": "7.62x25",
+      "damage": 32.0,
+      "penetration_power": 37.0,
+      "armor_damage_percent": 36.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 940.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "7.62x25mm TT M995",
+        "zh": "7.62x25毫米 TT M995"
+      },
+      "image_url": "https://assets.tarkov.dev/68c15f77ed3d7df9220debd6-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/68c15f77ed3d7df9220debd6.html"
+    },
+    {
+      "id": "6a07208057b2695f9d001e63",
+      "name": "5.8x42mm DBP191",
+      "short_name": "DBP191",
+      "caliber": "5.8x42",
+      "damage": 53.0,
+      "penetration_power": 39.0,
+      "armor_damage_percent": 43.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 840.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "5.8x42mm DBP191",
+        "zh": "5.8x42毫米 DBP191"
+      },
+      "image_url": "https://assets.tarkov.dev/6a07208057b2695f9d001e63-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/6a07208057b2695f9d001e63.html"
+    },
+    {
+      "id": "6a42661705016139300b2085",
+      "name": "5.8x42mm DBX95",
+      "short_name": "DBX95",
+      "caliber": "5.8x42",
+      "damage": 57.0,
+      "penetration_power": 33.0,
+      "armor_damage_percent": 40.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 910.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "5.8x42mm DBX95",
+        "zh": "5.8x42毫米 DBX95"
+      },
+      "image_url": "https://assets.tarkov.dev/6a42661705016139300b2085-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/6a42661705016139300b2085.html"
+    },
+    {
+      "id": "6a42662fcb506840dd053827",
+      "name": "5.8x42mm DVC12",
+      "short_name": "DVC12",
+      "caliber": "5.8x42",
+      "damage": 46.0,
+      "penetration_power": 52.0,
+      "armor_damage_percent": 60.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 872.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "5.8x42mm DVC12",
+        "zh": "5.8x42毫米 DVC12"
+      },
+      "image_url": "https://assets.tarkov.dev/6a42662fcb506840dd053827-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/6a42662fcb506840dd053827.html"
+    },
+    {
+      "id": "6a426637ddc63098d100ae67",
+      "name": "5.8x42mm DVX12",
+      "short_name": "DVX12",
+      "caliber": "5.8x42",
+      "damage": 48.0,
+      "penetration_power": 47.0,
+      "armor_damage_percent": 54.0,
+      "projectile_count": 1,
+      "muzzle_velocity": 850.0,
+      "source_version": "wiki-reviewed-2026-09-16",
+      "aliases": [],
+      "localized_names": {
+        "en": "5.8x42mm DVX12",
+        "zh": "5.8x42毫米 DVX12"
+      },
+      "image_url": "https://assets.tarkov.dev/6a426637ddc63098d100ae67-icon.webp",
+      "wiki_url": "https://www.eftarkov.com/news/id/6a426637ddc63098d100ae67.html"
+    }
+  ],
+  "armor": [
+    {
+      "id": "6943c85be2f21398e70378cc",
+      "name": "Tac-Kek SAPI Level III+ ballistic plate (Replica)",
+      "name_zh": "Tac-Kek SAPI Level III+ 防弹插板（仿制品）",
+      "armor_class": 1,
+      "durability": 90.0,
+      "material": "uhmwpe",
+      "slots": [
+        "front",
+        "back"
+      ],
+      "source_version": "wiki-reviewed-2026-09-16",
+      "wiki_url": "https://www.eftarkov.com/news/id/6943c85be2f21398e70378cc.html",
+      "image_url": "https://assets.tarkov.dev/6943c85be2f21398e70378cc-icon.webp"
+    },
+    {
+      "id": "656fac30c6baea13cd07e10c",
+      "name": "PRTCTR Lightweight ballistic plate",
+      "name_zh": "PRTCTR轻量化防弹插板",
+      "armor_class": 3,
+      "durability": 35.0,
+      "material": "uhmwpe",
+      "slots": [
+        "front",
+        "back"
+      ],
+      "source_version": "wiki-reviewed-2026-09-16",
+      "wiki_url": "https://www.eftarkov.com/news/id/656fac30c6baea13cd07e10c.html",
+      "image_url": "https://assets.tarkov.dev/656fac30c6baea13cd07e10c-icon.webp"
+    },
+    {
+      "id": "656f57dc27aed95beb08f628",
+      "name": "Zhuk-3 ballistic plate (Front)",
+      "name_zh": "Zhuk-3防弹插板（前部）",
+      "armor_class": 3,
+      "durability": 40.0,
+      "material": "uhmwpe",
+      "slots": [
+        "front"
+      ],
+      "source_version": "wiki-reviewed-2026-09-16",
+      "wiki_url": "https://www.eftarkov.com/news/id/656f57dc27aed95beb08f628.html",
+      "image_url": "https://assets.tarkov.dev/656f57dc27aed95beb08f628-icon.webp"
+    },
+    {
+      "id": "654a4dea7c17dec2f50cc86a",
+      "name": "6B12 ballistic plates (Front)",
+      "name_zh": "6B12防弹插板（前部）",
+      "armor_class": 3,
+      "durability": 50.0,
+      "material": "steel",
+      "slots": [
+        "front"
+      ],
+      "source_version": "wiki-reviewed-2026-09-16",
+      "wiki_url": "https://www.eftarkov.com/news/id/654a4dea7c17dec2f50cc86a.html",
+      "image_url": "https://assets.tarkov.dev/654a4dea7c17dec2f50cc86a-icon.webp"
+    },
+    {
+      "id": "656f9d5900d62bcd2e02407c",
+      "name": "AR500 Legacy Plate ballistic plate",
+      "name_zh": "AR500 Legacy Plate防弹插板",
+      "armor_class": 3,
+      "durability": 45.0,
+      "material": "combined",
+      "slots": [
+        "front",
+        "back"
+      ],
+      "source_version": "wiki-reviewed-2026-09-16",
+      "wiki_url": "https://www.eftarkov.com/news/id/656f9d5900d62bcd2e02407c.html",
+      "image_url": "https://assets.tarkov.dev/656f9d5900d62bcd2e02407c-icon.webp"
+    },
+    {
+      "id": "656fad8c498d1b7e3e071da0",
+      "name": "Monoclete level III PE ballistic plate",
+      "name_zh": "Monoclete三级PE防弹插板",
+      "armor_class": 4,
+      "durability": 40.0,
+      "material": "uhmwpe",
+      "slots": [
+        "front",
+        "back"
+      ],
+      "source_version": "wiki-reviewed-2026-09-16",
+      "wiki_url": "https://www.eftarkov.com/news/id/656fad8c498d1b7e3e071da0.html",
+      "image_url": "https://assets.tarkov.dev/656fad8c498d1b7e3e071da0-icon.webp"
+    },
+    {
+      "id": "656fb21fa0dce000a2020f7c",
+      "name": "NewSphereTech level III ballistic plate",
+      "name_zh": "NewSphereTech三级防弹插板",
+      "armor_class": 4,
+      "durability": 45.0,
+      "material": "aluminum",
+      "slots": [
+        "front",
+        "back"
+      ],
+      "source_version": "wiki-reviewed-2026-09-16",
+      "wiki_url": "https://www.eftarkov.com/news/id/656fb21fa0dce000a2020f7c.html",
+      "image_url": "https://assets.tarkov.dev/656fb21fa0dce000a2020f7c-icon.webp"
+    },
+    {
+      "id": "656fb0bd7c2d57afe200c0dc",
+      "name": "SPRTN Elaphros ballistic plate",
+      "name_zh": "SPRTN Elaphros防弹插板",
+      "armor_class": 4,
+      "durability": 45.0,
+      "material": "ceramic",
+      "slots": [
+        "front",
+        "back"
+      ],
+      "source_version": "wiki-reviewed-2026-09-16",
+      "wiki_url": "https://www.eftarkov.com/news/id/656fb0bd7c2d57afe200c0dc.html",
+      "image_url": "https://assets.tarkov.dev/656fb0bd7c2d57afe200c0dc-icon.webp"
+    },
+    {
+      "id": "656f9fa0498d1b7e3e071d98",
+      "name": "SPRTN Omega ballistic plate",
+      "name_zh": "SPRTN Omega防弹插板",
+      "armor_class": 4,
+      "durability": 50.0,
+      "material": "combined",
+      "slots": [
+        "front",
+        "back"
+      ],
+      "source_version": "wiki-reviewed-2026-09-16",
+      "wiki_url": "https://www.eftarkov.com/news/id/656f9fa0498d1b7e3e071d98.html",
+      "image_url": "https://assets.tarkov.dev/656f9fa0498d1b7e3e071d98-icon.webp"
+    },
+    {
+      "id": "656fa25e94b480b8a500c0e0",
+      "name": "Kiba Arms Titan ballistic plate",
+      "name_zh": "Kiba Arms Titan防弹插板",
+      "armor_class": 4,
+      "durability": 55.0,
+      "material": "titanium",
+      "slots": [
+        "front",
+        "back"
+      ],
+      "source_version": "wiki-reviewed-2026-09-16",
+      "wiki_url": "https://www.eftarkov.com/news/id/656fa25e94b480b8a500c0e0.html",
+      "image_url": "https://assets.tarkov.dev/656fa25e94b480b8a500c0e0-icon.webp"
+    },
+    {
+      "id": "656efd66034e8e01c407f35c",
+      "name": "6B13 custom ballistic plates (Back)",
+      "name_zh": "6B13定制防弹插板（黑色）",
+      "armor_class": 4,
+      "durability": 45.0,
+      "material": "steel",
+      "slots": [
+        "back"
+      ],
+      "source_version": "wiki-reviewed-2026-09-16",
+      "wiki_url": "https://www.eftarkov.com/news/id/656efd66034e8e01c407f35c.html",
+      "image_url": "https://assets.tarkov.dev/656efd66034e8e01c407f35c-icon.webp"
+    },
+    {
+      "id": "657b22485f444d6dff0c6c2f",
+      "name": "6B23-2 ballistic plate (Back)",
+      "name_zh": "6B23-2防弹插板（黑色）",
+      "armor_class": 4,
+      "durability": 40.0,
+      "material": "steel",
+      "slots": [
+        "back"
+      ],
+      "source_version": "wiki-reviewed-2026-09-16",
+      "wiki_url": "https://www.eftarkov.com/news/id/657b22485f444d6dff0c6c2f.html",
+      "image_url": "https://assets.tarkov.dev/657b22485f444d6dff0c6c2f-icon.webp"
+    },
+    {
+      "id": "656f603f94b480b8a500c0d6",
+      "name": "6B33 ballistic plate (Front)",
+      "name_zh": "6B33防弹插板（前部）",
+      "armor_class": 4,
+      "durability": 50.0,
+      "material": "steel",
+      "slots": [
+        "front"
+      ],
+      "source_version": "wiki-reviewed-2026-09-16",
+      "wiki_url": "https://www.eftarkov.com/news/id/656f603f94b480b8a500c0d6.html",
+      "image_url": "https://assets.tarkov.dev/656f603f94b480b8a500c0d6-icon.webp"
+    },
+    {
+      "id": "656fa0fb498d1b7e3e071d9c",
+      "name": "Global Armor's Steel ballistic plate",
+      "name_zh": "Global Armor’s Steel防弹插板",
+      "armor_class": 4,
+      "durability": 45.0,
+      "material": "steel",
+      "slots": [
+        "front",
+        "back"
+      ],
+      "source_version": "wiki-reviewed-2026-09-16",
+      "wiki_url": "https://www.eftarkov.com/news/id/656fa0fb498d1b7e3e071d9c.html",
+      "image_url": "https://assets.tarkov.dev/656fa0fb498d1b7e3e071d9c-icon.webp"
+    },
+    {
+      "id": "655746010177119f4a097ff7",
+      "name": "SAPI level III+ ballistic plate",
+      "name_zh": "SAPI III+ 级防弹插板",
+      "armor_class": 5,
+      "durability": 50.0,
+      "material": "ceramic",
+      "slots": [
+        "front",
+        "back"
+      ],
+      "source_version": "wiki-reviewed-2026-09-16",
+      "wiki_url": "https://www.eftarkov.com/news/id/655746010177119f4a097ff7.html",
+      "image_url": "https://assets.tarkov.dev/655746010177119f4a097ff7-icon.webp"
+    },
+    {
+      "id": "6557458f83942d705f0c4962",
+      "name": "SSAPI level III+ ballistic plate (Side)",
+      "name_zh": "SSAPI level III+ 防弹插板（侧边）",
+      "armor_class": 5,
+      "durability": 15.0,
+      "material": "ceramic",
+      "slots": [
+        "left",
+        "right"
+      ],
+      "source_version": "wiki-reviewed-2026-09-16",
+      "wiki_url": "https://www.eftarkov.com/news/id/6557458f83942d705f0c4962.html",
+      "image_url": "https://assets.tarkov.dev/6557458f83942d705f0c4962-icon.webp"
+    },
+    {
+      "id": "656fa53d94b480b8a500c0e4",
+      "name": "TallCom Guardian ballistic plate",
+      "name_zh": "TallCom Guardian防弹插板",
+      "armor_class": 5,
+      "durability": 55.0,
+      "material": "combined",
+      "slots": [
+        "front",
+        "back"
+      ],
+      "source_version": "wiki-reviewed-2026-09-16",
+      "wiki_url": "https://www.eftarkov.com/news/id/656fa53d94b480b8a500c0e4.html",
+      "image_url": "https://assets.tarkov.dev/656fa53d94b480b8a500c0e4-icon.webp"
+    },
+    {
+      "id": "656fa8d700d62bcd2e024084",
+      "name": "Cult Locust ballistic plate",
+      "name_zh": "Cult Locust防弹插板",
+      "armor_class": 5,
+      "durability": 60.0,
+      "material": "titanium",
+      "slots": [
+        "front",
+        "back"
+      ],
+      "source_version": "wiki-reviewed-2026-09-16",
+      "wiki_url": "https://www.eftarkov.com/news/id/656fa8d700d62bcd2e024084.html",
+      "image_url": "https://assets.tarkov.dev/656fa8d700d62bcd2e024084-icon.webp"
+    },
+    {
+      "id": "656fae5f7c2d57afe200c0d7",
+      "name": "GAC 3s15m ballistic plate",
+      "name_zh": "GAC 3s15m防弹插板",
+      "armor_class": 5,
+      "durability": 45.0,
+      "material": "uhmwpe",
+      "slots": [
+        "front",
+        "back"
+      ],
+      "source_version": "wiki-reviewed-2026-09-16",
+      "wiki_url": "https://www.eftarkov.com/news/id/656fae5f7c2d57afe200c0d7.html",
+      "image_url": "https://assets.tarkov.dev/656fae5f7c2d57afe200c0d7-icon.webp"
+    },
+    {
+      "id": "656f611f94b480b8a500c0db",
+      "name": "Granit 4 ballistic plate (Front)",
+      "name_zh": "Granit 4防弹插板（前部）",
+      "armor_class": 5,
+      "durability": 50.0,
+      "material": "ceramic",
+      "slots": [
+        "front"
+      ],
+      "source_version": "wiki-reviewed-2026-09-16",
+      "wiki_url": "https://www.eftarkov.com/news/id/656f611f94b480b8a500c0db.html",
+      "image_url": "https://assets.tarkov.dev/656f611f94b480b8a500c0db-icon.webp"
+    },
+    {
+      "id": "656efaf54772930db4031ff5",
+      "name": "Granit 4 ballistic plates (Back)",
+      "name_zh": "Granit 4防弹插板（背部）",
+      "armor_class": 5,
+      "durability": 45.0,
+      "material": "ceramic",
+      "slots": [
+        "back"
+      ],
+      "source_version": "wiki-reviewed-2026-09-16",
+      "wiki_url": "https://www.eftarkov.com/news/id/656efaf54772930db4031ff5.html",
+      "image_url": "https://assets.tarkov.dev/656efaf54772930db4031ff5-icon.webp"
+    },
+    {
+      "id": "65573fa5655447403702a816",
+      "name": "Granit Br4 ballistic plate",
+      "name_zh": "Granit Br4防弹插板",
+      "armor_class": 5,
+      "durability": 55.0,
+      "material": "ceramic",
+      "slots": [
+        "front",
+        "back"
+      ],
+      "source_version": "wiki-reviewed-2026-09-16",
+      "wiki_url": "https://www.eftarkov.com/news/id/65573fa5655447403702a816.html",
+      "image_url": "https://assets.tarkov.dev/65573fa5655447403702a816-icon.webp"
+    },
+    {
+      "id": "656f664200d62bcd2e024077",
+      "name": "Korund-VM ballistic plates (Front)",
+      "name_zh": "刚玉-VM 防弹插板（前部）",
+      "armor_class": 5,
+      "durability": 60.0,
+      "material": "steel",
+      "slots": [
+        "front"
+      ],
+      "source_version": "wiki-reviewed-2026-09-16",
+      "wiki_url": "https://www.eftarkov.com/news/id/656f664200d62bcd2e024077.html",
+      "image_url": "https://assets.tarkov.dev/656f664200d62bcd2e024077-icon.webp"
+    },
+    {
+      "id": "657b2797c3dbcb01d60c35ea",
+      "name": "Korund-VM ballistic plate (Back)",
+      "name_zh": "刚玉-VM 防弹插板（背部）",
+      "armor_class": 5,
+      "durability": 40.0,
+      "material": "steel",
+      "slots": [
+        "back"
+      ],
+      "source_version": "wiki-reviewed-2026-09-16",
+      "wiki_url": "https://www.eftarkov.com/news/id/657b2797c3dbcb01d60c35ea.html",
+      "image_url": "https://assets.tarkov.dev/657b2797c3dbcb01d60c35ea-icon.webp"
+    },
+    {
+      "id": "654a4f8bc721968a4404ef18",
+      "name": "Korund-VM ballistic plate (Side)",
+      "name_zh": "刚玉-VM 防弹插板（侧边）",
+      "armor_class": 5,
+      "durability": 25.0,
+      "material": "steel",
+      "slots": [
+        "left",
+        "right"
+      ],
+      "source_version": "wiki-reviewed-2026-09-16",
+      "wiki_url": "https://www.eftarkov.com/news/id/654a4f8bc721968a4404ef18.html",
+      "image_url": "https://assets.tarkov.dev/654a4f8bc721968a4404ef18-icon.webp"
+    },
+    {
+      "id": "656f66b5c6baea13cd07e108",
+      "name": "Korund-VM-K ballistic plates (Front)",
+      "name_zh": "刚玉-VM-K 防弹插板（前部）",
+      "armor_class": 6,
+      "durability": 60.0,
+      "material": "ceramic",
+      "slots": [
+        "front"
+      ],
+      "source_version": "wiki-reviewed-2026-09-16",
+      "wiki_url": "https://www.eftarkov.com/news/id/656f66b5c6baea13cd07e108.html",
+      "image_url": "https://assets.tarkov.dev/656f66b5c6baea13cd07e108-icon.webp"
+    },
+    {
+      "id": "657b28d25f444d6dff0c6c77",
+      "name": "Korund-VM-K ballistic plate (Back)",
+      "name_zh": "刚玉-VM-K 防弹插板（背部）",
+      "armor_class": 6,
+      "durability": 45.0,
+      "material": "ceramic",
+      "slots": [
+        "back"
+      ],
+      "source_version": "wiki-reviewed-2026-09-16",
+      "wiki_url": "https://www.eftarkov.com/news/id/657b28d25f444d6dff0c6c77.html",
+      "image_url": "https://assets.tarkov.dev/657b28d25f444d6dff0c6c77-icon.webp"
+    },
+    {
+      "id": "656fa61e94b480b8a500c0e8",
+      "name": "NESCO 4400-SA-MC ballistic plate",
+      "name_zh": "NESCO 4400-SA-MC防弹插板",
+      "armor_class": 6,
+      "durability": 60.0,
+      "material": "combined",
+      "slots": [
+        "front",
+        "back"
+      ],
+      "source_version": "wiki-reviewed-2026-09-16",
+      "wiki_url": "https://www.eftarkov.com/news/id/656fa61e94b480b8a500c0e8.html",
+      "image_url": "https://assets.tarkov.dev/656fa61e94b480b8a500c0e8-icon.webp"
+    },
+    {
+      "id": "64afdcb83efdfea28601d041",
+      "name": "ESAPI level IV ballistic plate",
+      "name_zh": "ESAPI IV 级防弹插板",
+      "armor_class": 6,
+      "durability": 55.0,
+      "material": "ceramic",
+      "slots": [
+        "front",
+        "back"
+      ],
+      "source_version": "wiki-reviewed-2026-09-16",
+      "wiki_url": "https://www.eftarkov.com/news/id/64afdcb83efdfea28601d041.html",
+      "image_url": "https://assets.tarkov.dev/64afdcb83efdfea28601d041-icon.webp"
+    },
+    {
+      "id": "64afdb577bb3bfe8fe03fd1d",
+      "name": "ESBI level IV ballistic plate (Side)",
+      "name_zh": "ESBI IV 级防弹插板（侧边）",
+      "armor_class": 6,
+      "durability": 18.0,
+      "material": "ceramic",
+      "slots": [
+        "left",
+        "right"
+      ],
+      "source_version": "wiki-reviewed-2026-09-16",
+      "wiki_url": "https://www.eftarkov.com/news/id/64afdb577bb3bfe8fe03fd1d.html",
+      "image_url": "https://assets.tarkov.dev/64afdb577bb3bfe8fe03fd1d-icon.webp"
+    },
+    {
+      "id": "656faf0ca0dce000a2020f77",
+      "name": "GAC 4sss2 ballistic plate",
+      "name_zh": "GAC 4sss2防弹插板",
+      "armor_class": 6,
+      "durability": 50.0,
+      "material": "uhmwpe",
+      "slots": [
+        "front",
+        "back"
+      ],
+      "source_version": "wiki-reviewed-2026-09-16",
+      "wiki_url": "https://www.eftarkov.com/news/id/656faf0ca0dce000a2020f77.html",
+      "image_url": "https://assets.tarkov.dev/656faf0ca0dce000a2020f77-icon.webp"
+    },
+    {
+      "id": "656fa99800d62bcd2e024088",
+      "name": "Cult Termite ballistic plate",
+      "name_zh": "Cult Termite防弹插板",
+      "armor_class": 6,
+      "durability": 65.0,
+      "material": "titanium",
+      "slots": [
+        "front",
+        "back"
+      ],
+      "source_version": "wiki-reviewed-2026-09-16",
+      "wiki_url": "https://www.eftarkov.com/news/id/656fa99800d62bcd2e024088.html",
+      "image_url": "https://assets.tarkov.dev/656fa99800d62bcd2e024088-icon.webp"
+    },
+    {
+      "id": "656f63c027aed95beb08f62c",
+      "name": "Granit 4RS ballistic plate (Front)",
+      "name_zh": "Granit 4RS防弹插板（前部）",
+      "armor_class": 6,
+      "durability": 55.0,
+      "material": "ceramic",
+      "slots": [
+        "front"
+      ],
+      "source_version": "wiki-reviewed-2026-09-16",
+      "wiki_url": "https://www.eftarkov.com/news/id/656f63c027aed95beb08f62c.html",
+      "image_url": "https://assets.tarkov.dev/656f63c027aed95beb08f62c-icon.webp"
+    },
+    {
+      "id": "654a4a964b446df1ad03f192",
+      "name": "Granit 4RS ballistic plates (Back)",
+      "name_zh": "Granit 4RS防弹插板（背部）",
+      "armor_class": 6,
+      "durability": 50.0,
+      "material": "ceramic",
+      "slots": [
+        "back"
+      ],
+      "source_version": "wiki-reviewed-2026-09-16",
+      "wiki_url": "https://www.eftarkov.com/news/id/654a4a964b446df1ad03f192.html",
+      "image_url": "https://assets.tarkov.dev/654a4a964b446df1ad03f192-icon.webp"
+    },
+    {
+      "id": "64afc71497cf3a403c01ff38",
+      "name": "Granit Br5 ballistic plate",
+      "name_zh": "Granit Br5防弹插板",
+      "armor_class": 6,
+      "durability": 60.0,
+      "material": "ceramic",
+      "slots": [
+        "front",
+        "back"
+      ],
+      "source_version": "wiki-reviewed-2026-09-16",
+      "wiki_url": "https://www.eftarkov.com/news/id/64afc71497cf3a403c01ff38.html",
+      "image_url": "https://assets.tarkov.dev/64afc71497cf3a403c01ff38-icon.webp"
+    },
+    {
+      "id": "64afd81707e2cf40e903a316",
+      "name": "Granit ballistic plate (Side)",
+      "name_zh": "Granit 防弹插板（侧边）",
+      "armor_class": 6,
+      "durability": 20.0,
+      "material": "ceramic",
+      "slots": [
+        "left",
+        "right"
+      ],
+      "source_version": "wiki-reviewed-2026-09-16",
+      "wiki_url": "https://www.eftarkov.com/news/id/64afd81707e2cf40e903a316.html",
+      "image_url": "https://assets.tarkov.dev/64afd81707e2cf40e903a316-icon.webp"
+    },
+    {
+      "id": "656fa76500d62bcd2e024080",
+      "name": "Kiba Arms Steel ballistic plate",
+      "name_zh": "Kiba Arms Steel防弹插板",
+      "armor_class": 6,
+      "durability": 50.0,
+      "material": "steel",
+      "slots": [
+        "front",
+        "back"
+      ],
+      "source_version": "wiki-reviewed-2026-09-16",
+      "wiki_url": "https://www.eftarkov.com/news/id/656fa76500d62bcd2e024080.html",
+      "image_url": "https://assets.tarkov.dev/656fa76500d62bcd2e024080-icon.webp"
+    },
+    {
+      "id": "656fafe3498d1b7e3e071da4",
+      "name": "KITECO SC-IV SA ballistic plate",
+      "name_zh": "KITECO SC-IV SA防弹插板",
+      "armor_class": 6,
+      "durability": 45.0,
+      "material": "uhmwpe",
+      "slots": [
+        "front",
+        "back"
+      ],
+      "source_version": "wiki-reviewed-2026-09-16",
+      "wiki_url": "https://www.eftarkov.com/news/id/656fafe3498d1b7e3e071da4.html",
+      "image_url": "https://assets.tarkov.dev/656fafe3498d1b7e3e071da4-icon.webp"
+    }
+  ],
+  "legacy_ids": {
+    "m855a1": "54527ac44bdc2d36668b4567",
+    "m855": "54527a984bdc2d4e668b4567",
+    "m995": "59e690b686f7746c9f75e848",
+    "762bp": "59e0d99486f7744a32234762",
+    "7n40": "61962b617c6c7b169525f168",
+    "545bp": "56dff026d2720bb8668b4567",
+    "m80": "58dd3ad986f77403051cba8f",
+    "ap20": "5d6e68a8a4b9360b6c0d54e2",
+    "buckshot": "5d6e6806a4b936088465b17e"
+  },
+  "excluded": [
+    {
+      "id": "5ede475339ee016e8c534742",
+      "name": "40x46毫米 M576(MP-APERS)",
+      "reason": "No current matched author-chart pellet count; explosive/flare/training entries not simulated."
+    },
+    {
+      "id": "5ede4739e0350d05467f73e8",
+      "name": "40x46毫米 M406(HE)",
+      "reason": "No current matched author-chart pellet count; explosive/flare/training entries not simulated."
+    },
+    {
+      "id": "5ede47405b097655935d7d16",
+      "name": "40x46毫米 M441(HE)",
+      "reason": "No current matched author-chart pellet count; explosive/flare/training entries not simulated."
+    },
+    {
+      "id": "5ede474b0c226a66f5402622",
+      "name": "40x46毫米 M381(HE)",
+      "reason": "No current matched author-chart pellet count; explosive/flare/training entries not simulated."
+    },
+    {
+      "id": "5ede475b549eed7c6d5c18fb",
+      "name": "40x46毫米 M386(HE)",
+      "reason": "No current matched author-chart pellet count; explosive/flare/training entries not simulated."
+    },
+    {
+      "id": "5f0c892565703e5c461894e9",
+      "name": "40x46 毫米 M433 (HEDP)",
+      "reason": "No current matched author-chart pellet count; explosive/flare/training entries not simulated."
+    },
+    {
+      "id": "5656eb674bdc2d35148b457c",
+      "name": "40毫米VOG-25榴弹",
+      "reason": "No current matched author-chart pellet count; explosive/flare/training entries not simulated."
+    },
+    {
+      "id": "62389aaba63f32501b1b444f",
+      "name": "26x75 毫米照明信号弹（绿色）",
+      "reason": "No current matched author-chart pellet count; explosive/flare/training entries not simulated."
+    },
+    {
+      "id": "62389ba9a63f32501b1b4451",
+      "name": "26x75 毫米照明信号弹（红色）",
+      "reason": "No current matched author-chart pellet count; explosive/flare/training entries not simulated."
+    },
+    {
+      "id": "62389bc9423ed1685422dc57",
+      "name": "26x75 毫米照明信号弹（白色）",
+      "reason": "No current matched author-chart pellet count; explosive/flare/training entries not simulated."
+    },
+    {
+      "id": "62389be94d5d474bf712e709",
+      "name": "26x75 毫米照明信号弹（黄色）",
+      "reason": "No current matched author-chart pellet count; explosive/flare/training entries not simulated."
+    },
+    {
+      "id": "635267f063651329f75a4ee8",
+      "name": "26x75 毫米照明信号弹（酸绿）",
+      "reason": "No current matched author-chart pellet count; explosive/flare/training entries not simulated."
+    },
+    {
+      "id": "6601546f86889319850bd566",
+      "name": "20x1毫米塑料片",
+      "reason": "No current matched author-chart pellet count; explosive/flare/training entries not simulated."
+    },
+    {
+      "id": "66d97834d2985e11480d5c1e",
+      "name": "信号弹（蓝）",
+      "reason": "No current matched author-chart pellet count; explosive/flare/training entries not simulated."
+    },
+    {
+      "id": "675ea4891b2579e8fe0250aa",
+      "name": "信号弹（新年）",
+      "reason": "No current matched author-chart pellet count; explosive/flare/training entries not simulated."
+    }
+  ],
+  "conflicts": [
+    {
+      "id": "64b8f7b5389d7ffd620ccba2",
+      "field": "muzzle_velocity",
+      "wiki": 703.0,
+      "chart": 706.0,
+      "resolution": "Wiki preferred; source difference retained for review"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://www.eftarkov.com/news/web_33.html",
+      "file_sha256": "cb08d0692945cf2d01f39c4af6d924d297407ffcf8dfe751420ae0eb8787f2e0",
+      "fields": [
+        "damage",
+        "penetration_power",
+        "armor_damage_percent",
+        "muzzle_velocity",
+        "localized_names.zh",
+        "id"
+      ]
+    },
+    {
+      "url": "https://eft-ammo.vercel.app/",
+      "file_sha256": "38b222ab14e2824ec8f9cd27fe8269055978f140775c80b14006f9b8f5f98ee5",
+      "fields": [
+        "projectile_count",
+        "localized_names.en"
+      ],
+      "cross_checks": [
+        "damage",
+        "penetration_power",
+        "muzzle_velocity"
+      ]
+    },
+    {
+      "url": "https://www.eftarkov.com/news/web_40.html",
+      "file_sha256": "f3574b80e9169472531d0f4d8d99877216cb12bd23f5cd7ace13975affd20fcc",
+      "fields": [
+        "armor.id",
+        "armor.material",
+        "armor.armor_class",
+        "armor.durability"
+      ],
+      "notes": "Side/back names override erroneous broad area tags. Effective durability is recomputed with primary Wiki material coefficients (ceramic 0.6), not copied from this index."
+    }
+  ],
+  "legacy_armor_ids": {
+    "tackek-replica": "6943c85be2f21398e70378cc",
+    "zhuk-3-front": "656f57dc27aed95beb08f628",
+    "6b23-2-back": "657b22485f444d6dff0c6c2f",
+    "6b33-front": "656f603f94b480b8a500c0d6",
+    "monoclete": "656fad8c498d1b7e3e071da0",
+    "global-steel": "656fa0fb498d1b7e3e071d9c",
+    "elaphros": "656fb0bd7c2d57afe200c0dc",
+    "omega": "656f9fa0498d1b7e3e071d98",
+    "titan": "656fa25e94b480b8a500c0e0",
+    "korund-front": "656f664200d62bcd2e024077",
+    "korund-back": "657b2797c3dbcb01d60c35ea",
+    "gac-3s15m": "656fae5f7c2d57afe200c0d7",
+    "sapi-iii-plus": "655746010177119f4a097ff7",
+    "korund-side": "654a4f8bc721968a4404ef18",
+    "kiteco": "656fafe3498d1b7e3e071da4",
+    "kiba-steel": "656fa76500d62bcd2e024080",
+    "esapi-iv": "64afdcb83efdfea28601d041"
+  }
+}

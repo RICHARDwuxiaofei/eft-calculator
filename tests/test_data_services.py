@@ -16,7 +16,7 @@ from tarkov_armor_sim.services import export_csv, export_json
 
 def test_search_alias_caliber_and_favorite(tmp_path) -> None:
     db = Database(tmp_path / "test.sqlite3")
-    assert db.search_ammo("855a1")[0].id == "m855a1"
+    assert db.search_ammo("855a1")[0].id == "54527ac44bdc2d36668b4567"
     assert all(a.caliber == "5.56x45" for a in db.search_ammo("", "5.56x45"))
     db.set_favorite("m855a1", True)
     assert db.is_favorite("m855a1")
@@ -25,10 +25,10 @@ def test_search_alias_caliber_and_favorite(tmp_path) -> None:
 def test_bilingual_partial_search_ranks_exact_short_name_first(tmp_path) -> None:
     db = Database(tmp_path / "bilingual.sqlite3")
     results = db.search_ammo("855", locale="zh_CN")
-    assert results[0].id == "m855"
-    assert any(item.id == "m855a1" for item in results)
-    assert db.search_ammo("穿甲独头", locale="zh_CN")[0].id == "ap20"
-    assert db.search_ammo("armor-piercing", locale="zh_CN")[0].id == "ap20"
+    assert results[0].id == "54527a984bdc2d4e668b4567"
+    assert any(item.id == "54527ac44bdc2d36668b4567" for item in results)
+    assert db.search_ammo("穿甲独头", locale="zh_CN")[0].id == "5d6e68a8a4b9360b6c0d54e2"
+    assert db.search_ammo("armor-piercing", locale="zh_CN")[0].id == "5d6e68a8a4b9360b6c0d54e2"
 
 
 def test_api_caliber_identifiers_match_human_readable_filters(tmp_path) -> None:
@@ -45,7 +45,8 @@ def test_api_caliber_identifiers_match_human_readable_filters(tmp_path) -> None:
             "ammo": [asdict(online)],
         }
     )
-    assert db.search_ammo("", "5.56x45")[0].id == online.id
+    assert any(ammo.id == online.id for ammo in db.search_ammo("", "5.56x45"))
+    assert len(db.search_ammo("", "5.8x42")) == 4
 
 
 def test_carrier_defaults_reference_real_plate_values() -> None:

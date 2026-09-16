@@ -42,80 +42,120 @@ class BallisticsRuleset(Protocol):
     ) -> float: ...
 
 
+# Wiki material coefficients. A live item may override this with sourced data.
+MATERIAL_DESTRUCTIBILITY = {
+    "aramid": 0.1875, "uhmwpe": 0.3375, "combined": 0.375,
+    "titanium": 0.4125, "aluminum": 0.45, "steel": 0.525,
+    "ceramic": 0.6, "glass": 0.6,
+}
+
+
+def clamp(value: float, low: float, high: float) -> float:
+    return min(high, max(low, value))
+
+
+def armor_resistance(armor: ArmorLayer) -> float:
+    """Community durability curve; current/original, NEVER current/repaired maximum.
+
+    Reference: https://www.desmos.com/calculator/m8cmsfokkl
+    The published modern curve uses TWO times durability percentage.
+    See docs/RESEARCH.md for version/verification limits.
+    """
+    if armor.current_durability <= 0:
+        return 0.0
+    return (121.0 - 5000.0 / (45.0 + 200.0 * armor.true_durability_ratio)) * (
+        armor.armor_class * 0.1
+    )
+
+
 class CurrentApproximation:
-    """Auditable approximation, deliberately not presented as the hidden game formula."""
+    """Sourced community model, not a claim of access to current server code."""
 
     metadata = RulesetMetadata(
-        name="当前社区近似",
-        version="community-approx-2026.07-v1",
-        game_version="1.0.6.0",
-        created_at="2026-07-30",
+        name="Community reference / current-original durability",
+        version="community-reference-2026.09-v2",
+        game_version="unverified-current-patch",
+        created_at="2026-09-16",
         confidence=CalculationConfidence.APPROXIMATION,
         sources=(
+            "https://escapefromtarkov.fandom.com/wiki/Ballistics",
+            "https://www.desmos.com/calculator/m8cmsfokkl",
+            ("https://github.com/bugybon/TarkovBallisticsSimulator/blob/"
+             "82ea32437423c2f1d3ed9ad5d2807eaba15efbc4/api/balistics.js"),
             "https://tarkov.dev/api/",
-            "https://tarkov-changes.com/",
         ),
         limitations=(
-            "官方未公开完整穿透随机函数",
-            "穿透后伤害/穿深衰减为可替换近似",
-            "钝伤、碎裂和距离衰减为近似",
+            "Current server formula is not independently confirmed by in-game measurements",
+            "Armor damage, post-penetration loss and blunt damage are community models",
+            "One chosen hit path; no ricochet, hitbox miss, fragmentation or black-limb overflow",
+            "Nonzero-distance linear decay is experimental, not a validated flight model",
         ),
         default_allowed=True,
     )
 
-    def penetration_probability(
-        self, projectile: ProjectileState, armor: ArmorLayer
-    ) -> float:
-        effective_class = armor.armor_class * (0.55 + 0.45 * armor.true_durability_ratio)
-        margin = projectile.remaining_penetration - effective_class * 10.0
-        probability = 1.0 / (1.0 + 2.718281828 ** (-margin / 4.5))
-        return min(0.99, max(0.01, probability))
+    def penetration_probability(self, projectile: ProjectileState, armor: ArmorLayer) -> float:
+        if armor.current_durability <= 0:
+            return 1.0
+        pen = projectile.remaining_penetration
+        if pen <= 0:
+            return 0.0
+        resistance = armor_resistance(armor)
+        if pen >= resistance:
+            probability = (100.0 + pen / (0.9 * resistance - pen)) / 100.0
+        elif pen > resistance - 15.0:
+            probability = 0.004 * (resistance - pen - 15.0) ** 2
+        else:
+            probability = 0.0
+        return clamp(probability, 0.0, 1.0)
 
     def calculate_armor_damage(
         self, projectile: ProjectileState, armor: ArmorLayer, penetrated: bool
     ) -> float:
-        energy = max(0.35, projectile.remaining_penetration / (armor.armor_class * 10))
-        return max(
-            0.1,
-            projectile.remaining_penetration
-            * 0.1
-            * armor.destructibility
-            * energy
-            * (0.75 if penetrated else 1.15),
-        )
+        if armor.current_durability <= 0:
+            return 0.0
+        # Divide by (class * 10), not divide by class then multiply by ten.
+        # Do not copy the reference JS's max(x, lower, upper) typo.
+        relative_pen = projectile.remaining_penetration / (armor.armor_class * 10.0)
+        factor = clamp(relative_pen, 0.5, 0.9) if penetrated else clamp(relative_pen, 0.6, 1.1)
+        damage = (projectile.remaining_penetration * projectile.armor_damage_percent / 100.0
+                  * factor * armor.destructibility)
+        return min(armor.current_durability, max(1.0, damage))
 
     def calculate_post_penetration_state(
         self, projectile: ProjectileState, armor: ArmorLayer
     ) -> ProjectileState:
-        ratio = armor.true_durability_ratio
-        loss = min(0.42, 0.10 + armor.armor_class * 0.025 + ratio * 0.05)
+        factor = (1.0 if armor.current_durability <= 0 else
+                  clamp(projectile.remaining_penetration / (armor_resistance(armor) + 12.0),
+                        0.6, 1.0))
         return ProjectileState(
-            remaining_damage=max(0.0, projectile.remaining_damage * (1.0 - loss)),
-            remaining_penetration=max(
-                0.0, projectile.remaining_penetration - armor.armor_class * (2.8 + ratio)
-            ),
+            remaining_damage=projectile.remaining_damage * factor,
+            remaining_penetration=projectile.remaining_penetration * factor,
             current_layer_index=projectile.current_layer_index + 1,
+            armor_damage_percent=projectile.armor_damage_percent,
         )
 
     def calculate_blunt_damage(
-        self,
-        projectile: ProjectileState,
-        stopped_by: ArmorLayer,
+        self, projectile: ProjectileState, stopped_by: ArmorLayer,
         backing_layers: Sequence[ArmorLayer],
     ) -> float:
-        reduction = max(0.55, 1.0 - len(backing_layers) * 0.08)
-        return projectile.remaining_damage * stopped_by.blunt_throughput * reduction
+        if stopped_by.current_durability <= 0:
+            return 0.0
+        factor = clamp(1.0 - 0.03 * (armor_resistance(stopped_by)
+                                    - projectile.remaining_penetration), 0.2, 1.0)
+        # No arbitrary reduction by number of backing layers. The model does not
+        # claim to resolve compression/impulse propagation through multilayer armor.
+        plate_factor = 0.6 if stopped_by.layer_type.value == "plate" else 1.0
+        return projectile.remaining_damage * stopped_by.blunt_throughput * factor * plate_factor
 
 
 class ExperimentalRuleset(CurrentApproximation):
     metadata = RulesetMetadata(
-        name="实验性距离强化",
-        version="experimental-distance-2026.07-v1",
-        game_version="1.0.6.0",
-        created_at="2026-07-30",
+        name="Experimental distance sensitivity",
+        version="experimental-distance-2026.09-v2",
+        game_version="unverified-current-patch",
+        created_at="2026-09-16",
         confidence=CalculationConfidence.EXPERIMENTAL,
         sources=CurrentApproximation.metadata.sources,
-        limitations=CurrentApproximation.metadata.limitations
-        + ("距离衰减被有意放大，仅用于敏感性分析",),
+        limitations=CurrentApproximation.metadata.limitations,
         default_allowed=False,
     )

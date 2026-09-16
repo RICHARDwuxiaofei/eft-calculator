@@ -1,0 +1,1338 @@
+{
+  "version": "wiki-reviewed-2026-09-16",
+  "source_run": 35055738070,
+  "items": {
+    "54527a984bdc2d4e668b4567": {
+      "kind": "ammo",
+      "path": "ammo-live/54527a984bdc2d4e668b4567.webp",
+      "url": "https://assets.tarkov.dev/54527a984bdc2d4e668b4567-icon.webp",
+      "sha256": "1af1ba17f40deec8b600036eea17e2155cda0a272f4656fa1271c6054c9ff369"
+    },
+    "54527ac44bdc2d36668b4567": {
+      "kind": "ammo",
+      "path": "ammo-live/54527ac44bdc2d36668b4567.webp",
+      "url": "https://assets.tarkov.dev/54527ac44bdc2d36668b4567-icon.webp",
+      "sha256": "e49897815db0541e4a9ae528a5096e69b9f03622656f69efbc732df3cf4528c7"
+    },
+    "560d5e524bdc2d25448b4571": {
+      "kind": "ammo",
+      "path": "ammo-live/560d5e524bdc2d25448b4571.webp",
+      "url": "https://assets.tarkov.dev/560d5e524bdc2d25448b4571-icon.webp",
+      "sha256": "53c3ad4a2a0582174df011cc72b59620a006b02b1ffce3388337b29b2447f6e1"
+    },
+    "560d61e84bdc2da74d8b4571": {
+      "kind": "ammo",
+      "path": "ammo-live/560d61e84bdc2da74d8b4571.webp",
+      "url": "https://assets.tarkov.dev/560d61e84bdc2da74d8b4571-icon.webp",
+      "sha256": "3bce8b3a623a25e6740a17e689833ef377e792e7b78b81f3e5872e58190c80b6"
+    },
+    "5656d7c34bdc2d9d198b4587": {
+      "kind": "ammo",
+      "path": "ammo-live/5656d7c34bdc2d9d198b4587.webp",
+      "url": "https://assets.tarkov.dev/5656d7c34bdc2d9d198b4587-icon.webp",
+      "sha256": "a89859b8ea6e8e2dd63bd2bf12b03e448d7353aeabd2ded00a1851d83bbfdb73"
+    },
+    "56d59d3ad2720bdb418b4577": {
+      "kind": "ammo",
+      "path": "ammo-live/56d59d3ad2720bdb418b4577.webp",
+      "url": "https://assets.tarkov.dev/56d59d3ad2720bdb418b4577-icon.webp",
+      "sha256": "37509f0faabcaf0f8eb2005eb6ab20c12172f49e7e94766fc9cdf8b9929f743e"
+    },
+    "56dfef82d2720bbd668b4567": {
+      "kind": "ammo",
+      "path": "ammo-live/56dfef82d2720bbd668b4567.webp",
+      "url": "https://assets.tarkov.dev/56dfef82d2720bbd668b4567-icon.webp",
+      "sha256": "e56a42b106b2abd38120c302a6df8539d9e16d15dba3c4a53a96e0d242a054cd"
+    },
+    "56dff026d2720bb8668b4567": {
+      "kind": "ammo",
+      "path": "ammo-live/56dff026d2720bb8668b4567.webp",
+      "url": "https://assets.tarkov.dev/56dff026d2720bb8668b4567-icon.webp",
+      "sha256": "68360458de15d999d32227ec94931a8dc74b34978986f9e7d61d807f965ba730"
+    },
+    "56dff061d2720bb5668b4567": {
+      "kind": "ammo",
+      "path": "ammo-live/56dff061d2720bb5668b4567.webp",
+      "url": "https://assets.tarkov.dev/56dff061d2720bb5668b4567-icon.webp",
+      "sha256": "30f5198a298c8924e87c91a66ed11d41dd68cfe939ba989136f75ae718ef3ec0"
+    },
+    "56dff0bed2720bb0668b4567": {
+      "kind": "ammo",
+      "path": "ammo-live/56dff0bed2720bb0668b4567.webp",
+      "url": "https://assets.tarkov.dev/56dff0bed2720bb0668b4567-icon.webp",
+      "sha256": "11a1936862477e36d1c0fc2a1c16f22da98b8880725750948750fd2622170aa7"
+    },
+    "56dff216d2720bbd668b4568": {
+      "kind": "ammo",
+      "path": "ammo-live/56dff216d2720bbd668b4568.webp",
+      "url": "https://assets.tarkov.dev/56dff216d2720bbd668b4568-icon.webp",
+      "sha256": "b006434639164a23e95f589c67565556db7a1da198f5c59b5b89f5a6ab92431d"
+    },
+    "56dff2ced2720bb4668b4567": {
+      "kind": "ammo",
+      "path": "ammo-live/56dff2ced2720bb4668b4567.webp",
+      "url": "https://assets.tarkov.dev/56dff2ced2720bb4668b4567-icon.webp",
+      "sha256": "f5758f7a7686e824cf5f389339084a96591d5d95828668202e235bf686f8aec7"
+    },
+    "56dff338d2720bbd668b4569": {
+      "kind": "ammo",
+      "path": "ammo-live/56dff338d2720bbd668b4569.webp",
+      "url": "https://assets.tarkov.dev/56dff338d2720bbd668b4569-icon.webp",
+      "sha256": "52fa94468af26a355d38723c30de2c5b184e96ce856f6ea4cc019b5e798174d3"
+    },
+    "56dff3afd2720bba668b4567": {
+      "kind": "ammo",
+      "path": "ammo-live/56dff3afd2720bba668b4567.webp",
+      "url": "https://assets.tarkov.dev/56dff3afd2720bba668b4567-icon.webp",
+      "sha256": "1d02de515b85dfce3a327a6686212a471a046f544009d118adc09413730ea0cf"
+    },
+    "56dff421d2720b5f5a8b4567": {
+      "kind": "ammo",
+      "path": "ammo-live/56dff421d2720b5f5a8b4567.webp",
+      "url": "https://assets.tarkov.dev/56dff421d2720b5f5a8b4567-icon.webp",
+      "sha256": "c3ea35a5453423dfeb7aa4c73c1b7a739dca074f0f5e7fc56e3830760649a8c9"
+    },
+    "56dff4a2d2720bbd668b456a": {
+      "kind": "ammo",
+      "path": "ammo-live/56dff4a2d2720bbd668b456a.webp",
+      "url": "https://assets.tarkov.dev/56dff4a2d2720bbd668b456a-icon.webp",
+      "sha256": "41a7ac5bd96982798572d3f3e03234f4d173cdbfbece0704771d06bd055357de"
+    },
+    "56dff4ecd2720b5f5a8b4568": {
+      "kind": "ammo",
+      "path": "ammo-live/56dff4ecd2720b5f5a8b4568.webp",
+      "url": "https://assets.tarkov.dev/56dff4ecd2720b5f5a8b4568-icon.webp",
+      "sha256": "534192821b25fa4827921bf825f9bdef2fc21b6a25df85154d8d60ae41efb3b3"
+    },
+    "5735fdcd2459776445391d61": {
+      "kind": "ammo",
+      "path": "ammo-live/5735fdcd2459776445391d61.webp",
+      "url": "https://assets.tarkov.dev/5735fdcd2459776445391d61-icon.webp",
+      "sha256": "d3d527b5360b2c96c605d1986823e9271f33aab28efa13d988b03c93e6b997a3"
+    },
+    "5735ff5c245977640e39ba7e": {
+      "kind": "ammo",
+      "path": "ammo-live/5735ff5c245977640e39ba7e.webp",
+      "url": "https://assets.tarkov.dev/5735ff5c245977640e39ba7e-icon.webp",
+      "sha256": "36e63907530835ad17fb15e83d0f55d09391ca47e2b9c37e2104631db3bafb11"
+    },
+    "573601b42459776410737435": {
+      "kind": "ammo",
+      "path": "ammo-live/573601b42459776410737435.webp",
+      "url": "https://assets.tarkov.dev/573601b42459776410737435-icon.webp",
+      "sha256": "c3aede406cad943386dec0613430e83a4b665d5bb5143829539ffb558ed5de0a"
+    },
+    "573602322459776445391df1": {
+      "kind": "ammo",
+      "path": "ammo-live/573602322459776445391df1.webp",
+      "url": "https://assets.tarkov.dev/573602322459776445391df1-icon.webp",
+      "sha256": "691a20c158b0f02248418d60e5f302ff7980bcebcc85c0360a63ae861adc545d"
+    },
+    "5736026a245977644601dc61": {
+      "kind": "ammo",
+      "path": "ammo-live/5736026a245977644601dc61.webp",
+      "url": "https://assets.tarkov.dev/5736026a245977644601dc61-icon.webp",
+      "sha256": "2c916e099fb6a3f7e9f0ecb44ff4560562faaf5a570408e53ea73c3a5054ed34"
+    },
+    "573603562459776430731618": {
+      "kind": "ammo",
+      "path": "ammo-live/573603562459776430731618.webp",
+      "url": "https://assets.tarkov.dev/573603562459776430731618-icon.webp",
+      "sha256": "2f0022a979565c691bb66d22dbe280b6069c64d2270fea871b24d23f992c4c4e"
+    },
+    "573603c924597764442bd9cb": {
+      "kind": "ammo",
+      "path": "ammo-live/573603c924597764442bd9cb.webp",
+      "url": "https://assets.tarkov.dev/573603c924597764442bd9cb-icon.webp",
+      "sha256": "c242b8582c9354588754e5b7b5dd894b7b00fda3acaaf4ab9ea3250401794b26"
+    },
+    "573718ba2459775a75491131": {
+      "kind": "ammo",
+      "path": "ammo-live/573718ba2459775a75491131.webp",
+      "url": "https://assets.tarkov.dev/573718ba2459775a75491131-icon.webp",
+      "sha256": "f12a526deffca06ee4fd1462d9050e49858f00fd7bc9601d693a217e52fb6e0b"
+    },
+    "573719762459775a626ccbc1": {
+      "kind": "ammo",
+      "path": "ammo-live/573719762459775a626ccbc1.webp",
+      "url": "https://assets.tarkov.dev/573719762459775a626ccbc1-icon.webp",
+      "sha256": "f12a526deffca06ee4fd1462d9050e49858f00fd7bc9601d693a217e52fb6e0b"
+    },
+    "573719df2459775a626ccbc2": {
+      "kind": "ammo",
+      "path": "ammo-live/573719df2459775a626ccbc2.webp",
+      "url": "https://assets.tarkov.dev/573719df2459775a626ccbc2-icon.webp",
+      "sha256": "f12a526deffca06ee4fd1462d9050e49858f00fd7bc9601d693a217e52fb6e0b"
+    },
+    "57371aab2459775a77142f22": {
+      "kind": "ammo",
+      "path": "ammo-live/57371aab2459775a77142f22.webp",
+      "url": "https://assets.tarkov.dev/57371aab2459775a77142f22-icon.webp",
+      "sha256": "f12a526deffca06ee4fd1462d9050e49858f00fd7bc9601d693a217e52fb6e0b"
+    },
+    "57371b192459775a9f58a5e0": {
+      "kind": "ammo",
+      "path": "ammo-live/57371b192459775a9f58a5e0.webp",
+      "url": "https://assets.tarkov.dev/57371b192459775a9f58a5e0-icon.webp",
+      "sha256": "f12a526deffca06ee4fd1462d9050e49858f00fd7bc9601d693a217e52fb6e0b"
+    },
+    "57371e4124597760ff7b25f1": {
+      "kind": "ammo",
+      "path": "ammo-live/57371e4124597760ff7b25f1.webp",
+      "url": "https://assets.tarkov.dev/57371e4124597760ff7b25f1-icon.webp",
+      "sha256": "f12a526deffca06ee4fd1462d9050e49858f00fd7bc9601d693a217e52fb6e0b"
+    },
+    "57371eb62459776125652ac1": {
+      "kind": "ammo",
+      "path": "ammo-live/57371eb62459776125652ac1.webp",
+      "url": "https://assets.tarkov.dev/57371eb62459776125652ac1-icon.webp",
+      "sha256": "f12a526deffca06ee4fd1462d9050e49858f00fd7bc9601d693a217e52fb6e0b"
+    },
+    "57371f2b24597761224311f1": {
+      "kind": "ammo",
+      "path": "ammo-live/57371f2b24597761224311f1.webp",
+      "url": "https://assets.tarkov.dev/57371f2b24597761224311f1-icon.webp",
+      "sha256": "f12a526deffca06ee4fd1462d9050e49858f00fd7bc9601d693a217e52fb6e0b"
+    },
+    "57371f8d24597761006c6a81": {
+      "kind": "ammo",
+      "path": "ammo-live/57371f8d24597761006c6a81.webp",
+      "url": "https://assets.tarkov.dev/57371f8d24597761006c6a81-icon.webp",
+      "sha256": "f12a526deffca06ee4fd1462d9050e49858f00fd7bc9601d693a217e52fb6e0b"
+    },
+    "5737201124597760fc4431f1": {
+      "kind": "ammo",
+      "path": "ammo-live/5737201124597760fc4431f1.webp",
+      "url": "https://assets.tarkov.dev/5737201124597760fc4431f1-icon.webp",
+      "sha256": "f12a526deffca06ee4fd1462d9050e49858f00fd7bc9601d693a217e52fb6e0b"
+    },
+    "5737207f24597760ff7b25f2": {
+      "kind": "ammo",
+      "path": "ammo-live/5737207f24597760ff7b25f2.webp",
+      "url": "https://assets.tarkov.dev/5737207f24597760ff7b25f2-icon.webp",
+      "sha256": "f12a526deffca06ee4fd1462d9050e49858f00fd7bc9601d693a217e52fb6e0b"
+    },
+    "573720e02459776143012541": {
+      "kind": "ammo",
+      "path": "ammo-live/573720e02459776143012541.webp",
+      "url": "https://assets.tarkov.dev/573720e02459776143012541-icon.webp",
+      "sha256": "f12a526deffca06ee4fd1462d9050e49858f00fd7bc9601d693a217e52fb6e0b"
+    },
+    "57372140245977611f70ee91": {
+      "kind": "ammo",
+      "path": "ammo-live/57372140245977611f70ee91.webp",
+      "url": "https://assets.tarkov.dev/57372140245977611f70ee91-icon.webp",
+      "sha256": "f12a526deffca06ee4fd1462d9050e49858f00fd7bc9601d693a217e52fb6e0b"
+    },
+    "5737218f245977612125ba51": {
+      "kind": "ammo",
+      "path": "ammo-live/5737218f245977612125ba51.webp",
+      "url": "https://assets.tarkov.dev/5737218f245977612125ba51-icon.webp",
+      "sha256": "f12a526deffca06ee4fd1462d9050e49858f00fd7bc9601d693a217e52fb6e0b"
+    },
+    "57a0dfb82459774d3078b56c": {
+      "kind": "ammo",
+      "path": "ammo-live/57a0dfb82459774d3078b56c.webp",
+      "url": "https://assets.tarkov.dev/57a0dfb82459774d3078b56c-icon.webp",
+      "sha256": "62aba40d61e038e96f0235aaea77a53d6d33d55208a37f6f52955e17dc77770e"
+    },
+    "57a0e5022459774d1673f889": {
+      "kind": "ammo",
+      "path": "ammo-live/57a0e5022459774d1673f889.webp",
+      "url": "https://assets.tarkov.dev/57a0e5022459774d1673f889-icon.webp",
+      "sha256": "9bb39eb6ab748213577af6c492984ea0e2087cb89178c874c64572c4a4135f67"
+    },
+    "58820d1224597753c90aeb13": {
+      "kind": "ammo",
+      "path": "ammo-live/58820d1224597753c90aeb13.webp",
+      "url": "https://assets.tarkov.dev/58820d1224597753c90aeb13-icon.webp",
+      "sha256": "fda2c2b6dbecb1fa16f596cb7a4da823fb7971fc00a138783a9edb7fbc4ade4c"
+    },
+    "58864a4f2459770fcc257101": {
+      "kind": "ammo",
+      "path": "ammo-live/58864a4f2459770fcc257101.webp",
+      "url": "https://assets.tarkov.dev/58864a4f2459770fcc257101-icon.webp",
+      "sha256": "687e919295baeb7e6d01bd58ed37666102c1397ef75786b7e06defc29af26ab4"
+    },
+    "5887431f2459777e1612938f": {
+      "kind": "ammo",
+      "path": "ammo-live/5887431f2459777e1612938f.webp",
+      "url": "https://assets.tarkov.dev/5887431f2459777e1612938f-icon.webp",
+      "sha256": "08e3eba4815a6ad99dbe834d880c482fcc3eadc64d2757120623559b73fc302e"
+    },
+    "58dd3ad986f77403051cba8f": {
+      "kind": "ammo",
+      "path": "ammo-live/58dd3ad986f77403051cba8f.webp",
+      "url": "https://assets.tarkov.dev/58dd3ad986f77403051cba8f-icon.webp",
+      "sha256": "3da13406479c7500f9ba318a6d4f7e47c2ed3cabeb168afb08a09e77d77a2164"
+    },
+    "59e0d99486f7744a32234762": {
+      "kind": "ammo",
+      "path": "ammo-live/59e0d99486f7744a32234762.webp",
+      "url": "https://assets.tarkov.dev/59e0d99486f7744a32234762-icon.webp",
+      "sha256": "f407429a7500f7fb8b66f5507125559c88be61c22de39dee4c645fc0291b2efe"
+    },
+    "59e4cf5286f7741778269d8a": {
+      "kind": "ammo",
+      "path": "ammo-live/59e4cf5286f7741778269d8a.webp",
+      "url": "https://assets.tarkov.dev/59e4cf5286f7741778269d8a-icon.webp",
+      "sha256": "1ef6f6a5fee393a5a44f791543f7f7f3dfe553faf5d573754cfc558d60bee0fb"
+    },
+    "59e4d24686f7741776641ac7": {
+      "kind": "ammo",
+      "path": "ammo-live/59e4d24686f7741776641ac7.webp",
+      "url": "https://assets.tarkov.dev/59e4d24686f7741776641ac7-icon.webp",
+      "sha256": "69a1ddea82bf2d008aba01c05165e4de63b6ae238e6bf70621b65c060b8bbcd2"
+    },
+    "59e4d3d286f774176a36250a": {
+      "kind": "ammo",
+      "path": "ammo-live/59e4d3d286f774176a36250a.webp",
+      "url": "https://assets.tarkov.dev/59e4d3d286f774176a36250a-icon.webp",
+      "sha256": "2c7a2a506eebdba3a9e1bdccf016f547fabdc5267bf808e52ce02f24495e07b6"
+    },
+    "59e6542b86f77411dc52a77a": {
+      "kind": "ammo",
+      "path": "ammo-live/59e6542b86f77411dc52a77a.webp",
+      "url": "https://assets.tarkov.dev/59e6542b86f77411dc52a77a-icon.webp",
+      "sha256": "25bd88c25fc7bc8fdd66682a7b1799bcfce69e5db5991bd177a9f4ff5ec3f4f4"
+    },
+    "59e655cb86f77411dc52a77b": {
+      "kind": "ammo",
+      "path": "ammo-live/59e655cb86f77411dc52a77b.webp",
+      "url": "https://assets.tarkov.dev/59e655cb86f77411dc52a77b-icon.webp",
+      "sha256": "3ed5ec0c1748d94b397e63e8b946ea6572e0f6733d25f24fcf89f14bb2664992"
+    },
+    "59e6658b86f77411d949b250": {
+      "kind": "ammo",
+      "path": "ammo-live/59e6658b86f77411d949b250.webp",
+      "url": "https://assets.tarkov.dev/59e6658b86f77411d949b250-icon.webp",
+      "sha256": "a97cad6f55ec85d357d7fc919962a9b1d199b94d4f498ccc218c15f8285eb8d9"
+    },
+    "59e68f6f86f7746c9f75e846": {
+      "kind": "ammo",
+      "path": "ammo-live/59e68f6f86f7746c9f75e846.webp",
+      "url": "https://assets.tarkov.dev/59e68f6f86f7746c9f75e846-icon.webp",
+      "sha256": "7f4476a08d1a6ee78c70d1360953b6031c6ceb7078cd8c0a42bba71020a83e65"
+    },
+    "59e6906286f7746c9f75e847": {
+      "kind": "ammo",
+      "path": "ammo-live/59e6906286f7746c9f75e847.webp",
+      "url": "https://assets.tarkov.dev/59e6906286f7746c9f75e847-icon.webp",
+      "sha256": "d708b31dc3139549cb4edc4f78cad4792a11c15a00f92836daac4c7b6f78333a"
+    },
+    "59e690b686f7746c9f75e848": {
+      "kind": "ammo",
+      "path": "ammo-live/59e690b686f7746c9f75e848.webp",
+      "url": "https://assets.tarkov.dev/59e690b686f7746c9f75e848-icon.webp",
+      "sha256": "f2dc1178bf25f2ceb8a8c5197b289094ff2b6f73e3bd0a4f07d30eb14f137d2a"
+    },
+    "59e6918f86f7746c9f75e849": {
+      "kind": "ammo",
+      "path": "ammo-live/59e6918f86f7746c9f75e849.webp",
+      "url": "https://assets.tarkov.dev/59e6918f86f7746c9f75e849-icon.webp",
+      "sha256": "76b3128c588217d29fcce01bb242c46435fc8a114495d883b6901b6edc2d0044"
+    },
+    "59e6920f86f77411d82aa167": {
+      "kind": "ammo",
+      "path": "ammo-live/59e6920f86f77411d82aa167.webp",
+      "url": "https://assets.tarkov.dev/59e6920f86f77411d82aa167-icon.webp",
+      "sha256": "595ec6e0db0ba02b08f4d1fb5c1dbf5b85ab4d1d7851395a687ecfaf34b7ed8e"
+    },
+    "59e6927d86f77411da468256": {
+      "kind": "ammo",
+      "path": "ammo-live/59e6927d86f77411da468256.webp",
+      "url": "https://assets.tarkov.dev/59e6927d86f77411da468256-icon.webp",
+      "sha256": "3dcf0e633c3bc99424fa3b23d55a599d14fb4725680b6aeec6f15635cbe6abbb"
+    },
+    "59e77a2386f7742ee578960a": {
+      "kind": "ammo",
+      "path": "ammo-live/59e77a2386f7742ee578960a.webp",
+      "url": "https://assets.tarkov.dev/59e77a2386f7742ee578960a-icon.webp",
+      "sha256": "37a05db94e7d9cfbbd868a9705e9b018495c1e38900253585e594ba4ad1f0e8c"
+    },
+    "5a269f97c4a282000b151807": {
+      "kind": "ammo",
+      "path": "ammo-live/5a269f97c4a282000b151807.webp",
+      "url": "https://assets.tarkov.dev/5a269f97c4a282000b151807-icon.webp",
+      "sha256": "39c5f80b0a3506d29a08f0f1df974103becbfd48b27b698efb7c412274906a48"
+    },
+    "5a26abfac4a28232980eabff": {
+      "kind": "ammo",
+      "path": "ammo-live/5a26abfac4a28232980eabff.webp",
+      "url": "https://assets.tarkov.dev/5a26abfac4a28232980eabff-icon.webp",
+      "sha256": "65048c1bc08529b164c9e5408ecfd0923367a97403b474e494f162c0973db01d"
+    },
+    "5a26ac06c4a282000c5a90a8": {
+      "kind": "ammo",
+      "path": "ammo-live/5a26ac06c4a282000c5a90a8.webp",
+      "url": "https://assets.tarkov.dev/5a26ac06c4a282000c5a90a8-icon.webp",
+      "sha256": "f56acd17001b874c9064e6dc1d6b15c4975e995b5d546514c06384ab056314cf"
+    },
+    "5a26ac0ec4a28200741e1e18": {
+      "kind": "ammo",
+      "path": "ammo-live/5a26ac0ec4a28200741e1e18.webp",
+      "url": "https://assets.tarkov.dev/5a26ac0ec4a28200741e1e18-icon.webp",
+      "sha256": "0f3766924c3c818ee262d0fc6040d8a68f632fa7b42a44f74b1f0ed632190b0c"
+    },
+    "5a38ebd9c4a282000d722a5b": {
+      "kind": "ammo",
+      "path": "ammo-live/5a38ebd9c4a282000d722a5b.webp",
+      "url": "https://assets.tarkov.dev/5a38ebd9c4a282000d722a5b-icon.webp",
+      "sha256": "6c811dd4ed335bfe23f1fed9e4643b41cd1395d503dadd036f7abf1ba9a83237"
+    },
+    "5a3c16fe86f77452b62de32a": {
+      "kind": "ammo",
+      "path": "ammo-live/5a3c16fe86f77452b62de32a.webp",
+      "url": "https://assets.tarkov.dev/5a3c16fe86f77452b62de32a-icon.webp",
+      "sha256": "2a56b343aad1988e4f7e731429bddcf10eed488a75de00875f0003c5d79cebef"
+    },
+    "5a6086ea4f39f99cd479502f": {
+      "kind": "ammo",
+      "path": "ammo-live/5a6086ea4f39f99cd479502f.webp",
+      "url": "https://assets.tarkov.dev/5a6086ea4f39f99cd479502f-icon.webp",
+      "sha256": "cadf8d4ffc3d6942d31cad24d22c9bfccefbad81c668e24a1489f8478d999be1"
+    },
+    "5a608bf24f39f98ffc77720e": {
+      "kind": "ammo",
+      "path": "ammo-live/5a608bf24f39f98ffc77720e.webp",
+      "url": "https://assets.tarkov.dev/5a608bf24f39f98ffc77720e-icon.webp",
+      "sha256": "0348531b4ef49fe9579a9bd5ec1f4a49462e1e81f2f0a4fff8364e968263232a"
+    },
+    "5ba2678ad4351e44f824b344": {
+      "kind": "ammo",
+      "path": "ammo-live/5ba2678ad4351e44f824b344.webp",
+      "url": "https://assets.tarkov.dev/5ba2678ad4351e44f824b344-icon.webp",
+      "sha256": "5ba8999cf0ef624d6b5d1f3c1df265ead4449d950bf2f4e9017b1ecbcad18f4c"
+    },
+    "5ba26812d4351e003201fef1": {
+      "kind": "ammo",
+      "path": "ammo-live/5ba26812d4351e003201fef1.webp",
+      "url": "https://assets.tarkov.dev/5ba26812d4351e003201fef1-icon.webp",
+      "sha256": "3df2eeb3d9200c7a13ca9a98241b31def240120e5dee247da991661e1aeb0eca"
+    },
+    "5ba26835d4351e0035628ff5": {
+      "kind": "ammo",
+      "path": "ammo-live/5ba26835d4351e0035628ff5.webp",
+      "url": "https://assets.tarkov.dev/5ba26835d4351e0035628ff5-icon.webp",
+      "sha256": "f6b65ff7e1a380ce265c95a268dac53158058c2b1756f756baca40df8e04d693"
+    },
+    "5ba26844d4351e00334c9475": {
+      "kind": "ammo",
+      "path": "ammo-live/5ba26844d4351e00334c9475.webp",
+      "url": "https://assets.tarkov.dev/5ba26844d4351e00334c9475-icon.webp",
+      "sha256": "0fa554a2942bd9ae5f2143a839cd56bb4d3c8979c83c9f02bec828f28586edae"
+    },
+    "5c0d56a986f774449d5de529": {
+      "kind": "ammo",
+      "path": "ammo-live/5c0d56a986f774449d5de529.webp",
+      "url": "https://assets.tarkov.dev/5c0d56a986f774449d5de529-icon.webp",
+      "sha256": "f36a8c531a67f43c424a0ea1f498b8ecc16e7636a65d8a8175fbea2b754bc4d7"
+    },
+    "5c0d591486f7744c505b416f": {
+      "kind": "ammo",
+      "path": "ammo-live/5c0d591486f7744c505b416f.webp",
+      "url": "https://assets.tarkov.dev/5c0d591486f7744c505b416f-icon.webp",
+      "sha256": "1b6f141f0dddd4891499ae6fd39279746cd468e1830ea9fbdbaa511503087e37"
+    },
+    "5c0d5ae286f7741e46554302": {
+      "kind": "ammo",
+      "path": "ammo-live/5c0d5ae286f7741e46554302.webp",
+      "url": "https://assets.tarkov.dev/5c0d5ae286f7741e46554302-icon.webp",
+      "sha256": "df928396ce920dc7c3b890abe6129869a90034782680d9f3b158b4b0e0a01797"
+    },
+    "5c0d5e4486f77478390952fe": {
+      "kind": "ammo",
+      "path": "ammo-live/5c0d5e4486f77478390952fe.webp",
+      "url": "https://assets.tarkov.dev/5c0d5e4486f77478390952fe-icon.webp",
+      "sha256": "3f70182b3bd52593743a23171019615e3e06c4667e1f6932ef766c10556df10a"
+    },
+    "5c0d668f86f7747ccb7f13b2": {
+      "kind": "ammo",
+      "path": "ammo-live/5c0d668f86f7747ccb7f13b2.webp",
+      "url": "https://assets.tarkov.dev/5c0d668f86f7747ccb7f13b2-icon.webp",
+      "sha256": "a32278997d7bd0cfb5c743d6013bcec1c710842bb841d42d7c24ddd370666525"
+    },
+    "5c0d688c86f77413ae3407b2": {
+      "kind": "ammo",
+      "path": "ammo-live/5c0d688c86f77413ae3407b2.webp",
+      "url": "https://assets.tarkov.dev/5c0d688c86f77413ae3407b2-icon.webp",
+      "sha256": "53c036ba9d6b32c88c4876e0af21780b20797f8c0d02a12a02d21fa409753f25"
+    },
+    "5c3df7d588a4501f290594e5": {
+      "kind": "ammo",
+      "path": "ammo-live/5c3df7d588a4501f290594e5.webp",
+      "url": "https://assets.tarkov.dev/5c3df7d588a4501f290594e5-icon.webp",
+      "sha256": "a9b70a14c81f6dc02eebe123950befeb3a550a6a44c8dcd6c5a6d55dce0ae3b5"
+    },
+    "5c925fa22e221601da359b7b": {
+      "kind": "ammo",
+      "path": "ammo-live/5c925fa22e221601da359b7b.webp",
+      "url": "https://assets.tarkov.dev/5c925fa22e221601da359b7b-icon.webp",
+      "sha256": "785de1479b27d7d85a31b92674e04f64cf927b62de2b57978c39dc1e79d55764"
+    },
+    "5cadf6ddae9215051e1c23b2": {
+      "kind": "ammo",
+      "path": "ammo-live/5cadf6ddae9215051e1c23b2.webp",
+      "url": "https://assets.tarkov.dev/5cadf6ddae9215051e1c23b2-icon.webp",
+      "sha256": "b51834db28831bb93863499be85d6861d01fb5bd101044603be61b9e72526a85"
+    },
+    "5cadf6e5ae921500113bb973": {
+      "kind": "ammo",
+      "path": "ammo-live/5cadf6e5ae921500113bb973.webp",
+      "url": "https://assets.tarkov.dev/5cadf6e5ae921500113bb973-icon.webp",
+      "sha256": "94935b45e45fef1b4ec79990170d3666e2b2ae4471ec9b4ea1a510b39dac6347"
+    },
+    "5cadf6eeae921500134b2799": {
+      "kind": "ammo",
+      "path": "ammo-live/5cadf6eeae921500134b2799.webp",
+      "url": "https://assets.tarkov.dev/5cadf6eeae921500134b2799-icon.webp",
+      "sha256": "47ed1ccfe5e2c521533bf378a7b34f70ffa207958cbd9e08dea7da281685fe47"
+    },
+    "5cc80f38e4a949001152b560": {
+      "kind": "ammo",
+      "path": "ammo-live/5cc80f38e4a949001152b560.webp",
+      "url": "https://assets.tarkov.dev/5cc80f38e4a949001152b560-icon.webp",
+      "sha256": "fde4b8cc781c80aecf45369266290b96c2298f615861570c824e39217a1fbc14"
+    },
+    "5cc80f53e4a949000e1ea4f8": {
+      "kind": "ammo",
+      "path": "ammo-live/5cc80f53e4a949000e1ea4f8.webp",
+      "url": "https://assets.tarkov.dev/5cc80f53e4a949000e1ea4f8-icon.webp",
+      "sha256": "449493189deeb44940fee57aa423d849de386d8b40f7cf00386e2d16ca44de24"
+    },
+    "5cc80f67e4a949035e43bbba": {
+      "kind": "ammo",
+      "path": "ammo-live/5cc80f67e4a949035e43bbba.webp",
+      "url": "https://assets.tarkov.dev/5cc80f67e4a949035e43bbba-icon.webp",
+      "sha256": "34cfc0f796582d4e98ecb00aad0bc5e93de496363b27a5333b4fdbbf1ead6a47"
+    },
+    "5cc80f79e4a949033c7343b2": {
+      "kind": "ammo",
+      "path": "ammo-live/5cc80f79e4a949033c7343b2.webp",
+      "url": "https://assets.tarkov.dev/5cc80f79e4a949033c7343b2-icon.webp",
+      "sha256": "01dc8e069e59d2bf5811b0c1e262533b47d684d6f6f3e8245146ed029fb5cced"
+    },
+    "5cc80f8fe4a949033b0224a2": {
+      "kind": "ammo",
+      "path": "ammo-live/5cc80f8fe4a949033b0224a2.webp",
+      "url": "https://assets.tarkov.dev/5cc80f8fe4a949033b0224a2-icon.webp",
+      "sha256": "20a331498b0bfc4a72ba40d0a3d2527645adff9cb959e55ddaf80955c37f2e84"
+    },
+    "5cc86832d7f00c000d3a6e6c": {
+      "kind": "ammo",
+      "path": "ammo-live/5cc86832d7f00c000d3a6e6c.webp",
+      "url": "https://assets.tarkov.dev/5cc86832d7f00c000d3a6e6c-icon.webp",
+      "sha256": "283ce824e5ba82e698122be30a13936c32f555b6fb6338306c3f632328fafc2f"
+    },
+    "5cc86840d7f00c002412c56c": {
+      "kind": "ammo",
+      "path": "ammo-live/5cc86840d7f00c002412c56c.webp",
+      "url": "https://assets.tarkov.dev/5cc86840d7f00c002412c56c-icon.webp",
+      "sha256": "5cd59a85158cc00342213aac749e56bf06d243384716fe55e894e3033a054c48"
+    },
+    "5d6e6772a4b936088465b17c": {
+      "kind": "ammo",
+      "path": "ammo-live/5d6e6772a4b936088465b17c.webp",
+      "url": "https://assets.tarkov.dev/5d6e6772a4b936088465b17c-icon.webp",
+      "sha256": "53c3ad4a2a0582174df011cc72b59620a006b02b1ffce3388337b29b2447f6e1"
+    },
+    "5d6e67fba4b9361bc73bc779": {
+      "kind": "ammo",
+      "path": "ammo-live/5d6e67fba4b9361bc73bc779.webp",
+      "url": "https://assets.tarkov.dev/5d6e67fba4b9361bc73bc779-icon.webp",
+      "sha256": "53c3ad4a2a0582174df011cc72b59620a006b02b1ffce3388337b29b2447f6e1"
+    },
+    "5d6e6806a4b936088465b17e": {
+      "kind": "ammo",
+      "path": "ammo-live/5d6e6806a4b936088465b17e.webp",
+      "url": "https://assets.tarkov.dev/5d6e6806a4b936088465b17e-icon.webp",
+      "sha256": "53c3ad4a2a0582174df011cc72b59620a006b02b1ffce3388337b29b2447f6e1"
+    },
+    "5d6e6869a4b9361c140bcfde": {
+      "kind": "ammo",
+      "path": "ammo-live/5d6e6869a4b9361c140bcfde.webp",
+      "url": "https://assets.tarkov.dev/5d6e6869a4b9361c140bcfde-icon.webp",
+      "sha256": "95f808839922d5bec631b753ad8b3851ddc941053fd5e482cd36c83483033c7b"
+    },
+    "5d6e6891a4b9361bd473feea": {
+      "kind": "ammo",
+      "path": "ammo-live/5d6e6891a4b9361bd473feea.webp",
+      "url": "https://assets.tarkov.dev/5d6e6891a4b9361bd473feea-icon.webp",
+      "sha256": "a65eb78aff64a72175004c3766743be2ce72b47e1403a5d3e77d98c5c17fc39b"
+    },
+    "5d6e689ca4b9361bc8618956": {
+      "kind": "ammo",
+      "path": "ammo-live/5d6e689ca4b9361bc8618956.webp",
+      "url": "https://assets.tarkov.dev/5d6e689ca4b9361bc8618956-icon.webp",
+      "sha256": "3fac90e27822a9d4bde63e435b8b19b7227627cfb302caab47b0361ed60f1fc5"
+    },
+    "5d6e68a8a4b9360b6c0d54e2": {
+      "kind": "ammo",
+      "path": "ammo-live/5d6e68a8a4b9360b6c0d54e2.webp",
+      "url": "https://assets.tarkov.dev/5d6e68a8a4b9360b6c0d54e2-icon.webp",
+      "sha256": "5315460b86fd245cb903f356ec13e28334461ae646e244696ddcc5ae33e5ee21"
+    },
+    "5d6e68b3a4b9361bca7e50b5": {
+      "kind": "ammo",
+      "path": "ammo-live/5d6e68b3a4b9361bca7e50b5.webp",
+      "url": "https://assets.tarkov.dev/5d6e68b3a4b9361bca7e50b5-icon.webp",
+      "sha256": "8866f1853ab190db7194436dcc3695bbac18226ebdcb6da07b3942a330dfd610"
+    },
+    "5d6e68c4a4b9361b93413f79": {
+      "kind": "ammo",
+      "path": "ammo-live/5d6e68c4a4b9361b93413f79.webp",
+      "url": "https://assets.tarkov.dev/5d6e68c4a4b9361b93413f79-icon.webp",
+      "sha256": "cf668d550f7e1080d1ef5f4fdc84995e5942bd42e5cab3c879d3e8a57797bf19"
+    },
+    "5d6e68d1a4b93622fe60e845": {
+      "kind": "ammo",
+      "path": "ammo-live/5d6e68d1a4b93622fe60e845.webp",
+      "url": "https://assets.tarkov.dev/5d6e68d1a4b93622fe60e845-icon.webp",
+      "sha256": "67af3035f0cdd09af7b6efd5d893e161281f769fff271bdded0bedfe57afd2d7"
+    },
+    "5d6e68dea4b9361bcc29e659": {
+      "kind": "ammo",
+      "path": "ammo-live/5d6e68dea4b9361bcc29e659.webp",
+      "url": "https://assets.tarkov.dev/5d6e68dea4b9361bcc29e659-icon.webp",
+      "sha256": "6f9d63633f52995f53ff831ce9200300cfa36dc7bfb9bc073c49ab7d2a70939c"
+    },
+    "5d6e68e6a4b9361c140bcfe0": {
+      "kind": "ammo",
+      "path": "ammo-live/5d6e68e6a4b9361c140bcfe0.webp",
+      "url": "https://assets.tarkov.dev/5d6e68e6a4b9361c140bcfe0-icon.webp",
+      "sha256": "58289f7631f594295b2a546453112d8aeff90b8ce6e33ac52a9f91010cdfda44"
+    },
+    "5d6e6911a4b9361bd5780d52": {
+      "kind": "ammo",
+      "path": "ammo-live/5d6e6911a4b9361bd5780d52.webp",
+      "url": "https://assets.tarkov.dev/5d6e6911a4b9361bd5780d52-icon.webp",
+      "sha256": "68a3b11d15af4c1fc0710ab18c2048e6ad6574dc5d6e002cde1c8fd6802f27b3"
+    },
+    "5d6e695fa4b936359b35d852": {
+      "kind": "ammo",
+      "path": "ammo-live/5d6e695fa4b936359b35d852.webp",
+      "url": "https://assets.tarkov.dev/5d6e695fa4b936359b35d852-icon.webp",
+      "sha256": "6c811dd4ed335bfe23f1fed9e4643b41cd1395d503dadd036f7abf1ba9a83237"
+    },
+    "5d6e69b9a4b9361bc8618958": {
+      "kind": "ammo",
+      "path": "ammo-live/5d6e69b9a4b9361bc8618958.webp",
+      "url": "https://assets.tarkov.dev/5d6e69b9a4b9361bc8618958-icon.webp",
+      "sha256": "6c811dd4ed335bfe23f1fed9e4643b41cd1395d503dadd036f7abf1ba9a83237"
+    },
+    "5d6e69c7a4b9360b6c0d54e4": {
+      "kind": "ammo",
+      "path": "ammo-live/5d6e69c7a4b9360b6c0d54e4.webp",
+      "url": "https://assets.tarkov.dev/5d6e69c7a4b9360b6c0d54e4-icon.webp",
+      "sha256": "6c811dd4ed335bfe23f1fed9e4643b41cd1395d503dadd036f7abf1ba9a83237"
+    },
+    "5d6e6a05a4b93618084f58d0": {
+      "kind": "ammo",
+      "path": "ammo-live/5d6e6a05a4b93618084f58d0.webp",
+      "url": "https://assets.tarkov.dev/5d6e6a05a4b93618084f58d0-icon.webp",
+      "sha256": "563d45cc05dc02c589adf25fd144bca956aa76dd67aeeb297c8f2402905454a8"
+    },
+    "5d6e6a42a4b9364f07165f52": {
+      "kind": "ammo",
+      "path": "ammo-live/5d6e6a42a4b9364f07165f52.webp",
+      "url": "https://assets.tarkov.dev/5d6e6a42a4b9364f07165f52-icon.webp",
+      "sha256": "27014d42798ca3d228efb64606597fe014766eb67eae0bc9de21ac3009266896"
+    },
+    "5d6e6a53a4b9361bd473feec": {
+      "kind": "ammo",
+      "path": "ammo-live/5d6e6a53a4b9361bd473feec.webp",
+      "url": "https://assets.tarkov.dev/5d6e6a53a4b9361bd473feec-icon.webp",
+      "sha256": "64c3def3f8af4dbddd8eab821d52703421b7e65da0181b868f0d84ad6e7e2889"
+    },
+    "5d6e6a5fa4b93614ec501745": {
+      "kind": "ammo",
+      "path": "ammo-live/5d6e6a5fa4b93614ec501745.webp",
+      "url": "https://assets.tarkov.dev/5d6e6a5fa4b93614ec501745-icon.webp",
+      "sha256": "262906e5305315d206fcb9dec042f2f975c2aab4da4c92f68eae0faaaa27c332"
+    },
+    "5e023cf8186a883be655e54f": {
+      "kind": "ammo",
+      "path": "ammo-live/5e023cf8186a883be655e54f.webp",
+      "url": "https://assets.tarkov.dev/5e023cf8186a883be655e54f-icon.webp",
+      "sha256": "5b2eeb3fec9aea339ce838998f5759ee33a19c2781d548a35106b792803fd54f"
+    },
+    "5e023d34e8a400319a28ed44": {
+      "kind": "ammo",
+      "path": "ammo-live/5e023d34e8a400319a28ed44.webp",
+      "url": "https://assets.tarkov.dev/5e023d34e8a400319a28ed44-icon.webp",
+      "sha256": "55af8a4576ef3b0e93022ec52edf9d59bf66fb68be54051f77018ae91520e5cc"
+    },
+    "5e023d48186a883be655e551": {
+      "kind": "ammo",
+      "path": "ammo-live/5e023d48186a883be655e551.webp",
+      "url": "https://assets.tarkov.dev/5e023d48186a883be655e551-icon.webp",
+      "sha256": "ac12c9a9deb7590e1d707fafb69c7761f37c08898d4a618f32a0024f7201ee36"
+    },
+    "5e023e53d4353e3302577c4c": {
+      "kind": "ammo",
+      "path": "ammo-live/5e023e53d4353e3302577c4c.webp",
+      "url": "https://assets.tarkov.dev/5e023e53d4353e3302577c4c-icon.webp",
+      "sha256": "2e3478bb3f3fa5b6c3e7d8b0bf25021ef6e6104c1d4b1142ebdc7526fda6b73f"
+    },
+    "5e023e6e34d52a55c3304f71": {
+      "kind": "ammo",
+      "path": "ammo-live/5e023e6e34d52a55c3304f71.webp",
+      "url": "https://assets.tarkov.dev/5e023e6e34d52a55c3304f71-icon.webp",
+      "sha256": "e95e3163ce8efdc6507c83207cd530cc63346f8af2dc81331d9cad21138e4ddd"
+    },
+    "5e023e88277cce2b522ff2b1": {
+      "kind": "ammo",
+      "path": "ammo-live/5e023e88277cce2b522ff2b1.webp",
+      "url": "https://assets.tarkov.dev/5e023e88277cce2b522ff2b1-icon.webp",
+      "sha256": "d083513126dd09ec100db8bcc96e4ea11c4f100c876886fbf7329ba3afafbf22"
+    },
+    "5e81f423763d9f754677bf2e": {
+      "kind": "ammo",
+      "path": "ammo-live/5e81f423763d9f754677bf2e.webp",
+      "url": "https://assets.tarkov.dev/5e81f423763d9f754677bf2e-icon.webp",
+      "sha256": "ac8d8b3cedbbef31703de57076c139836d8dfb0c6db8a6c31d64a1d8f0dbc238"
+    },
+    "5e85a9a6eacf8c039e4e2ac1": {
+      "kind": "ammo",
+      "path": "ammo-live/5e85a9a6eacf8c039e4e2ac1.webp",
+      "url": "https://assets.tarkov.dev/5e85a9a6eacf8c039e4e2ac1-icon.webp",
+      "sha256": "9eb38aa6581896e941f831ddec26f2a2bc2aedf1e59e8eef5a5de8719ef3b918"
+    },
+    "5e85a9f4add9fe03027d9bf1": {
+      "kind": "ammo",
+      "path": "ammo-live/5e85a9f4add9fe03027d9bf1.webp",
+      "url": "https://assets.tarkov.dev/5e85a9f4add9fe03027d9bf1-icon.webp",
+      "sha256": "9c0925f59c0f5694fc25dced5181d1045091fcaef0d482587b5798c910ca83bf"
+    },
+    "5e85aa1a988a8701445df1f5": {
+      "kind": "ammo",
+      "path": "ammo-live/5e85aa1a988a8701445df1f5.webp",
+      "url": "https://assets.tarkov.dev/5e85aa1a988a8701445df1f5-icon.webp",
+      "sha256": "c64c4e1296d0e61f4624741897a3d81a7c4ee3806edab073fa175d1949743918"
+    },
+    "5ea2a8e200685063ec28c05a": {
+      "kind": "ammo",
+      "path": "ammo-live/5ea2a8e200685063ec28c05a.webp",
+      "url": "https://assets.tarkov.dev/5ea2a8e200685063ec28c05a-icon.webp",
+      "sha256": "e025bfa25bd43c14a56f49b5f3a026c812ee7cbf1efaab68f3d9c877f335a11f"
+    },
+    "5efb0c1bd79ff02a1f5e68d9": {
+      "kind": "ammo",
+      "path": "ammo-live/5efb0c1bd79ff02a1f5e68d9.webp",
+      "url": "https://assets.tarkov.dev/5efb0c1bd79ff02a1f5e68d9-icon.webp",
+      "sha256": "0eba504939afb0a1305305d925620ae05dd29f5f0c0f3ed89adb68e27cd64668"
+    },
+    "5efb0cabfb3e451d70735af5": {
+      "kind": "ammo",
+      "path": "ammo-live/5efb0cabfb3e451d70735af5.webp",
+      "url": "https://assets.tarkov.dev/5efb0cabfb3e451d70735af5-icon.webp",
+      "sha256": "8057b950d269629525663858d4d5c7608d448cda29d9439119372a97006cf074"
+    },
+    "5efb0d4f4bc50b58e81710f3": {
+      "kind": "ammo",
+      "path": "ammo-live/5efb0d4f4bc50b58e81710f3.webp",
+      "url": "https://assets.tarkov.dev/5efb0d4f4bc50b58e81710f3-icon.webp",
+      "sha256": "3726e465893c77f428447d21e9b3ec773d30dd6bbf9b6391b750a80cdc2b2612"
+    },
+    "5efb0da7a29a85116f6ea05f": {
+      "kind": "ammo",
+      "path": "ammo-live/5efb0da7a29a85116f6ea05f.webp",
+      "url": "https://assets.tarkov.dev/5efb0da7a29a85116f6ea05f-icon.webp",
+      "sha256": "aef44d268aa0b6e545dee754abb9b2a4d90c1ab7a17da6579a7a6e64d92d358f"
+    },
+    "5efb0e16aeb21837e749c7ff": {
+      "kind": "ammo",
+      "path": "ammo-live/5efb0e16aeb21837e749c7ff.webp",
+      "url": "https://assets.tarkov.dev/5efb0e16aeb21837e749c7ff-icon.webp",
+      "sha256": "acc23b4d2c9e838df35e0ba882718e99b82c11bb8e4b6cae06c82b8cac41bb9d"
+    },
+    "5efb0fc6aeb21837e749c801": {
+      "kind": "ammo",
+      "path": "ammo-live/5efb0fc6aeb21837e749c801.webp",
+      "url": "https://assets.tarkov.dev/5efb0fc6aeb21837e749c801-icon.webp",
+      "sha256": "dc898054d2cfe062d4f3450d56ba489637dfed8c98e8937b4c8c52c6d9d85dc9"
+    },
+    "5f0596629e22f464da6bbdd9": {
+      "kind": "ammo",
+      "path": "ammo-live/5f0596629e22f464da6bbdd9.webp",
+      "url": "https://assets.tarkov.dev/5f0596629e22f464da6bbdd9-icon.webp",
+      "sha256": "0c9d604c9deb380d050fc8c7acdf16c045b685bd9ee902bd2752d2b20938e54f"
+    },
+    "5f647f31b6238e5dd066e196": {
+      "kind": "ammo",
+      "path": "ammo-live/5f647f31b6238e5dd066e196.webp",
+      "url": "https://assets.tarkov.dev/5f647f31b6238e5dd066e196-icon.webp",
+      "sha256": "06f85bdaf5907b20ca58abbccbf789b7a2b1ab9c90e55ad1b304639df7cd7d4f"
+    },
+    "5fbe3ffdf8b6a877a729ea82": {
+      "kind": "ammo",
+      "path": "ammo-live/5fbe3ffdf8b6a877a729ea82.webp",
+      "url": "https://assets.tarkov.dev/5fbe3ffdf8b6a877a729ea82-icon.webp",
+      "sha256": "9a247eda31d91879a67980bf9a917386106325457dae4c927f41f0fc210d1b5f"
+    },
+    "5fc275cf85fd526b824a571a": {
+      "kind": "ammo",
+      "path": "ammo-live/5fc275cf85fd526b824a571a.webp",
+      "url": "https://assets.tarkov.dev/5fc275cf85fd526b824a571a-icon.webp",
+      "sha256": "7caf00ad12ac4df8147a6317c932bbcbac3d5205e621b2c1ae5b30b1ed167dcc"
+    },
+    "5fc382a9d724d907e2077dab": {
+      "kind": "ammo",
+      "path": "ammo-live/5fc382a9d724d907e2077dab.webp",
+      "url": "https://assets.tarkov.dev/5fc382a9d724d907e2077dab-icon.webp",
+      "sha256": "cb3e0f14733b9c01db669f553ebc7d914d6813918b3fc6d2a919a70d7df29537"
+    },
+    "5fc382b6d6fa9c00c571bbc3": {
+      "kind": "ammo",
+      "path": "ammo-live/5fc382b6d6fa9c00c571bbc3.webp",
+      "url": "https://assets.tarkov.dev/5fc382b6d6fa9c00c571bbc3-icon.webp",
+      "sha256": "2a10c52192a3e6badee2a4b86f93699d42adae32ad1597fa9bf7d843b3d48409"
+    },
+    "5fc382c1016cce60e8341b20": {
+      "kind": "ammo",
+      "path": "ammo-live/5fc382c1016cce60e8341b20.webp",
+      "url": "https://assets.tarkov.dev/5fc382c1016cce60e8341b20-icon.webp",
+      "sha256": "2f12228420c79a26a251c760195eec8790dd875c1145ce4ea657ee180839bb28"
+    },
+    "5fd20ff893a8961fc660a954": {
+      "kind": "ammo",
+      "path": "ammo-live/5fd20ff893a8961fc660a954.webp",
+      "url": "https://assets.tarkov.dev/5fd20ff893a8961fc660a954-icon.webp",
+      "sha256": "1d5e53411786c6c94a033988b377ecf1e6470b7a2ce762986234733176433ee9"
+    },
+    "60194943740c5d77f6705eea": {
+      "kind": "ammo",
+      "path": "ammo-live/60194943740c5d77f6705eea.webp",
+      "url": "https://assets.tarkov.dev/60194943740c5d77f6705eea-icon.webp",
+      "sha256": "b4f3eac21b887304c4e6e7cd8e3ec4811cfab081d054546b40e1a9d211c62dae"
+    },
+    "601949593ae8f707c4608daa": {
+      "kind": "ammo",
+      "path": "ammo-live/601949593ae8f707c4608daa.webp",
+      "url": "https://assets.tarkov.dev/601949593ae8f707c4608daa-icon.webp",
+      "sha256": "89ae3a16d54d515ccce34e9d16087a0dd3ba7d5df11370116c1871a80c98e179"
+    },
+    "601aa3d2b2bcb34913271e6d": {
+      "kind": "ammo",
+      "path": "ammo-live/601aa3d2b2bcb34913271e6d.webp",
+      "url": "https://assets.tarkov.dev/601aa3d2b2bcb34913271e6d-icon.webp",
+      "sha256": "9463a569b27bd0451b37dc05027f3f7a5ee670f5cc73e706471de80477be7a9b"
+    },
+    "61962b617c6c7b169525f168": {
+      "kind": "ammo",
+      "path": "ammo-live/61962b617c6c7b169525f168.webp",
+      "url": "https://assets.tarkov.dev/61962b617c6c7b169525f168-icon.webp",
+      "sha256": "dbe1cca059dc4ed498ae385205be4e20c7ad672be5688aa7f90404f8619c5d34"
+    },
+    "61962d879bb3d20b0946d385": {
+      "kind": "ammo",
+      "path": "ammo-live/61962d879bb3d20b0946d385.webp",
+      "url": "https://assets.tarkov.dev/61962d879bb3d20b0946d385-icon.webp",
+      "sha256": "7debf61dcd96629b3f457159d231ed4d27854309e5a3393e02218f44e78e3d92"
+    },
+    "6196364158ef8c428c287d9f": {
+      "kind": "ammo",
+      "path": "ammo-live/6196364158ef8c428c287d9f.webp",
+      "url": "https://assets.tarkov.dev/6196364158ef8c428c287d9f-icon.webp",
+      "sha256": "76c5ffdfd6db9b82d5dc603ca09c04198fa5727826617573e1e660a6f3da8eee"
+    },
+    "6196365d58ef8c428c287da1": {
+      "kind": "ammo",
+      "path": "ammo-live/6196365d58ef8c428c287da1.webp",
+      "url": "https://assets.tarkov.dev/6196365d58ef8c428c287da1-icon.webp",
+      "sha256": "357cadf6233eda24dee0b87e3378c8a3366a3d834075a04fa2ba55ab3466313b"
+    },
+    "619636be6db0f2477964e710": {
+      "kind": "ammo",
+      "path": "ammo-live/619636be6db0f2477964e710.webp",
+      "url": "https://assets.tarkov.dev/619636be6db0f2477964e710-icon.webp",
+      "sha256": "94c847c4606cd859833e34a3c583fb853c9dbbe87afa9d85e8bff739e1aa22ca"
+    },
+    "62330b3ed4dc74626d570b95": {
+      "kind": "ammo",
+      "path": "ammo-live/62330b3ed4dc74626d570b95.webp",
+      "url": "https://assets.tarkov.dev/62330b3ed4dc74626d570b95-icon.webp",
+      "sha256": "4fb0e6ca8aa959fe20a7b298fb01ad15e1bf92aac12b9b6109e2a46c585906d5"
+    },
+    "62330bfadc5883093563729b": {
+      "kind": "ammo",
+      "path": "ammo-live/62330bfadc5883093563729b.webp",
+      "url": "https://assets.tarkov.dev/62330bfadc5883093563729b-icon.webp",
+      "sha256": "b3826e2f41b9690d5f9956046362b261ca932a56bbc4127693fcaa26e7f6beff"
+    },
+    "62330c18744e5e31df12f516": {
+      "kind": "ammo",
+      "path": "ammo-live/62330c18744e5e31df12f516.webp",
+      "url": "https://assets.tarkov.dev/62330c18744e5e31df12f516-icon.webp",
+      "sha256": "ddaa6c485e1d546a5bf57b2ca8d7d4311d4f2a0652ba09bb3383cce04a2e3a48"
+    },
+    "62330c40bdd19b369e1e53d1": {
+      "kind": "ammo",
+      "path": "ammo-live/62330c40bdd19b369e1e53d1.webp",
+      "url": "https://assets.tarkov.dev/62330c40bdd19b369e1e53d1-icon.webp",
+      "sha256": "8ddb48ae8397e87d8d3cdc09457bb8e06129535ae331ef279005b8e5bc985e58"
+    },
+    "64b6979341772715af0f9c39": {
+      "kind": "ammo",
+      "path": "ammo-live/64b6979341772715af0f9c39.webp",
+      "url": "https://assets.tarkov.dev/64b6979341772715af0f9c39-icon.webp",
+      "sha256": "3df2eeb3d9200c7a13ca9a98241b31def240120e5dee247da991661e1aeb0eca"
+    },
+    "64b7af434b75259c590fa893": {
+      "kind": "ammo",
+      "path": "ammo-live/64b7af434b75259c590fa893.webp",
+      "url": "https://assets.tarkov.dev/64b7af434b75259c590fa893-icon.webp",
+      "sha256": "22c2833b5262e411ae8a58a9350ba6ae8194b669884f069f1698a33e68e7826f"
+    },
+    "64b7af5a8532cf95ee0a0dbd": {
+      "kind": "ammo",
+      "path": "ammo-live/64b7af5a8532cf95ee0a0dbd.webp",
+      "url": "https://assets.tarkov.dev/64b7af5a8532cf95ee0a0dbd-icon.webp",
+      "sha256": "d085a1d4cca6dde1368d9076d9db49ebeadcf9c2b69e12a5523809b34a530b4f"
+    },
+    "64b7af734b75259c590fa895": {
+      "kind": "ammo",
+      "path": "ammo-live/64b7af734b75259c590fa895.webp",
+      "url": "https://assets.tarkov.dev/64b7af734b75259c590fa895-icon.webp",
+      "sha256": "c2023b8adc162664fbc2065e419b78260cfb437f2bfdcd3ad7f3b1c2f7700fa4"
+    },
+    "64b7bbb74b75259c590fa897": {
+      "kind": "ammo",
+      "path": "ammo-live/64b7bbb74b75259c590fa897.webp",
+      "url": "https://assets.tarkov.dev/64b7bbb74b75259c590fa897-icon.webp",
+      "sha256": "65a2267c020cff49c4f64324617ede6526c88d7d47da3369bae2c7fed3c61a5b"
+    },
+    "64b8725c4b75259c590fa899": {
+      "kind": "ammo",
+      "path": "ammo-live/64b8725c4b75259c590fa899.webp",
+      "url": "https://assets.tarkov.dev/64b8725c4b75259c590fa899-icon.webp",
+      "sha256": "94a0df77d5f61fc1b758647784f876a1bf98963257793c812c3718c5292f9ca1"
+    },
+    "64b8ee384b75259c590fa89b": {
+      "kind": "ammo",
+      "path": "ammo-live/64b8ee384b75259c590fa89b.webp",
+      "url": "https://assets.tarkov.dev/64b8ee384b75259c590fa89b-icon.webp",
+      "sha256": "cc47ad9857d1d5c5c54a228f7c72736b11f3d1863816852949f9fda755b8c63f"
+    },
+    "64b8f7968532cf95ee0a0dbf": {
+      "kind": "ammo",
+      "path": "ammo-live/64b8f7968532cf95ee0a0dbf.webp",
+      "url": "https://assets.tarkov.dev/64b8f7968532cf95ee0a0dbf-icon.webp",
+      "sha256": "3da4c4166c3ffd374e024ba019c49050a08c309f6a416aeb58185268bf07f11b"
+    },
+    "64b8f7b5389d7ffd620ccba2": {
+      "kind": "ammo",
+      "path": "ammo-live/64b8f7b5389d7ffd620ccba2.webp",
+      "url": "https://assets.tarkov.dev/64b8f7b5389d7ffd620ccba2-icon.webp",
+      "sha256": "d82d499d56618911c479092dfc3457a26b9fab11cfa81180f19a1f526f53178c"
+    },
+    "64b8f7c241772715af0f9c3d": {
+      "kind": "ammo",
+      "path": "ammo-live/64b8f7c241772715af0f9c3d.webp",
+      "url": "https://assets.tarkov.dev/64b8f7c241772715af0f9c3d-icon.webp",
+      "sha256": "3e98ee6f31f1caf2a14bfe1297359d1278fd13f5bb740f34abe093019897268c"
+    },
+    "6529243824cbe3c74a05e5c1": {
+      "kind": "ammo",
+      "path": "ammo-live/6529243824cbe3c74a05e5c1.webp",
+      "url": "https://assets.tarkov.dev/6529243824cbe3c74a05e5c1-icon.webp",
+      "sha256": "3d7d1917799dedb508d26819a5b1936b4971a832ab5c6e7512f31468c7d714d6"
+    },
+    "6529302b8c26af6326029fb7": {
+      "kind": "ammo",
+      "path": "ammo-live/6529302b8c26af6326029fb7.webp",
+      "url": "https://assets.tarkov.dev/6529302b8c26af6326029fb7-icon.webp",
+      "sha256": "11092f66280f1dd20f31443bcd9f9511fb95533bb579b9d0691592e4002370db"
+    },
+    "6576f4708ca9c4381d16cd9d": {
+      "kind": "ammo",
+      "path": "ammo-live/6576f4708ca9c4381d16cd9d.webp",
+      "url": "https://assets.tarkov.dev/6576f4708ca9c4381d16cd9d-icon.webp",
+      "sha256": "9258920b987d84a6b40c167bc2e4fb7c86939a7f22be78e527d5d19b50cb2698"
+    },
+    "6576f93989f0062e741ba952": {
+      "kind": "ammo",
+      "path": "ammo-live/6576f93989f0062e741ba952.webp",
+      "url": "https://assets.tarkov.dev/6576f93989f0062e741ba952-icon.webp",
+      "sha256": "9e04f0cfab3556edbde5e7850d10258f5c9ec0f6ab21a17ef04f651020fccec3"
+    },
+    "6576f96220d53a5b8f3e395e": {
+      "kind": "ammo",
+      "path": "ammo-live/6576f96220d53a5b8f3e395e.webp",
+      "url": "https://assets.tarkov.dev/6576f96220d53a5b8f3e395e-icon.webp",
+      "sha256": "5ef84eea355c8317005f0dc2035225b11bbf6e937493f7037acc89536246722c"
+    },
+    "660137d8481cc6907a0c5cda": {
+      "kind": "ammo",
+      "path": "ammo-live/660137d8481cc6907a0c5cda.webp",
+      "url": "https://assets.tarkov.dev/660137d8481cc6907a0c5cda-icon.webp",
+      "sha256": "c23895ac20fce13bf6acf58f1b5023884391ab22dbf67d3addcb8bba03c1aff3"
+    },
+    "660137ef76c1b56143052be8": {
+      "kind": "ammo",
+      "path": "ammo-live/660137ef76c1b56143052be8.webp",
+      "url": "https://assets.tarkov.dev/660137ef76c1b56143052be8-icon.webp",
+      "sha256": "e3d3c66482a3986db54c54a132fce1bac8fbd916d9a606a5d65bfdcc293c1389"
+    },
+    "6601380580e77cfd080e3418": {
+      "kind": "ammo",
+      "path": "ammo-live/6601380580e77cfd080e3418.webp",
+      "url": "https://assets.tarkov.dev/6601380580e77cfd080e3418-icon.webp",
+      "sha256": "2ce09bef49f774a70cdca683f7fc5db11e541ec87fe954c9a61c5153a37c9cfe"
+    },
+    "668fe62ac62660a5d8071446": {
+      "kind": "ammo",
+      "path": "ammo-live/668fe62ac62660a5d8071446.webp",
+      "url": "https://assets.tarkov.dev/668fe62ac62660a5d8071446-icon.webp",
+      "sha256": "6f8e5e9e18f7f0527ea7d1487d43931e213d1bfeaeb12940880a9a06ce7bc604"
+    },
+    "66a0d1c87d0d369e270bb9de": {
+      "kind": "ammo",
+      "path": "ammo-live/66a0d1c87d0d369e270bb9de.webp",
+      "url": "https://assets.tarkov.dev/66a0d1c87d0d369e270bb9de-icon.webp",
+      "sha256": "3f4c6cd2f99f060f3fb4d4c6200937c876d6ff59eeb55ee40bc81fe7e6bbe4a6"
+    },
+    "66a0d1e0ed648d72fe064d06": {
+      "kind": "ammo",
+      "path": "ammo-live/66a0d1e0ed648d72fe064d06.webp",
+      "url": "https://assets.tarkov.dev/66a0d1e0ed648d72fe064d06-icon.webp",
+      "sha256": "8085bed0e3ddbf42fd5915ded7d50b9869713d80b0670b66f8ba43472b75edb6"
+    },
+    "66a0d1f88486c69fce00fdf6": {
+      "kind": "ammo",
+      "path": "ammo-live/66a0d1f88486c69fce00fdf6.webp",
+      "url": "https://assets.tarkov.dev/66a0d1f88486c69fce00fdf6-icon.webp",
+      "sha256": "a7d805839d5caa7ddec7c51c5054840e36eb7b5f75468b500bf792f9eb45a58d"
+    },
+    "6768c25aa7b238f14a08d3f6": {
+      "kind": "ammo",
+      "path": "ammo-live/6768c25aa7b238f14a08d3f6.webp",
+      "url": "https://assets.tarkov.dev/6768c25aa7b238f14a08d3f6-icon.webp",
+      "sha256": "06da9c4ce8998b257147d4c7b4b29352da4af1c8dad1d3dc6bd09a7c810d6ff0"
+    },
+    "67c540c3d0538d12ec036c08": {
+      "kind": "ammo",
+      "path": "ammo-live/67c540c3d0538d12ec036c08.webp",
+      "url": "https://assets.tarkov.dev/67c540c3d0538d12ec036c08-icon.webp",
+      "sha256": "59b9d180a672a17702dd2e4f0da8984a4932b615ddfbe940c3697ffc78c5d808"
+    },
+    "67c540cfb032bbdb530201b8": {
+      "kind": "ammo",
+      "path": "ammo-live/67c540cfb032bbdb530201b8.webp",
+      "url": "https://assets.tarkov.dev/67c540cfb032bbdb530201b8-icon.webp",
+      "sha256": "1dbdbd1af9a441b5397038a53997815245bc4a7f56af7a5fbb84031ad6a851a1"
+    },
+    "67d41936f378a36c4706eeb9": {
+      "kind": "ammo",
+      "path": "ammo-live/67d41936f378a36c4706eeb9.webp",
+      "url": "https://assets.tarkov.dev/67d41936f378a36c4706eeb9-icon.webp",
+      "sha256": "903082c0f362730926efa6aeb9422fbda7a765daca07aacaf3c3d70812c3c3a2"
+    },
+    "67dc212493ce32834b0fa446": {
+      "kind": "ammo",
+      "path": "ammo-live/67dc212493ce32834b0fa446.webp",
+      "url": "https://assets.tarkov.dev/67dc212493ce32834b0fa446-icon.webp",
+      "sha256": "b15377eef27a6b848b3fd9212df5e68bfa0ccd52df714517e90ac4a74a7f673c"
+    },
+    "67dc255ee3028a8b120efc48": {
+      "kind": "ammo",
+      "path": "ammo-live/67dc255ee3028a8b120efc48.webp",
+      "url": "https://assets.tarkov.dev/67dc255ee3028a8b120efc48-icon.webp",
+      "sha256": "b6f8bb7761b6a144456c7ed63f6d46ae8c9a4e4f188e8b4542f64eb5722ef8ed"
+    },
+    "67dc2648ba5b79876906a166": {
+      "kind": "ammo",
+      "path": "ammo-live/67dc2648ba5b79876906a166.webp",
+      "url": "https://assets.tarkov.dev/67dc2648ba5b79876906a166-icon.webp",
+      "sha256": "a3416734090081d07fb58731d3425994ed578a384d33c474a09a4a9aa8baf6e7"
+    },
+    "68aeed8a8906b00bc800fdd6": {
+      "kind": "ammo",
+      "path": "ammo-live/68aeed8a8906b00bc800fdd6.webp",
+      "url": "https://assets.tarkov.dev/68aeed8a8906b00bc800fdd6-icon.webp",
+      "sha256": "3914ad381e55d66bf31741ae54dd9162b804ce7597703c2e1d123c1a9f1cd92f"
+    },
+    "68bac6ca653ee6b1e406d978": {
+      "kind": "ammo",
+      "path": "ammo-live/68bac6ca653ee6b1e406d978.webp",
+      "url": "https://assets.tarkov.dev/68bac6ca653ee6b1e406d978-icon.webp",
+      "sha256": "37c98b90c82d32aae9496ef17885d4e1062a96303600a931e8ad37057fb48283"
+    },
+    "68bad8376cb22acf1107a586": {
+      "kind": "ammo",
+      "path": "ammo-live/68bad8376cb22acf1107a586.webp",
+      "url": "https://assets.tarkov.dev/68bad8376cb22acf1107a586-icon.webp",
+      "sha256": "21ae83701420b99df72e9a1d21077230d8a05b0e32279a6e682164818f7bebec"
+    },
+    "68c15a033173b556890b5959": {
+      "kind": "ammo",
+      "path": "ammo-live/68c15a033173b556890b5959.webp",
+      "url": "https://assets.tarkov.dev/68c15a033173b556890b5959-icon.webp",
+      "sha256": "c595f0a1b4ecb9a69146cd393f7c6354df9ef3f41ff9b8355c4cff14cbbc487c"
+    },
+    "68c15b4bb30038a118088bd6": {
+      "kind": "ammo",
+      "path": "ammo-live/68c15b4bb30038a118088bd6.webp",
+      "url": "https://assets.tarkov.dev/68c15b4bb30038a118088bd6-icon.webp",
+      "sha256": "a9deceda82b59c9c8c0db26e04a3197d31404965699548f8a45bf7b58de6f5db"
+    },
+    "68c15f77ed3d7df9220debd6": {
+      "kind": "ammo",
+      "path": "ammo-live/68c15f77ed3d7df9220debd6.webp",
+      "url": "https://assets.tarkov.dev/68c15f77ed3d7df9220debd6-icon.webp",
+      "sha256": "a07c8d502d0bfd72d0da84574e14ef997e3c41dd832b5a0ce068d69ff93e5a42"
+    },
+    "6a07208057b2695f9d001e63": {
+      "kind": "ammo",
+      "path": "ammo-live/6a07208057b2695f9d001e63.webp",
+      "url": "https://assets.tarkov.dev/6a07208057b2695f9d001e63-icon.webp",
+      "sha256": "b246c6397d18e6ca78da8caf2db9fab2ddfac59dbce5d21e99154ac37b3584bf"
+    },
+    "6a42661705016139300b2085": {
+      "kind": "ammo",
+      "path": "ammo-live/6a42661705016139300b2085.webp",
+      "url": "https://assets.tarkov.dev/6a42661705016139300b2085-icon.webp",
+      "sha256": "483b4bdb1f838d1bf01424528c618b76219841d9d9408acec40ab7f00f3762e7"
+    },
+    "6a42662fcb506840dd053827": {
+      "kind": "ammo",
+      "path": "ammo-live/6a42662fcb506840dd053827.webp",
+      "url": "https://assets.tarkov.dev/6a42662fcb506840dd053827-icon.webp",
+      "sha256": "7ec4434f368a8d35c08aec93730122dd72d58eeea16ee231a2f4eb4c062ba497"
+    },
+    "6a426637ddc63098d100ae67": {
+      "kind": "ammo",
+      "path": "ammo-live/6a426637ddc63098d100ae67.webp",
+      "url": "https://assets.tarkov.dev/6a426637ddc63098d100ae67-icon.webp",
+      "sha256": "5b253036c8b6cce2e6004861ca9510ce7d8b5ad2004e54bb799b1dd4f5bedc45"
+    },
+    "6943c85be2f21398e70378cc": {
+      "kind": "armor",
+      "path": "armor-live/6943c85be2f21398e70378cc.webp",
+      "url": "https://assets.tarkov.dev/6943c85be2f21398e70378cc-icon.webp",
+      "sha256": "db722523cc594567e07f9db2ebfdd9d973fe037b66ba8ad884ee23f42068319c"
+    },
+    "656fac30c6baea13cd07e10c": {
+      "kind": "armor",
+      "path": "armor-live/656fac30c6baea13cd07e10c.webp",
+      "url": "https://assets.tarkov.dev/656fac30c6baea13cd07e10c-icon.webp",
+      "sha256": "ec4a387fece84cb7cafc2919dc9799f0cf730164ca5a784747af9296d1f5e0e8"
+    },
+    "656f57dc27aed95beb08f628": {
+      "kind": "armor",
+      "path": "armor-live/656f57dc27aed95beb08f628.webp",
+      "url": "https://assets.tarkov.dev/656f57dc27aed95beb08f628-icon.webp",
+      "sha256": "0163bda96a73ee4ac003ee0c8e458ef9de9274796429aae2556cc05759b48ebe"
+    },
+    "654a4dea7c17dec2f50cc86a": {
+      "kind": "armor",
+      "path": "armor-live/654a4dea7c17dec2f50cc86a.webp",
+      "url": "https://assets.tarkov.dev/654a4dea7c17dec2f50cc86a-icon.webp",
+      "sha256": "9c673c38e2a47957479e7c0842ddf7a5ae9229a885233a7c4132c64a8f27c083"
+    },
+    "656f9d5900d62bcd2e02407c": {
+      "kind": "armor",
+      "path": "armor-live/656f9d5900d62bcd2e02407c.webp",
+      "url": "https://assets.tarkov.dev/656f9d5900d62bcd2e02407c-icon.webp",
+      "sha256": "2f01fbf88cd007d9290edf67e0a843b53174ea1cf30338b01835d13fa2726799"
+    },
+    "656fad8c498d1b7e3e071da0": {
+      "kind": "armor",
+      "path": "armor-live/656fad8c498d1b7e3e071da0.webp",
+      "url": "https://assets.tarkov.dev/656fad8c498d1b7e3e071da0-icon.webp",
+      "sha256": "ec4a387fece84cb7cafc2919dc9799f0cf730164ca5a784747af9296d1f5e0e8"
+    },
+    "656fb21fa0dce000a2020f7c": {
+      "kind": "armor",
+      "path": "armor-live/656fb21fa0dce000a2020f7c.webp",
+      "url": "https://assets.tarkov.dev/656fb21fa0dce000a2020f7c-icon.webp",
+      "sha256": "ec4a387fece84cb7cafc2919dc9799f0cf730164ca5a784747af9296d1f5e0e8"
+    },
+    "656fb0bd7c2d57afe200c0dc": {
+      "kind": "armor",
+      "path": "armor-live/656fb0bd7c2d57afe200c0dc.webp",
+      "url": "https://assets.tarkov.dev/656fb0bd7c2d57afe200c0dc-icon.webp",
+      "sha256": "ec4a387fece84cb7cafc2919dc9799f0cf730164ca5a784747af9296d1f5e0e8"
+    },
+    "656f9fa0498d1b7e3e071d98": {
+      "kind": "armor",
+      "path": "armor-live/656f9fa0498d1b7e3e071d98.webp",
+      "url": "https://assets.tarkov.dev/656f9fa0498d1b7e3e071d98-icon.webp",
+      "sha256": "2f01fbf88cd007d9290edf67e0a843b53174ea1cf30338b01835d13fa2726799"
+    },
+    "656fa25e94b480b8a500c0e0": {
+      "kind": "armor",
+      "path": "armor-live/656fa25e94b480b8a500c0e0.webp",
+      "url": "https://assets.tarkov.dev/656fa25e94b480b8a500c0e0-icon.webp",
+      "sha256": "2f01fbf88cd007d9290edf67e0a843b53174ea1cf30338b01835d13fa2726799"
+    },
+    "656efd66034e8e01c407f35c": {
+      "kind": "armor",
+      "path": "armor-live/656efd66034e8e01c407f35c.webp",
+      "url": "https://assets.tarkov.dev/656efd66034e8e01c407f35c-icon.webp",
+      "sha256": "6a2ed3430f5c61875437896ff9c6611fe927c2e339484ffd8e779ae960152e1c"
+    },
+    "657b22485f444d6dff0c6c2f": {
+      "kind": "armor",
+      "path": "armor-live/657b22485f444d6dff0c6c2f.webp",
+      "url": "https://assets.tarkov.dev/657b22485f444d6dff0c6c2f-icon.webp",
+      "sha256": "828d3d73f6eb701e84c909063d9e20edfb12a4aaeb04ee7b1bffd46d2c32439d"
+    },
+    "656f603f94b480b8a500c0d6": {
+      "kind": "armor",
+      "path": "armor-live/656f603f94b480b8a500c0d6.webp",
+      "url": "https://assets.tarkov.dev/656f603f94b480b8a500c0d6-icon.webp",
+      "sha256": "0163bda96a73ee4ac003ee0c8e458ef9de9274796429aae2556cc05759b48ebe"
+    },
+    "656fa0fb498d1b7e3e071d9c": {
+      "kind": "armor",
+      "path": "armor-live/656fa0fb498d1b7e3e071d9c.webp",
+      "url": "https://assets.tarkov.dev/656fa0fb498d1b7e3e071d9c-icon.webp",
+      "sha256": "2f01fbf88cd007d9290edf67e0a843b53174ea1cf30338b01835d13fa2726799"
+    },
+    "655746010177119f4a097ff7": {
+      "kind": "armor",
+      "path": "armor-live/655746010177119f4a097ff7.webp",
+      "url": "https://assets.tarkov.dev/655746010177119f4a097ff7-icon.webp",
+      "sha256": "ec4a387fece84cb7cafc2919dc9799f0cf730164ca5a784747af9296d1f5e0e8"
+    },
+    "6557458f83942d705f0c4962": {
+      "kind": "armor",
+      "path": "armor-live/6557458f83942d705f0c4962.webp",
+      "url": "https://assets.tarkov.dev/6557458f83942d705f0c4962-icon.webp",
+      "sha256": "37636453da85464d21bb8b5d48dd02e19f8c722e597bf523b3f9db566f51de78"
+    },
+    "656fa53d94b480b8a500c0e4": {
+      "kind": "armor",
+      "path": "armor-live/656fa53d94b480b8a500c0e4.webp",
+      "url": "https://assets.tarkov.dev/656fa53d94b480b8a500c0e4-icon.webp",
+      "sha256": "2f01fbf88cd007d9290edf67e0a843b53174ea1cf30338b01835d13fa2726799"
+    },
+    "656fa8d700d62bcd2e024084": {
+      "kind": "armor",
+      "path": "armor-live/656fa8d700d62bcd2e024084.webp",
+      "url": "https://assets.tarkov.dev/656fa8d700d62bcd2e024084-icon.webp",
+      "sha256": "2f01fbf88cd007d9290edf67e0a843b53174ea1cf30338b01835d13fa2726799"
+    },
+    "656fae5f7c2d57afe200c0d7": {
+      "kind": "armor",
+      "path": "armor-live/656fae5f7c2d57afe200c0d7.webp",
+      "url": "https://assets.tarkov.dev/656fae5f7c2d57afe200c0d7-icon.webp",
+      "sha256": "ec4a387fece84cb7cafc2919dc9799f0cf730164ca5a784747af9296d1f5e0e8"
+    },
+    "656f611f94b480b8a500c0db": {
+      "kind": "armor",
+      "path": "armor-live/656f611f94b480b8a500c0db.webp",
+      "url": "https://assets.tarkov.dev/656f611f94b480b8a500c0db-icon.webp",
+      "sha256": "0163bda96a73ee4ac003ee0c8e458ef9de9274796429aae2556cc05759b48ebe"
+    },
+    "656efaf54772930db4031ff5": {
+      "kind": "armor",
+      "path": "armor-live/656efaf54772930db4031ff5.webp",
+      "url": "https://assets.tarkov.dev/656efaf54772930db4031ff5-icon.webp",
+      "sha256": "6a2ed3430f5c61875437896ff9c6611fe927c2e339484ffd8e779ae960152e1c"
+    },
+    "65573fa5655447403702a816": {
+      "kind": "armor",
+      "path": "armor-live/65573fa5655447403702a816.webp",
+      "url": "https://assets.tarkov.dev/65573fa5655447403702a816-icon.webp",
+      "sha256": "00af27179ba64d182fcdce8e0b6c6853a3ccaebdb5496da57f0ac63b1e8ac2c7"
+    },
+    "656f664200d62bcd2e024077": {
+      "kind": "armor",
+      "path": "armor-live/656f664200d62bcd2e024077.webp",
+      "url": "https://assets.tarkov.dev/656f664200d62bcd2e024077-icon.webp",
+      "sha256": "24a1b5c03cdc6db6417ccf983a7145994601815c08fd46a02c246e1c0d896749"
+    },
+    "657b2797c3dbcb01d60c35ea": {
+      "kind": "armor",
+      "path": "armor-live/657b2797c3dbcb01d60c35ea.webp",
+      "url": "https://assets.tarkov.dev/657b2797c3dbcb01d60c35ea-icon.webp",
+      "sha256": "828d3d73f6eb701e84c909063d9e20edfb12a4aaeb04ee7b1bffd46d2c32439d"
+    },
+    "654a4f8bc721968a4404ef18": {
+      "kind": "armor",
+      "path": "armor-live/654a4f8bc721968a4404ef18.webp",
+      "url": "https://assets.tarkov.dev/654a4f8bc721968a4404ef18-icon.webp",
+      "sha256": "499ad5246add0af42152fdbdca8af7bf41b21aa2e69d92a4d475c8fa24a994de"
+    },
+    "656f66b5c6baea13cd07e108": {
+      "kind": "armor",
+      "path": "armor-live/656f66b5c6baea13cd07e108.webp",
+      "url": "https://assets.tarkov.dev/656f66b5c6baea13cd07e108-icon.webp",
+      "sha256": "24a1b5c03cdc6db6417ccf983a7145994601815c08fd46a02c246e1c0d896749"
+    },
+    "657b28d25f444d6dff0c6c77": {
+      "kind": "armor",
+      "path": "armor-live/657b28d25f444d6dff0c6c77.webp",
+      "url": "https://assets.tarkov.dev/657b28d25f444d6dff0c6c77-icon.webp",
+      "sha256": "828d3d73f6eb701e84c909063d9e20edfb12a4aaeb04ee7b1bffd46d2c32439d"
+    },
+    "656fa61e94b480b8a500c0e8": {
+      "kind": "armor",
+      "path": "armor-live/656fa61e94b480b8a500c0e8.webp",
+      "url": "https://assets.tarkov.dev/656fa61e94b480b8a500c0e8-icon.webp",
+      "sha256": "2f01fbf88cd007d9290edf67e0a843b53174ea1cf30338b01835d13fa2726799"
+    },
+    "64afdcb83efdfea28601d041": {
+      "kind": "armor",
+      "path": "armor-live/64afdcb83efdfea28601d041.webp",
+      "url": "https://assets.tarkov.dev/64afdcb83efdfea28601d041-icon.webp",
+      "sha256": "ec4a387fece84cb7cafc2919dc9799f0cf730164ca5a784747af9296d1f5e0e8"
+    },
+    "64afdb577bb3bfe8fe03fd1d": {
+      "kind": "armor",
+      "path": "armor-live/64afdb577bb3bfe8fe03fd1d.webp",
+      "url": "https://assets.tarkov.dev/64afdb577bb3bfe8fe03fd1d-icon.webp",
+      "sha256": "37636453da85464d21bb8b5d48dd02e19f8c722e597bf523b3f9db566f51de78"
+    },
+    "656faf0ca0dce000a2020f77": {
+      "kind": "armor",
+      "path": "armor-live/656faf0ca0dce000a2020f77.webp",
+      "url": "https://assets.tarkov.dev/656faf0ca0dce000a2020f77-icon.webp",
+      "sha256": "ec4a387fece84cb7cafc2919dc9799f0cf730164ca5a784747af9296d1f5e0e8"
+    },
+    "656fa99800d62bcd2e024088": {
+      "kind": "armor",
+      "path": "armor-live/656fa99800d62bcd2e024088.webp",
+      "url": "https://assets.tarkov.dev/656fa99800d62bcd2e024088-icon.webp",
+      "sha256": "2f01fbf88cd007d9290edf67e0a843b53174ea1cf30338b01835d13fa2726799"
+    },
+    "656f63c027aed95beb08f62c": {
+      "kind": "armor",
+      "path": "armor-live/656f63c027aed95beb08f62c.webp",
+      "url": "https://assets.tarkov.dev/656f63c027aed95beb08f62c-icon.webp",
+      "sha256": "0163bda96a73ee4ac003ee0c8e458ef9de9274796429aae2556cc05759b48ebe"
+    },
+    "654a4a964b446df1ad03f192": {
+      "kind": "armor",
+      "path": "armor-live/654a4a964b446df1ad03f192.webp",
+      "url": "https://assets.tarkov.dev/654a4a964b446df1ad03f192-icon.webp",
+      "sha256": "6a2ed3430f5c61875437896ff9c6611fe927c2e339484ffd8e779ae960152e1c"
+    },
+    "64afc71497cf3a403c01ff38": {
+      "kind": "armor",
+      "path": "armor-live/64afc71497cf3a403c01ff38.webp",
+      "url": "https://assets.tarkov.dev/64afc71497cf3a403c01ff38-icon.webp",
+      "sha256": "00af27179ba64d182fcdce8e0b6c6853a3ccaebdb5496da57f0ac63b1e8ac2c7"
+    },
+    "64afd81707e2cf40e903a316": {
+      "kind": "armor",
+      "path": "armor-live/64afd81707e2cf40e903a316.webp",
+      "url": "https://assets.tarkov.dev/64afd81707e2cf40e903a316-icon.webp",
+      "sha256": "34618ea4f3bfbaa40aa6ea8ae684359d6b2050bfed7c9b66083901afe67c7dea"
+    },
+    "656fa76500d62bcd2e024080": {
+      "kind": "armor",
+      "path": "armor-live/656fa76500d62bcd2e024080.webp",
+      "url": "https://assets.tarkov.dev/656fa76500d62bcd2e024080-icon.webp",
+      "sha256": "2f01fbf88cd007d9290edf67e0a843b53174ea1cf30338b01835d13fa2726799"
+    },
+    "656fafe3498d1b7e3e071da4": {
+      "kind": "armor",
+      "path": "armor-live/656fafe3498d1b7e3e071da4.webp",
+      "url": "https://assets.tarkov.dev/656fafe3498d1b7e3e071da4-icon.webp",
+      "sha256": "ec4a387fece84cb7cafc2919dc9799f0cf730164ca5a784747af9296d1f5e0e8"
+    }
+  }
+}

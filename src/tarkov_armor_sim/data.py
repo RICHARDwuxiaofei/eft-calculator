@@ -2,13 +2,15 @@ from __future__ import annotations
 
 import json
 import sqlite3
-from dataclasses import asdict, dataclass
+from dataclasses import asdict, dataclass, replace
 from pathlib import Path
 
 from .calibers import caliber_matches
 from .models import Ammo, ArmorLayer, ArmorLayerType, ArmorMaterial
 
-DATA_VERSION = "eft-1.0.6.0-snapshot-2026-07-31"
+DATA_VERSION = "wiki-reviewed-2026-09-16"
+BUNDLED_CATALOG = json.loads((Path(__file__).parent / "resources/items/catalog.json").read_text(encoding="utf-8"))
+LEGACY_AMMO_IDS = BUNDLED_CATALOG["legacy_ids"]
 
 SEED_AMMO = (
     Ammo(
@@ -136,6 +138,14 @@ SEED_AMMO = (
     ),
 )
 
+_catalog_by_id = {item["id"]: item for item in BUNDLED_CATALOG["ammo"]}
+SEED_AMMO = tuple(replace(ammo,
+    damage=_catalog_by_id[LEGACY_AMMO_IDS[ammo.id]]["damage"],
+    penetration_power=_catalog_by_id[LEGACY_AMMO_IDS[ammo.id]]["penetration_power"],
+    armor_damage_percent=_catalog_by_id[LEGACY_AMMO_IDS[ammo.id]]["armor_damage_percent"],
+    muzzle_velocity=_catalog_by_id[LEGACY_AMMO_IDS[ammo.id]]["muzzle_velocity"],
+    source_version=DATA_VERSION) for ammo in SEED_AMMO)
+
 
 @dataclass(frozen=True)
 class ArmorPlatePreset:
@@ -162,161 +172,11 @@ class ArmorCarrierPreset:
         return self.name_zh if locale.lower().startswith("zh") else self.name
 
 
-ARMOR_PLATES = (
-    ArmorPlatePreset(
-        "tackek-replica",
-        "Tac-Kek SAPI Level III+ ballistic plate (Replica)",
-        "Tac-Kek SAPI III+ 防弹插板（仿制品）",
-        1,
-        90,
-        ArmorMaterial.UHMWPE,
-        ("front", "back"),
-    ),
-    ArmorPlatePreset(
-        "zhuk-3-front",
-        "Zhuk-3 ballistic plate (Front)",
-        "Zhuk-3 防弹插板（前）",
-        3,
-        40,
-        ArmorMaterial.UHMWPE,
-        ("front",),
-    ),
-    ArmorPlatePreset(
-        "6b23-2-back",
-        "6B23-2 ballistic plate (Back)",
-        "6B23-2 防弹插板（后）",
-        4,
-        40,
-        ArmorMaterial.STEEL,
-        ("back",),
-    ),
-    ArmorPlatePreset(
-        "6b33-front",
-        "6B33 ballistic plate (Front)",
-        "6B33 防弹插板（前）",
-        4,
-        50,
-        ArmorMaterial.STEEL,
-        ("front",),
-    ),
-    ArmorPlatePreset(
-        "monoclete",
-        "Monoclete level III PE ballistic plate",
-        "Monoclete III 级 PE 防弹插板",
-        4,
-        40,
-        ArmorMaterial.UHMWPE,
-        ("front", "back"),
-    ),
-    ArmorPlatePreset(
-        "global-steel",
-        "Global Armor's Steel ballistic plate",
-        "Global Armor 钢制防弹插板",
-        4,
-        45,
-        ArmorMaterial.STEEL,
-        ("front", "back"),
-    ),
-    ArmorPlatePreset(
-        "elaphros",
-        "SPRTN Elaphros ballistic plate",
-        "SPRTN Elaphros 防弹插板",
-        4,
-        45,
-        ArmorMaterial.CERAMIC,
-        ("front", "back"),
-    ),
-    ArmorPlatePreset(
-        "omega",
-        "SPRTN Omega ballistic plate",
-        "SPRTN Omega 防弹插板",
-        4,
-        50,
-        ArmorMaterial.COMBINED,
-        ("front", "back"),
-    ),
-    ArmorPlatePreset(
-        "titan",
-        "Kiba Arms Titan ballistic plate",
-        "Kiba Arms Titan 防弹插板",
-        4,
-        55,
-        ArmorMaterial.TITANIUM,
-        ("front", "back"),
-    ),
-    ArmorPlatePreset(
-        "korund-front",
-        "Korund-VM ballistic plate (Front)",
-        "Korund-VM 防弹插板（前）",
-        5,
-        60,
-        ArmorMaterial.STEEL,
-        ("front",),
-    ),
-    ArmorPlatePreset(
-        "korund-back",
-        "Korund-VM ballistic plate (Back)",
-        "Korund-VM 防弹插板（后）",
-        5,
-        40,
-        ArmorMaterial.STEEL,
-        ("back",),
-    ),
-    ArmorPlatePreset(
-        "gac-3s15m",
-        "GAC 3s15m ballistic plate",
-        "GAC 3s15m 防弹插板",
-        5,
-        45,
-        ArmorMaterial.UHMWPE,
-        ("front", "back"),
-    ),
-    ArmorPlatePreset(
-        "sapi-iii-plus",
-        "SAPI level III+ ballistic plate",
-        "SAPI III+ 防弹插板",
-        5,
-        50,
-        ArmorMaterial.CERAMIC,
-        ("front", "back"),
-    ),
-    ArmorPlatePreset(
-        "korund-side",
-        "Korund-VM ballistic plate (Side)",
-        "Korund-VM 防弹插板（侧）",
-        5,
-        25,
-        ArmorMaterial.STEEL,
-        ("left", "right"),
-    ),
-    ArmorPlatePreset(
-        "kiteco",
-        "KITECO SC-IV SA ballistic plate",
-        "KITECO SC-IV SA 防弹插板",
-        6,
-        45,
-        ArmorMaterial.UHMWPE,
-        ("front", "back"),
-    ),
-    ArmorPlatePreset(
-        "kiba-steel",
-        "Kiba Arms Steel ballistic plate",
-        "Kiba Arms 钢制防弹插板",
-        6,
-        50,
-        ArmorMaterial.STEEL,
-        ("front", "back"),
-    ),
-    ArmorPlatePreset(
-        "esapi-iv",
-        "ESAPI level IV ballistic plate",
-        "ESAPI IV 级防弹插板",
-        6,
-        55,
-        ArmorMaterial.CERAMIC,
-        ("front", "back"),
-    ),
-)
+LEGACY_ARMOR_IDS = BUNDLED_CATALOG["legacy_armor_ids"]
+ARMOR_PLATES = tuple(ArmorPlatePreset(item["id"], item["name"], item["name_zh"],
+    item["armor_class"], item["durability"], ArmorMaterial(item["material"]),
+    tuple(item["slots"])) for item in BUNDLED_CATALOG["armor"])
+
 
 ARMOR_CARRIERS = (
     ArmorCarrierPreset(
@@ -356,6 +216,10 @@ ARMOR_CARRIERS = (
     ),
 )
 
+ARMOR_CARRIERS = tuple(replace(carrier, defaults={slot: LEGACY_ARMOR_IDS[plate]
+    for slot, plate in carrier.defaults.items()}) for carrier in ARMOR_CARRIERS)
+
+
 ARMOR_SLOT_NAMES = {
     "front": {"en": "Front plate", "zh": "前插板"},
     "back": {"en": "Back plate", "zh": "后插板"},
@@ -365,7 +229,7 @@ ARMOR_SLOT_NAMES = {
 
 
 def armor_plate_by_id(item_id: str) -> ArmorPlatePreset:
-    return next(item for item in ARMOR_PLATES if item.id == item_id)
+    return next(item for item in ARMOR_PLATES if item.id == LEGACY_ARMOR_IDS.get(item_id, item_id))
 
 
 def default_armor_presets() -> dict[str, tuple[ArmorLayer, ...]]:
@@ -380,7 +244,7 @@ def default_armor_presets() -> dict[str, tuple[ArmorLayer, ...]]:
                 45,
                 45,
                 ArmorMaterial.CERAMIC,
-                0.80,
+                0.60,
                 0.10,
                 True,
             ),
@@ -393,7 +257,7 @@ def default_armor_presets() -> dict[str, tuple[ArmorLayer, ...]]:
                 40,
                 40,
                 ArmorMaterial.ARAMID,
-                0.30,
+                0.1875,
                 0.18,
                 False,
             ),
@@ -408,7 +272,7 @@ def default_armor_presets() -> dict[str, tuple[ArmorLayer, ...]]:
                 60,
                 60,
                 ArmorMaterial.STEEL,
-                0.35,
+                0.525,
                 0.08,
                 True,
             ),
@@ -423,7 +287,7 @@ def default_armor_presets() -> dict[str, tuple[ArmorLayer, ...]]:
                 50,
                 50,
                 ArmorMaterial.ARAMID,
-                0.30,
+                0.1875,
                 0.20,
                 False,
             ),
@@ -438,7 +302,7 @@ def default_armor_presets() -> dict[str, tuple[ArmorLayer, ...]]:
                 45,
                 45,
                 ArmorMaterial.STEEL,
-                0.35,
+                0.525,
                 0.10,
                 True,
             ),
@@ -453,7 +317,7 @@ def default_armor_presets() -> dict[str, tuple[ArmorLayer, ...]]:
                 40,
                 40,
                 ArmorMaterial.UHMWPE,
-                0.45,
+                0.3375,
                 0.10,
                 True,
             ),
@@ -468,7 +332,7 @@ def default_armor_presets() -> dict[str, tuple[ArmorLayer, ...]]:
                 60,
                 60,
                 ArmorMaterial.STEEL,
-                0.35,
+                0.525,
                 0.09,
                 True,
             ),
@@ -503,67 +367,58 @@ class Database:
             CREATE TABLE IF NOT EXISTS metadata (key TEXT PRIMARY KEY, value TEXT NOT NULL);
             """
         )
-        for ammo in SEED_AMMO:
-            payload = asdict(ammo)
-            payload["aliases"] = list(ammo.aliases)
-            search = " ".join(
-                (
-                    ammo.name,
-                    ammo.short_name,
-                    ammo.caliber,
-                    *ammo.aliases,
-                    *ammo.localized_names.values(),
-                )
-            ).casefold()
-            self.connection.execute(
-                "INSERT OR REPLACE INTO ammo(id,payload,search_text) VALUES(?,?,?)",
-                (ammo.id, json.dumps(payload, ensure_ascii=False), search),
-            )
-        self.connection.execute(
-            "INSERT OR REPLACE INTO metadata(key,value) VALUES('data_version',?)",
-            (DATA_VERSION,),
-        )
-        self.connection.commit()
+        installed = self.connection.execute(
+            "SELECT value FROM metadata WHERE key='bundled_catalog_version'"
+        ).fetchone()
+        if installed is None or installed[0] != DATA_VERSION:
+            with self.connection:
+                for raw in BUNDLED_CATALOG["ammo"]:
+                    old = self.connection.execute("SELECT payload FROM ammo WHERE id=?", (raw["id"],)).fetchone()
+                    version = json.loads(old[0]).get("source_version", "") if old else ""
+                    replaceable = version.startswith(("bundled", "tarkovdata-", "TarkovTracker"))
+                    if version.startswith(("tarkov.dev-", "wiki-reviewed-")):
+                        replaceable = version[-10:] < "2026-09-16"
+                    if old and not replaceable:
+                        continue
+                    self._upsert_ammo(Ammo(**raw))
+                for legacy, item_id in LEGACY_AMMO_IDS.items():
+                    self.connection.execute("INSERT OR IGNORE INTO favorites(kind,item_id) SELECT kind,? FROM favorites WHERE kind='ammo' AND item_id=?", (item_id, legacy))
+                    self.connection.execute("INSERT OR IGNORE INTO recent(kind,item_id,used_at) SELECT kind,?,used_at FROM recent WHERE kind='ammo' AND item_id=?", (item_id, legacy))
+                    self.connection.execute("DELETE FROM ammo WHERE id=?", (legacy,))
+                    self.connection.execute("DELETE FROM favorites WHERE kind='ammo' AND item_id=?", (legacy,))
+                    self.connection.execute("DELETE FROM recent WHERE kind='ammo' AND item_id=?", (legacy,))
+                self.connection.execute("INSERT OR REPLACE INTO metadata(key,value) VALUES('bundled_catalog_version',?)", (DATA_VERSION,))
+                self.connection.execute("INSERT OR REPLACE INTO metadata(key,value) VALUES('data_version',?)", (DATA_VERSION,))
+
+    def _upsert_ammo(self, ammo: Ammo) -> None:
+        payload = asdict(ammo)
+        search = " ".join((ammo.name, ammo.short_name, ammo.caliber, *ammo.aliases,
+                           *ammo.localized_names.values())).casefold()
+        self.connection.execute("INSERT OR REPLACE INTO ammo(id,payload,search_text) VALUES(?,?,?)",
+            (ammo.id, json.dumps(payload, ensure_ascii=False, allow_nan=False), search))
 
     def all_ammo(self) -> list[Ammo]:
         rows = self.connection.execute("SELECT payload FROM ammo ORDER BY id").fetchall()
         return [Ammo(**json.loads(row["payload"])) for row in rows]
 
     def apply_ammo_snapshot(self, snapshot: dict) -> None:
-        """Atomically replace normalized ammo while preserving user tables."""
+        """Validate before changing the database; never erase verified absent items."""
         records = snapshot.get("ammo", [])
         if not records:
-            raise ValueError("快照不包含弹药")
+            raise ValueError("Snapshot has no ammo")
+        sources = snapshot.get("sources", [])
+        if sources and all(item.get("source") == "TarkovTracker/tarkovdata" for item in sources):
+            raise ValueError("Historical fallback is not allowed to replace verified data")
+        if sources and snapshot.get("created_at", "")[:10] < "2026-09-16":
+            raise ValueError("Cached online data predates the bundled Wiki review")
+        parsed = [Ammo(**{k:v for k,v in raw.items() if k != "provenance"}) for raw in records]
+        if len({a.id for a in parsed}) != len(parsed):
+            raise ValueError("Duplicate ammo IDs")
         with self.connection:
-            self.connection.execute("DELETE FROM ammo")
-            for raw in records:
-                payload = {key: value for key, value in raw.items() if key != "provenance"}
-                payload["aliases"] = list(payload.get("aliases", []))
-                search = " ".join(
-                    (
-                        payload["name"],
-                        payload["short_name"],
-                        payload["caliber"],
-                        *payload["aliases"],
-                        *payload.get("localized_names", {}).values(),
-                    )
-                ).casefold()
-                self.connection.execute(
-                    "INSERT INTO ammo(id,payload,search_text) VALUES(?,?,?)",
-                    (
-                        payload["id"],
-                        json.dumps(payload, ensure_ascii=False),
-                        search,
-                    ),
-                )
-            self.connection.execute(
-                "INSERT OR REPLACE INTO metadata(key,value) VALUES('data_version',?)",
-                (snapshot["snapshot_id"],),
-            )
-            self.connection.execute(
-                "INSERT OR REPLACE INTO metadata(key,value) VALUES('last_sync_at',?)",
-                (snapshot["created_at"],),
-            )
+            for ammo in parsed:
+                self._upsert_ammo(ammo)
+            self.connection.execute("INSERT OR REPLACE INTO metadata(key,value) VALUES('data_version',?)", (snapshot["snapshot_id"],))
+            self.connection.execute("INSERT OR REPLACE INTO metadata(key,value) VALUES('last_sync_at',?)", (snapshot["created_at"],))
 
     def search_ammo(self, query: str, caliber: str = "", locale: str = "en_US") -> list[Ammo]:
         def normalize(value: str) -> str:
@@ -629,6 +484,7 @@ class Database:
         return [ammo for _score, ammo in result]
 
     def set_favorite(self, ammo_id: str, favorite: bool) -> None:
+        ammo_id = LEGACY_AMMO_IDS.get(ammo_id, ammo_id)
         if favorite:
             self.connection.execute(
                 "INSERT OR IGNORE INTO favorites(kind,item_id) VALUES('ammo',?)", (ammo_id,)
@@ -640,6 +496,7 @@ class Database:
         self.connection.commit()
 
     def is_favorite(self, ammo_id: str) -> bool:
+        ammo_id = LEGACY_AMMO_IDS.get(ammo_id, ammo_id)
         return bool(
             self.connection.execute(
                 "SELECT 1 FROM favorites WHERE kind='ammo' AND item_id=?", (ammo_id,)
@@ -647,6 +504,7 @@ class Database:
         )
 
     def mark_recent(self, ammo_id: str) -> None:
+        ammo_id = LEGACY_AMMO_IDS.get(ammo_id, ammo_id)
         self.connection.execute(
             "INSERT OR REPLACE INTO recent(kind,item_id,used_at) VALUES('ammo',?,CURRENT_TIMESTAMP)",
             (ammo_id,),

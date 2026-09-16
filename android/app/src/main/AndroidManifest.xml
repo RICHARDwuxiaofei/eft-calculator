@@ -11,6 +11,7 @@
         android:theme="@style/Theme.EFTCalculator">
         <activity
             android:name=".MainActivity"
+            android:resizeableActivity="true"
             android:exported="true"
             android:screenOrientation="unspecified">
             <intent-filter>

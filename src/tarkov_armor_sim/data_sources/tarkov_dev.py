@@ -37,7 +37,7 @@ class TarkovDevAdapter(DataSourceAdapter):
             response.raise_for_status()
             payload = response.json()
         if payload.get("errors"):
-            raise RuntimeError(f"tarkov.dev GraphQL error: {payload['errors'][0]['message']}")
+            raise RuntimeError(f"tarkov.dev GraphQL error: {payload['errors']}")
         data = payload.get("data", {})
         records = data.get("en") or []
         chinese = {
@@ -63,6 +63,11 @@ class TarkovDevAdapter(DataSourceAdapter):
                     item.get("shortName"),
                 ):
                     aliases.append(translated["shortName"])
+            for field in ("damage", "penetrationPower", "armorDamage", "projectileCount"):
+                if field not in record or record[field] is None or isinstance(record[field], bool):
+                    raise ValueError(f"{item_id}: missing or invalid {field}")
+            if not isinstance(record["projectileCount"], int):
+                raise ValueError(f"{item_id}: projectile count must be an integer")  # noqa: TRY004 - public validation boundary
             ammo.append(
                 Ammo(
                     id=item_id,

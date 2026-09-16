@@ -8,7 +8,7 @@ from .serialization import dump_json, load_payload, result_to_dict, scenario_fro
 from .validation import validate_scenario_payload
 
 SCHEMA_VERSION = 1
-CORE_VERSION = "2.1.1"
+CORE_VERSION = "2.2.0"
 
 
 def _ruleset(payload: dict[str, Any]):
@@ -46,16 +46,20 @@ def validate_scenario_json(value: str | dict[str, Any]) -> str:
 
 
 def _calculate(value: str | dict[str, Any], *, monte_carlo: bool) -> str:
-    payload = load_payload(value)
-    errors = validate_scenario_payload(payload)
-    if errors:
-        return dump_json({"schema_version": SCHEMA_VERSION, "ok": False, "errors": errors})
-    scenario = scenario_from_dict(payload)
-    result = (
-        simulate(scenario, _ruleset(payload))
-        if monte_carlo
-        else analyze(scenario, _ruleset(payload))
-    )
+    try:
+        payload = load_payload(value)
+        errors = validate_scenario_payload(payload)
+        if errors:
+            return dump_json({"schema_version": SCHEMA_VERSION, "ok": False, "errors": errors})
+        scenario = scenario_from_dict(payload)
+        result = (
+            simulate(scenario, _ruleset(payload))
+            if monte_carlo
+            else analyze(scenario, _ruleset(payload))
+        )
+    except (ValueError, TypeError, KeyError, AttributeError, OverflowError) as exc:
+        return dump_json({"schema_version": SCHEMA_VERSION, "ok": False,
+                          "errors": [{"path": "$", "message": str(exc)}]})
     return dump_json(
         {"schema_version": SCHEMA_VERSION, "ok": True, "result": result_to_dict(result)}
     )

@@ -25,7 +25,7 @@ def configure_logging() -> None:
         sys.version.split()[0],
         platform.platform(),
         DATA_VERSION,
-        "community-approx-2026.07-v1",
+        "community-reference-2026.09-v2",
     )
 
 
@@ -36,6 +36,27 @@ def main() -> int:
     database = Database(default_database_path())
     app, window = create_application(database)
     window.show()
+    if "--smoke-test" in sys.argv:
+        import os
+
+        from PySide6.QtCore import QTimer
+
+        from .engine import analyze
+        from .rulesets import CurrentApproximation
+        window.shots.setValue(1)
+        window._choose_preset(0)
+        result = analyze(window._scenario(), CurrentApproximation())
+        assert 0 <= result.final_penetration_probability <= 1
+        window.current_scenario = window._scenario()
+        window._show_result(result)
+        def finish_smoke() -> None:
+            screenshot = os.getenv("EFT_SMOKE_SCREENSHOT")
+            if screenshot and not window.grab().save(screenshot):
+                app.exit(2)
+                return
+            window.close()
+            app.quit()
+        QTimer.singleShot(1500, finish_smoke)
     return app.exec()
 
 

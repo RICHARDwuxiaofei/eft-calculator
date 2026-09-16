@@ -27,7 +27,8 @@ def test_search_and_slider_refresh(qtbot, tmp_path) -> None:
     window = MainWindow(Database(tmp_path / "ui.sqlite3"))
     qtbot.addWidget(window)
     window.global_search.setText("M855A1")
-    assert window.ammo_list.count() == 1
+    assert window.ammo_list.count() >= 1
+    assert any("5.56x45" in window.ammo_list.item(i).text() for i in range(window.ammo_list.count()))
     window._choose_preset(0)
     old = window.layers[0].current_durability
     window.durability_slider.setValue(max(0, window.durability_slider.value() - 50))
@@ -80,7 +81,7 @@ def test_separate_resets(qtbot, tmp_path) -> None:
     window.global_search.setText("BP")
     window._reset_ammo()
     assert window.selected_ammo is not None
-    assert window.selected_ammo.id == "m855a1"
+    assert window.selected_ammo.id == "54527ac44bdc2d36668b4567"
     window._reset_armor()
     assert len(window.layers) == 0
     assert window.penetration_metric.text() == "请选择护甲"
@@ -106,12 +107,12 @@ def test_live_suggestion_manual_ammo_and_plate_autofill(qtbot, tmp_path) -> None
     bagariy_index = window.carrier_combo.findData("bagariy")
     window.carrier_combo.setCurrentIndex(bagariy_index)
     assert window.plate_slot_combo.currentData() == "front"
-    assert window.plate_combo.currentData() == "korund-front"
+    assert window.plate_combo.currentData() == "656f664200d62bcd2e024077"
     assert window.manual_armor_class.value() == 5
     assert window.manual_max_durability.value() == 60
     window.manual_current_durability.setValue(33)
     window._confirm_armor_layer()
-    assert window.layers[-1].name.startswith("Korund-VM")
+    assert "VM" in window.layers[-1].name
     assert window.layers[-1].current_durability == 33
 
 
@@ -148,7 +149,8 @@ def test_tracker_caliber_filter_and_search_rows_use_item_icons(qtbot, tmp_path) 
     qtbot.addWidget(window)
 
     window.caliber_group.button(1).click()
-    assert window.ammo_list.count() == 2
+    assert window.ammo_list.count() >= 2
+    assert len(database.search_ammo("", "5.8x42")) == 4
     assert all(not window.ammo_list.item(row).icon().isNull() for row in range(2))
     assert window._ammo_icon(m855) != window._ammo_icon(m855a1)
     assert "5.56x45" in window.ammo_list.item(0).text()

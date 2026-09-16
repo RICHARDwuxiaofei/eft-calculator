@@ -13,7 +13,7 @@ class MainActivityTest {
     @Test
     fun quickPageShowsCoreActionsAndSurvivesRecreation() {
         compose.onNodeWithText("EFT Calculator").assertIsDisplayed()
-        compose.onNodeWithText("选择弹药").assertIsDisplayed()
+        compose.onNodeWithText(compose.activity.getString(R.string.choose_ammo)).assertIsDisplayed()
         compose.activityRule.scenario.recreate()
         compose.onNodeWithText("EFT Calculator").assertIsDisplayed()
     }

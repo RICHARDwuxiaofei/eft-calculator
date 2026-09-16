@@ -1,63 +1,31 @@
 package com.eftcalculator
 
+import android.content.Context
 import android.graphics.BitmapFactory
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.FlowRow
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxHeight
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Calculate
 import androidx.compose.material.icons.filled.Compare
 import androidx.compose.material.icons.filled.Favorite
+import androidx.compose.material.icons.filled.HelpOutline
 import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material.icons.filled.Search
-import androidx.compose.material3.Button
-import androidx.compose.material3.Card
-import androidx.compose.material3.DropdownMenu
-import androidx.compose.material3.DropdownMenuItem
-import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.ModalBottomSheet
-import androidx.compose.material3.NavigationBar
-import androidx.compose.material3.NavigationBarItem
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Slider
-import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
-import androidx.compose.material3.TextField
-import androidx.compose.material3.TopAppBar
-import androidx.compose.material3.darkColorScheme
+import androidx.compose.material3.*
 import androidx.compose.material3.adaptive.currentWindowAdaptiveInfo
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableIntStateOf
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
+import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
-import androidx.compose.runtime.setValue
-import java.text.DateFormat
-import java.util.Date
-import java.util.Locale
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.platform.LocalContext
@@ -68,6 +36,9 @@ import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.window.core.layout.WindowSizeClass
 import com.eftcalculator.data.AmmoEntity
+import org.json.JSONObject
+import java.util.Locale
+import kotlin.math.roundToInt
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -76,13 +47,10 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-private val EftColors = darkColorScheme(
-    primary = Color(0xFFC39B52),
-    onPrimary = Color(0xFF101418),
-    background = Color(0xFF0B0E11),
-    surface = Color(0xFF171C21),
-    surfaceVariant = Color(0xFF252D34),
-)
+private fun text(en: String, zh: String) = if (Locale.getDefault().language.startsWith("zh")) zh else en
+private fun number(value: Double) = String.format(Locale.ROOT, "%.1f", value)
+private fun percent(value: Double) = number(value * 100) + "%"
+private fun AmmoEntity.displayName() = if (Locale.getDefault().language.startsWith("zh")) nameZh ?: name else name
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -90,445 +58,165 @@ fun EftCalculatorApp(vm: MainViewModel = viewModel()) {
     val state by vm.state.collectAsState()
     val ammo by vm.ammo.collectAsState()
     val favorites by vm.favorites.collectAsState()
-    val laboratoryMode by vm.laboratoryMode.collectAsState()
-    val lastSync by vm.lastSync.collectAsState()
     var destination by rememberSaveable { mutableIntStateOf(0) }
-    var searchOpen by rememberSaveable { mutableStateOf(false) }
-    var armorOpen by rememberSaveable { mutableStateOf(false) }
-    var dataOpen by rememberSaveable { mutableStateOf(false) }
-    var menuOpen by remember { mutableStateOf(false) }
+    var search by rememberSaveable { mutableStateOf(false) }
+    var armor by rememberSaveable { mutableStateOf(false) }
+    var menu by remember { mutableStateOf(false) }
+    var dataInfo by remember { mutableStateOf(false) }
     val wide = currentWindowAdaptiveInfo().windowSizeClass
-        .isWidthAtLeastBreakpoint(WindowSizeClass.WIDTH_DP_MEDIUM_LOWER_BOUND)
-
-    MaterialTheme(colorScheme = EftColors) {
-        Scaffold(
-            topBar = {
-                TopAppBar(
-                    title = { Text("EFT Calculator", fontWeight = FontWeight.Bold) },
-                    actions = {
-                        IconButton(onClick = { searchOpen = true }) {
-                            Icon(Icons.Default.Search, stringResource(R.string.search))
-                        }
-                        IconButton(onClick = { menuOpen = true }) {
-                            Icon(Icons.Default.MoreVert, stringResource(R.string.menu))
-                        }
-                        DropdownMenu(expanded = menuOpen, onDismissRequest = { menuOpen = false }) {
-                            DropdownMenuItem(text = { Text(stringResource(R.string.sync_data)) }, onClick = {
-                                vm.syncNow()
-                                menuOpen = false
-                            })
-                            DropdownMenuItem(text = {
-                                Text(
-                                    stringResource(
-                                        if (laboratoryMode) R.string.exit_laboratory
-                                        else R.string.enter_laboratory,
-                                    ),
-                                )
-                            }, onClick = {
-                                vm.toggleLaboratoryMode()
-                                menuOpen = false
-                            })
-                            DropdownMenuItem(text = { Text(stringResource(R.string.settings_data)) }, onClick = {
-                                dataOpen = true
-                                menuOpen = false
-                            })
-                        }
-                    },
-                )
-            },
-            bottomBar = {
-                NavigationBar {
-                    listOf(
-                        Triple(stringResource(R.string.nav_quick), Icons.Default.Calculate, 0),
-                        Triple(stringResource(R.string.nav_compare), Icons.Default.Compare, 1),
-                        Triple(stringResource(R.string.nav_favorites), Icons.Default.Favorite, 2),
-                    ).forEach { (label, icon, index) ->
-                        NavigationBarItem(
-                            selected = destination == index,
-                            onClick = { destination = index },
-                            icon = { Icon(icon, label) },
-                            label = { Text(label) },
-                        )
-                    }
+        .isWidthAtLeastBreakpoint(WindowSizeClass.WIDTH_DP_EXPANDED_LOWER_BOUND)
+    MaterialTheme(colorScheme = darkColorScheme(primary = Color(0xFFF0C36A), surface = Color(0xFF171C21))) {
+        Scaffold(topBar = {
+            TopAppBar(title = { Text("EFT Calculator", fontWeight = FontWeight.Bold) }, actions = {
+                IconButton(onClick = { search = true }) { Icon(Icons.Default.Search, stringResource(R.string.search)) }
+                IconButton(onClick = { menu = true }) { Icon(Icons.Default.MoreVert, stringResource(R.string.menu)) }
+                DropdownMenu(expanded = menu, onDismissRequest = { menu = false }) {
+                    DropdownMenuItem(text = { Text(stringResource(R.string.sync_data)) }, onClick = { vm.syncNow(); menu = false; dataInfo = true })
+                    DropdownMenuItem(text = { Text(stringResource(R.string.settings_data)) }, onClick = { dataInfo = true; menu = false })
                 }
-            },
-        ) { padding ->
-            when (destination) {
-                0 -> QuickScreen(
-                    Modifier.padding(padding),
-                    state,
-                    wide,
-                    onSearch = { searchOpen = true },
-                    onArmor = { armorOpen = true },
-                    onDistance = { vm.updateConditions(distance = it) },
-                    onShots = { vm.updateConditions(shots = it) },
-                    onFavorite = vm::toggleFavorite,
-                    onSimulate = vm::simulate,
-                    onResetAmmo = vm::resetAmmo,
-                    onResetArmor = vm::resetArmor,
-                    onResetAll = vm::resetAll,
-                )
-                1 -> CompareScreen(Modifier.padding(padding), ammo, state.selectedAmmo, vm::selectAmmo)
-                else -> FavoritesScreen(Modifier.padding(padding), favorites, vm::selectAmmo)
+            })
+        }, bottomBar = {
+            NavigationBar {
+                listOf(Triple(R.string.nav_quick, Icons.Default.Calculate, 0), Triple(R.string.nav_compare, Icons.Default.Compare, 1),
+                    Triple(R.string.nav_favorites, Icons.Default.Favorite, 2)).forEach { (label, icon, index) ->
+                    NavigationBarItem(selected = destination == index, onClick = { destination = index },
+                        icon = { Icon(icon, stringResource(label)) }, label = { Text(stringResource(label)) })
+                }
+            }
+        }) { padding ->
+            if (destination == 0) {
+                if (wide) Row(Modifier.padding(padding).fillMaxSize().padding(12.dp), horizontalArrangement = Arrangement.spacedBy(12.dp)) {
+                    Column(Modifier.weight(0.42f).fillMaxHeight().verticalScroll(rememberScrollState())) {
+                        Inputs(state, vm, { search = true }, { armor = true })
+                    }
+                    Column(Modifier.weight(0.58f).fillMaxHeight().verticalScroll(rememberScrollState())) { Results(state, vm::simulate) }
+                } else LazyColumn(Modifier.padding(padding).fillMaxSize().padding(12.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
+                    item { Inputs(state, vm, { search = true }, { armor = true }) }
+                    item { Results(state, vm::simulate) }
+                }
+            } else LazyColumn(Modifier.padding(padding).fillMaxSize().padding(12.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                item { Text(if (destination == 1) text("Ammo data comparison (not penetration probabilities)", "\u5f39\u836f\u6570\u636e\u5bf9\u6bd4\uff08\u975e\u7a7f\u900f\u6982\u7387\uff09") else stringResource(R.string.nav_favorites)) }
+                items(if (destination == 1) ammo else favorites, key = { it.id }) { item ->
+                    AmmoRow(item) { vm.selectAmmo(item); destination = 0 }
+                }
             }
         }
-        if (searchOpen) {
-            AmmoSearchSheet(ammo, vm.query.value, state.selectedAmmo, {
-                vm.query.value = it
-            }, {
-                vm.selectAmmo(it)
-                searchOpen = false
-            }, { name, damage, penetration, armorDamage, projectiles ->
-                vm.useCustomAmmo(name, damage, penetration, armorDamage, projectiles)
-                searchOpen = false
-            }, { searchOpen = false })
-        }
-        if (armorOpen) {
-            ArmorSheet(state.armor.first(), {
-                vm.updateArmor(0, it)
-            }, {
-                vm.addArmor(it)
-                armorOpen = false
-            }, { armorOpen = false })
-        }
-        if (dataOpen) {
-            DataStatusSheet(lastSync, laboratoryMode, {
-                vm.syncNow()
-            }, { dataOpen = false })
-        }
+        if (search) AmmoPicker(ammo, vm.query.value, { vm.query.value = it }, { vm.selectAmmo(it); search = false }, { search = false })
+        if (armor) ArmorEditor(state.armor, vm, { armor = false })
+        if (dataInfo) AlertDialog(onDismissRequest = { dataInfo = false }, confirmButton = { TextButton(onClick = { dataInfo = false }) { Text("OK") } },
+            title = { Text(stringResource(R.string.settings_data)) }, text = { Text(text(
+                "Offline Wiki-reviewed snapshot: 2026-09-16. Live sync only replaces data after validation. An unavailable endpoint never replaces the cache with an older fallback. Exact item-ID icons; missing images show ?. Community armor model, not a verified current-server replica. See docs/RESEARCH.md.",
+                "\u79bb\u7ebf Wiki \u6838\u5bf9\u5feb\u7167\uff1a2026-09-16\u3002\u8054\u7f51\u540c\u6b65\u5fc5\u987b\u5148\u901a\u8fc7\u9a8c\u8bc1\uff1b\u63a5\u53e3\u5931\u8d25\u4e0d\u4f1a\u7528\u65e7\u5907\u7528\u6e90\u8986\u76d6\u7f13\u5b58\u3002\u56fe\u6807\u6309\u7269\u54c1 ID \u7ed1\u5b9a\uff0c\u7f3a\u56fe\u663e\u793a\u95ee\u53f7\u3002\u62a4\u7532\u6a21\u578b\u4e3a\u793e\u533a\u8fd1\u4f3c\uff0c\u672a\u8bc1\u5b9e\u4e0e\u5f53\u524d\u670d\u52a1\u5668\u5b8c\u5168\u4e00\u81f4\u3002\u8be6\u89c1 docs/RESEARCH.md\u3002")) })
     }
 }
 
 @Composable
-private fun QuickScreen(
-    modifier: Modifier,
-    state: CalculatorState,
-    wide: Boolean,
-    onSearch: () -> Unit,
-    onArmor: () -> Unit,
-    onDistance: (Int) -> Unit,
-    onShots: (Int) -> Unit,
-    onFavorite: () -> Unit,
-    onSimulate: () -> Unit,
-    onResetAmmo: () -> Unit,
-    onResetArmor: () -> Unit,
-    onResetAll: () -> Unit,
-) {
-    val inputs: @Composable () -> Unit = {
-        InputPane(
-            state,
-            onSearch,
-            onArmor,
-            onDistance,
-            onShots,
-            onFavorite,
-            onResetAmmo,
-            onResetArmor,
-            onResetAll,
-        )
-    }
-    val results: @Composable () -> Unit = { ResultPane(state, onSimulate) }
-    if (wide) {
-        Row(modifier.fillMaxSize().padding(12.dp), horizontalArrangement = Arrangement.spacedBy(12.dp)) {
-            Box(Modifier.width(380.dp).fillMaxHeight()) { inputs() }
-            Box(Modifier.weight(1f).fillMaxHeight()) { results() }
-        }
-    } else {
-        LazyColumn(modifier.fillMaxSize().padding(12.dp), verticalArrangement = Arrangement.spacedBy(10.dp)) {
-            item { inputs() }
-            item { results() }
-        }
-    }
-}
-
-@Composable
-private fun InputPane(
-    state: CalculatorState,
-    onSearch: () -> Unit,
-    onArmor: () -> Unit,
-    onDistance: (Int) -> Unit,
-    onShots: (Int) -> Unit,
-    onFavorite: () -> Unit,
-    onResetAmmo: () -> Unit,
-    onResetArmor: () -> Unit,
-    onResetAll: () -> Unit,
-) {
-    val armorSummary = state.armor.map {
-        stringResource(R.string.armor_summary, it.armorClass, materialLabel(it.material))
-    }.joinToString(" → ")
-    Card {
-        Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
-            Text(stringResource(R.string.query_parameters), fontSize = 20.sp, fontWeight = FontWeight.Bold)
-            Button(onClick = onSearch, modifier = Modifier.fillMaxWidth()) {
-                Text(
-                    state.selectedAmmo?.let {
-                        stringResource(
-                            R.string.ammo_summary,
-                            it.shortName,
-                            it.caliber,
-                            it.damage.toInt(),
-                            it.penetrationPower.toInt(),
-                        )
-                    } ?: stringResource(R.string.choose_ammo),
-                )
+private fun Inputs(state: CalculatorState, vm: MainViewModel, onSearch: () -> Unit, onArmor: () -> Unit) {
+    Card(Modifier.fillMaxWidth()) {
+        Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(10.dp)) {
+            Text(stringResource(R.string.query_parameters), style = MaterialTheme.typography.titleLarge)
+            Button(onClick = onSearch, modifier = Modifier.fillMaxWidth()) { Text(state.selectedAmmo?.let { "${it.shortName} | ${it.caliber}" } ?: stringResource(R.string.choose_ammo)) }
+            state.selectedAmmo?.let { item ->
+                ItemIcon(item.id.removePrefix("custom-"), "ammo", item.name)
+                Text("${item.displayName()}\nDMG ${number(item.damage)} | PEN ${number(item.penetrationPower)} | AD ${number(item.armorDamagePercent)}%")
+                Text(text("${item.projectileCount} projectiles per trigger; ALL hit the same path.", "\u6bcf\u53d1 ${item.projectileCount} \u9897\u5f39\u4e38\uff0c\u5168\u90e8\u547d\u4e2d\u540c\u4e00\u8def\u5f84\u3002"))
             }
-            TextButton(onClick = onFavorite, enabled = state.selectedAmmo != null) {
-                Text(stringResource(R.string.toggle_favorite))
-            }
-            Button(onClick = onArmor, modifier = Modifier.fillMaxWidth()) {
-                Text(armorSummary)
+            TextButton(onClick = vm::toggleFavorite, enabled = state.selectedAmmo != null) { Text(stringResource(R.string.toggle_favorite)) }
+            Button(onClick = onArmor, modifier = Modifier.fillMaxWidth()) { Text(stringResource(R.string.armor_layers) + " (${state.armor.size})") }
+            state.armor.forEachIndexed { i, layer ->
+                ItemIcon(layer.itemId, "armor", layer.name)
+                Text("${i + 1}. ${if (layer.enabled) "" else "[OFF] "}${layer.name}\nClass ${layer.armorClass} | ${layer.material} | ${number(layer.durability.toDouble())}/${number(layer.repairedMaximum.toDouble())} (original ${number(layer.maximum.toDouble())})", fontSize = 12.sp)
             }
             FlowRow(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
-                TextButton(onClick = onResetAmmo) { Text(stringResource(R.string.reset_ammo)) }
-                TextButton(onClick = onResetArmor) { Text(stringResource(R.string.reset_armor)) }
-                TextButton(onClick = onResetAll) { Text(stringResource(R.string.reset_all)) }
+                TextButton(onClick = vm::resetAmmo) { Text(stringResource(R.string.reset_ammo)) }
+                TextButton(onClick = vm::resetArmor) { Text(stringResource(R.string.reset_armor)) }
+                TextButton(onClick = vm::resetAll) { Text(stringResource(R.string.reset_all)) }
+            }
+            Selector(text("Body part", "\u547d\u4e2d\u90e8\u4f4d"), state.bodyPart,
+                listOf("thorax" to text("Thorax (85 HP)", "\u80f8\u90e8 (85 HP)"), "head" to text("Head (35 HP)", "\u5934\u90e8 (35 HP)"), "stomach" to text("Stomach (no kill prediction)", "\u8179\u90e8\uff08\u4e0d\u9884\u6d4b\u81f4\u6b7b\uff09"))) { vm.updatePhysics(bodyPart = it) }
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Checkbox(checked = state.distanceDecay, onCheckedChange = { vm.updatePhysics(distanceDecay = it) })
+                Text(text("Experimental distance decay (unverified)", "\u5b9e\u9a8c\u6027\u8ddd\u79bb\u8870\u51cf\uff08\u672a\u5b9e\u6d4b\uff09"))
             }
             Text(stringResource(R.string.distance_value, state.distance))
-            Slider(
-                value = state.distance.toFloat(),
-                onValueChange = { onDistance(it.toInt()) },
-                valueRange = 0f..1000f,
-            )
+            Slider(value = state.distance.toFloat(), onValueChange = { vm.updateConditions(distance = it.roundToInt()) }, valueRange = 0f..1000f, enabled = state.distanceDecay)
             Text(stringResource(R.string.burst_value, state.shots))
-            Slider(
-                value = state.shots.toFloat(),
-                onValueChange = { onShots(it.toInt().coerceAtLeast(1)) },
-                valueRange = 1f..20f,
-                steps = 18,
-            )
+            Slider(value = state.shots.toFloat(), onValueChange = { vm.updateConditions(shots = it.roundToInt().coerceIn(1, 20)) }, valueRange = 1f..20f, steps = 18)
         }
     }
 }
 
 @Composable
-private fun ResultPane(state: CalculatorState, onSimulate: () -> Unit) {
-    val result = state.result
-    Card {
-        Column(Modifier.fillMaxWidth().padding(18.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
+private fun Results(state: CalculatorState, onSimulate: () -> Unit) {
+    val r = state.result
+    Card(Modifier.fillMaxWidth()) {
+        Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
             Text(stringResource(R.string.first_shot_all_armor))
-            Text(
-                result?.let { "${(it.penetration * 100).toInt()}%" } ?: "—",
-                fontSize = 54.sp,
-                fontWeight = FontWeight.Black,
-                color = MaterialTheme.colorScheme.primary,
-            )
-            Text(
-                when {
-                    state.calculating -> stringResource(R.string.calculating)
-                    state.error != null -> state.error
-                    result == null -> stringResource(R.string.choose_ammo_auto)
-                    result.penetration < .15 -> stringResource(R.string.very_unlikely)
-                    result.penetration < .65 -> stringResource(R.string.close_to_even)
-                    else -> stringResource(R.string.likely)
-                } ?: "",
-            )
-            FlowRow(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                Metric(stringResource(R.string.metric_three_shots), result?.let { "${(it.threeShot * 100).toInt()}%" } ?: "—")
-                Metric(stringResource(R.string.metric_health), result?.let { "%.1f".format(it.healthDamage) } ?: "—")
-                Metric(stringResource(R.string.metric_blunt), result?.let { "%.1f".format(it.bluntDamage) } ?: "—")
-                Metric(stringResource(R.string.metric_confidence), result?.confidence ?: "—")
+            Text(r?.let { percent(it.penetration) } ?: "\u2014", fontSize = 48.sp, fontWeight = FontWeight.Bold, color = MaterialTheme.colorScheme.primary)
+            if (state.calculating) LinearProgressIndicator(Modifier.fillMaxWidth())
+            state.error?.let { Text(it, color = MaterialTheme.colorScheme.error) }
+            if (r == null) Text(if (state.calculating) stringResource(R.string.calculating) else stringResource(R.string.choose_ammo_auto))
+            else {
+                Text(text("First-trigger expected flesh / blunt damage", "\u9996\u53d1\u671f\u671b\u8089\u4f24 / \u949d\u4f24") + ": ${number(r.healthDamage)} / ${number(r.bluntDamage)}")
+                Text(text("Flesh damage conditional on penetration (all penetrating pellets)", "\u6210\u529f\u7a7f\u900f\u65f6\u7684\u8089\u4f24\u5408\u8ba1\uff08\u542b\u5168\u90e8\u7a7f\u900f\u5f39\u4e38\uff09") + ": ${r.conditionalDamage?.let(::number) ?: "N/A"}")
+                Text(text("At least one penetration in first ${minOf(3, state.shots)} triggers", "\u524d ${minOf(3, state.shots)} \u53d1\u81f3\u5c11\u4e00\u6b21\u7a7f\u900f") + ": ${percent(r.threeShot)}")
+                Text(text("Entire burst expected damage", "\u6574\u8f6e\u603b\u4f24\u5bb3\u671f\u671b") + ": ${number(r.burstDamage)}")
+                Text(if (r.samples == 0) text("Exact single-projectile expectation", "\u5355\u5f39\u4e38\u89e3\u6790\u671f\u671b") else "N=${r.samples}; 95% CI ${percent(r.intervalLow)} - ${percent(r.intervalHigh)}")
+                Text(text("Community model uncertainty is NOT included in the sampling interval.", "\u62bd\u6837\u533a\u95f4\u4e0d\u5305\u542b\u6e38\u620f\u6a21\u578b\u7684\u4e0d\u786e\u5b9a\u6027\u3002"), fontSize = 12.sp)
+                Text("${r.rulesetVersion}\n${r.dataVersion}", fontSize = 11.sp)
+                Text(text("Per-trigger penetration (%)", "\u9010\u53d1\u7a7f\u900f\u6982\u7387 (%)"))
+                LineChart(listOf(r.burst.map { it.penetrationPercent }), 100.0, 1)
+                if (r.durability.firstOrNull()?.isNotEmpty() == true) {
+                    Text(text("Armor durability (points); x=0 is before firing", "\u62a4\u7532\u8010\u4e45\uff08\u70b9\uff09\uff1b0 \u4e3a\u5c04\u51fb\u524d"))
+                    val series = r.durability[0].indices.map { i -> r.durability.map { it[i] } }
+                    LineChart(series, series.flatten().maxOrNull()?.coerceAtLeast(1.0) ?: 1.0, 0)
+                    state.armor.filter { it.enabled }.forEachIndexed { i, a -> Text("${i + 1}. ${a.name}", fontSize = 11.sp) }
+                }
+                Text(text("Layer table: FIRST projectile only", "\u5206\u5c42\u8be6\u60c5\uff1a\u4ec5\u9996\u9897\u5f39\u4e38"), fontWeight = FontWeight.Bold)
+                r.layers.forEach { Text("${it.name}: ${number(it.penetrationPercent)}% | ${number(it.durabilityAfter)}", fontSize = 12.sp) }
+                Text(text("Trigger | penetration | cumulative kill probability", "\u53d1\u6570 | \u7a7f\u900f | \u7d2f\u8ba1\u81f4\u6b7b\u6982\u7387"), fontWeight = FontWeight.Bold)
+                r.burst.forEach { Text("${it.shot} | ${number(it.penetrationPercent)}% | ${it.killPercent?.let { v -> number(v) + "%" } ?: "N/A"}", fontSize = 12.sp) }
+                r.warnings.forEach { Text(it, fontSize = 11.sp) }
             }
-            Button(onClick = onSimulate, enabled = !state.calculating && state.selectedAmmo != null) {
-                Text(stringResource(R.string.run_monte_carlo))
-            }
-            Text(stringResource(R.string.layer_details), fontWeight = FontWeight.Bold)
-            result?.layers?.forEach {
-                Text(
-                    stringResource(
-                        R.string.layer_result,
-                        it.name,
-                        it.penetrationPercent,
-                        it.durabilityAfter,
-                    ),
-                    fontSize = 13.sp,
-                )
-            }
-            Text(stringResource(R.string.burst_details), fontWeight = FontWeight.Bold)
-            result?.burst?.take(10)?.forEach {
-                Text(
-                    stringResource(
-                        R.string.burst_result,
-                        it.shot,
-                        it.penetrationPercent,
-                        it.killPercent,
-                    ),
-                    fontSize = 13.sp,
-                )
-            }
+            Button(onClick = onSimulate, enabled = !state.calculating && state.selectedAmmo != null) { Text(stringResource(R.string.run_monte_carlo)) }
         }
     }
 }
 
 @Composable
-private fun Metric(title: String, value: String) {
-    Surface(color = MaterialTheme.colorScheme.surfaceVariant, shape = MaterialTheme.shapes.medium) {
-        Column(Modifier.padding(12.dp).width(120.dp)) {
-            Text(title, fontSize = 12.sp)
-            Text(value, fontSize = 20.sp, fontWeight = FontWeight.Bold)
+private fun LineChart(series: List<List<Double>>, maxY: Double, firstX: Int) {
+    val colors = listOf(MaterialTheme.colorScheme.primary, Color(0xFF82C690), Color(0xFF7AAEDD), Color(0xFFDB91C6))
+    Column {
+        Text("0 - ${number(maxY)}", fontSize = 11.sp)
+        Canvas(Modifier.fillMaxWidth().height(130.dp)) {
+            drawLine(Color.Gray, Offset(0f, size.height), Offset(size.width, size.height), 1f)
+            drawLine(Color.Gray, Offset.Zero, Offset(0f, size.height), 1f)
+            series.forEachIndexed { n, values ->
+                val points = values.mapIndexed { i, value -> Offset(size.width * i / maxOf(1, values.size - 1), size.height * (1 - value.coerceIn(0.0, maxY) / maxY).toFloat()) }
+                points.zipWithNext().forEach { (a, b) -> drawLine(colors[n % colors.size], a, b, 3f) }
+                points.forEach { drawCircle(colors[n % colors.size], 3f, it) }
+            }
         }
+        Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) { Text(firstX.toString(), fontSize = 11.sp); Text(((series.firstOrNull()?.size ?: 1) - 1 + firstX).toString(), fontSize = 11.sp) }
     }
 }
 
 @Composable
-private fun materialLabel(material: String): String = stringResource(
-    when (material) {
-        "steel" -> R.string.material_steel
-        "uhmwpe" -> R.string.material_uhmwpe
-        "aramid" -> R.string.material_aramid
-        "titanium" -> R.string.material_titanium
-        "combined" -> R.string.material_combined
-        else -> R.string.material_ceramic
-    },
-)
-
-private fun AmmoEntity.localizedName(): String =
-    if (Locale.getDefault().language.startsWith("zh") && !nameZh.isNullOrBlank()) {
-        nameZh
-    } else {
-        name
-    }
-
-@Composable
-private fun AmmoIcon(item: AmmoEntity, modifier: Modifier = Modifier) {
+private fun ItemIcon(id: String, kind: String, description: String) {
     val context = LocalContext.current
-    val path = remember(item.id, item.shortName) {
-        val normalized = item.shortName.lowercase().filter(Char::isLetterOrDigit)
-        when {
-            normalized == "m855a1" -> "ammo/m855a1.png"
-            normalized == "m855" -> "ammo/m855.png"
-            normalized == "m995" -> "ammo/m995.png"
-            normalized == "m80" -> "ammo/m80.png"
-            normalized == "ap20" -> "ammo/ap20.png"
-            normalized == "7n40" -> "ammo/7n40.png"
-            item.id == "762bp" -> "ammo/762bp.png"
-            item.id == "545bp" -> "ammo/545bp.png"
-            item.id == "buckshot" -> "ammo/buckshot.png"
-            else -> "ammo/m855a1.png"
-        }
-    }
-    val bitmap = remember(path) {
-        runCatching {
-            context.assets.open(path).use(BitmapFactory::decodeStream)
-        }.getOrNull()
-    }
-    if (bitmap != null) {
-        Image(bitmap.asImageBitmap(), item.shortName, modifier)
-    }
+    val bitmap = remember(id, kind) { runCatching { context.assets.open("$kind-live/$id.webp").use(BitmapFactory::decodeStream) }.getOrNull() }
+    if (bitmap != null) Image(bitmap.asImageBitmap(), description, Modifier.size(46.dp))
+    else Icon(Icons.Default.HelpOutline, text("No verified item image", "\u65e0\u5df2\u6838\u5bf9\u56fe\u6807"), Modifier.size(40.dp))
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-private fun AmmoSearchSheet(
-    ammo: List<AmmoEntity>,
-    query: String,
-    selected: AmmoEntity?,
-    onQuery: (String) -> Unit,
-    onSelect: (AmmoEntity) -> Unit,
-    onCustom: (String, Double, Double, Double, Int) -> Unit,
-    onDismiss: () -> Unit,
-) {
-    val editable = selected ?: ammo.firstOrNull()
-    var manualOpen by rememberSaveable { mutableStateOf(false) }
-    var customName by remember(editable?.id) {
-        mutableStateOf(editable?.localizedName().orEmpty())
-    }
-    var customDamage by remember(editable?.id) {
-        mutableStateOf(editable?.damage?.toString().orEmpty())
-    }
-    var customPenetration by remember(editable?.id) {
-        mutableStateOf(editable?.penetrationPower?.toString().orEmpty())
-    }
-    var customArmorDamage by remember(editable?.id) {
-        mutableStateOf(editable?.armorDamagePercent?.toString().orEmpty())
-    }
-    var customProjectiles by remember(editable?.id) {
-        mutableStateOf(editable?.projectileCount?.toString().orEmpty())
-    }
-    ModalBottomSheet(onDismissRequest = onDismiss) {
-        Column(Modifier.fillMaxWidth().padding(16.dp)) {
-            TextField(
-                value = query,
-                onValueChange = onQuery,
-                placeholder = { Text(stringResource(R.string.search_hint)) },
-                modifier = Modifier.fillMaxWidth(),
-            )
-            TextButton(
-                onClick = { manualOpen = !manualOpen },
-                enabled = editable != null,
-            ) {
-                Text(stringResource(R.string.manual_ammo_values))
-            }
-            if (manualOpen && editable != null) {
-                TextField(
-                    value = customName,
-                    onValueChange = { customName = it },
-                    label = { Text(stringResource(R.string.custom_name)) },
-                    modifier = Modifier.fillMaxWidth(),
-                )
-                Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
-                    TextField(
-                        value = customDamage,
-                        onValueChange = { customDamage = it },
-                        label = { Text(stringResource(R.string.damage)) },
-                        modifier = Modifier.weight(1f),
-                    )
-                    TextField(
-                        value = customPenetration,
-                        onValueChange = { customPenetration = it },
-                        label = { Text(stringResource(R.string.penetration)) },
-                        modifier = Modifier.weight(1f),
-                    )
-                }
-                Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
-                    TextField(
-                        value = customArmorDamage,
-                        onValueChange = { customArmorDamage = it },
-                        label = { Text(stringResource(R.string.armor_damage)) },
-                        modifier = Modifier.weight(1f),
-                    )
-                    TextField(
-                        value = customProjectiles,
-                        onValueChange = { customProjectiles = it },
-                        label = { Text(stringResource(R.string.projectiles)) },
-                        modifier = Modifier.weight(1f),
-                    )
-                }
-                Button(
-                    onClick = {
-                        onCustom(
-                            customName.ifBlank { editable.localizedName() },
-                            customDamage.toDoubleOrNull() ?: editable.damage,
-                            customPenetration.toDoubleOrNull() ?: editable.penetrationPower,
-                            customArmorDamage.toDoubleOrNull() ?: editable.armorDamagePercent,
-                            customProjectiles.toIntOrNull() ?: editable.projectileCount,
-                        )
-                    },
-                    modifier = Modifier.fillMaxWidth(),
-                ) {
-                    Text(stringResource(R.string.use_manual_ammo))
-                }
-            }
-            LazyColumn(Modifier.height(if (manualOpen) 280.dp else 480.dp)) {
-                items(ammo, key = { it.id }) { item ->
-                    TextButton(onClick = { onSelect(item) }, modifier = Modifier.fillMaxWidth()) {
-                        Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
-                            AmmoIcon(item, Modifier.width(44.dp).height(44.dp))
-                            Column(Modifier.weight(1f)) {
-                                Text("${item.shortName} · ${item.localizedName()}")
-                                if (item.localizedName() != item.name) {
-                                    Text(item.name, fontSize = 12.sp)
-                                }
-                            }
-                            Text(
-                                stringResource(
-                                    R.string.ammo_damage_pen,
-                                    item.damage.toInt(),
-                                    item.penetrationPower.toInt(),
-                                ),
-                            )
-                        }
-                    }
-                }
+private fun AmmoRow(item: AmmoEntity, onSelect: () -> Unit) {
+    OutlinedButton(onClick = onSelect, modifier = Modifier.fillMaxWidth()) {
+        Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+            ItemIcon(item.id, "ammo", item.name)
+            Column(Modifier.weight(1f)) {
+                Text(item.displayName())
+                Text("${item.caliber} | DMG ${number(item.damage)} | PEN ${number(item.penetrationPower)} | AD ${number(item.armorDamagePercent)}% | x${item.projectileCount}", fontSize = 11.sp)
             }
         }
     }
@@ -536,299 +224,109 @@ private fun AmmoSearchSheet(
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-private fun ArmorSheet(
-    current: ArmorInput,
-    onUpdate: (ArmorInput) -> Unit,
-    onAdd: (ArmorInput) -> Unit,
-    onDismiss: () -> Unit,
-) {
+private fun AmmoPicker(ammo: List<AmmoEntity>, query: String, onQuery: (String) -> Unit, onSelect: (AmmoEntity) -> Unit, onDismiss: () -> Unit) {
+    var caliber by remember { mutableStateOf("") }
+    val calibers = ammo.map { it.caliber }.distinct().sorted()
+    ModalBottomSheet(onDismissRequest = onDismiss, sheetState = rememberModalBottomSheetState(skipPartiallyExpanded = true)) {
+        Column(Modifier.fillMaxWidth().fillMaxHeight(0.9f).padding(16.dp), verticalArrangement = Arrangement.spacedBy(10.dp)) {
+            Text(stringResource(R.string.choose_ammo), style = MaterialTheme.typography.titleLarge)
+            TextField(value = query, onValueChange = onQuery, label = { Text(stringResource(R.string.search)) }, modifier = Modifier.fillMaxWidth(), singleLine = true)
+            Selector(text("Caliber", "\u53e3\u5f84"), caliber, listOf("" to text("All calibers", "\u5168\u90e8\u53e3\u5f84")) + calibers.map { it to it }) { caliber = it }
+            LazyColumn(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(6.dp)) {
+                items(ammo.filter { caliber.isEmpty() || it.caliber == caliber }, key = { it.id }) { AmmoRow(it) { onSelect(it) } }
+            }
+        }
+    }
+}
+
+private fun loadArmor(context: Context): List<ArmorPlatePreset> = runCatching {
+    val root = JSONObject(context.assets.open("catalog.json").bufferedReader().use { it.readText() })
+    val array = root.getJSONArray("armor")
+    (0 until array.length()).map { i ->
+        val o = array.getJSONObject(i)
+        val zones = o.getJSONArray("slots")
+        ArmorPlatePreset(o.getString("id"), o.getString("name"), o.getString("name_zh"), o.getInt("armor_class"),
+            o.getDouble("durability").toFloat(), o.getString("material"), (0 until zones.length()).map { zones.getString(it) }.toSet())
+    }
+}.getOrElse { armorPlatePresets }
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+private fun ArmorEditor(layers: List<ArmorInput>, vm: MainViewModel, onDismiss: () -> Unit) {
+    var index by remember { mutableIntStateOf(0) }
+    val selected = index.coerceIn(0, maxOf(0, layers.lastIndex))
+    val current = layers.getOrNull(selected) ?: ArmorInput()
+    val context = LocalContext.current
+    val catalog = remember { loadArmor(context) }
     var armorClass by remember(current) { mutableIntStateOf(current.armorClass) }
     var material by remember(current) { mutableStateOf(current.material) }
-    var durabilityText by remember(current) { mutableStateOf(current.durability.toString()) }
-    var maximumText by remember(current) { mutableStateOf(current.maximum.toString()) }
-    var layerName by remember(current) { mutableStateOf(current.name) }
-    var carrierId by remember(current) { mutableStateOf(current.carrierId) }
-    var slot by remember(current) { mutableStateOf(current.slot) }
-    val initialCarrier = armorCarrierPresets.firstOrNull { it.id == carrierId }
-        ?: armorCarrierPresets.first()
-    var plateId by remember(current) {
-        mutableStateOf(initialCarrier.defaults[slot] ?: initialCarrier.defaults.values.first())
-    }
-    val useChinese = Locale.getDefault().language.startsWith("zh")
-
-    fun applyPlate(id: String) {
-        val plate = armorPlatePresets.first { it.id == id }
-        plateId = id
-        armorClass = plate.armorClass
-        material = plate.material
-        durabilityText = plate.durability.toString()
-        maximumText = plate.durability.toString()
-        layerName = if (useChinese) plate.nameZh else plate.nameEn
-    }
-
-    ModalBottomSheet(onDismissRequest = onDismiss) {
-        Column(Modifier.fillMaxWidth().padding(18.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
-            Text(stringResource(R.string.armor_layers), fontSize = 22.sp, fontWeight = FontWeight.Bold)
-            SelectionDropdown(
-                stringResource(R.string.armor_carrier),
-                armorCarrierPresets.first { it.id == carrierId }.let {
-                    if (useChinese) it.nameZh else it.nameEn
-                },
-                armorCarrierPresets.map {
-                    it.id to if (useChinese) it.nameZh else it.nameEn
-                },
-            ) { selectedCarrier ->
-                carrierId = selectedCarrier
-                val carrier = armorCarrierPresets.first { it.id == selectedCarrier }
-                slot = carrier.defaults.keys.first()
-                applyPlate(carrier.defaults.getValue(slot))
+    var layerType by remember(current) { mutableStateOf(current.layerType) }
+    var enabled by remember(current) { mutableStateOf(current.enabled) }
+    var name by remember(current) { mutableStateOf(current.name) }
+    var original by remember(current) { mutableStateOf(number(current.maximum.toDouble())) }
+    var repaired by remember(current) { mutableStateOf(number(current.repairedMaximum.toDouble())) }
+    var durability by remember(current) { mutableStateOf(number(current.durability.toDouble())) }
+    var throughput by remember(current) { mutableStateOf(number(current.bluntThroughput * 100)) }
+    var presetId by remember(current) { mutableStateOf(current.itemId) }
+    var filterClass by remember { mutableStateOf("") }
+    var filterMaterial by remember { mutableStateOf("") }
+    val materials = listOf("aramid", "uhmwpe", "combined", "titanium", "aluminum", "steel", "ceramic", "glass")
+    val o = original.toFloatOrNull()?.takeIf { it.isFinite() && it > 0f && it <= 10000f }
+    val r = repaired.toFloatOrNull()?.takeIf { it.isFinite() && it >= 0f && o != null && it <= o }
+    val d = durability.toFloatOrNull()?.takeIf { it.isFinite() && it >= 0f && r != null && it <= r }
+    val b = throughput.toDoubleOrNull()?.takeIf { it.isFinite() && it in 0.0..100.0 }
+    val valid = o != null && r != null && d != null && b != null && name.isNotBlank()
+    fun value() = ArmorInput(armorClass = armorClass, material = material, durability = d!!, maximum = o!!,
+        repairedMaximum = r!!, name = name, layerType = layerType, bluntThroughput = b!! / 100, enabled = enabled, itemId = presetId)
+    ModalBottomSheet(onDismissRequest = onDismiss, sheetState = rememberModalBottomSheetState(skipPartiallyExpanded = true)) {
+        Column(Modifier.fillMaxWidth().fillMaxHeight(0.94f).verticalScroll(rememberScrollState()).padding(16.dp), verticalArrangement = Arrangement.spacedBy(10.dp)) {
+            Text(stringResource(R.string.armor_layers), style = MaterialTheme.typography.titleLarge)
+            Text(text("Order is outside to body. Separate front/back plates are NOT stacked automatically.", "\u7531\u5916\u5411\u5185\u6392\u5217\u3002\u524d\u540e\u63d2\u677f\u4e0d\u4f1a\u81ea\u52a8\u53e0\u52a0\u4e3a\u540c\u4e00\u547d\u4e2d\u8def\u5f84\u3002"))
+            if (layers.isNotEmpty()) Selector(text("Edit layer", "\u7f16\u8f91\u5f53\u524d\u5c42"), selected.toString(), layers.mapIndexed { i, a -> i.toString() to "${i + 1}. ${a.name}" }) { index = it.toInt() }
+            FlowRow(horizontalArrangement = Arrangement.spacedBy(4.dp)) {
+                TextButton(onClick = { vm.moveArmor(selected, -1); index = (selected - 1).coerceAtLeast(0) }, enabled = selected > 0) { Text(text("Outward", "\u4e0a\u79fb")) }
+                TextButton(onClick = { vm.moveArmor(selected, 1); index = (selected + 1).coerceAtMost(layers.lastIndex) }, enabled = selected < layers.lastIndex) { Text(text("Inward", "\u4e0b\u79fb")) }
+                TextButton(onClick = { vm.removeArmor(selected); index = 0 }, enabled = layers.isNotEmpty()) { Text(text("Remove", "\u5220\u9664")) }
             }
-            val carrier = armorCarrierPresets.first { it.id == carrierId }
-            SelectionDropdown(
-                stringResource(R.string.plate_slot),
-                slotLabel(slot),
-                carrier.defaults.keys.map { it to slotLabel(it) },
-            ) { selectedSlot ->
-                slot = selectedSlot
-                applyPlate(carrier.defaults.getValue(selectedSlot))
-            }
-            val compatiblePlates = armorPlatePresets.filter { slot in it.slots }
-            SelectionDropdown(
-                stringResource(R.string.specific_plate),
-                armorPlatePresets.first { it.id == plateId }.let {
-                    if (useChinese) it.nameZh else it.nameEn
-                },
-                compatiblePlates.map {
-                    it.id to (
-                        (if (useChinese) it.nameZh else it.nameEn) +
-                            " · ${it.armorClass} · ${it.durability.toInt()}"
-                        )
-                },
-            ) { applyPlate(it) }
-            ArmorPlateIcon(
-                armorPlatePresets.first { it.id == plateId },
-                Modifier.width(72.dp).height(72.dp).align(Alignment.CenterHorizontally),
-            )
-            FlowRow(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
-                (1..6).forEach { value ->
-                    Button(onClick = { armorClass = value }) {
-                        Text(stringResource(R.string.armor_class, value))
-                    }
+            Row(verticalAlignment = Alignment.CenterVertically) { Checkbox(enabled, { enabled = it }); Text(text("Layer enabled", "\u542f\u7528\u6b64\u5c42")) }
+            Selector(text("Preset class filter", "\u9884\u8bbe\u7b5b\u9009\uff1a\u7b49\u7ea7"), filterClass, listOf("" to "All") + (1..6).map { it.toString() to it.toString() }) { filterClass = it }
+            Selector(text("Preset material filter", "\u9884\u8bbe\u7b5b\u9009\uff1a\u6750\u8d28"), filterMaterial, listOf("" to "All") + materials.map { it to it }) { filterMaterial = it }
+            val options = catalog.filter { (filterClass.isEmpty() || it.armorClass.toString() == filterClass) && (filterMaterial.isEmpty() || it.material == filterMaterial) }
+            Selector(text("Verified plate presets", "\u5df2\u6838\u5bf9\u63d2\u677f\u9884\u8bbe"), presetId, listOf("" to text("Custom / select", "\u81ea\u5b9a\u4e49 / \u9009\u62e9")) + options.map { it.id to "${it.nameZh} | ${it.armorClass} | ${it.material} | ${it.durability}" }) { id ->
+                presetId = id
+                catalog.firstOrNull { it.id == id }?.let { p ->
+                    armorClass = p.armorClass; material = p.material; name = text(p.nameEn, p.nameZh)
+                    original = number(p.durability.toDouble()); repaired = original; durability = original; layerType = "plate"
                 }
             }
-            FlowRow(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
-                listOf("ceramic", "steel", "uhmwpe", "aramid", "titanium").forEach { value ->
-                    Button(onClick = { material = value }) { Text(materialLabel(value)) }
-                }
+            if (presetId.isNotEmpty()) ItemIcon(presetId, "armor", name)
+            TextField(name, { name = it }, label = { Text(stringResource(R.string.layer_name)) }, modifier = Modifier.fillMaxWidth())
+            Selector(text("Layer type", "\u9632\u62a4\u5c42\u7c7b\u578b"), layerType, listOf("plate" to "Plate", "soft" to "Soft armor", "helmet" to "Helmet (no ricochet)")) { layerType = it; presetId = "" }
+            FlowRow(horizontalArrangement = Arrangement.spacedBy(5.dp)) { (1..6).forEach { n -> FilterChip(selected = armorClass == n, onClick = { armorClass = n; presetId = ""; name = text("Custom armor", "\u81ea\u5b9a\u4e49\u62a4\u7532") }, label = { Text(n.toString()) }) } }
+            Selector(text("Material", "\u6750\u8d28"), material, materials.map { it to it }) { material = it; presetId = ""; name = text("Custom armor", "\u81ea\u5b9a\u4e49\u62a4\u7532") }
+            TextField(original, { original = it }, label = { Text(stringResource(R.string.original_durability)) }, modifier = Modifier.fillMaxWidth(), singleLine = true)
+            TextField(repaired, { repaired = it }, label = { Text(text("Repaired maximum", "\u4fee\u540e\u8010\u4e45\u4e0a\u9650")) }, modifier = Modifier.fillMaxWidth(), singleLine = true)
+            TextField(durability, { durability = it }, label = { Text(stringResource(R.string.current_durability)) }, modifier = Modifier.fillMaxWidth(), singleLine = true)
+            if (r != null && r > 0 && d != null) Slider(d, { durability = number(it.toDouble()) }, valueRange = 0f..r)
+            if (d != null && o != null) Text(text("Effective durability uses current / original", "\u6709\u6548\u8010\u4e45\u6bd4\u4f8b = \u5f53\u524d / \u539f\u5382") + ": ${percent((d / o).toDouble())}")
+            TextField(throughput, { throughput = it }, label = { Text(text("Blunt throughput (%) - item-specific", "\u949d\u4f24\u4f20\u9012 (%) - \u6309\u7269\u54c1\u586b\u5199")) }, modifier = Modifier.fillMaxWidth(), singleLine = true)
+            if (!valid) Text(text("Required: 0 <= current <= repaired <= original; throughput 0-100%.", "\u9700\u8981\uff1a0 <= \u5f53\u524d <= \u4fee\u540e <= \u539f\u5382\uff1b\u949d\u4f24 0-100%\u3002"), color = MaterialTheme.colorScheme.error)
+            FlowRow(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                Button(onClick = { vm.updateArmor(selected, value()); onDismiss() }, enabled = valid && layers.isNotEmpty()) { Text(stringResource(R.string.update_current_layer)) }
+                Button(onClick = { vm.addArmor(value()); onDismiss() }, enabled = valid && layers.size < 12) { Text(stringResource(R.string.append_next_layer)) }
             }
-            TextField(
-                value = layerName,
-                onValueChange = { layerName = it },
-                label = { Text(stringResource(R.string.layer_name)) },
-                modifier = Modifier.fillMaxWidth(),
-            )
-            Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                TextField(
-                    value = durabilityText,
-                    onValueChange = { durabilityText = it },
-                    label = { Text(stringResource(R.string.current_durability)) },
-                    modifier = Modifier.weight(1f),
-                )
-                TextField(
-                    value = maximumText,
-                    onValueChange = { maximumText = it },
-                    label = { Text(stringResource(R.string.original_durability)) },
-                    modifier = Modifier.weight(1f),
-                )
-            }
-            val maximum = (maximumText.toFloatOrNull() ?: current.maximum).coerceAtLeast(0.1f)
-            val durability = (durabilityText.toFloatOrNull() ?: current.durability)
-                .coerceIn(0f, maximum)
-            Slider(
-                value = durability,
-                onValueChange = { durabilityText = "%.1f".format(Locale.ROOT, it) },
-                valueRange = 0f..maximum,
-            )
-            Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                Button(onClick = {
-                    onUpdate(
-                        ArmorInput(
-                            armorClass,
-                            material,
-                            durability,
-                            maximum,
-                            layerName,
-                            carrierId,
-                            slot,
-                        ),
-                    )
-                    onDismiss()
-                }) { Text(stringResource(R.string.update_current_layer)) }
-                Button(onClick = {
-                    onAdd(
-                        ArmorInput(
-                            armorClass,
-                            material,
-                            durability,
-                            maximum,
-                            layerName,
-                            carrierId,
-                            slot,
-                        ),
-                    )
-                }) { Text(stringResource(R.string.append_next_layer)) }
-            }
-            Spacer(Modifier.height(20.dp))
+            Spacer(Modifier.height(24.dp))
         }
     }
 }
 
 @Composable
-private fun SelectionDropdown(
-    label: String,
-    value: String,
-    options: List<Pair<String, String>>,
-    onSelect: (String) -> Unit,
-) {
-    var expanded by remember { mutableStateOf(false) }
+private fun Selector(label: String, value: String, options: List<Pair<String, String>>, onSelect: (String) -> Unit) {
+    var open by remember { mutableStateOf(false) }
     Box(Modifier.fillMaxWidth()) {
-        Button(onClick = { expanded = true }, modifier = Modifier.fillMaxWidth()) {
-            Text("$label · $value")
-        }
-        DropdownMenu(expanded = expanded, onDismissRequest = { expanded = false }) {
-            options.forEach { (id, title) ->
-                DropdownMenuItem(
-                    text = { Text(title) },
-                    onClick = {
-                        onSelect(id)
-                        expanded = false
-                    },
-                )
-            }
-        }
-    }
-}
-
-@Composable
-private fun ArmorPlateIcon(plate: ArmorPlatePreset, modifier: Modifier = Modifier) {
-    val context = LocalContext.current
-    val path = remember(plate.id, plate.material) {
-        when (plate.id) {
-            "kiteco" -> "armor/uhmwpe-kiteco.png"
-            "monoclete" -> "armor/uhmwpe.png"
-            "global-steel" -> "armor/steel.png"
-            "omega" -> "armor/combined.webp"
-            "titan" -> "armor/titanium.png"
-            "esapi-iv" -> "armor/ceramic.png"
-            else -> if (plate.material == "combined") {
-                "armor/combined.webp"
-            } else {
-                "armor/${plate.material}.png"
-            }
-        }
-    }
-    val bitmap = remember(path) {
-        runCatching {
-            context.assets.open(path).use(BitmapFactory::decodeStream)
-        }.getOrNull()
-    }
-    if (bitmap != null) {
-        Image(bitmap.asImageBitmap(), plate.nameEn, modifier)
-    }
-}
-
-@Composable
-private fun slotLabel(slot: String): String = stringResource(
-    when (slot) {
-        "back" -> R.string.slot_back
-        "left" -> R.string.slot_left
-        "right" -> R.string.slot_right
-        else -> R.string.slot_front
-    },
-)
-
-@Composable
-private fun CompareScreen(
-    modifier: Modifier,
-    ammo: List<AmmoEntity>,
-    selected: AmmoEntity?,
-    onSelect: (AmmoEntity) -> Unit,
-) {
-    LazyColumn(modifier.fillMaxSize().padding(12.dp)) {
-        item { Text(stringResource(R.string.ammo_compare), fontSize = 24.sp, fontWeight = FontWeight.Bold) }
-        items(ammo, key = { it.id }) {
-            TextButton(onClick = { onSelect(it) }, modifier = Modifier.fillMaxWidth()) {
-                Text(
-                    stringResource(
-                        R.string.compare_line,
-                        if (selected?.id == it.id) "✓ " else "",
-                        it.shortName,
-                        it.penetrationPower.toInt(),
-                        it.damage.toInt(),
-                    ),
-                )
-            }
-        }
-    }
-}
-
-@Composable
-private fun FavoritesScreen(
-    modifier: Modifier,
-    ammo: List<AmmoEntity>,
-    onSelect: (AmmoEntity) -> Unit,
-) {
-    LazyColumn(modifier.fillMaxSize().padding(16.dp)) {
-        item { Text(stringResource(R.string.nav_favorites), fontSize = 24.sp, fontWeight = FontWeight.Bold) }
-        if (ammo.isEmpty()) {
-            item { Text(stringResource(R.string.favorites_empty)) }
-        } else {
-            items(ammo, key = { it.id }) {
-                TextButton(onClick = { onSelect(it) }, modifier = Modifier.fillMaxWidth()) {
-                    Text("${it.shortName} · ${it.caliber}")
-                }
-            }
-        }
-    }
-}
-
-@OptIn(ExperimentalMaterial3Api::class)
-@Composable
-private fun DataStatusSheet(
-    lastSync: Long,
-    laboratoryMode: Boolean,
-    onSync: () -> Unit,
-    onDismiss: () -> Unit,
-) {
-    val age = System.currentTimeMillis() - lastSync
-    val state = when {
-        lastSync == 0L -> stringResource(R.string.never_synced)
-        age > 48L * 60 * 60 * 1000 -> stringResource(R.string.data_stale)
-        else -> stringResource(R.string.cache_valid)
-    }
-    ModalBottomSheet(onDismissRequest = onDismiss) {
-        Column(Modifier.fillMaxWidth().padding(18.dp), verticalArrangement = Arrangement.spacedBy(10.dp)) {
-            Text(stringResource(R.string.settings_data), fontSize = 22.sp, fontWeight = FontWeight.Bold)
-            Text(stringResource(R.string.status_value, state))
-            Text(
-                stringResource(
-                    R.string.last_success,
-                    if (lastSync == 0L) "—"
-                    else DateFormat.getDateTimeInstance().format(Date(lastSync)),
-                ),
-            )
-            Text(stringResource(R.string.source_priority))
-            Text(stringResource(R.string.sync_policy))
-            Text(
-                stringResource(
-                    R.string.current_mode,
-                    stringResource(
-                        if (laboratoryMode) R.string.mode_laboratory else R.string.mode_quick,
-                    ),
-                ),
-            )
-            Button(onClick = onSync) { Text(stringResource(R.string.sync_now)) }
-            Spacer(Modifier.height(20.dp))
+        OutlinedButton(onClick = { open = true }, modifier = Modifier.fillMaxWidth()) { Text("$label: ${options.firstOrNull { it.first == value }?.second ?: value}") }
+        DropdownMenu(open, { open = false }, modifier = Modifier.heightIn(max = 360.dp)) {
+            options.forEach { (id, title) -> DropdownMenuItem(text = { Text(title) }, onClick = { open = false; onSelect(id) }) }
         }
     }
 }

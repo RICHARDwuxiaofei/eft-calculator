@@ -60,6 +60,9 @@ interface AmmoDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun upsertAll(items: List<AmmoEntity>)
 
+    @Query("DELETE FROM ammo WHERE id = :id")
+    suspend fun deleteAmmo(id: String)
+
     @Query("DELETE FROM ammo")
     suspend fun clearAmmo()
 

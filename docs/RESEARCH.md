@@ -1,30 +1,144 @@
-# 调研记录
+# Ballistics and data audit - 2026-09-16
 
-调研日期：2026-07-30（Asia/Seoul）
+## What is and is not verified
 
-当前检测到的游戏版本：**1.0.6.0**。官方在 2026-07 发布了 1.0.6.0 更新；静默变更快照在
-2026-04 记录到 1.0.4.5/1.0.4.6。由于游戏持续更新，本项目把版本写入每次结果。
+The shipped data contains 184 firearm cartridges and 38 individual ballistic plates,
+including four 5.8x42 cartridges. Each of these 222 records has an exact item-ID image
+and a SHA-256 entry in `resources/items/image-manifest.json`. `catalog.json` retains
+source URLs, source-content hashes, exclusions and conflicts.
 
-## 数据源
+**The current closed-source game server was not independently measured.** The
+penetration, post-penetration loss, wear and blunt calculations are a documented
+community model, not a guarantee of exact current-patch game behavior. Passing unit
+or Android/Windows consistency tests verifies the implementation and mathematical
+contracts, not the truth of an unpublished game algorithm.
 
-| 来源 | URL | 检查日期 | 用途 | 性质 |
-|---|---|---:|---|---|
-| 官方更新 | https://www.escapefromtarkov.com/news/ | 2026-07-30 | 当前版本与更新说明 | 官方 |
-| tarkov.dev | https://tarkov.dev/api/ | 2026-07-30 | 弹药/护甲可公开字段、同步接口设计 | 当前数据 API |
-| Tarkov Changes | https://changes.tarkov-changes.com/ | 2026-07-30 | 版本化数据变化交叉检查 | 数据快照 |
-| Ballistics Wiki | https://escapefromtarkov.fandom.com/wiki/Ballistics | 2026-07-30 | 材料破坏系数、历史机制线索 | 社区维护 |
+Sources, retrieved/reviewed 2026-09-16:
 
-离线演示快照标识为 `eft-1.0.6.0-snapshot-2026-07-31`。快照只包含可核查字段和少量
-常用条目，不能声称是全量当前游戏数据库。
+* Primary community Wiki mechanics/material coefficients:
+  https://escapefromtarkov.fandom.com/wiki/Ballistics
+* Primary Wiki plate inventory and material/class/durability cross-checks:
+  https://escapefromtarkov.fandom.com/wiki/Armor_plates
+* Chinese Wiki item-ID keyed ammo table and plate inventory:
+  https://www.eftarkov.com/news/web_33.html
+  https://www.eftarkov.com/news/web_40.html
+* NoFoodAfterMidnight's author-maintained chart (pellet counts; cross-check damage,
+  penetration and muzzle velocity): https://eft-ammo.vercel.app/
+* Published community penetration curve:
+  https://www.desmos.com/calculator/m8cmsfokkl
+* Pinned community implementation used to audit wear/loss assumptions:
+  https://github.com/bugybon/TarkovBallisticsSimulator/blob/82ea32437423c2f1d3ed9ad5d2807eaba15efbc4/api/balistics.js
 
-## 已验证与近似
+The pinned JS contains suspicious clamp/parentheses expressions; it was **not**
+copied blindly. Corrected expressions below remain community assumptions. Images
+are game assets served by `https://assets.tarkov.dev/{item-id}-icon.webp`; original
+rights remain with their owners. No unrelated material thumbnail is substituted
+for a missing exact image. Historical TarkovTracker data is used only for stable
+name/ID aliases during catalog preparation, never as current numerical truth.
 
-- 数据字段（伤害、穿深、甲伤、弹丸数量、初速）来自公开数据模型；每条数据带版本。
-- `current / original maximum` 是本项目明确采用的真实出厂耐久比例，维修上限不会被当作新品。
-- 任意层顺序、条件概率与累计概率的数学组合、随机种子复现属于软件自身可验证行为。
-- 穿透随机函数、穿透后伤害和穿深衰减、耐久损伤、钝伤、碎裂和距离衰减没有完整官方公式，
-  默认均标记为“社区近似”。
-- 实验性规则会显示“实验性”，不能作为默认规则。
+## Data provenance and conflicts
 
-碎裂和跳弹在 v0.1 中保留模型字段但不参与默认结论，因为缺少当前版本可核查的完整规则。
-技能同样默认关闭。UI 不显示虚假的高精度，概率保留一位小数。
+The live `https://api.tarkov.dev/graphql` endpoint returned HTTP 422 / "GraphQL
+server unavailable. Try again later." during the audit. Its response SHA-256 was
+`b2943790ab6723ea651e4ac828bf4625b0b790111247145f6ff9d4563dfe66cf`.
+Consequently this release says **Wiki-reviewed snapshot**, not "live API fully
+updated". Old fallback data cannot silently overwrite it. Successful online
+snapshots merge by exact ID and preserve verified entries absent from the response.
+
+| 5.8x42 cartridge | Damage per projectile | Penetration | Armor damage % | Speed m/s |
+|---|---:|---:|---:|---:|
+| DBX95 | 57 | 33 | 40 | 910 |
+| DBP191 | 53 | 39 | 43 | 840 |
+| DVX12 | 48 | 47 | 54 | 850 |
+| DVC12 | 46 | 52 | 60 | 872 |
+
+All four have one projectile. The catalog retains the source spelling DVX12.
+One Wiki/chart velocity disagreement (item `64b8f7b5389d7ffd620ccba2`, 703 versus
+706 m/s) uses the Wiki's 703 and remains recorded. Fifteen flare, grenade and other
+unmatched entries are explicitly excluded rather than inventing pellet counts.
+A carrier's aggregate displayed durability is **not** an individual front plate's
+durability. Plate templates are separate from manually specified soft layers and
+helmets. Preset carrier/slot choices are conveniences, not a complete compatibility
+validator or an automatic stacking of front and back plates.
+
+## Implemented model
+
+Let `d = current durability / original factory maximum`, `C = armor class`,
+`P = incoming penetration`, and `R = (121 - 5000 / (45 + 200*d)) * C/10`.
+Repaired maximum only limits the editable current durability; it does not replace
+the factory denominator. A repaired 45/45 plate originally rated 60 uses 75%.
+
+For intact armor, the clamped penetration probability is:
+
+* `P >= R`: `(100 + P / (0.9*R - P)) / 100`.
+* `R-15 < P < R`: `0.004 * (R-P-15)^2`.
+* Otherwise zero. Nonpositive penetration cannot penetrate intact armor.
+
+A zero-durability layer is bypassed with probability one, zero wear and no damage
+or penetration loss. Do not extrapolate the intact formula to broken armor.
+
+Wear is `max(1, P * armor_damage_percent/100 * destructibility * factor)`, clamped
+to remaining durability. The community factor is `clamp(P/(10*C), 0.5, 0.9)` on
+penetration and `clamp(P/(10*C), 0.6, 1.1)` when stopped. Each individual buckshot
+pellet can consume the one-point minimum. Only layers actually reached lose wear.
+
+Destructibility: aramid 0.1875; UHMWPE 0.3375; combined 0.375; titanium 0.4125;
+aluminum 0.45; armor steel 0.525; ceramic and glass 0.6. The Chinese plate directory's
+older derived ceramic effective-durability numbers are deliberately not copied.
+
+On penetration, damage and penetration are multiplied by
+`clamp(P/(R+12), 0.6, 1)`, using **pre-impact durability**. This respects the Wiki's
+0-40% damage-loss range but its precise function remains unconfirmed. The blunt
+model uses incoming damage, item-specific throughput and
+`clamp(1 - 0.03*(R-P), 0.2, 1)` (plate multiplier 0.6). Full impulse attenuation
+through backing soft armor is **not modeled**. Default throughput is an explicit
+editable assumption, not a claim that every real armor item has identical throughput.
+
+## Probabilities, shotgun semantics and timelines
+
+All projectiles hit the same selected armor path. There is no partial-hit slider.
+Pellets and subsequent shots resolve sequentially against updated durability.
+Do not multiply a first-pellet result by pellet count or use independent-trial
+formulas after armor has changed.
+
+Single-shot/single-projectile expectations are exact under this selected model.
+Dependent histories use seeded Monte Carlo trajectories (preview up to 4096;
+frontends normally request 2048). A 95% Wilson interval quantifies **sampling**,
+not game-model uncertainty. Values can differ within that interval when sampling.
+
+`final_penetration_probability` means at least one fully penetrating projectile
+in the **first trigger pull**. Expected flesh/blunt damage is also for that trigger;
+explicit `expected_burst_*` fields are for the complete sequence. Conditional
+penetrating damage equals first-trigger flesh expectation divided by its penetration
+probability; for shotguns it is a conditional total, not damage per single pellet.
+
+The first-penetration distribution comprises mutually exclusive first events.
+The probability of at least one penetration within the first min(3,N) triggers is
+its sum, not an independence approximation. The mean first-penetration shot is
+conditional on penetration occurring within the simulated horizon.
+
+Durability curves include shot zero and only enabled layers. Layer tables and the
+durability-sweep probability curve describe the **first projectile**, whereas the
+per-trigger curve describes the full shell. Units and scopes are labeled separately.
+
+## Limits and independent verification
+
+The chosen path assumes a hit; it does not model spread, ricochet/helmet angle,
+fragmentation, armor coverage misses, skills or black-limb redistribution. Head and
+thorax death estimates use 35 and 85 HP. Stomach destruction is not treated as death.
+Distance decay is off by default in both frontends. The optional linear sensitivity
+mode is explicitly experimental; it is not a validated EFT flight simulation.
+
+`tests/test_ballistics_reference.py` contains independently calculated Decimal
+anchors, monotonicity and hand-solvable path tests. Examples: class 5 / pen 40 gives
+8.851353602665556% at full durability, 55.14399524375743% at half, and
+95.66828156169849% at a quarter. These validate the cited equation, not in-game trials.
+A four-durability plate struck by eight zero-penetration, 50-damage pellets blocks
+four pellets, then admits four: 200 flesh damage, with the stopped pellets' blunt
+component recorded separately. Additional tests compare analytic and sampled
+expectations, conserve first/burst totals and reject non-finite inputs.
+
+The six shared JSON vectors are regenerated **regression snapshots**, not independent
+truth. Android instrumentation executes the same core on all six and compares its
+probability/flesh/blunt outputs with desktop expectations. CI additionally exercises
+UI resizing, editing, repaired durability, cache preservation and exact image IDs.

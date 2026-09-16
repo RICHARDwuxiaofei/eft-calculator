@@ -110,6 +110,10 @@ class DataSynchronizer:
                     LOGGER.warning("Data source %s failed: %s", adapter.name, exc)
                 if attempt + 1 < len(adapters):
                     await asyncio.sleep(min(2**attempt, 4))
+        # The historical tracker is useful for aliases, never a freshness fallback.
+        if results and all(item.manifest.source == "TarkovTracker/tarkovdata" for item in results):
+            failures.append("Historical fallback rejected: retain the Wiki-reviewed catalog")
+            results = []
         if results:
             payload = self._snapshot_payload(results)
             self.store.atomic_write(payload)

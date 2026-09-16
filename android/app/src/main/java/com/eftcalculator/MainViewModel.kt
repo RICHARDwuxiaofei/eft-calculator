@@ -14,12 +14,19 @@ import com.eftcalculator.engine.SimulationSummary
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import org.json.JSONArray
 import org.json.JSONObject
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.CancellationException
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.sync.Mutex
+import kotlinx.coroutines.sync.withLock
+import androidx.room.withTransaction
 
 data class ArmorInput(
     val armorClass: Int = 5,
@@ -29,6 +36,11 @@ data class ArmorInput(
     val name: String = "SAPI level III+ ballistic plate",
     val carrierId: String = "free",
     val slot: String = "front",
+    val repairedMaximum: Float = maximum,
+    val layerType: String = "plate",
+    val bluntThroughput: Double = 0.1,
+    val enabled: Boolean = true,
+    val itemId: String = "655746010177119f4a097ff7",
 )
 
 data class ArmorPlatePreset(
@@ -84,6 +96,8 @@ data class CalculatorState(
     val result: SimulationSummary? = null,
     val calculating: Boolean = false,
     val error: String? = null,
+    val bodyPart: String = "thorax",
+    val distanceDecay: Boolean = false,
 )
 
 @OptIn(ExperimentalCoroutinesApi::class)
@@ -102,15 +116,46 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), 0L)
     private val _state = MutableStateFlow(CalculatorState())
     val state: StateFlow<CalculatorState> = _state
+    private var calculation: Job? = null
+    private var generation = 0L
+    private val engineMutex = Mutex()
 
     init {
         viewModelScope.launch {
-            if (database.ammoDao().all().isEmpty()) {
-                database.ammoDao().upsertAll(bundledAmmo())
+            val dao = database.ammoDao()
+            val existing = dao.all().associateBy { it.id }
+            val bundled = bundledAmmo()
+            val syncedAt = preferences.lastSync.first()
+            // Only replace the old shipped snapshot, never a newer/user-imported one.
+            val install = bundled.filter { item ->
+                existing[item.id]?.source.let { source -> source == null || source == "bundled" ||
+                    source == "TarkovTracker/tarkovdata" ||
+                    (source == "tarkov.dev" && syncedAt < 1789516800000L) }
+            }
+            database.withTransaction {
+                dao.upsertAll(install)
+                bundled.forEach { item ->
+                    legacyId(item)?.let { old ->
+                        if (dao.isFavorite(old)) dao.addFavorite(com.eftcalculator.data.FavoriteEntity(item.id))
+                        dao.deleteAmmo(old)
+                    }
+                }
             }
         }
         DataSyncWorker.schedule(application)
-        syncNow()
+    }
+
+    private fun legacyId(item: AmmoEntity): String? = when {
+        item.caliber == "5.56x45" && item.shortName.equals("M855A1", true) -> "m855a1"
+        item.caliber == "5.56x45" && item.shortName.equals("M855", true) -> "m855"
+        item.caliber == "5.56x45" && item.shortName.equals("M995", true) -> "m995"
+        item.shortName.equals("M80", true) -> "m80"
+        item.shortName.equals("7N40", true) -> "7n40"
+        item.name.contains("AP-20", true) -> "ap20"
+        item.name.contains("Magnum buckshot", true) -> "buckshot"
+        item.name.contains("7.62x39") && item.name.contains("BP") -> "762bp"
+        item.name.contains("5.45x39") && item.name.contains("BP") -> "545bp"
+        else -> null
     }
 
     fun selectAmmo(item: AmmoEntity) {
@@ -125,6 +170,8 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         armorDamage: Double,
         projectileCount: Int,
     ) {
+        require(damage.isFinite() && damage >= 0 && penetration.isFinite() && penetration >= 0)
+        require(armorDamage.isFinite() && armorDamage in 0.0..100.0 && projectileCount in 1..64)
         val base = _state.value.selectedAmmo ?: return
         selectAmmo(
             base.copy(
@@ -154,6 +201,10 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     fun updateArmor(index: Int, value: ArmorInput) {
+        if (index !in _state.value.armor.indices) return
+        require(value.durability.isFinite() && value.repairedMaximum.isFinite() && value.maximum.isFinite())
+        require(value.durability >= 0f && value.durability <= value.repairedMaximum &&
+            value.repairedMaximum <= value.maximum && value.maximum > 0f)
         val armor = _state.value.armor.toMutableList()
         armor[index] = value
         _state.value = _state.value.copy(armor = armor)
@@ -161,7 +212,29 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     fun addArmor(value: ArmorInput) {
+        if (_state.value.armor.size >= 12) return
         _state.value = _state.value.copy(armor = _state.value.armor + value)
+        calculate()
+    }
+
+    fun removeArmor(index: Int) {
+        _state.value = _state.value.copy(armor = _state.value.armor.filterIndexed { i, _ -> i != index })
+        calculate()
+    }
+
+    fun moveArmor(index: Int, direction: Int) {
+        val list = _state.value.armor.toMutableList()
+        val target = index + direction
+        if (index !in list.indices || target !in list.indices) return
+        val value = list.removeAt(index)
+        list.add(target, value)
+        _state.value = _state.value.copy(armor = list)
+        calculate()
+    }
+
+    fun updatePhysics(bodyPart: String = _state.value.bodyPart, distanceDecay: Boolean = _state.value.distanceDecay) {
+        require(bodyPart in listOf("head", "thorax", "stomach"))
+        _state.value = _state.value.copy(bodyPart = bodyPart, distanceDecay = distanceDecay)
         calculate()
     }
 
@@ -173,7 +246,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     fun resetAmmo() {
         viewModelScope.launch {
             val default = database.ammoDao().all().firstOrNull {
-                it.shortName.equals("M855A1", ignoreCase = true)
+                it.id == "54527ac44bdc2d36668b4567"
             } ?: database.ammoDao().all().firstOrNull()
             if (default != null) selectAmmo(default)
         }
@@ -184,6 +257,8 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
             armor = listOf(ArmorInput()),
             distance = 0,
             shots = 3,
+            bodyPart = "thorax",
+            distanceDecay = false,
         )
         resetAmmo()
     }
@@ -204,33 +279,34 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
-    fun calculate() {
+    fun calculate() = startCalculation(false)
+
+    fun simulate() = startCalculation(true)
+
+    private fun startCalculation(simulated: Boolean) {
+        val revision = ++generation
+        calculation?.cancel()
         val snapshot = _state.value
-        val selected = snapshot.selectedAmmo ?: return
-        viewModelScope.launch {
-            _state.value = snapshot.copy(calculating = true, error = null)
-            runCatching { engine.calculate(scenarioJson(selected, snapshot)) }
-                .onSuccess { _state.value = _state.value.copy(result = it, calculating = false) }
-                .onFailure {
-                    _state.value = _state.value.copy(error = it.message, calculating = false)
+        val selected = snapshot.selectedAmmo
+        _state.value = snapshot.copy(result = null, calculating = selected != null, error = null)
+        if (selected == null) return
+        calculation = viewModelScope.launch {
+            try {
+                if (!simulated) delay(150)
+                val value = engineMutex.withLock {
+                    val input = scenarioJson(selected, snapshot, if (simulated) 10000 else 2048)
+                    if (simulated) engine.simulate(input) else engine.calculate(input)
                 }
+                if (revision == generation) _state.value = _state.value.copy(result = value, calculating = false)
+            } catch (cancelled: CancellationException) {
+                throw cancelled
+            } catch (error: Exception) {
+                if (revision == generation) _state.value = _state.value.copy(error = error.message, calculating = false)
+            }
         }
     }
 
-    fun simulate() {
-        val snapshot = _state.value
-        val selected = snapshot.selectedAmmo ?: return
-        viewModelScope.launch {
-            _state.value = snapshot.copy(calculating = true, error = null)
-            runCatching { engine.simulate(scenarioJson(selected, snapshot)) }
-                .onSuccess { _state.value = _state.value.copy(result = it, calculating = false) }
-                .onFailure {
-                    _state.value = _state.value.copy(error = it.message, calculating = false)
-                }
-        }
-    }
-
-    private fun scenarioJson(ammo: AmmoEntity, state: CalculatorState): String {
+    private fun scenarioJson(ammo: AmmoEntity, state: CalculatorState, iterations: Int): String {
         val ammoJson = JSONObject()
             .put("id", ammo.id)
             .put("name", ammo.name)
@@ -241,21 +317,23 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
             .put("armor_damage_percent", ammo.armorDamagePercent)
             .put("projectile_count", ammo.projectileCount)
             .put("source_version", ammo.source)
+            .put("muzzle_velocity", ammo.initialSpeed)
         val layers = JSONArray()
         state.armor.forEachIndexed { index, armor ->
             layers.put(
                 JSONObject()
                     .put("id", "android-$index")
                     .put("name", armor.name.ifBlank { "Armor layer ${index + 1}" })
-                    .put("layer_type", if (armor.material == "aramid") "soft" else "plate")
+                    .put("layer_type", armor.layerType)
                     .put("armor_class", armor.armorClass)
                     .put("current_durability", armor.durability)
-                    .put("displayed_max_durability", armor.maximum)
+                    .put("displayed_max_durability", armor.repairedMaximum)
                     .put("original_max_durability", armor.maximum)
                     .put("material", armor.material)
                     .put("destructibility", destructibility(armor.material))
-                    .put("blunt_throughput", if (armor.material == "aramid") 0.18 else 0.1)
-                    .put("is_hard_armor", armor.material != "aramid"),
+                    .put("blunt_throughput", armor.bluntThroughput)
+                    .put("enabled", armor.enabled)
+                    .put("is_hard_armor", armor.layerType != "soft"),
             )
         }
         return JSONObject()
@@ -264,28 +342,39 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
             .put("armor_layers", layers)
             .put("distance_m", state.distance)
             .put("shot_count", state.shots)
-            .put("simulation_iterations", 1_000)
-            .put("random_seed", 20260731)
+            .put("body_part", state.bodyPart)
+            .put("enable_distance_decay", state.distanceDecay)
+            .put("simulation_iterations", iterations)
+            .put("random_seed", 20260916)
             .toString()
     }
 
     private fun destructibility(material: String) = when (material) {
-        "steel" -> 0.35
-        "uhmwpe" -> 0.45
-        "aramid" -> 0.30
-        "titanium" -> 0.42
-        else -> 0.80
+        "steel" -> 0.525
+        "uhmwpe" -> 0.3375
+        "aramid" -> 0.1875
+        "titanium" -> 0.4125
+        "combined" -> 0.375
+        "aluminum" -> 0.45
+        "ceramic", "glass" -> 0.6
+        else -> error("Unknown armor material: $material")
     }
 
-    private fun bundledAmmo() = listOf(
-        AmmoEntity("m855a1", "5.56x45mm M855A1", "M855A1", "5.56x45", 47.0, 40.0, 52.0, 1, 945.0, "bundled", "5.56x45mm M855A1 5.56x45毫米 M855A1 855a1", "5.56x45毫米 M855A1"),
-        AmmoEntity("m855", "5.56x45mm M855", "M855", "5.56x45", 54.0, 31.0, 37.0, 1, 922.0, "bundled", "5.56x45mm M855 5.56x45毫米 M855 855", "5.56x45毫米 M855"),
-        AmmoEntity("m995", "5.56x45mm M995", "M995", "5.56x45", 42.0, 53.0, 58.0, 1, 1013.0, "bundled", "5.56x45mm M995 5.56x45毫米 M995 995", "5.56x45毫米 M995"),
-        AmmoEntity("762bp", "7.62x39mm BP gzh", "BP", "7.62x39", 58.0, 47.0, 63.0, 1, 730.0, "bundled", "7.62x39mm BP gzh 7.62x39毫米 BP gzh 762bp 7n23", "7.62x39毫米 BP gzh"),
-        AmmoEntity("7n40", "5.45x39mm 7N40", "7N40", "5.45x39", 52.0, 42.0, 50.0, 1, 915.0, "bundled", "5.45x39mm 7N40 5.45x39毫米 7N40", "5.45x39毫米 7N40"),
-        AmmoEntity("545bp", "5.45x39mm BP gs", "BP", "5.45x39", 48.0, 45.0, 48.0, 1, 890.0, "bundled", "5.45x39mm BP gs 5.45x39毫米 BP gs 545bp", "5.45x39毫米 BP gs"),
-        AmmoEntity("m80", "7.62x51mm M80", "M80", "7.62x51", 80.0, 41.0, 66.0, 1, 833.0, "bundled", "7.62x51mm M80 7.62x51毫米 M80 308", "7.62x51毫米 M80"),
-        AmmoEntity("ap20", "12/70 AP-20 armor-piercing slug", "AP-20", "12/70", 164.0, 37.0, 65.0, 1, 510.0, "bundled", "12/70 AP-20 armor-piercing slug 穿甲独头弹 ap20", "12/70 AP-20 穿甲独头弹"),
-        AmmoEntity("buckshot", "12/70 8.5mm Magnum buckshot", "Magnum", "12/70", 50.0, 2.0, 26.0, 8, 385.0, "bundled", "12/70 8.5mm Magnum buckshot 马格南 鹿弹 8.5", "12/70 8.5毫米“马格南”鹿弹"),
-    )
+    private fun bundledAmmo(): List<AmmoEntity> {
+        val raw = getApplication<Application>().assets.open("catalog.json").bufferedReader().use { it.readText() }
+        val root = JSONObject(raw)
+        val items = root.getJSONArray("ammo")
+        return (0 until items.length()).map { i ->
+            val item = items.getJSONObject(i)
+            val name = item.getString("name")
+            val short = item.getString("short_name")
+            val zh = item.optJSONObject("localized_names")?.optString("zh")
+            val caliber = item.getString("caliber")
+            AmmoEntity(item.getString("id"), name, short, caliber,
+                item.getDouble("damage"), item.getDouble("penetration_power"),
+                item.getDouble("armor_damage_percent"), item.getInt("projectile_count"),
+                item.optDouble("muzzle_velocity").takeIf { it.isFinite() },
+                root.getString("version"), "$name $short $caliber ${zh.orEmpty()}", zh)
+        }
+    }
 }

@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass, field
 from enum import Enum
+from math import isfinite
 
 
 class StringEnum(str, Enum):
@@ -60,6 +61,20 @@ class Ammo:
     wiki_url: str | None = None
 
     def __post_init__(self) -> None:
+        for name in ("damage", "penetration_power", "armor_damage_percent"):
+            value = getattr(self, name)
+            if isinstance(value, bool) or not isinstance(value, (int, float)) or not isfinite(value):
+                raise ValueError(f"{name} must be a finite number")
+        if type(self.projectile_count) is not int or not 1 <= self.projectile_count <= 64:
+            raise ValueError("projectile_count must be an integer from 1 to 64")
+        for name in ("muzzle_velocity", "ballistic_coefficient"):
+            value = getattr(self, name)
+            if value is not None and (not isfinite(value) or value <= 0):
+                raise ValueError(f"{name} must be finite and positive")
+        for name in ("fragmentation_chance", "ricochet_chance"):
+            value = getattr(self, name)
+            if value is not None and (not isfinite(value) or not 0 <= value <= 1):
+                raise ValueError(f"{name} must be between 0 and 1")
         if self.damage < 0 or self.penetration_power < 0:
             raise ValueError("弹药伤害和穿深不能为负数")
         if not 0 <= self.armor_damage_percent <= 100:
@@ -89,7 +104,12 @@ class ArmorLayer:
     enabled: bool = True
 
     def __post_init__(self) -> None:
-        if not 1 <= self.armor_class <= 6:
+        for name in ("current_durability", "displayed_max_durability",
+                     "original_max_durability", "destructibility", "blunt_throughput"):
+            value = getattr(self, name)
+            if isinstance(value, bool) or not isinstance(value, (int, float)) or not isfinite(value):
+                raise ValueError(f"{name} must be a finite number")
+        if type(self.armor_class) is not int or not 1 <= self.armor_class <= 6:
             raise ValueError("护甲等级必须在 1 到 6 之间")
         if self.original_max_durability <= 0:
             raise ValueError("出厂耐久必须大于 0")
@@ -124,6 +144,19 @@ class ShotScenario:
     random_seed: int | None = None
 
     def __post_init__(self) -> None:
+        if isinstance(self.distance_m, bool) or not isfinite(self.distance_m):
+            raise ValueError("distance_m must be finite")
+        if type(self.shot_count) is not int or type(self.simulation_iterations) is not int:
+            raise ValueError("shots and iterations must be integers")
+        if self.simulation_iterations > 1_000_000:
+            raise ValueError("simulation_iterations must not exceed 1000000")
+        if self.random_seed is not None and type(self.random_seed) is not int:
+            raise ValueError("random_seed must be an integer or null")
+        for name in ("enable_fragmentation", "enable_distance_decay", "enable_skills"):
+            if type(getattr(self, name)) is not bool:
+                raise ValueError(f"{name} must be boolean")
+        if self.enable_fragmentation or self.enable_skills:
+            raise ValueError("Fragmentation and skills are not implemented; disable these flags")
         if self.distance_m < 0:
             raise ValueError("距离不能为负数")
         if not 1 <= self.shot_count <= 100:
@@ -140,6 +173,7 @@ class ProjectileState:
     remaining_penetration: float
     current_layer_index: int = 0
     stopped: bool = False
+    armor_damage_percent: float = 0.0
 
 
 @dataclass(frozen=True)
@@ -175,12 +209,31 @@ class SimulationResult:
     data_version: str = "bundled-snapshot-2026-07-31"
     ruleset_version: str = "community-approx-2026.07-v1"
 
+    expected_burst_health_damage: float = 0.0
+    expected_burst_blunt_damage: float = 0.0
+    expected_burst_total_damage: float = 0.0
+    health_damage_by_shot: list[float] = field(default_factory=list)
+    blunt_damage_by_shot: list[float] = field(default_factory=list)
+    penetration_confidence_interval: tuple[float, float] = (0.0, 1.0)
+    sample_count: int = 0
+    method: str = "exact-single-projectile"
+    warnings: list[str] = field(default_factory=list)
+    kill_estimate_supported: bool = True
+    # Layer table always describes the first projectile, not an entire shotgun shell.
+    layer_result_scope: str = "first-projectile"
+
+    @property
+    def conditional_penetrating_damage(self) -> float | None:
+        """First-trigger flesh damage given at least one fully penetrating pellet."""
+        if self.final_penetration_probability <= 0:
+            return None
+        return self.expected_health_damage / self.final_penetration_probability
+
     @property
     def three_shot_penetration_probability(self) -> float:
-        chance_none = 1.0
-        for value in self.penetration_probability_by_shot[:3]:
-            chance_none *= 1.0 - value
-        return 1.0 - chance_none
+        # First-hit events are mutually exclusive; per-shot marginals are correlated.
+        return min(1.0, sum(p for shot, p in self.first_penetration_shot_distribution.items()
+                            if 1 <= shot <= 3))
 
     @property
     def expected_first_penetration_shot(self) -> float | None:

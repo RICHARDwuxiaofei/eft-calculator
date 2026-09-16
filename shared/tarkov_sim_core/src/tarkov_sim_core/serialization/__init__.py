@@ -16,7 +16,12 @@ from ..models import (
 
 
 def load_payload(value: str | dict[str, Any]) -> dict[str, Any]:
-    return json.loads(value) if isinstance(value, str) else value
+    def reject_constant(token: str):
+        raise ValueError(f"Non-finite JSON number: {token}")
+    result = json.loads(value, parse_constant=reject_constant) if isinstance(value, str) else value
+    if not isinstance(result, dict):
+        raise ValueError("Scenario must be a JSON object")  # noqa: TRY004 - public validation boundary
+    return result
 
 
 def scenario_from_dict(payload: dict[str, Any]) -> ShotScenario:
@@ -34,12 +39,12 @@ def scenario_from_dict(payload: dict[str, Any]) -> ShotScenario:
         ammo=ammo,
         armor_layers=tuple(layers),
         body_part=BodyPart(payload.get("body_part", "thorax")),
-        distance_m=float(payload.get("distance_m", 0)),
-        shot_count=int(payload.get("shot_count", 1)),
-        simulation_iterations=int(payload.get("simulation_iterations", 10_000)),
-        enable_fragmentation=bool(payload.get("enable_fragmentation", False)),
-        enable_distance_decay=bool(payload.get("enable_distance_decay", True)),
-        enable_skills=bool(payload.get("enable_skills", False)),
+        distance_m=payload.get("distance_m", 0),
+        shot_count=payload.get("shot_count", 1),
+        simulation_iterations=payload.get("simulation_iterations", 10_000),
+        enable_fragmentation=payload.get("enable_fragmentation", False),
+        enable_distance_decay=payload.get("enable_distance_decay", True),
+        enable_skills=payload.get("enable_skills", False),
         random_seed=payload.get("random_seed"),
     )
 
@@ -47,6 +52,7 @@ def scenario_from_dict(payload: dict[str, Any]) -> ShotScenario:
 def result_to_dict(result: SimulationResult) -> dict[str, Any]:
     payload = asdict(result)
     payload["confidence"] = result.confidence.value
+    payload["conditional_penetrating_damage"] = result.conditional_penetrating_damage
     payload["three_shot_penetration_probability"] = result.three_shot_penetration_probability
     payload["expected_first_penetration_shot"] = result.expected_first_penetration_shot
     payload["first_penetration_shot_distribution"] = {
@@ -56,4 +62,4 @@ def result_to_dict(result: SimulationResult) -> dict[str, Any]:
 
 
 def dump_json(payload: object) -> str:
-    return json.dumps(payload, ensure_ascii=False, separators=(",", ":"), sort_keys=True)
+    return json.dumps(payload, ensure_ascii=False, separators=(",", ":"), sort_keys=True, allow_nan=False)

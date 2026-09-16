@@ -1,3 +1,10 @@
+# 2.2.0 - 2026-09-16
+
+Correctness overhaul: sourced penetration curve, armor-damage percentage, sequential
+all-hit pellets, reach-weighted armor wear, separate first/burst metrics, repaired
+durability, exact-ID data/images, responsive editors, safe sync and cross-platform CI.
+See docs/REVIEW_2026-09-16.md for independent checks and remaining model limitations.
+
 # Changelog
 
 ## 2.1.1 - 2026-07-31

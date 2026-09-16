@@ -9,18 +9,17 @@ import org.junit.Test
 
 class PythonBridgeConsistencyTest {
     @Test
-    fun sharedSingleLayerVectorMatchesExpectedOutput() = runBlocking {
+    fun allSharedVectorsMatchDesktopExpectations() = runBlocking {
         val context = ApplicationProvider.getApplicationContext<android.content.Context>()
-        val vector = context.assets.open("single_layer.tarkovsim.json")
-            .bufferedReader()
-            .use { JSONObject(it.readText()) }
-        val expected = vector.getJSONObject("expected")
-        val result = PythonSimulationEngine().calculate(vector.getJSONObject("input").toString())
-        assertEquals(
-            expected.getDouble("final_penetration_probability"),
-            result.penetration,
-            1e-12,
-        )
-        assertEquals(expected.getDouble("expected_health_damage"), result.healthDamage, 1e-12)
+        val names = context.assets.list("")!!.filter { it.endsWith(".tarkovsim.json") }
+        assertEquals(6, names.size)
+        names.forEach { name ->
+            val vector = context.assets.open(name).bufferedReader().use { JSONObject(it.readText()) }
+            val expected = vector.getJSONObject("expected")
+            val result = PythonSimulationEngine().calculate(vector.getJSONObject("input").toString())
+            assertEquals(name, expected.getDouble("final_penetration_probability"), result.penetration, 1e-12)
+            assertEquals(name, expected.getDouble("expected_health_damage"), result.healthDamage, 1e-12)
+            assertEquals(name, expected.getDouble("expected_blunt_damage"), result.bluntDamage, 1e-12)
+        }
     }
 }
