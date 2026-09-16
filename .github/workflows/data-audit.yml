@@ -9,52 +9,51 @@ permissions:
 jobs:
   capture:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 12
     steps:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
       - name: Capture catalog and item-specific evidence
         run: |
-          python - <<'PY'
-          import json, hashlib, urllib.request, re, time, concurrent.futures, datetime
+          python -u - <<'PY'
+          import json, hashlib, urllib.request, re, concurrent.futures, datetime
           from pathlib import Path
           root = Path('artifacts/catalog'); root.mkdir(parents=True)
-          def fetch(url):
-              req = urllib.request.Request(url, headers={'User-Agent':'Mozilla/5.0 (EFT Calculator data audit)'})
-              return urllib.request.urlopen(req, timeout=30).read()
+          def fetch(url, timeout=6):
+              req = urllib.request.Request(url, headers={'User-Agent':'Mozilla/5.0 EFT-Calculator reference audit'})
+              return urllib.request.urlopen(req, timeout=timeout).read()
           manifest = {'retrieved_at':datetime.datetime.now(datetime.timezone.utc).isoformat(), 'files':{}}
           ids = set()
-          for page in ['web_33', 'web_40', 'web_37', 'web_38']:
-              url = f'https://www.eftarkov.com/news/{page}.html'
+          pages = {key:f'https://www.eftarkov.com/news/{key}.html' for key in ['web_33','web_40','web_37','web_38']}
+          pages['chart'] = 'https://eft-ammo.vercel.app/'
+          for page, url in pages.items():
               try:
-                  raw = fetch(url); (root / (page+'.html')).write_bytes(raw)
+                  raw = fetch(url, 20); (root / (page+'.html')).write_bytes(raw)
                   manifest['files'][page] = {'url':url, 'sha256':hashlib.sha256(raw).hexdigest()}
                   if page in ['web_33','web_40']:
                       ids.update(re.findall(r'/news/id/([a-f0-9]{24})\.html',raw.decode(errors='replace')))
               except Exception as exc:
                   manifest['files'][page] = {'url':url, 'error':str(exc)}
+          print('Catalog identities:',len(ids),flush=True)
           def item(item_id):
-              result = {}
-              for kind, url in [('detail', f'https://www.eftarkov.com/itemdetail/{item_id}.js'), ('icon',f'https://assets.tarkov.dev/{item_id}-icon.webp')]:
+              errors = []
+              for url in [f'https://assets.tarkov.dev/{item_id}-icon.webp', f'https://img.eftarkov.com/upFiles/512/{item_id}-512.webp']:
                   try:
                       raw = fetch(url)
-                      if kind=='icon' and not (raw.startswith(b'RIFF') or raw.startswith(b'\x89PNG')):
+                      if not (raw.startswith(b'RIFF') or raw.startswith(b'\x89PNG')):
                           raise ValueError('Non-image response')
-                      suffix = '.js' if kind=='detail' else '.webp'
-                      (root / (item_id+suffix)).write_bytes(raw)
-                      result[kind] = {'url':url, 'sha256':hashlib.sha256(raw).hexdigest()}
+                      (root / (item_id+'.webp')).write_bytes(raw)
+                      return item_id, {'icon':{'url':url, 'sha256':hashlib.sha256(raw).hexdigest()}}
                   except Exception as exc:
-                      result[kind] = {'url':url, 'error':str(exc)}
-                  time.sleep(.3)
-              return item_id,result
-          with concurrent.futures.ThreadPoolExecutor(max_workers=3) as pool:
-              for item_id, result in pool.map(item, sorted(ids)):
+                      errors.append({'url':url, 'error':str(exc)})
+              return item_id, {'errors':errors}
+          with concurrent.futures.ThreadPoolExecutor(max_workers=8) as pool:
+              for n, (item_id, result) in enumerate(pool.map(item, sorted(ids)), 1):
                   manifest['files'][item_id] = result
+                  if n % 25 == 0: print('Checked',n,flush=True)
           (root/'manifest.json').write_text(json.dumps(manifest,indent=2))
-          print('Catalog items:',len(ids))
-          print('Images:',len(list(root.glob('*.webp'))))
-          print('Details:',len(list(root.glob('*.js'))))
+          print('Images:',len(list(root.glob('*.webp'))),flush=True)
           PY
       - name: Retain source evidence
         if: always()
