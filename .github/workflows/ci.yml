@@ -1,0 +1,55 @@
+name: Regression checks
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: regression-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  regression:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      QT_QPA_PLATFORM: offscreen
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Archive exact tested source
+        run: git archive --format=zip --output=eft-source.zip HEAD
+      - uses: actions/upload-artifact@v4
+        with:
+          name: eft-source-${{ github.sha }}
+          path: eft-source.zip
+          if-no-files-found: error
+          retention-days: 7
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - name: Install Qt runtime libraries
+        run: sudo apt-get update && sudo apt-get install -y libegl1 libopengl0 libxkbcommon0
+      - name: Install project and test dependencies
+        run: python -m pip install -e '.[dev]'
+      - name: Lint
+        run: ruff check .
+      - name: Run regression tests
+        run: pytest -p no:cacheprovider --junitxml=test-results/pytest.xml
+      - name: Preserve verification evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: regression-evidence-${{ github.sha }}
+          path: |
+            test-results/
+            artifacts/
+          if-no-files-found: warn
+          retention-days: 14
