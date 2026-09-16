@@ -21,21 +21,28 @@ jobs:
         run: |
           mkdir -p artifacts/data
           python - <<'PY'
-          import json, hashlib, urllib.request, datetime
+          import json, hashlib, urllib.request, urllib.error, datetime
           from pathlib import Path
           root = Path('artifacts/data')
           queries = {
-            'schema': '{ __schema { types { name kind fields { name type { kind name ofType { kind name ofType { kind name } } } } } } }',
             'ammo': '{ en: ammo(lang: en) { item { id name shortName iconLink wikiLink } caliber damage penetrationPower armorDamage projectileCount initialSpeed fragmentationChance ricochetChance } zh: ammo(lang: zh) { item { id name shortName } } }',
             'items': '{ items(lang: en) { id name shortName types iconLink wikiLink properties { __typename } } }',
           }
+          for type_name in ['ItemPropertiesArmor', 'ItemPropertiesArmorPlate', 'ItemPropertiesHelmet', 'ItemPropertiesChestRig', 'ArmorMaterial']:
+              queries[type_name] = '{ __type(name: "' + type_name + '") { name fields { name type { kind name ofType { kind name } } } } }'
           manifest = {'retrieved_at': datetime.datetime.now(datetime.timezone.utc).isoformat(), 'source': 'https://api.tarkov.dev/graphql', 'files': {}}
           for name, query in queries.items():
               req = urllib.request.Request(manifest['source'], data=json.dumps({'query':query}).encode(), headers={'Content-Type':'application/json','User-Agent':'EFT-Calculator-data-verification/2.2'})
-              with urllib.request.urlopen(req, timeout=90) as response:
-                  raw = response.read()
-              data = json.loads(raw)
+              try:
+                  with urllib.request.urlopen(req, timeout=90) as response:
+                      raw = response.read()
+              except urllib.error.HTTPError as exc:
+                  raw = exc.read()
               (root / (name + '.json')).write_bytes(raw)
+              try:
+                  data = json.loads(raw)
+              except ValueError:
+                  data = {'errors': [raw.decode(errors='replace')[:1000]]}
               manifest['files'][name] = {'sha256':hashlib.sha256(raw).hexdigest(),'errors':data.get('errors',[])}
           (root / 'manifest.json').write_text(json.dumps(manifest, indent=2))
           print(json.dumps(manifest, indent=2))
