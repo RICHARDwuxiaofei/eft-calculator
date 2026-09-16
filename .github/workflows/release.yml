@@ -2,13 +2,23 @@ name: Verified desktop and Android release
 
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'src/**'
+      - 'shared/**'
+      - 'android/**'
+      - 'tools/**'
+      - 'tests/**'
+      - 'packaging/**'
+      - 'pyproject.toml'
 
 permissions:
   contents: read
 
 concurrency:
   group: verified-release-${{ github.ref }}
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   verify:
