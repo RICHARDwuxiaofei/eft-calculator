@@ -259,7 +259,8 @@ jobs:
           printf '## Verified build\n\nSource commit: `%s`\n\nNumerical regression, actual Windows EXE startup, Android compilation, emulator consistency tests and signed delivery APK startup passed for this commit.\n\nThis is a documented community ballistic model, not an assertion of exact current proprietary game behavior. See docs/RESEARCH.md and docs/REVIEW_2026-09-16.md.\n\n' "$GITHUB_SHA" > release-notes.md
           cat release-files/android-build.txt >> release-notes.md
           if gh release view "$tag" >/dev/null 2>&1; then
-            echo "Release $tag already exists; leave its tag and assets unchanged. Current build remains available in Actions."
+            echo "Release $tag already exists; keep its verified assets and promote it to a normal latest release."
+            gh release edit "$tag" --draft=false --prerelease=false --latest
             exit 0
           fi
-          gh release create "$tag" release-files/* --target "$GITHUB_SHA" --title "EFT Calculator $APP_VERSION - verified community model" --notes-file release-notes.md --prerelease
+          gh release create "$tag" release-files/* --target "$GITHUB_SHA" --title "EFT Calculator $APP_VERSION - verified community model" --notes-file release-notes.md --latest
