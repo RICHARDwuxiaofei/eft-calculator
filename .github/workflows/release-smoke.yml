@@ -1,0 +1,72 @@
+name: Signed Android package verification
+on:
+  workflow_dispatch:
+    inputs:
+      source_run:
+        description: Successful build run containing the release-android artifact
+        required: true
+        default: '35058067582'
+  push:
+    branches: [main]
+    paths: ['.github/workflows/release-smoke.yml']
+permissions:
+  contents: read
+  actions: read
+jobs:
+  signed-package:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: release-android
+          path: release-files
+          run-id: ${{ inputs.source_run || '35058067582' }}
+          github-token: ${{ github.token }}
+      - name: Record the exact installed package
+        run: |
+          mkdir -p artifacts
+          sha256sum release-files/*.apk > artifacts/installed-apk-sha256.txt
+          cp release-files/android-build.txt artifacts/
+      - name: Enable KVM
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+      - name: Install and launch the actual signed delivery APK
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 35
+          target: google_apis
+          arch: x86_64
+          profile: pixel_2
+          disable-animations: true
+          emulator-options: -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
+          script: |
+            adb install -r release-files/*.apk
+            adb shell am start -W -n com.eftcalculator/.MainActivity
+            sleep 8
+            adb shell pidof com.eftcalculator
+            adb shell uiautomator dump /sdcard/portrait.xml
+            adb pull /sdcard/portrait.xml artifacts/portrait.xml
+            adb exec-out screencap -p > artifacts/signed-portrait.png
+            adb shell settings put system accelerometer_rotation 0
+            adb shell settings put system user_rotation 1
+            sleep 4
+            adb shell pidof com.eftcalculator
+            adb exec-out screencap -p > artifacts/signed-landscape.png
+            adb shell settings put system user_rotation 0
+            adb shell wm size 1600x1000
+            adb shell wm density 160
+            sleep 5
+            adb shell pidof com.eftcalculator
+            adb shell uiautomator dump /sdcard/wide.xml
+            adb pull /sdcard/wide.xml artifacts/wide.xml
+            adb exec-out screencap -p > artifacts/signed-wide.png
+            adb logcat -d > artifacts/logcat.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: signed-apk-runtime-evidence
+          path: artifacts/
+          if-no-files-found: error
