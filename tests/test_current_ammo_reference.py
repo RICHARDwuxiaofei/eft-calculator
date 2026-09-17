@@ -7,7 +7,6 @@ than ten diverse rounds here makes stale catalog regressions immediately visible
 """
 
 import pytest
-
 from tarkov_armor_sim.data import BUNDLED_CATALOG
 
 
