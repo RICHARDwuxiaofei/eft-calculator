@@ -7,6 +7,7 @@ from pathlib import Path
 
 from . import __version__
 from .data import DATA_VERSION, Database, default_database_path
+from .legacy_db import repair_legacy_ammo_payloads
 
 LOGGER = logging.getLogger(__name__)
 
@@ -33,7 +34,11 @@ def main() -> int:
     configure_logging()
     from .ui import create_application
 
-    database = Database(default_database_path())
+    database_path = default_database_path()
+    repaired_rows = repair_legacy_ammo_payloads(database_path)
+    if repaired_rows:
+        LOGGER.warning("repaired %d legacy ammo payload(s) before startup", repaired_rows)
+    database = Database(database_path)
     app, window = create_application(database)
     window.show()
     if "--smoke-test" in sys.argv:
@@ -49,6 +54,7 @@ def main() -> int:
         assert 0 <= result.final_penetration_probability <= 1
         window.current_scenario = window._scenario()
         window._show_result(result)
+
         def finish_smoke() -> None:
             screenshot = os.getenv("EFT_SMOKE_SCREENSHOT")
             if screenshot and not window.grab().save(screenshot):
@@ -56,6 +62,7 @@ def main() -> int:
                 return
             window.close()
             app.quit()
+
         QTimer.singleShot(1500, finish_smoke)
     return app.exec()
 
