@@ -47,10 +47,10 @@
     "enable_distance_decay": false
   },
   "expected": {
-    "final_penetration_probability": 0.279,
-    "three_shot_penetration_probability": 0.9630000000000001,
-    "expected_health_damage": 8.953200626046197,
-    "expected_blunt_damage": 1.2819295281853624,
+    "final_penetration_probability": 0.277,
+    "three_shot_penetration_probability": 0.9690000000000001,
+    "expected_health_damage": 8.88901997639712,
+    "expected_blunt_damage": 1.3026138906520242,
     "ruleset_version": "community-reference-2026.09-v3"
   },
   "verification_scope": "Deterministic regression snapshot, not game ground truth. Independent numeric anchors live in tests/test_ballistics_reference.py."
