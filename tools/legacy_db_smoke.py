@@ -19,10 +19,12 @@ def create_legacy_database(path: Path) -> None:
             SEED_AMMO[0],
             id="legacy-smoke-round",
             source_version="manual-override",
-            muzzle_velocity=0,
-            ballistic_coefficient=0,
         )
     )
+    # Reproduce legacy persisted data without constructing an invalid current Ammo.
+    payload["muzzle_velocity"] = 0
+    payload["ballistic_coefficient"] = 0
+
     connection = sqlite3.connect(path)
     try:
         connection.execute(
