@@ -1,15 +1,14 @@
 """Current public-data anchors reviewed 2026-09-18.
 
 These are data checks, not claims that a third-party chart exposes proprietary
-server code.  Damage / penetration / armor-damage values were cross-checked against
-current Tarkov101 and GameMaps tables and, where available, TarkovBox.  Keeping more
+server code. Damage / penetration / armor-damage values were cross-checked against
+current Tarkov101 and GameMaps tables and, where available, TarkovBox. Keeping more
 than ten diverse rounds here makes stale catalog regressions immediately visible.
 """
 
 import pytest
 
 from tarkov_armor_sim.data import BUNDLED_CATALOG
-
 
 CATALOG = {item["name"]: item for item in BUNDLED_CATALOG["ammo"]}
 
