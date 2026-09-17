@@ -29,8 +29,8 @@ android {
         applicationId = "com.eftcalculator"
         minSdk = 24
         targetSdk = 36
-        versionCode = 20200
-        versionName = "2.2.0"
+        versionCode = 20201
+        versionName = "2.2.1"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
         ndk.abiFilters += listOf("arm64-v8a", "x86_64")
