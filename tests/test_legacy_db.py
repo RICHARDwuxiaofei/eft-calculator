@@ -12,10 +12,14 @@ def _write_legacy_ammo(path, *, muzzle_velocity=0, ballistic_coefficient=None):
             SEED_AMMO[0],
             id="manual-legacy-round",
             source_version="manual-override",
-            muzzle_velocity=muzzle_velocity,
-            ballistic_coefficient=ballistic_coefficient,
         )
     )
+    # Simulate persisted data written by an older release. Mutate the serialized
+    # payload directly so current Ammo validation does not reject the fixture
+    # before it reaches the database migration path we are testing.
+    payload["muzzle_velocity"] = muzzle_velocity
+    payload["ballistic_coefficient"] = ballistic_coefficient
+
     connection = sqlite3.connect(path)
     try:
         connection.execute(
