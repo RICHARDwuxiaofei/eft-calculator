@@ -73,12 +73,13 @@ class CurrentApproximation:
 
     metadata = RulesetMetadata(
         name="Community reference / current-original durability",
-        version="community-reference-2026.09-v2",
+        version="community-reference-2026.09-v3",
         game_version="unverified-current-patch",
-        created_at="2026-09-16",
+        created_at="2026-09-18",
         confidence=CalculationConfidence.APPROXIMATION,
         sources=(
             "https://escapefromtarkov.fandom.com/wiki/Ballistics",
+            "https://escapefromtarkov.fandom.com/wiki/Changelog#0.14.6.0.29862",
             "https://www.desmos.com/calculator/m8cmsfokkl",
             ("https://github.com/bugybon/TarkovBallisticsSimulator/blob/"
              "82ea32437423c2f1d3ed9ad5d2807eaba15efbc4/api/balistics.js"),
@@ -100,6 +101,12 @@ class CurrentApproximation:
         if pen <= 0:
             return 0.0
         resistance = armor_resistance(armor)
+        # BSG's 0.14.6 armor penetration rework explicitly documents a guaranteed
+        # penetration when penetration power is at least 15 above effective armor
+        # durability. Keep that hard boundary instead of letting the smooth community
+        # curve asymptotically stop below 100% in this region.
+        if pen >= resistance + 15.0:
+            return 1.0
         if pen >= resistance:
             probability = (100.0 + pen / (0.9 * resistance - pen)) / 100.0
         elif pen > resistance - 15.0:
@@ -151,9 +158,9 @@ class CurrentApproximation:
 class ExperimentalRuleset(CurrentApproximation):
     metadata = RulesetMetadata(
         name="Experimental distance sensitivity",
-        version="experimental-distance-2026.09-v2",
+        version="experimental-distance-2026.09-v3",
         game_version="unverified-current-patch",
-        created_at="2026-09-16",
+        created_at="2026-09-18",
         confidence=CalculationConfidence.EXPERIMENTAL,
         sources=CurrentApproximation.metadata.sources,
         limitations=CurrentApproximation.metadata.limitations,
