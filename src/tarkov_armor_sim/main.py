@@ -8,6 +8,7 @@ from pathlib import Path
 from . import __version__
 from .data import DATA_VERSION, Database, default_database_path
 from .legacy_db import repair_legacy_ammo_payloads
+from .rulesets import CurrentApproximation
 
 LOGGER = logging.getLogger(__name__)
 
@@ -26,7 +27,7 @@ def configure_logging() -> None:
         sys.version.split()[0],
         platform.platform(),
         DATA_VERSION,
-        "community-reference-2026.09-v2",
+        CurrentApproximation.metadata.version,
     )
 
 
@@ -47,7 +48,7 @@ def main() -> int:
         from PySide6.QtCore import QTimer
 
         from .engine import analyze
-        from .rulesets import CurrentApproximation
+
         window.shots.setValue(1)
         window._choose_preset(0)
         result = analyze(window._scenario(), CurrentApproximation())
