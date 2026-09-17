@@ -38,7 +38,7 @@
     "three_shot_penetration_probability": 1.0,
     "expected_health_damage": 70.00384518451771,
     "expected_blunt_damage": 0.20160000000000014,
-    "ruleset_version": "community-reference-2026.09-v2"
+    "ruleset_version": "community-reference-2026.09-v3"
   },
   "verification_scope": "Deterministic regression snapshot, not game ground truth. Independent numeric anchors live in tests/test_ballistics_reference.py."
 }
