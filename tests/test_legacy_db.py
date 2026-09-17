@@ -2,7 +2,7 @@ import json
 import sqlite3
 from dataclasses import asdict, replace
 
-from tarkov_armor_sim.data import Database, SEED_AMMO
+from tarkov_armor_sim.data import SEED_AMMO, Database
 from tarkov_armor_sim.legacy_db import repair_legacy_ammo_payloads
 
 
