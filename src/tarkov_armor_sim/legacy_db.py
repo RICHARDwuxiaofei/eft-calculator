@@ -21,8 +21,8 @@ def repair_legacy_ammo_payloads(path: Path) -> int:
     """Repair optional ballistics written by older releases before strict validation.
 
     Older databases may contain ``0`` (or another invalid value) for optional
-    ballistics such as muzzle velocity.  The current :class:`Ammo` model treats
-    unknown values as ``None`` and correctly rejects non-positive values.  Repair
+    ballistics such as muzzle velocity. The current :class:`Ammo` model treats
+    unknown values as ``None`` and correctly rejects non-positive values. Repair
     only those nullable metadata fields instead of inventing a physical value or
     replacing the rest of the user's stored record.
 
@@ -43,9 +43,11 @@ def repair_legacy_ammo_payloads(path: Path) -> int:
         for item_id, payload in connection.execute("SELECT id, payload FROM ammo").fetchall():
             try:
                 raw = json.loads(payload)
-            except (TypeError, ValueError, json.JSONDecodeError):
+            except (TypeError, ValueError):
                 # Do not guess how to reconstruct an unrelated corrupt payload.
                 # Database validation will still surface that corruption clearly.
+                continue
+            if not isinstance(raw, dict):
                 continue
 
             changed = False
