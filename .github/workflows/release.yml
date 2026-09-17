@@ -67,15 +67,28 @@ jobs:
           cache: pip
       - run: python -m pip install -e '.[dev]'
       - run: python tools/build_windows.py
-      - name: Launch the actual packaged executable
+      - name: Launch packaged executable with a fresh database
         shell: pwsh
         run: |
           New-Item -ItemType Directory -Force artifacts | Out-Null
-          $env:EFT_SMOKE_SCREENSHOT = Join-Path $PWD 'artifacts/windows-smoke.png'
+          $env:LOCALAPPDATA = Join-Path $PWD 'artifacts/fresh-localappdata'
+          $env:EFT_SMOKE_SCREENSHOT = Join-Path $PWD 'artifacts/windows-smoke-fresh.png'
           $process = Start-Process -FilePath 'dist/TarkovArmorSimulator/TarkovArmorSimulator.exe' -ArgumentList '--smoke-test' -PassThru
-          if (-not $process.WaitForExit(90000)) { $process.Kill(); throw 'Packaged application timed out' }
-          if ($process.ExitCode -ne 0) { throw "Packaged application exited $($process.ExitCode)" }
-          if (-not (Test-Path $env:EFT_SMOKE_SCREENSHOT)) { throw 'Missing rendered application screenshot' }
+          if (-not $process.WaitForExit(90000)) { $process.Kill(); throw 'Fresh packaged application timed out' }
+          if ($process.ExitCode -ne 0) { throw "Fresh packaged application exited $($process.ExitCode)" }
+          if (-not (Test-Path $env:EFT_SMOKE_SCREENSHOT)) { throw 'Missing fresh rendered application screenshot' }
+      - name: Launch packaged executable while upgrading a legacy database
+        shell: pwsh
+        run: |
+          $env:LOCALAPPDATA = Join-Path $PWD 'artifacts/legacy-localappdata'
+          $dbPath = Join-Path $env:LOCALAPPDATA 'TarkovArmorSimulator/current.sqlite3'
+          python tools/legacy_db_smoke.py create $dbPath
+          $env:EFT_SMOKE_SCREENSHOT = Join-Path $PWD 'artifacts/windows-smoke-legacy-upgrade.png'
+          $process = Start-Process -FilePath 'dist/TarkovArmorSimulator/TarkovArmorSimulator.exe' -ArgumentList '--smoke-test' -PassThru
+          if (-not $process.WaitForExit(90000)) { $process.Kill(); throw 'Legacy-upgrade packaged application timed out' }
+          if ($process.ExitCode -ne 0) { throw "Legacy-upgrade packaged application exited $($process.ExitCode)" }
+          if (-not (Test-Path $env:EFT_SMOKE_SCREENSHOT)) { throw 'Missing legacy-upgrade rendered application screenshot' }
+          python tools/legacy_db_smoke.py assert-repaired $dbPath
       - name: Package Windows application
         shell: pwsh
         env:
@@ -256,7 +269,7 @@ jobs:
           cd release-files
           sha256sum *.zip *.apk > SHA256SUMS.txt
           cd ..
-          printf '## Verified build\n\nSource commit: `%s`\n\nNumerical regression, actual Windows EXE startup, Android compilation, emulator consistency tests and signed delivery APK startup passed for this commit.\n\nThis is a documented community ballistic model, not an assertion of exact current proprietary game behavior. See docs/RESEARCH.md and docs/REVIEW_2026-09-16.md.\n\n' "$GITHUB_SHA" > release-notes.md
+          printf '## Verified build\n\nSource commit: `%s`\n\nNumerical regression, fresh and legacy-upgrade Windows EXE startup, Android compilation, emulator consistency tests and signed delivery APK startup passed for this commit.\n\nThis is a documented community ballistic model, not an assertion of exact current proprietary game behavior. See docs/RESEARCH.md and docs/REVIEW_2026-09-16.md.\n\n' "$GITHUB_SHA" > release-notes.md
           cat release-files/android-build.txt >> release-notes.md
           if gh release view "$tag" >/dev/null 2>&1; then
             echo "Release $tag already exists; keep its verified assets and promote it to a normal latest release."
