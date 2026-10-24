@@ -192,6 +192,28 @@ EN_US: dict[str, str] = {
     "3级芳纶内衬": "Class 3 aramid liner",
     "6级钢板": "Class 6 steel plate",
     "3级软甲": "Class 3 soft armor",
+    "参数已变更，正在重新计算；旧结果不可导出。": "Inputs changed; recalculating. Previous result cannot be exported.",
+    "计算完成 · 参数、曲线和导出对应同一快照。": "Calculation complete; inputs, charts and exports use the same snapshot.",
+    "{probability:.1%}（{shots} 发内）": "{probability:.1%} (within {shots} triggers)",
+    "抽样 {count:,} 次，首发概率 95% 区间 {low:.1%}–{high:.1%}": "{count:,} samples; first-trigger probability 95% interval {low:.1%}–{high:.1%}",
+    "首颗弹丸解析期望（无抽样误差）": "Exact single-projectile expectation (no sampling error)",
+    "{ruleset}\n数据：{data}": "{ruleset}\nData: {data}",
+    "成功穿透时首发肉伤合计：{damage}\n": "First-trigger flesh damage conditional on penetration: {damage}\n",
+    "整轮总伤害期望 {damage:.2f}；上方肉伤/钝伤仅指首发。首穿均值仅统计本轮内发生穿透的轨迹。": "Expected entire-burst damage {damage:.2f}; flesh/blunt values above are for the first trigger. Mean first penetration is conditional on penetration within this burst.",
+    "霰弹全部弹丸命中同一路径，逐颗结算。游戏模型仍是社区近似，不含跳弹/碎裂/黑肢扩散。": "All pellets hit the same path sequentially. The community model excludes ricochet, fragmentation and black-limb overflow.",
+    "不预测": "Not predicted",
+    "前 {shots} 发内至少穿透一次": "At least one penetration in the first {shots} triggers",
+    "社区近似": "Community approximation",
+    "实验性": "Experimental",
+    "损坏数据库已完整保存在 {path}，当前使用离线目录。": "Unreadable database preserved at {path}; using the offline catalog.",
+}
+
+MODEL_WARNINGS_ZH = {
+    "Stomach: no death prediction; black-limb overflow is not modeled.": "腹部不预测致死；尚未模拟黑肢伤害扩散。",
+    "Distance decay is a linear sensitivity estimate, NOT verified EFT flight physics.": "距离衰减为线性敏感性估算，尚未经游戏弹道验证。",
+    "Distance decay disabled: calculations use muzzle damage/penetration.": "距离衰减已关闭，当前使用枪口处的伤害与穿深。",
+    "Backing-soft-armor blunt attenuation is not modeled; blunt damage is approximate.": "尚未模拟后方软甲对钝伤的衰减，钝伤数值为近似值。",
+    "All pellets hit this same chosen armor path; no spread or partial-hit selection.": "全部弹丸命中所选护甲路径，未模拟散布或部分命中。",
 }
 
 
@@ -214,6 +236,8 @@ class I18n:
         self.locale = normalize_locale(locale)
 
     def translate(self, source: str, **values: object) -> str:
+        if source in MODEL_WARNINGS_ZH:
+            return MODEL_WARNINGS_ZH[source] if self.locale == "zh_CN" else source
         canonical = self._english_to_source.get(source, source)
         translated = EN_US.get(canonical, canonical) if self.locale == "en_US" else canonical
         return translated.format(**values) if values else translated

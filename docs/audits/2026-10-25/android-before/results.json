@@ -1,0 +1,78 @@
+{
+  "serial": "emulator-5580",
+  "apk_sha256": "57a6b396c6ee1c6796a9a3e02292c13a8cfec23b028dd2c81ed1357672023886",
+  "screenshots": [
+    {
+      "locale": "zh-CN",
+      "layout": "portrait",
+      "physical_size": "1080x1920",
+      "density": "480",
+      "pid": "8730",
+      "text_count": 63,
+      "screenshot": "zh-CN-portrait.png"
+    },
+    {
+      "locale": "zh-CN",
+      "layout": "landscape",
+      "physical_size": "1920x1080",
+      "density": "320",
+      "pid": "8825",
+      "text_count": 59,
+      "screenshot": "zh-CN-landscape.png"
+    },
+    {
+      "locale": "zh-CN",
+      "layout": "narrow",
+      "physical_size": "720x1280",
+      "density": "360",
+      "pid": "8938",
+      "text_count": 57,
+      "screenshot": "zh-CN-narrow.png"
+    },
+    {
+      "locale": "zh-CN",
+      "layout": "wide",
+      "physical_size": "1600x1000",
+      "density": "160",
+      "pid": "9051",
+      "text_count": 79,
+      "screenshot": "zh-CN-wide.png"
+    },
+    {
+      "locale": "en-US",
+      "layout": "portrait",
+      "physical_size": "1080x1920",
+      "density": "480",
+      "pid": "9161",
+      "text_count": 63,
+      "screenshot": "en-US-portrait.png"
+    },
+    {
+      "locale": "en-US",
+      "layout": "landscape",
+      "physical_size": "1920x1080",
+      "density": "320",
+      "pid": "9276",
+      "text_count": 59,
+      "screenshot": "en-US-landscape.png"
+    },
+    {
+      "locale": "en-US",
+      "layout": "narrow",
+      "physical_size": "720x1280",
+      "density": "360",
+      "pid": "9384",
+      "text_count": 55,
+      "screenshot": "en-US-narrow.png"
+    },
+    {
+      "locale": "en-US",
+      "layout": "wide",
+      "physical_size": "1600x1000",
+      "density": "160",
+      "pid": "9492",
+      "text_count": 79,
+      "screenshot": "en-US-wide.png"
+    }
+  ]
+}

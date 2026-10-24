@@ -1,6 +1,7 @@
 package com.eftcalculator.data
 
 import android.content.Context
+import com.eftcalculator.displayCaliber
 import androidx.room.withTransaction
 import androidx.work.CoroutineWorker
 import androidx.work.ExistingPeriodicWorkPolicy
@@ -21,7 +22,8 @@ class DataSyncWorker(context: Context, params: WorkerParameters) : CoroutineWork
         require(items.map { it.id }.toSet().size == items.size) { "Duplicate ammo IDs" }
         val database = AppDatabase.get(applicationContext)
         database.withTransaction {
-            database.ammoDao().upsertAll(items)
+            val existing = database.ammoDao().all().associateBy { it.id }
+            database.ammoDao().upsertAll(items.filter { existing[it.id]?.source != "manual-override" })
         }
         PreferencesRepository(applicationContext).markSync()
     }.fold(onSuccess = { Result.success() }, onFailure = { Result.retry() })
@@ -85,7 +87,7 @@ class DataSyncWorker(context: Context, params: WorkerParameters) : CoroutineWork
                             id = item.getString("id"),
                             name = item.getString("name"),
                             shortName = item.optString("shortName", item.getString("name")),
-                            caliber = record.getString("caliber").removePrefix("Caliber"),
+                            caliber = displayCaliber(record.getString("caliber")),
                             damage = record.getDouble("damage"),
                             penetration = record.getDouble("penetrationPower"),
                             armorDamage = record.getDouble("armorDamage"),
@@ -122,6 +124,7 @@ class DataSyncWorker(context: Context, params: WorkerParameters) : CoroutineWork
         require(projectileCount in 1..64)
         require(speed == null || (speed.isFinite() && speed > 0))
         require(id.matches(Regex("[a-f0-9]{24}")))
+        require(name.isNotBlank() && shortName.isNotBlank() && caliber.isNotBlank())
         return AmmoEntity(
         id,
         name,

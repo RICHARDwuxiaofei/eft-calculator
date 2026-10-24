@@ -69,11 +69,13 @@ class Ammo:
             raise ValueError("projectile_count must be an integer from 1 to 64")
         for name in ("muzzle_velocity", "ballistic_coefficient"):
             value = getattr(self, name)
-            if value is not None and (not isfinite(value) or value <= 0):
+            if value is not None and (isinstance(value, bool) or not isinstance(value, (int, float))
+                                      or not isfinite(value) or value <= 0):
                 raise ValueError(f"{name} must be finite and positive")
         for name in ("fragmentation_chance", "ricochet_chance"):
             value = getattr(self, name)
-            if value is not None and (not isfinite(value) or not 0 <= value <= 1):
+            if value is not None and (isinstance(value, bool) or not isinstance(value, (int, float))
+                                      or not isfinite(value) or not 0 <= value <= 1):
                 raise ValueError(f"{name} must be between 0 and 1")
         if self.damage < 0 or self.penetration_power < 0:
             raise ValueError("弹药伤害和穿深不能为负数")
@@ -81,6 +83,8 @@ class Ammo:
             raise ValueError("甲伤百分比必须在 0 到 100 之间")
         if self.projectile_count < 1:
             raise ValueError("弹丸数量必须为正整数")
+        if self.damage > 1_000_000 or self.penetration_power > 10_000:
+            raise ValueError("Damage/penetration exceed supported numeric limits")
 
     def display_name(self, locale: str = "en_US") -> str:
         language = "zh" if locale.lower().startswith("zh") else "en"
@@ -104,6 +108,8 @@ class ArmorLayer:
     enabled: bool = True
 
     def __post_init__(self) -> None:
+        if type(self.enabled) is not bool or type(self.is_hard_armor) is not bool:
+            raise ValueError("enabled and is_hard_armor must be boolean")
         for name in ("current_durability", "displayed_max_durability",
                      "original_max_durability", "destructibility", "blunt_throughput"):
             value = getattr(self, name)
@@ -139,7 +145,7 @@ class ShotScenario:
     shot_count: int = 1
     simulation_iterations: int = 10_000
     enable_fragmentation: bool = False
-    enable_distance_decay: bool = True
+    enable_distance_decay: bool = False
     enable_skills: bool = False
     random_seed: int | None = None
 
@@ -165,6 +171,9 @@ class ShotScenario:
             raise ValueError("模拟次数必须为正整数")
         if len(self.armor_layers) > 12:
             raise ValueError("护甲层数最多为 12")
+        work = self.shot_count * self.ammo.projectile_count * max(1, len(self.armor_layers)) * self.simulation_iterations
+        if work > 100_000_000:
+            raise ValueError("Work budget exceeded; reduce shots, layers, pellets or iterations")
 
 
 @dataclass

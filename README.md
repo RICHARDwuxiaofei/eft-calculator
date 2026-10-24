@@ -1,4 +1,4 @@
-# EFT Calculator 2.2.0
+# EFT Calculator 2.2.3 audit candidate
 
 Offline Chinese/English desktop and Android calculator for a selected Escape from
 Tarkov armor hit path. The two frontends share one Python calculation core.
@@ -7,7 +7,12 @@ Tarkov armor hit path. The two frontends share one Python calculation core.
 and a versioned community armor model. This is not a verified replica of current
 closed-source EFT server code. Read [the research and limitations](docs/RESEARCH.md).
 
-## This release
+## Current audit candidate
+
+See [the 2026-10-25 audit](docs/AUDIT_2026-10-25.md) for the starting commit,
+independent numerical experiments, source conflicts, real UI captures and runtime
+evidence. Three public-source numeric conflicts remain explicitly unresolved;
+2.2.3 is not automatically published as a formal release.
 
 184 cartridges, 38 individual plates, four 5.8x42 cartridges, and 222 item-ID-keyed
 images. Shotguns always resolve ALL pellets sequentially against updated armor.
@@ -37,7 +42,9 @@ to capture actual Qt layouts at widths 360, 390, 800 and 1440. On Windows run
 
 Android uses Java 17, Python 3.13/Chaquopy, Android SDK 36.1 and the checked-in Gradle
 wrapper. From `android`, run `./gradlew testDebugUnitTest assembleDebug`. The native
-instrumentation suite compares all six shared regression vectors on the device.
+instrumentation suite compares all six shared regression vectors plus 92 independently
+derived Decimal reference cases on the device, and checks database migration and
+corrupt-file preservation. An emulator is not a substitute for in-game measurements.
 
 ## Releases
 
@@ -46,7 +53,8 @@ portable ZIP, Android signed-release APK (when signing secrets are configured), 
 explicitly labeled debug-signed APK. Debug builds are not production-store builds;
 the signing certificate can differ between builds, so installation over an existing
 build with a different certificate may require removal of the older build first.
-SHA256SUMS and validation artifacts accompany releases. Existing version tags are
+Publishing requires an explicit manual workflow choice after verification; pushing
+main only builds and tests. SHA256SUMS and validation artifacts accompany releases. Existing version tags are
 never force-moved to a different source commit.
 
 See [the repair review](docs/REVIEW_2026-09-16.md) and [CHANGELOG.md](CHANGELOG.md).

@@ -29,8 +29,8 @@ android {
         applicationId = "com.eftcalculator"
         minSdk = 24
         targetSdk = 36
-        versionCode = 20202
-        versionName = "2.2.2"
+        versionCode = 20203
+        versionName = "2.2.3"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
         ndk.abiFilters += listOf("arm64-v8a", "x86_64")
@@ -69,6 +69,7 @@ android {
     buildFeatures.compose = true
     packaging.resources.excludes += "/META-INF/{AL2.0,LGPL2.1}"
     sourceSets.getByName("main").assets.srcDir("../../shared/test_vectors")
+    sourceSets.getByName("androidTest").assets.srcDir("../../tests/fixtures")
     sourceSets.getByName("main").assets.srcDir(
         "../../src/tarkov_armor_sim/resources/items",
     )
@@ -114,6 +115,8 @@ dependencies {
     testImplementation("org.json:json:20250517")
     androidTestImplementation("androidx.test.ext:junit:1.3.0")
     androidTestImplementation("androidx.test:core-ktx:1.7.0")
+    // Android 16 removed the reflective InputManager singleton used by Espresso 3.6.
+    androidTestImplementation("androidx.test.espresso:espresso-core:3.7.0")
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")

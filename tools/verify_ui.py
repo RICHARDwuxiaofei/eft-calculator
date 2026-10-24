@@ -7,18 +7,20 @@ from pathlib import Path
 
 os.environ.setdefault('QT_QPA_PLATFORM','offscreen')
 os.environ.setdefault('EFT_CALCULATOR_LANG','zh_CN')
-from PySide6.QtWidgets import QApplication
+from PySide6.QtCore import QSettings
 
 from tarkov_armor_sim.data import Database
-from tarkov_armor_sim.ui import MainWindow
+from tarkov_armor_sim.ui import create_application
 
 
 def main():
-    app=QApplication.instance() or QApplication([])
     target=Path('artifacts/ui');target.mkdir(parents=True,exist_ok=True)
     evidence=[]
     with tempfile.TemporaryDirectory() as tmp:
-        window=MainWindow(Database(Path(tmp)/'ui.db'))
+        os.environ["EFT_TEST_SETTINGS_DIRECTORY"] = tmp
+        QSettings.setDefaultFormat(QSettings.Format.IniFormat)
+        QSettings.setPath(QSettings.Format.IniFormat, QSettings.Scope.UserScope, tmp)
+        app,window=create_application(Database(Path(tmp)/'ui.db'))
         window.shots.setValue(1);window._choose_preset(0);window._analyze();window.show()
         for width,height in ((1440,1000),(800,900),(390,844),(360,640)):
             window.resize(width,height)
@@ -33,6 +35,8 @@ def main():
             app.processEvents();time.sleep(.03)
         assert window.armor_dialog.grab().save(str(target/'armor-editor.png'))
         window.armor_dialog.hide();window.close();app.processEvents()
+        window.thread_pool.waitForDone(10000)
+        window.database.connection.close()
     (target/'layout-checks.json').write_text(json.dumps(evidence,indent=2)+'\n')
 
 

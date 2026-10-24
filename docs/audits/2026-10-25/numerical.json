@@ -1,0 +1,1474 @@
+[
+  {
+    "id": "class-1-durability-0-offset--12",
+    "method": "exact-single-projectile",
+    "samples": 0,
+    "errors": {
+      "final_penetration_probability": 0.0,
+      "expected_health_damage": 0.0,
+      "expected_blunt_damage": 0.0,
+      "expected_burst_total_damage": 0.0
+    },
+    "probability_interval_95": [
+      1.0,
+      1.0
+    ],
+    "expected_probability": 1.0
+  },
+  {
+    "id": "class-1-durability-0-offset-0",
+    "method": "exact-single-projectile",
+    "samples": 0,
+    "errors": {
+      "final_penetration_probability": 0.0,
+      "expected_health_damage": 0.0,
+      "expected_blunt_damage": 0.0,
+      "expected_burst_total_damage": 0.0
+    },
+    "probability_interval_95": [
+      1.0,
+      1.0
+    ],
+    "expected_probability": 1.0
+  },
+  {
+    "id": "class-1-durability-0-offset-16",
+    "method": "exact-single-projectile",
+    "samples": 0,
+    "errors": {
+      "final_penetration_probability": 0.0,
+      "expected_health_damage": 0.0,
+      "expected_blunt_damage": 0.0,
+      "expected_burst_total_damage": 0.0
+    },
+    "probability_interval_95": [
+      1.0,
+      1.0
+    ],
+    "expected_probability": 1.0
+  },
+  {
+    "id": "class-1-durability-0.25-offset--12",
+    "method": "exact-single-projectile",
+    "samples": 0,
+    "errors": {
+      "final_penetration_probability": 0.0,
+      "expected_health_damage": 0.0,
+      "expected_blunt_damage": -4.440892098500626e-16,
+      "expected_burst_total_damage": -4.440892098500626e-16
+    },
+    "probability_interval_95": [
+      0.0,
+      0.0
+    ],
+    "expected_probability": 0.0
+  },
+  {
+    "id": "class-1-durability-0.25-offset-0",
+    "method": "exact-single-projectile",
+    "samples": 0,
+    "errors": {
+      "final_penetration_probability": 0.0,
+      "expected_health_damage": 0.0,
+      "expected_blunt_damage": -4.163336342344337e-17,
+      "expected_burst_total_damage": -3.552713678800501e-15
+    },
+    "probability_interval_95": [
+      0.9740046517991517,
+      0.9740046517991517
+    ],
+    "expected_probability": 0.9740046517991517
+  },
+  {
+    "id": "class-1-durability-0.25-offset-16",
+    "method": "exact-single-projectile",
+    "samples": 0,
+    "errors": {
+      "final_penetration_probability": 0.0,
+      "expected_health_damage": 0.0,
+      "expected_blunt_damage": 0.0,
+      "expected_burst_total_damage": 0.0
+    },
+    "probability_interval_95": [
+      1.0,
+      1.0
+    ],
+    "expected_probability": 1.0
+  },
+  {
+    "id": "class-1-durability-0.5-offset--12",
+    "method": "exact-single-projectile",
+    "samples": 0,
+    "errors": {
+      "final_penetration_probability": 0.0,
+      "expected_health_damage": 0.0,
+      "expected_blunt_damage": 0.0,
+      "expected_burst_total_damage": 0.0
+    },
+    "probability_interval_95": [
+      0.0,
+      0.0
+    ],
+    "expected_probability": 0.0
+  },
+  {
+    "id": "class-1-durability-0.5-offset-0",
+    "method": "exact-single-projectile",
+    "samples": 0,
+    "errors": {
+      "final_penetration_probability": 0.0,
+      "expected_health_damage": 0.0,
+      "expected_blunt_damage": -2.7755575615628914e-17,
+      "expected_burst_total_damage": -3.552713678800501e-15
+    },
+    "probability_interval_95": [
+      0.9548216233058109,
+      0.9548216233058109
+    ],
+    "expected_probability": 0.9548216233058109
+  },
+  {
+    "id": "class-1-durability-0.5-offset-16",
+    "method": "exact-single-projectile",
+    "samples": 0,
+    "errors": {
+      "final_penetration_probability": 0.0,
+      "expected_health_damage": 0.0,
+      "expected_blunt_damage": 0.0,
+      "expected_burst_total_damage": 0.0
+    },
+    "probability_interval_95": [
+      1.0,
+      1.0
+    ],
+    "expected_probability": 1.0
+  },
+  {
+    "id": "class-1-durability-1-offset--12",
+    "method": "exact-single-projectile",
+    "samples": 0,
+    "errors": {
+      "final_penetration_probability": 0.0,
+      "expected_health_damage": 0.0,
+      "expected_blunt_damage": -4.440892098500626e-16,
+      "expected_burst_total_damage": -4.440892098500626e-16
+    },
+    "probability_interval_95": [
+      0.0,
+      0.0
+    ],
+    "expected_probability": 0.0
+  },
+  {
+    "id": "class-1-durability-1-offset-0",
+    "method": "exact-single-projectile",
+    "samples": 0,
+    "errors": {
+      "final_penetration_probability": -2.220446049250313e-16,
+      "expected_health_damage": -7.105427357601002e-15,
+      "expected_blunt_damage": 6.661338147750939e-16,
+      "expected_burst_total_damage": -7.105427357601002e-15
+    },
+    "probability_interval_95": [
+      0.8929119700124946,
+      0.8929119700124946
+    ],
+    "expected_probability": 0.8929119700124948
+  },
+  {
+    "id": "class-1-durability-1-offset-16",
+    "method": "exact-single-projectile",
+    "samples": 0,
+    "errors": {
+      "final_penetration_probability": 0.0,
+      "expected_health_damage": 0.0,
+      "expected_blunt_damage": 0.0,
+      "expected_burst_total_damage": 0.0
+    },
+    "probability_interval_95": [
+      1.0,
+      1.0
+    ],
+    "expected_probability": 1.0
+  },
+  {
+    "id": "class-2-durability-0-offset--12",
+    "method": "exact-single-projectile",
+    "samples": 0,
+    "errors": {
+      "final_penetration_probability": 0.0,
+      "expected_health_damage": 0.0,
+      "expected_blunt_damage": 0.0,
+      "expected_burst_total_damage": 0.0
+    },
+    "probability_interval_95": [
+      1.0,
+      1.0
+    ],
+    "expected_probability": 1.0
+  },
+  {
+    "id": "class-2-durability-0-offset-0",
+    "method": "exact-single-projectile",
+    "samples": 0,
+    "errors": {
+      "final_penetration_probability": 0.0,
+      "expected_health_damage": 0.0,
+      "expected_blunt_damage": 0.0,
+      "expected_burst_total_damage": 0.0
+    },
+    "probability_interval_95": [
+      1.0,
+      1.0
+    ],
+    "expected_probability": 1.0
+  },
+  {
+    "id": "class-2-durability-0-offset-16",
+    "method": "exact-single-projectile",
+    "samples": 0,
+    "errors": {
+      "final_penetration_probability": 0.0,
+      "expected_health_damage": 0.0,
+      "expected_blunt_damage": 0.0,
+      "expected_burst_total_damage": 0.0
+    },
+    "probability_interval_95": [
+      1.0,
+      1.0
+    ],
+    "expected_probability": 1.0
+  },
+  {
+    "id": "class-2-durability-0.25-offset--12",
+    "method": "exact-single-projectile",
+    "samples": 0,
+    "errors": {
+      "final_penetration_probability": -1.6653345369377348e-16,
+      "expected_health_damage": -3.552713678800501e-15,
+      "expected_blunt_damage": 0.0,
+      "expected_burst_total_damage": -3.552713678800501e-15
+    },
+    "probability_interval_95": [
+      0.34792066481994444,
+      0.34792066481994444
+    ],
+    "expected_probability": 0.3479206648199446
+  },
+  {
+    "id": "class-2-durability-0.25-offset-0",
+    "method": "exact-single-projectile",
+    "samples": 0,
+    "errors": {
+      "final_penetration_probability": 0.0,
+      "expected_health_damage": -7.105427357601002e-15,
+      "expected_blunt_damage": -4.163336342344337e-17,
+      "expected_burst_total_damage": -7.105427357601002e-15
+    },
+    "probability_interval_95": [
+      0.9740046517991517,
+      0.9740046517991517
+    ],
+    "expected_probability": 0.9740046517991517
+  },
+  {
+    "id": "class-2-durability-0.25-offset-16",
+    "method": "exact-single-projectile",
+    "samples": 0,
+    "errors": {
+      "final_penetration_probability": 0.0,
+      "expected_health_damage": 0.0,
+      "expected_blunt_damage": 0.0,
+      "expected_burst_total_damage": 0.0
+    },
+    "probability_interval_95": [
+      1.0,
+      1.0
+    ],
+    "expected_probability": 1.0
+  },
+  {
+    "id": "class-2-durability-0.5-offset--12",
+    "method": "exact-single-projectile",
+    "samples": 0,
+    "errors": {
+      "final_penetration_probability": -5.551115123125783e-17,
+      "expected_health_damage": -1.3322676295501878e-15,
+      "expected_blunt_damage": 2.220446049250313e-16,
+      "expected_burst_total_damage": -1.7763568394002505e-15
+    },
+    "probability_interval_95": [
+      0.1298028061831153,
+      0.1298028061831153
+    ],
+    "expected_probability": 0.12980280618311535
+  },
+  {
+    "id": "class-2-durability-0.5-offset-0",
+    "method": "exact-single-projectile",
+    "samples": 0,
+    "errors": {
+      "final_penetration_probability": 0.0,
+      "expected_health_damage": 0.0,
+      "expected_blunt_damage": -2.7755575615628914e-17,
+      "expected_burst_total_damage": 0.0
+    },
+    "probability_interval_95": [
+      0.9548216233058109,
+      0.9548216233058109
+    ],
+    "expected_probability": 0.9548216233058109
+  },
+  {
+    "id": "class-2-durability-0.5-offset-16",
+    "method": "exact-single-projectile",
+    "samples": 0,
+    "errors": {
+      "final_penetration_probability": 0.0,
+      "expected_health_damage": 0.0,
+      "expected_blunt_damage": 0.0,
+      "expected_burst_total_damage": 0.0
+    },
+    "probability_interval_95": [
+      1.0,
+      1.0
+    ],
+    "expected_probability": 1.0
+  },
+  {
+    "id": "class-2-durability-1-offset--12",
+    "method": "exact-single-projectile",
+    "samples": 0,
+    "errors": {
+      "final_penetration_probability": -8.326672684688674e-17,
+      "expected_health_damage": -2.6645352591003757e-15,
+      "expected_blunt_damage": 0.0,
+      "expected_burst_total_damage": -2.6645352591003757e-15
+    },
+    "probability_interval_95": [
+      0.0332152269887546,
+      0.0332152269887546
+    ],
+    "expected_probability": 0.03321522698875468
+  },
+  {
+    "id": "class-2-durability-1-offset-0",
+    "method": "exact-single-projectile",
+    "samples": 0,
+    "errors": {
+      "final_penetration_probability": -4.440892098500626e-16,
+      "expected_health_damage": -1.7763568394002505e-14,
+      "expected_blunt_damage": 1.2212453270876722e-15,
+      "expected_burst_total_damage": -1.4210854715202004e-14
+    },
+    "probability_interval_95": [
+      0.8858519616826318,
+      0.8858519616826318
+    ],
+    "expected_probability": 0.8858519616826322
+  },
+  {
+    "id": "class-2-durability-1-offset-16",
+    "method": "exact-single-projectile",
+    "samples": 0,
+    "errors": {
+      "final_penetration_probability": 0.0,
+      "expected_health_damage": 0.0,
+      "expected_blunt_damage": 0.0,
+      "expected_burst_total_damage": 0.0
+    },
+    "probability_interval_95": [
+      1.0,
+      1.0
+    ],
+    "expected_probability": 1.0
+  },
+  {
+    "id": "class-3-durability-0-offset--12",
+    "method": "exact-single-projectile",
+    "samples": 0,
+    "errors": {
+      "final_penetration_probability": 0.0,
+      "expected_health_damage": 0.0,
+      "expected_blunt_damage": 0.0,
+      "expected_burst_total_damage": 0.0
+    },
+    "probability_interval_95": [
+      1.0,
+      1.0
+    ],
+    "expected_probability": 1.0
+  },
+  {
+    "id": "class-3-durability-0-offset-0",
+    "method": "exact-single-projectile",
+    "samples": 0,
+    "errors": {
+      "final_penetration_probability": 0.0,
+      "expected_health_damage": 0.0,
+      "expected_blunt_damage": 0.0,
+      "expected_burst_total_damage": 0.0
+    },
+    "probability_interval_95": [
+      1.0,
+      1.0
+    ],
+    "expected_probability": 1.0
+  },
+  {
+    "id": "class-3-durability-0-offset-16",
+    "method": "exact-single-projectile",
+    "samples": 0,
+    "errors": {
+      "final_penetration_probability": 0.0,
+      "expected_health_damage": 0.0,
+      "expected_blunt_damage": 0.0,
+      "expected_burst_total_damage": 0.0
+    },
+    "probability_interval_95": [
+      1.0,
+      1.0
+    ],
+    "expected_probability": 1.0
+  },
+  {
+    "id": "class-3-durability-0.25-offset--12",
+    "method": "exact-single-projectile",
+    "samples": 0,
+    "errors": {
+      "final_penetration_probability": -6.661338147750939e-16,
+      "expected_health_damage": -2.1316282072803006e-14,
+      "expected_blunt_damage": 1.7763568394002505e-15,
+      "expected_burst_total_damage": -2.1316282072803006e-14
+    },
+    "probability_interval_95": [
+      0.6239478116343483,
+      0.6239478116343483
+    ],
+    "expected_probability": 0.623947811634349
+  },
+  {
+    "id": "class-3-durability-0.25-offset-0",
+    "method": "exact-single-projectile",
+    "samples": 0,
+    "errors": {
+      "final_penetration_probability": 0.0,
+      "expected_health_damage": 0.0,
+      "expected_blunt_damage": -4.163336342344337e-17,
+      "expected_burst_total_damage": 0.0
+    },
+    "probability_interval_95": [
+      0.9740046517991517,
+      0.9740046517991517
+    ],
+    "expected_probability": 0.9740046517991517
+  },
+  {
+    "id": "class-3-durability-0.25-offset-16",
+    "method": "exact-single-projectile",
+    "samples": 0,
+    "errors": {
+      "final_penetration_probability": 0.0,
+      "expected_health_damage": 0.0,
+      "expected_blunt_damage": 0.0,
+      "expected_burst_total_damage": 0.0
+    },
+    "probability_interval_95": [
+      1.0,
+      1.0
+    ],
+    "expected_probability": 1.0
+  },
+  {
+    "id": "class-3-durability-0.5-offset--12",
+    "method": "exact-single-projectile",
+    "samples": 0,
+    "errors": {
+      "final_penetration_probability": -2.220446049250313e-16,
+      "expected_health_damage": -6.217248937900877e-15,
+      "expected_blunt_damage": 2.220446049250313e-16,
+      "expected_burst_total_damage": -6.217248937900877e-15
+    },
+    "probability_interval_95": [
+      0.19851838287752654,
+      0.19851838287752654
+    ],
+    "expected_probability": 0.19851838287752677
+  },
+  {
+    "id": "class-3-durability-0.5-offset-0",
+    "method": "exact-single-projectile",
+    "samples": 0,
+    "errors": {
+      "final_penetration_probability": -1.1102230246251565e-16,
+      "expected_health_damage": -1.4210854715202004e-14,
+      "expected_blunt_damage": 3.0531133177191805e-16,
+      "expected_burst_total_damage": -1.4210854715202004e-14
+    },
+    "probability_interval_95": [
+      0.9548216233058108,
+      0.9548216233058108
+    ],
+    "expected_probability": 0.9548216233058109
+  },
+  {
+    "id": "class-3-durability-0.5-offset-16",
+    "method": "exact-single-projectile",
+    "samples": 0,
+    "errors": {
+      "final_penetration_probability": 0.0,
+      "expected_health_damage": 0.0,
+      "expected_blunt_damage": 0.0,
+      "expected_burst_total_damage": 0.0
+    },
+    "probability_interval_95": [
+      1.0,
+      1.0
+    ],
+    "expected_probability": 1.0
+  },
+  {
+    "id": "class-3-durability-1-offset--12",
+    "method": "exact-single-projectile",
+    "samples": 0,
+    "errors": {
+      "final_penetration_probability": -1.6653345369377348e-16,
+      "expected_health_damage": -4.9960036108132044e-15,
+      "expected_blunt_damage": -4.440892098500626e-16,
+      "expected_burst_total_damage": -5.329070518200751e-15
+    },
+    "probability_interval_95": [
+      0.03186487296959584,
+      0.03186487296959584
+    ],
+    "expected_probability": 0.031864872969596
+  },
+  {
+    "id": "class-3-durability-1-offset-0",
+    "method": "exact-single-projectile",
+    "samples": 0,
+    "errors": {
+      "final_penetration_probability": -8.881784197001252e-16,
+      "expected_health_damage": -3.907985046680551e-14,
+      "expected_blunt_damage": 2.609024107869118e-15,
+      "expected_burst_total_damage": -3.552713678800501e-14
+    },
+    "probability_interval_95": [
+      0.8788199750104114,
+      0.8788199750104114
+    ],
+    "expected_probability": 0.8788199750104123
+  },
+  {
+    "id": "class-3-durability-1-offset-16",
+    "method": "exact-single-projectile",
+    "samples": 0,
+    "errors": {
+      "final_penetration_probability": 0.0,
+      "expected_health_damage": 0.0,
+      "expected_blunt_damage": 0.0,
+      "expected_burst_total_damage": 0.0
+    },
+    "probability_interval_95": [
+      1.0,
+      1.0
+    ],
+    "expected_probability": 1.0
+  },
+  {
+    "id": "class-4-durability-0-offset--12",
+    "method": "exact-single-projectile",
+    "samples": 0,
+    "errors": {
+      "final_penetration_probability": 0.0,
+      "expected_health_damage": 0.0,
+      "expected_blunt_damage": 0.0,
+      "expected_burst_total_damage": 0.0
+    },
+    "probability_interval_95": [
+      1.0,
+      1.0
+    ],
+    "expected_probability": 1.0
+  },
+  {
+    "id": "class-4-durability-0-offset-0",
+    "method": "exact-single-projectile",
+    "samples": 0,
+    "errors": {
+      "final_penetration_probability": 0.0,
+      "expected_health_damage": 0.0,
+      "expected_blunt_damage": 0.0,
+      "expected_burst_total_damage": 0.0
+    },
+    "probability_interval_95": [
+      1.0,
+      1.0
+    ],
+    "expected_probability": 1.0
+  },
+  {
+    "id": "class-4-durability-0-offset-16",
+    "method": "exact-single-projectile",
+    "samples": 0,
+    "errors": {
+      "final_penetration_probability": 0.0,
+      "expected_health_damage": 0.0,
+      "expected_blunt_damage": 0.0,
+      "expected_burst_total_damage": 0.0
+    },
+    "probability_interval_95": [
+      1.0,
+      1.0
+    ],
+    "expected_probability": 1.0
+  },
+  {
+    "id": "class-4-durability-0.25-offset--12",
+    "method": "exact-single-projectile",
+    "samples": 0,
+    "errors": {
+      "final_penetration_probability": -1.1102230246251565e-16,
+      "expected_health_damage": -7.105427357601002e-15,
+      "expected_blunt_damage": 3.885780586188048e-16,
+      "expected_burst_total_damage": -7.105427357601002e-15
+    },
+    "probability_interval_95": [
+      0.9173399627097575,
+      0.9173399627097575
+    ],
+    "expected_probability": 0.9173399627097576
+  },
+  {
+    "id": "class-4-durability-0.25-offset-0",
+    "method": "exact-single-projectile",
+    "samples": 0,
+    "errors": {
+      "final_penetration_probability": 0.0,
+      "expected_health_damage": 0.0,
+      "expected_blunt_damage": -4.163336342344337e-17,
+      "expected_burst_total_damage": 0.0
+    },
+    "probability_interval_95": [
+      0.9740046517991517,
+      0.9740046517991517
+    ],
+    "expected_probability": 0.9740046517991517
+  },
+  {
+    "id": "class-4-durability-0.25-offset-16",
+    "method": "exact-single-projectile",
+    "samples": 0,
+    "errors": {
+      "final_penetration_probability": 0.0,
+      "expected_health_damage": 0.0,
+      "expected_blunt_damage": 0.0,
+      "expected_burst_total_damage": 0.0
+    },
+    "probability_interval_95": [
+      1.0,
+      1.0
+    ],
+    "expected_probability": 1.0
+  },
+  {
+    "id": "class-4-durability-0.5-offset--12",
+    "method": "exact-single-projectile",
+    "samples": 0,
+    "errors": {
+      "final_penetration_probability": -2.220446049250313e-16,
+      "expected_health_damage": -7.105427357601002e-15,
+      "expected_blunt_damage": 6.661338147750939e-16,
+      "expected_burst_total_damage": -7.105427357601002e-15
+    },
+    "probability_interval_95": [
+      0.28177674197384045,
+      0.28177674197384045
+    ],
+    "expected_probability": 0.28177674197384067
+  },
+  {
+    "id": "class-4-durability-0.5-offset-0",
+    "method": "exact-single-projectile",
+    "samples": 0,
+    "errors": {
+      "final_penetration_probability": 0.0,
+      "expected_health_damage": 0.0,
+      "expected_blunt_damage": -2.7755575615628914e-17,
+      "expected_burst_total_damage": 0.0
+    },
+    "probability_interval_95": [
+      0.9548216233058109,
+      0.9548216233058109
+    ],
+    "expected_probability": 0.9548216233058109
+  },
+  {
+    "id": "class-4-durability-0.5-offset-16",
+    "method": "exact-single-projectile",
+    "samples": 0,
+    "errors": {
+      "final_penetration_probability": 0.0,
+      "expected_health_damage": 0.0,
+      "expected_blunt_damage": 0.0,
+      "expected_burst_total_damage": 0.0
+    },
+    "probability_interval_95": [
+      1.0,
+      1.0
+    ],
+    "expected_probability": 1.0
+  },
+  {
+    "id": "class-4-durability-1-offset--12",
+    "method": "exact-single-projectile",
+    "samples": 0,
+    "errors": {
+      "final_penetration_probability": -1.6306400674181987e-16,
+      "expected_health_damage": -4.884981308350689e-15,
+      "expected_blunt_damage": -4.440892098500626e-16,
+      "expected_burst_total_damage": -5.329070518200751e-15
+    },
+    "probability_interval_95": [
+      0.030542540608079805,
+      0.030542540608079805
+    ],
+    "expected_probability": 0.03054254060807997
+  },
+  {
+    "id": "class-4-durability-1-offset-0",
+    "method": "exact-single-projectile",
+    "samples": 0,
+    "errors": {
+      "final_penetration_probability": -8.881784197001252e-16,
+      "expected_health_damage": -3.552713678800501e-14,
+      "expected_blunt_damage": 2.4980018054066022e-15,
+      "expected_burst_total_damage": -3.552713678800501e-14
+    },
+    "probability_interval_95": [
+      0.8718160099958342,
+      0.8718160099958342
+    ],
+    "expected_probability": 0.8718160099958351
+  },
+  {
+    "id": "class-4-durability-1-offset-16",
+    "method": "exact-single-projectile",
+    "samples": 0,
+    "errors": {
+      "final_penetration_probability": 0.0,
+      "expected_health_damage": 0.0,
+      "expected_blunt_damage": 0.0,
+      "expected_burst_total_damage": 0.0
+    },
+    "probability_interval_95": [
+      1.0,
+      1.0
+    ],
+    "expected_probability": 1.0
+  },
+  {
+    "id": "class-5-durability-0-offset--12",
+    "method": "exact-single-projectile",
+    "samples": 0,
+    "errors": {
+      "final_penetration_probability": 0.0,
+      "expected_health_damage": 0.0,
+      "expected_blunt_damage": 0.0,
+      "expected_burst_total_damage": 0.0
+    },
+    "probability_interval_95": [
+      1.0,
+      1.0
+    ],
+    "expected_probability": 1.0
+  },
+  {
+    "id": "class-5-durability-0-offset-0",
+    "method": "exact-single-projectile",
+    "samples": 0,
+    "errors": {
+      "final_penetration_probability": 0.0,
+      "expected_health_damage": 0.0,
+      "expected_blunt_damage": 0.0,
+      "expected_burst_total_damage": 0.0
+    },
+    "probability_interval_95": [
+      1.0,
+      1.0
+    ],
+    "expected_probability": 1.0
+  },
+  {
+    "id": "class-5-durability-0-offset-16",
+    "method": "exact-single-projectile",
+    "samples": 0,
+    "errors": {
+      "final_penetration_probability": 0.0,
+      "expected_health_damage": 0.0,
+      "expected_blunt_damage": 0.0,
+      "expected_burst_total_damage": 0.0
+    },
+    "probability_interval_95": [
+      1.0,
+      1.0
+    ],
+    "expected_probability": 1.0
+  },
+  {
+    "id": "class-5-durability-0.25-offset--12",
+    "method": "exact-single-projectile",
+    "samples": 0,
+    "errors": {
+      "final_penetration_probability": 0.0,
+      "expected_health_damage": -7.105427357601002e-15,
+      "expected_blunt_damage": 8.326672684688674e-17,
+      "expected_burst_total_damage": -7.105427357601002e-15
+    },
+    "probability_interval_95": [
+      0.9474718079301564,
+      0.9474718079301564
+    ],
+    "expected_probability": 0.9474718079301564
+  },
+  {
+    "id": "class-5-durability-0.25-offset-0",
+    "method": "exact-single-projectile",
+    "samples": 0,
+    "errors": {
+      "final_penetration_probability": 0.0,
+      "expected_health_damage": 0.0,
+      "expected_blunt_damage": 0.0,
+      "expected_burst_total_damage": 0.0
+    },
+    "probability_interval_95": [
+      1.0,
+      1.0
+    ],
+    "expected_probability": 1.0
+  },
+  {
+    "id": "class-5-durability-0.25-offset-16",
+    "method": "exact-single-projectile",
+    "samples": 0,
+    "errors": {
+      "final_penetration_probability": 0.0,
+      "expected_health_damage": 0.0,
+      "expected_blunt_damage": 0.0,
+      "expected_burst_total_damage": 0.0
+    },
+    "probability_interval_95": [
+      1.0,
+      1.0
+    ],
+    "expected_probability": 1.0
+  },
+  {
+    "id": "class-5-durability-0.5-offset--12",
+    "method": "exact-single-projectile",
+    "samples": 0,
+    "errors": {
+      "final_penetration_probability": -1.6653345369377348e-16,
+      "expected_health_damage": -7.105427357601002e-15,
+      "expected_blunt_damage": 0.0,
+      "expected_burst_total_damage": -7.105427357601002e-15
+    },
+    "probability_interval_95": [
+      0.3795778834720569,
+      0.3795778834720569
+    ],
+    "expected_probability": 0.37957788347205706
+  },
+  {
+    "id": "class-5-durability-0.5-offset-0",
+    "method": "exact-single-projectile",
+    "samples": 0,
+    "errors": {
+      "final_penetration_probability": 0.0,
+      "expected_health_damage": -7.105427357601002e-15,
+      "expected_blunt_damage": -2.7755575615628914e-17,
+      "expected_burst_total_damage": -7.105427357601002e-15
+    },
+    "probability_interval_95": [
+      0.9548216233058109,
+      0.9548216233058109
+    ],
+    "expected_probability": 0.9548216233058109
+  },
+  {
+    "id": "class-5-durability-0.5-offset-16",
+    "method": "exact-single-projectile",
+    "samples": 0,
+    "errors": {
+      "final_penetration_probability": 0.0,
+      "expected_health_damage": 0.0,
+      "expected_blunt_damage": 0.0,
+      "expected_burst_total_damage": 0.0
+    },
+    "probability_interval_95": [
+      1.0,
+      1.0
+    ],
+    "expected_probability": 1.0
+  },
+  {
+    "id": "class-5-durability-1-offset--12",
+    "method": "exact-single-projectile",
+    "samples": 0,
+    "errors": {
+      "final_penetration_probability": -7.979727989493313e-17,
+      "expected_health_damage": -2.4424906541753444e-15,
+      "expected_blunt_damage": -2.220446049250313e-16,
+      "expected_burst_total_damage": -2.6645352591003757e-15
+    },
+    "probability_interval_95": [
+      0.029248229904206502,
+      0.029248229904206502
+    ],
+    "expected_probability": 0.02924822990420658
+  },
+  {
+    "id": "class-5-durability-1-offset-0",
+    "method": "exact-single-projectile",
+    "samples": 0,
+    "errors": {
+      "final_penetration_probability": -4.440892098500626e-16,
+      "expected_health_damage": -2.1316282072803006e-14,
+      "expected_blunt_damage": 1.2212453270876722e-15,
+      "expected_burst_total_damage": -2.1316282072803006e-14
+    },
+    "probability_interval_95": [
+      0.8648400666389,
+      0.8648400666389
+    ],
+    "expected_probability": 0.8648400666389005
+  },
+  {
+    "id": "class-5-durability-1-offset-16",
+    "method": "exact-single-projectile",
+    "samples": 0,
+    "errors": {
+      "final_penetration_probability": 0.0,
+      "expected_health_damage": 0.0,
+      "expected_blunt_damage": 0.0,
+      "expected_burst_total_damage": 0.0
+    },
+    "probability_interval_95": [
+      1.0,
+      1.0
+    ],
+    "expected_probability": 1.0
+  },
+  {
+    "id": "class-6-durability-0-offset--12",
+    "method": "exact-single-projectile",
+    "samples": 0,
+    "errors": {
+      "final_penetration_probability": 0.0,
+      "expected_health_damage": 0.0,
+      "expected_blunt_damage": 0.0,
+      "expected_burst_total_damage": 0.0
+    },
+    "probability_interval_95": [
+      1.0,
+      1.0
+    ],
+    "expected_probability": 1.0
+  },
+  {
+    "id": "class-6-durability-0-offset-0",
+    "method": "exact-single-projectile",
+    "samples": 0,
+    "errors": {
+      "final_penetration_probability": 0.0,
+      "expected_health_damage": 0.0,
+      "expected_blunt_damage": 0.0,
+      "expected_burst_total_damage": 0.0
+    },
+    "probability_interval_95": [
+      1.0,
+      1.0
+    ],
+    "expected_probability": 1.0
+  },
+  {
+    "id": "class-6-durability-0-offset-16",
+    "method": "exact-single-projectile",
+    "samples": 0,
+    "errors": {
+      "final_penetration_probability": 0.0,
+      "expected_health_damage": 0.0,
+      "expected_blunt_damage": 0.0,
+      "expected_burst_total_damage": 0.0
+    },
+    "probability_interval_95": [
+      1.0,
+      1.0
+    ],
+    "expected_probability": 1.0
+  },
+  {
+    "id": "class-6-durability-0.25-offset--12",
+    "method": "exact-single-projectile",
+    "samples": 0,
+    "errors": {
+      "final_penetration_probability": -1.1102230246251565e-16,
+      "expected_health_damage": -1.4210854715202004e-14,
+      "expected_blunt_damage": 4.163336342344337e-16,
+      "expected_burst_total_damage": -7.105427357601002e-15
+    },
+    "probability_interval_95": [
+      0.9566828156169848,
+      0.9566828156169848
+    ],
+    "expected_probability": 0.9566828156169849
+  },
+  {
+    "id": "class-6-durability-0.25-offset-0",
+    "method": "exact-single-projectile",
+    "samples": 0,
+    "errors": {
+      "final_penetration_probability": 0.0,
+      "expected_health_damage": 0.0,
+      "expected_blunt_damage": 0.0,
+      "expected_burst_total_damage": 0.0
+    },
+    "probability_interval_95": [
+      1.0,
+      1.0
+    ],
+    "expected_probability": 1.0
+  },
+  {
+    "id": "class-6-durability-0.25-offset-16",
+    "method": "exact-single-projectile",
+    "samples": 0,
+    "errors": {
+      "final_penetration_probability": 0.0,
+      "expected_health_damage": 0.0,
+      "expected_blunt_damage": 0.0,
+      "expected_burst_total_damage": 0.0
+    },
+    "probability_interval_95": [
+      1.0,
+      1.0
+    ],
+    "expected_probability": 1.0
+  },
+  {
+    "id": "class-6-durability-0.5-offset--12",
+    "method": "exact-single-projectile",
+    "samples": 0,
+    "errors": {
+      "final_penetration_probability": -7.216449660063518e-16,
+      "expected_health_damage": -2.842170943040401e-14,
+      "expected_blunt_damage": 1.5543122344752192e-15,
+      "expected_burst_total_damage": -2.842170943040401e-14
+    },
+    "probability_interval_95": [
+      0.4919218073721753,
+      0.4919218073721753
+    ],
+    "expected_probability": 0.491921807372176
+  },
+  {
+    "id": "class-6-durability-0.5-offset-0",
+    "method": "exact-single-projectile",
+    "samples": 0,
+    "errors": {
+      "final_penetration_probability": -1.1102230246251565e-16,
+      "expected_health_damage": -1.4210854715202004e-14,
+      "expected_blunt_damage": 3.0531133177191805e-16,
+      "expected_burst_total_damage": -1.4210854715202004e-14
+    },
+    "probability_interval_95": [
+      0.9548216233058108,
+      0.9548216233058108
+    ],
+    "expected_probability": 0.9548216233058109
+  },
+  {
+    "id": "class-6-durability-0.5-offset-16",
+    "method": "exact-single-projectile",
+    "samples": 0,
+    "errors": {
+      "final_penetration_probability": 0.0,
+      "expected_health_damage": 0.0,
+      "expected_blunt_damage": 0.0,
+      "expected_burst_total_damage": 0.0
+    },
+    "probability_interval_95": [
+      1.0,
+      1.0
+    ],
+    "expected_probability": 1.0
+  },
+  {
+    "id": "class-6-durability-1-offset--12",
+    "method": "exact-single-projectile",
+    "samples": 0,
+    "errors": {
+      "final_penetration_probability": -3.0531133177191805e-16,
+      "expected_health_damage": -1.0436096431476471e-14,
+      "expected_blunt_damage": -8.881784197001252e-16,
+      "expected_burst_total_damage": -1.1102230246251565e-14
+    },
+    "probability_interval_95": [
+      0.027981940857975538,
+      0.027981940857975538
+    ],
+    "expected_probability": 0.027981940857975843
+  },
+  {
+    "id": "class-6-durability-1-offset-0",
+    "method": "exact-single-projectile",
+    "samples": 0,
+    "errors": {
+      "final_penetration_probability": -1.6653345369377348e-15,
+      "expected_health_damage": -7.815970093361102e-14,
+      "expected_blunt_damage": 4.551914400963142e-15,
+      "expected_burst_total_damage": -7.105427357601002e-14
+    },
+    "probability_interval_95": [
+      0.8578921449396069,
+      0.8578921449396069
+    ],
+    "expected_probability": 0.8578921449396085
+  },
+  {
+    "id": "class-6-durability-1-offset-16",
+    "method": "exact-single-projectile",
+    "samples": 0,
+    "errors": {
+      "final_penetration_probability": 0.0,
+      "expected_health_damage": 0.0,
+      "expected_blunt_damage": 0.0,
+      "expected_burst_total_damage": 0.0
+    },
+    "probability_interval_95": [
+      1.0,
+      1.0
+    ],
+    "expected_probability": 1.0
+  },
+  {
+    "id": "material-aramid",
+    "method": "exact-single-projectile",
+    "samples": 0,
+    "errors": {
+      "final_penetration_probability": -1.3877787807814457e-16,
+      "expected_health_damage": -4.440892098500626e-15,
+      "expected_blunt_damage": 0.0,
+      "expected_burst_total_damage": -4.440892098500626e-15
+    },
+    "probability_interval_95": [
+      0.08851353602665542,
+      0.08851353602665542
+    ],
+    "expected_probability": 0.08851353602665556
+  },
+  {
+    "id": "material-uhmwpe",
+    "method": "exact-single-projectile",
+    "samples": 0,
+    "errors": {
+      "final_penetration_probability": -1.3877787807814457e-16,
+      "expected_health_damage": -4.440892098500626e-15,
+      "expected_blunt_damage": 0.0,
+      "expected_burst_total_damage": -4.440892098500626e-15
+    },
+    "probability_interval_95": [
+      0.08851353602665542,
+      0.08851353602665542
+    ],
+    "expected_probability": 0.08851353602665556
+  },
+  {
+    "id": "material-combined",
+    "method": "exact-single-projectile",
+    "samples": 0,
+    "errors": {
+      "final_penetration_probability": -1.3877787807814457e-16,
+      "expected_health_damage": -4.440892098500626e-15,
+      "expected_blunt_damage": 0.0,
+      "expected_burst_total_damage": -4.440892098500626e-15
+    },
+    "probability_interval_95": [
+      0.08851353602665542,
+      0.08851353602665542
+    ],
+    "expected_probability": 0.08851353602665556
+  },
+  {
+    "id": "material-titanium",
+    "method": "exact-single-projectile",
+    "samples": 0,
+    "errors": {
+      "final_penetration_probability": -1.3877787807814457e-16,
+      "expected_health_damage": -4.440892098500626e-15,
+      "expected_blunt_damage": 0.0,
+      "expected_burst_total_damage": -4.440892098500626e-15
+    },
+    "probability_interval_95": [
+      0.08851353602665542,
+      0.08851353602665542
+    ],
+    "expected_probability": 0.08851353602665556
+  },
+  {
+    "id": "material-aluminum",
+    "method": "exact-single-projectile",
+    "samples": 0,
+    "errors": {
+      "final_penetration_probability": -1.3877787807814457e-16,
+      "expected_health_damage": -4.440892098500626e-15,
+      "expected_blunt_damage": 0.0,
+      "expected_burst_total_damage": -4.440892098500626e-15
+    },
+    "probability_interval_95": [
+      0.08851353602665542,
+      0.08851353602665542
+    ],
+    "expected_probability": 0.08851353602665556
+  },
+  {
+    "id": "material-steel",
+    "method": "exact-single-projectile",
+    "samples": 0,
+    "errors": {
+      "final_penetration_probability": -1.3877787807814457e-16,
+      "expected_health_damage": -4.440892098500626e-15,
+      "expected_blunt_damage": 0.0,
+      "expected_burst_total_damage": -4.440892098500626e-15
+    },
+    "probability_interval_95": [
+      0.08851353602665542,
+      0.08851353602665542
+    ],
+    "expected_probability": 0.08851353602665556
+  },
+  {
+    "id": "material-ceramic",
+    "method": "exact-single-projectile",
+    "samples": 0,
+    "errors": {
+      "final_penetration_probability": -1.3877787807814457e-16,
+      "expected_health_damage": -4.440892098500626e-15,
+      "expected_blunt_damage": 0.0,
+      "expected_burst_total_damage": -4.440892098500626e-15
+    },
+    "probability_interval_95": [
+      0.08851353602665542,
+      0.08851353602665542
+    ],
+    "expected_probability": 0.08851353602665556
+  },
+  {
+    "id": "material-glass",
+    "method": "exact-single-projectile",
+    "samples": 0,
+    "errors": {
+      "final_penetration_probability": -1.3877787807814457e-16,
+      "expected_health_damage": -4.440892098500626e-15,
+      "expected_blunt_damage": 0.0,
+      "expected_burst_total_damage": -4.440892098500626e-15
+    },
+    "probability_interval_95": [
+      0.08851353602665542,
+      0.08851353602665542
+    ],
+    "expected_probability": 0.08851353602665556
+  },
+  {
+    "id": "DBX95",
+    "method": "exact-single-projectile",
+    "samples": 0,
+    "errors": {
+      "final_penetration_probability": 0.0,
+      "expected_health_damage": 0.0,
+      "expected_blunt_damage": 0.0,
+      "expected_burst_total_damage": 0.0
+    },
+    "probability_interval_95": [
+      0.0,
+      0.0
+    ],
+    "expected_probability": 0.0
+  },
+  {
+    "id": "DBP191",
+    "method": "exact-single-projectile",
+    "samples": 0,
+    "errors": {
+      "final_penetration_probability": -1.1102230246251565e-16,
+      "expected_health_damage": -3.9968028886505635e-15,
+      "expected_blunt_damage": 2.220446049250313e-16,
+      "expected_burst_total_damage": -3.9968028886505635e-15
+    },
+    "probability_interval_95": [
+      0.054880882965430956,
+      0.054880882965430956
+    ],
+    "expected_probability": 0.05488088296543107
+  },
+  {
+    "id": "DVX12",
+    "method": "exact-single-projectile",
+    "samples": 0,
+    "errors": {
+      "final_penetration_probability": -3.3306690738754696e-16,
+      "expected_health_damage": -1.7763568394002505e-14,
+      "expected_blunt_damage": 8.881784197001252e-16,
+      "expected_burst_total_damage": -1.7763568394002505e-14
+    },
+    "probability_interval_95": [
+      0.5479421074552266,
+      0.5479421074552266
+    ],
+    "expected_probability": 0.547942107455227
+  },
+  {
+    "id": "DVC12",
+    "method": "exact-single-projectile",
+    "samples": 0,
+    "errors": {
+      "final_penetration_probability": -1.1102230246251565e-16,
+      "expected_health_damage": -7.105427357601002e-15,
+      "expected_blunt_damage": 3.3306690738754696e-16,
+      "expected_burst_total_damage": -7.105427357601002e-15
+    },
+    "probability_interval_95": [
+      0.9227761782088194,
+      0.9227761782088194
+    ],
+    "expected_probability": 0.9227761782088195
+  },
+  {
+    "id": "repaired-50-of-original-100",
+    "method": "exact-single-projectile",
+    "samples": 0,
+    "errors": {
+      "final_penetration_probability": -1.1102230246251565e-16,
+      "expected_health_damage": -7.105427357601002e-15,
+      "expected_blunt_damage": 4.440892098500626e-16,
+      "expected_burst_total_damage": -7.105427357601002e-15
+    },
+    "probability_interval_95": [
+      0.5514399524375742,
+      0.5514399524375742
+    ],
+    "expected_probability": 0.5514399524375743
+  },
+  {
+    "id": "eight-pellets-break-after-four",
+    "method": "monte-carlo-trajectories",
+    "samples": 100000,
+    "errors": {
+      "final_penetration_probability": 0.0,
+      "expected_health_damage": 0.0,
+      "expected_blunt_damage": 4.401812248033821e-12,
+      "expected_burst_total_damage": 4.405364961712621e-12
+    },
+    "probability_interval_95": [
+      0.999961586887417,
+      1.0
+    ],
+    "expected_probability": 1.0
+  },
+  {
+    "id": "three-triggers-break-after-two",
+    "method": "monte-carlo-trajectories",
+    "samples": 100000,
+    "errors": {
+      "final_penetration_probability": 0.0,
+      "expected_health_damage": 0.0,
+      "expected_blunt_damage": 2.5832669336978142e-12,
+      "expected_burst_total_damage": 7.8017592386459e-12
+    },
+    "probability_interval_95": [
+      0.0,
+      3.841311258303963e-05
+    ],
+    "expected_probability": 0.0
+  },
+  {
+    "id": "three-triggers-two-layers",
+    "method": "monte-carlo-trajectories",
+    "samples": 100000,
+    "errors": {
+      "final_penetration_probability": 0.0012284638718347285,
+      "expected_health_damage": 0.05127151426344767,
+      "expected_blunt_damage": -0.0042072360885562765,
+      "expected_burst_total_damage": 0.03827113493117906
+    },
+    "probability_interval_95": [
+      0.8974698878753649,
+      0.9011994315716152
+    ],
+    "expected_probability": 0.8981215361281653
+  },
+  {
+    "id": "head-health",
+    "method": "monte-carlo-trajectories",
+    "samples": 100000,
+    "errors": {
+      "final_penetration_probability": -0.00017617820881954405,
+      "expected_health_damage": -0.007353023353218191,
+      "expected_blunt_damage": 0.0005285346264585489,
+      "expected_burst_total_damage": 0.030374163053878078
+    },
+    "probability_interval_95": [
+      0.9209274711443002,
+      0.9242400620929446
+    ],
+    "expected_probability": 0.9227761782088195
+  },
+  {
+    "id": "stomach-health",
+    "method": "monte-carlo-trajectories",
+    "samples": 100000,
+    "errors": {
+      "final_penetration_probability": -0.00017617820881954405,
+      "expected_health_damage": -0.007353023353218191,
+      "expected_blunt_damage": 0.0005285346264585489,
+      "expected_burst_total_damage": 0.030374163053878078
+    },
+    "probability_interval_95": [
+      0.9209274711443002,
+      0.9242400620929446
+    ],
+    "expected_probability": 0.9227761782088195
+  },
+  {
+    "id": "distance-enabled-False",
+    "method": "exact-single-projectile",
+    "samples": 0,
+    "errors": {
+      "final_penetration_probability": -2.7755575615628914e-16,
+      "expected_health_damage": -8.881784197001252e-15,
+      "expected_blunt_damage": 4.440892098500626e-16,
+      "expected_burst_total_damage": -8.881784197001252e-15
+    },
+    "probability_interval_95": [
+      0.30304414827155324,
+      0.30304414827155324
+    ],
+    "expected_probability": 0.3030441482715535
+  },
+  {
+    "id": "distance-enabled-True",
+    "method": "exact-single-projectile",
+    "samples": 0,
+    "errors": {
+      "final_penetration_probability": -2.0816681711721685e-17,
+      "expected_health_damage": -6.661338147750939e-16,
+      "expected_blunt_damage": 2.220446049250313e-16,
+      "expected_burst_total_damage": -4.440892098500626e-16
+    },
+    "probability_interval_95": [
+      0.028176597251145335,
+      0.028176597251145335
+    ],
+    "expected_probability": 0.028176597251145356
+  }
+]

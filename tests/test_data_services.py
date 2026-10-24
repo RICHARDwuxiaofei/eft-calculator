@@ -41,7 +41,7 @@ def test_api_caliber_identifiers_match_human_readable_filters(tmp_path) -> None:
     db.apply_ammo_snapshot(
         {
             "snapshot_id": "tracker-calibers",
-            "created_at": "2026-07-31T00:00:00+00:00",
+            "created_at": "2026-10-25T00:00:00+00:00",
             "ammo": [asdict(online)],
         }
     )

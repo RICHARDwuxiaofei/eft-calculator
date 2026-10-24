@@ -12,7 +12,11 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
+import androidx.sqlite.db.SupportSQLiteOpenHelper
+import androidx.sqlite.db.framework.FrameworkSQLiteOpenHelperFactory
 import kotlinx.coroutines.flow.Flow
+import java.io.File
+import java.util.UUID
 
 @Entity(tableName = "ammo")
 data class AmmoEntity(
@@ -82,18 +86,46 @@ abstract class AppDatabase : RoomDatabase() {
 
     companion object {
         @Volatile private var instance: AppDatabase? = null
-        private val migration1To2 = object : Migration(1, 2) {
+        val MIGRATION_1_2 = object : Migration(1, 2) {
             override fun migrate(db: SupportSQLiteDatabase) {
                 db.execSQL("ALTER TABLE ammo ADD COLUMN nameZh TEXT")
             }
         }
 
-        fun get(context: Context): AppDatabase = instance ?: synchronized(this) {
-            instance ?: Room.databaseBuilder(
+        fun build(context: Context, name: String): AppDatabase = Room.databaseBuilder(
                 context.applicationContext,
                 AppDatabase::class.java,
-                "eft-calculator.sqlite3",
-            ).addMigrations(migration1To2).build().also { instance = it }
+                name,
+            ).openHelperFactory(PreservingOpenHelperFactory()).addMigrations(MIGRATION_1_2).build()
+
+        fun get(context: Context): AppDatabase = instance ?: synchronized(this) {
+            instance ?: build(context, "eft-calculator.sqlite3").also { instance = it }
         }
+    }
+}
+
+/** Save every original byte before Android's default corruption handler can delete it. */
+class PreservingOpenHelperFactory : SupportSQLiteOpenHelper.Factory {
+    override fun create(configuration: SupportSQLiteOpenHelper.Configuration): SupportSQLiteOpenHelper {
+        val original = configuration.callback
+        val callback = object : SupportSQLiteOpenHelper.Callback(original.version) {
+            override fun onCreate(db: SupportSQLiteDatabase) = original.onCreate(db)
+            override fun onUpgrade(db: SupportSQLiteDatabase, oldVersion: Int, newVersion: Int) = original.onUpgrade(db, oldVersion, newVersion)
+            override fun onDowngrade(db: SupportSQLiteDatabase, oldVersion: Int, newVersion: Int) = original.onDowngrade(db, oldVersion, newVersion)
+            override fun onConfigure(db: SupportSQLiteDatabase) = original.onConfigure(db)
+            override fun onOpen(db: SupportSQLiteDatabase) = original.onOpen(db)
+            override fun onCorruption(db: SupportSQLiteDatabase) {
+                val suffix = ".corrupt-${UUID.randomUUID()}.bak"
+                for (ending in listOf("", "-wal", "-shm", "-journal")) {
+                    val file = File(db.path + ending)
+                    if (file.isFile) file.copyTo(File(file.path + suffix), overwrite = false)
+                }
+                original.onCorruption(db)
+            }
+        }
+        val safe = SupportSQLiteOpenHelper.Configuration.builder(configuration.context)
+            .name(configuration.name).callback(callback)
+            .noBackupDirectory(configuration.useNoBackupDirectory).build()
+        return FrameworkSQLiteOpenHelperFactory().create(safe)
     }
 }

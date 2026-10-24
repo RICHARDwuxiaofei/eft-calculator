@@ -43,7 +43,7 @@ def scenario_from_dict(payload: dict[str, Any]) -> ShotScenario:
         shot_count=payload.get("shot_count", 1),
         simulation_iterations=payload.get("simulation_iterations", 10_000),
         enable_fragmentation=payload.get("enable_fragmentation", False),
-        enable_distance_decay=payload.get("enable_distance_decay", True),
+        enable_distance_decay=payload.get("enable_distance_decay", False),
         enable_skills=payload.get("enable_skills", False),
         random_seed=payload.get("random_seed"),
     )

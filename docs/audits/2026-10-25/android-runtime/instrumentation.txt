@@ -1,0 +1,10 @@
+
+com.eftcalculator.DatabaseMigrationTest:..
+com.eftcalculator.MainActivityTest:.
+com.eftcalculator.PythonBridgeConsistencyTest:..
+
+Time: 13.451
+
+OK (5 tests)
+
+

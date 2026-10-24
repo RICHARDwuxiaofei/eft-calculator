@@ -3,12 +3,13 @@ from __future__ import annotations
 import json
 import sqlite3
 from dataclasses import asdict, dataclass, replace
+from datetime import datetime
 from pathlib import Path
 
 from .calibers import caliber_matches
 from .models import Ammo, ArmorLayer, ArmorLayerType, ArmorMaterial
 
-DATA_VERSION = "wiki-reviewed-2026-09-16"
+DATA_VERSION = "wiki-reviewed-2026-10-25"
 BUNDLED_CATALOG = json.loads((Path(__file__).parent / "resources/items/catalog.json").read_text(encoding="utf-8"))
 LEGACY_AMMO_IDS = BUNDLED_CATALOG["legacy_ids"]
 
@@ -344,8 +345,13 @@ class Database:
     def __init__(self, path: Path) -> None:
         path.parent.mkdir(parents=True, exist_ok=True)
         self.path = path
+        from .legacy_db import preserve_corrupt_database, repair_legacy_ammo_payloads
+
+        self.recovery_backup = preserve_corrupt_database(path)
+        repair_legacy_ammo_payloads(path)
         self.connection = sqlite3.connect(path)
         self.connection.row_factory = sqlite3.Row
+        self.recovery_issues: list[str] = []
         self._migrate()
 
     def _migrate(self) -> None:
@@ -365,8 +371,14 @@ class Database:
               id INTEGER PRIMARY KEY, name TEXT UNIQUE NOT NULL, payload TEXT NOT NULL
             );
             CREATE TABLE IF NOT EXISTS metadata (key TEXT PRIMARY KEY, value TEXT NOT NULL);
+            CREATE TABLE IF NOT EXISTS quarantined_ammo (
+              recovery_id INTEGER PRIMARY KEY, item_id TEXT NOT NULL,
+              original_payload TEXT NOT NULL, reason TEXT NOT NULL,
+              recovered_at TEXT DEFAULT CURRENT_TIMESTAMP
+            );
             """
         )
+        self._quarantine_invalid_ammo()
         installed = self.connection.execute(
             "SELECT value FROM metadata WHERE key='bundled_catalog_version'"
         ).fetchone()
@@ -377,7 +389,7 @@ class Database:
                     version = json.loads(old[0]).get("source_version", "") if old else ""
                     replaceable = version.startswith(("bundled", "tarkovdata-", "TarkovTracker"))
                     if version.startswith(("tarkov.dev-", "wiki-reviewed-")):
-                        replaceable = version[-10:] < "2026-09-16"
+                        replaceable = version[-10:] < DATA_VERSION[-10:]
                     if old and not replaceable:
                         continue
                     self._upsert_ammo(Ammo(**raw))
@@ -389,6 +401,33 @@ class Database:
                     self.connection.execute("DELETE FROM recent WHERE kind='ammo' AND item_id=?", (legacy,))
                 self.connection.execute("INSERT OR REPLACE INTO metadata(key,value) VALUES('bundled_catalog_version',?)", (DATA_VERSION,))
                 self.connection.execute("INSERT OR REPLACE INTO metadata(key,value) VALUES('data_version',?)", (DATA_VERSION,))
+
+    def _quarantine_invalid_ammo(self) -> None:
+        invalid = []
+        for row in self.connection.execute("SELECT id,payload FROM ammo").fetchall():
+            try:
+                item = Ammo(**json.loads(row["payload"]))
+                if item.id != row["id"]:
+                    raise ValueError("Payload item ID differs from database key")
+            except (ValueError, TypeError, KeyError) as exc:
+                invalid.append((row["id"], row["payload"], str(exc)))
+        if not invalid:
+            return
+        backup = self.path.with_name(self.path.name+".before-row-repair.bak")
+        if not backup.exists():
+            target = sqlite3.connect(backup)
+            try:
+                self.connection.backup(target)
+            finally:
+                target.close()
+        bundled = {item["id"]: item for item in BUNDLED_CATALOG["ammo"]}
+        with self.connection:
+            for item_id, payload, reason in invalid:
+                self.connection.execute("INSERT INTO quarantined_ammo(item_id,original_payload,reason) VALUES(?,?,?)", (item_id,payload,reason))
+                self.connection.execute("DELETE FROM ammo WHERE id=?", (item_id,))
+                if item_id in bundled:
+                    self._upsert_ammo(Ammo(**bundled[item_id]))
+                self.recovery_issues.append(f"{item_id}: {reason}; backup={backup}")
 
     def _upsert_ammo(self, ammo: Ammo) -> None:
         payload = asdict(ammo)
@@ -409,13 +448,33 @@ class Database:
         sources = snapshot.get("sources", [])
         if sources and all(item.get("source") == "TarkovTracker/tarkovdata" for item in sources):
             raise ValueError("Historical fallback is not allowed to replace verified data")
-        if sources and snapshot.get("created_at", "")[:10] < "2026-09-16":
+        if sources and snapshot.get("created_at", "")[:10] < DATA_VERSION[-10:]:
             raise ValueError("Cached online data predates the bundled Wiki review")
         parsed = [Ammo(**{k:v for k,v in raw.items() if k != "provenance"}) for raw in records]
         if len({a.id for a in parsed}) != len(parsed):
             raise ValueError("Duplicate ammo IDs")
+        stamp = datetime.fromisoformat(snapshot["created_at"])
+        if stamp.tzinfo is None:
+            raise ValueError("Snapshot timestamp must include a timezone")
+        last = self.connection.execute("SELECT value FROM metadata WHERE key='last_sync_at'").fetchone()
+        if last and stamp < datetime.fromisoformat(last[0]):
+            raise ValueError("Snapshot is older than the last accepted snapshot")
+        if "sha256" in snapshot:
+            from .sync import validate_snapshot
+
+            validate_snapshot(snapshot)
         with self.connection:
             for ammo in parsed:
+                prior = self.connection.execute("SELECT payload FROM ammo WHERE id=?", (ammo.id,)).fetchone()
+                if prior:
+                    old = json.loads(prior[0])
+                    version = old.get("source_version", "")
+                    if version.startswith("manual") and not ammo.source_version.startswith("manual"):
+                        continue
+                    if (not ammo.source_version.startswith("manual")
+                            and version.startswith(("tarkov.dev-", "wiki-reviewed-"))
+                            and version[-10:] > stamp.date().isoformat()):
+                        raise ValueError(f"Snapshot predates item {ammo.id}")
                 self._upsert_ammo(ammo)
             self.connection.execute("INSERT OR REPLACE INTO metadata(key,value) VALUES('data_version',?)", (snapshot["snapshot_id"],))
             self.connection.execute("INSERT OR REPLACE INTO metadata(key,value) VALUES('last_sync_at',?)", (snapshot["created_at"],))
@@ -456,8 +515,6 @@ class Database:
             haystack = " ".join(values).casefold()
             normalized_haystack = normalize(haystack)
             matches = all(token in normalized_haystack for token in tokens)
-            if collapsed_query:
-                matches = matches and collapsed_query in normalized_haystack
             if matches and caliber_matches(ammo.caliber, caliber):
                 normalized_values = [normalize(value) for value in values if value]
                 if not collapsed_query:
@@ -523,6 +580,17 @@ class Database:
             (name, json.dumps(payload, ensure_ascii=False)),
         )
         self.connection.commit()
+
+    def save_session(self, payload: dict) -> None:
+        encoded = json.dumps(payload, ensure_ascii=False, allow_nan=False)
+        with self.connection:
+            self.connection.execute("INSERT OR REPLACE INTO metadata(key,value) VALUES('last_session',?)", (encoded,))
+
+    def load_session(self) -> dict | None:
+        row = self.connection.execute("SELECT value FROM metadata WHERE key='last_session'").fetchone()
+        if row is None:
+            return None
+        return json.loads(row[0])
 
 
 def default_database_path() -> Path:

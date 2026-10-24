@@ -20,6 +20,9 @@ tmp/
 # Build output
 build/
 dist/
+artifacts/
+.audit-avd/
+.baseline/
 packaging/*.spec
 
 # Runtime/user data

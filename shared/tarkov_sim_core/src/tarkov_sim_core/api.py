@@ -8,7 +8,7 @@ from .serialization import dump_json, load_payload, result_to_dict, scenario_fro
 from .validation import validate_scenario_payload
 
 SCHEMA_VERSION = 1
-CORE_VERSION = "2.2.0"
+CORE_VERSION = "2.2.3"
 
 
 def _ruleset(payload: dict[str, Any]):
@@ -74,8 +74,14 @@ def simulate_json(value: str | dict[str, Any]) -> str:
 
 
 def compare_json(value: str | dict[str, Any]) -> str:
-    payload = load_payload(value)
-    scenarios = payload.get("scenarios", [])
+    try:
+        payload = load_payload(value)
+        scenarios = payload.get("scenarios")
+        if not isinstance(scenarios, list) or not 1 <= len(scenarios) <= 64:
+            raise ValueError("scenarios must be a list of 1 to 64 scenarios")
+    except (ValueError, TypeError) as exc:
+        return dump_json({"schema_version": SCHEMA_VERSION, "ok": False,
+                          "errors": [{"path": "scenarios", "message": str(exc)}]})
     results = [load_payload(calculate_analytic_json(item)) for item in scenarios]
     return dump_json(
         {"schema_version": SCHEMA_VERSION, "ok": all(x.get("ok") for x in results), "items": results}

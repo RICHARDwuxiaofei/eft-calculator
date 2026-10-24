@@ -2,10 +2,33 @@ from __future__ import annotations
 
 import json
 import sqlite3
+import uuid
 from math import isfinite
 from pathlib import Path
 
 _OPTIONAL_POSITIVE_BALLISTICS = ("muzzle_velocity", "ballistic_coefficient")
+
+
+def preserve_corrupt_database(path: Path) -> Path | None:
+    """Retain unreadable DB and WAL bytes before creating a new offline database."""
+    if not path.exists():
+        return None
+    connection = sqlite3.connect(path)
+    try:
+        if connection.execute("PRAGMA quick_check").fetchone()[0] == "ok":
+            return None
+    except sqlite3.DatabaseError as exc:
+        if not any(word in str(exc).lower() for word in ("malformed", "not a database", "corrupt")):
+            raise
+    finally:
+        connection.close()
+    backup = path.with_name(path.name + ".corrupt-" + uuid.uuid4().hex[:12] + ".bak")
+    path.rename(backup)
+    for suffix in ("-wal", "-shm"):
+        sidecar = Path(str(path)+suffix)
+        if sidecar.exists():
+            sidecar.rename(Path(str(backup)+suffix))
+    return backup
 
 
 def _is_valid_optional_positive(value: object) -> bool:
@@ -67,6 +90,14 @@ def repair_legacy_ammo_payloads(path: Path) -> int:
                 )
 
         if repairs:
+            # SQLite backup captures a consistent image, including committed WAL data.
+            backup = path.with_name(path.name + ".before-legacy-repair.bak")
+            if not backup.exists():
+                target = sqlite3.connect(backup)
+                try:
+                    connection.backup(target)
+                finally:
+                    target.close()
             with connection:
                 connection.executemany(
                     "UPDATE ammo SET payload=? WHERE id=?",

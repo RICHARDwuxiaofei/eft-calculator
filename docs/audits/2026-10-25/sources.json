@@ -1,0 +1,133 @@
+{
+  "audit_date": "2026-10-25",
+  "sources": {
+    "wiki-ballistics": {
+      "url": "https://escapefromtarkov.fandom.com/wiki/Ballistics",
+      "retrieved_at": "2026-10-24T20:07:58.700628+00:00",
+      "status": 403,
+      "sha256": "1f99f75751deba40d8a252e38c19e46e9cf9068855c708707ee9005e6fa23361",
+      "bytes": 5579,
+      "file": "wiki-ballistics.html",
+      "final_url": "https://escapefromtarkov.fandom.com/wiki/Ballistics"
+    },
+    "wiki-plates": {
+      "url": "https://escapefromtarkov.fandom.com/wiki/Armor_plates",
+      "retrieved_at": "2026-10-24T20:07:58.701628+00:00",
+      "status": 403,
+      "sha256": "6312bb17c8d63d530d2d5f4d30b52fe75a07663c1f8124b8e5682cd4427051e4",
+      "bytes": 5607,
+      "file": "wiki-plates.html",
+      "final_url": "https://escapefromtarkov.fandom.com/wiki/Armor_plates"
+    },
+    "wiki-changelog": {
+      "url": "https://escapefromtarkov.fandom.com/wiki/Changelog",
+      "retrieved_at": "2026-10-24T20:07:58.701628+00:00",
+      "status": 403,
+      "sha256": "ef72ae3c9f950cabb9f73c439a88e2f518c9002ea9ae2f09d85394db84864c52",
+      "bytes": 5576,
+      "file": "wiki-changelog.html",
+      "final_url": "https://escapefromtarkov.fandom.com/wiki/Changelog"
+    },
+    "wiki-cn-ammo": {
+      "url": "https://www.eftarkov.com/news/web_33.html",
+      "retrieved_at": "2026-10-24T20:07:58.702628+00:00",
+      "status": 404,
+      "sha256": "55f7d9e99b8e2d4e0e193b2f0275501e6d9c1ebd29cadbea6a0da48a8587e3e0",
+      "bytes": 146,
+      "file": "wiki-cn-ammo.html",
+      "final_url": "https://www.eftarkov.com/news/web_33.html"
+    },
+    "wiki-cn-plates": {
+      "url": "https://www.eftarkov.com/news/web_40.html",
+      "retrieved_at": "2026-10-24T20:07:58.702628+00:00",
+      "status": 404,
+      "sha256": "55f7d9e99b8e2d4e0e193b2f0275501e6d9c1ebd29cadbea6a0da48a8587e3e0",
+      "bytes": 146,
+      "file": "wiki-cn-plates.html",
+      "final_url": "https://www.eftarkov.com/news/web_40.html"
+    },
+    "nofood-chart": {
+      "url": "https://eft-ammo.vercel.app/",
+      "retrieved_at": "2026-10-24T20:07:58.702628+00:00",
+      "status": 200,
+      "sha256": "953f9d499892fa31c8bab5cad018f0fc7777a98ecfeb6f55b009b0ceab7fcf87",
+      "bytes": 354116,
+      "file": "nofood-chart.html",
+      "final_url": "https://eft-ammo.vercel.app/"
+    },
+    "official-news": {
+      "url": "https://www.escapefromtarkov.com/news",
+      "retrieved_at": "2026-10-24T20:07:58.702628+00:00",
+      "status": 403,
+      "sha256": "ee8aba3b774d2b9f2268a4ce2e8d1f17cffe8735626b768df0f77c40c3dca142",
+      "bytes": 5480,
+      "file": "official-news.html",
+      "final_url": "https://www.escapefromtarkov.com/news"
+    },
+    "tarkov-dev-api": {
+      "url": "https://api.tarkov.dev/graphql",
+      "retrieved_at": "2026-10-24T20:07:58.702628+00:00",
+      "status": 422,
+      "sha256": "b2943790ab6723ea651e4ac828bf4625b0b790111247145f6ff9d4563dfe66cf",
+      "bytes": 59,
+      "file": "tarkov-dev-api.json",
+      "final_url": "https://api.tarkov.dev/graphql"
+    },
+    "wiki-api-plates": {
+      "url": "https://escapefromtarkov.fandom.com/api.php?action=parse&page=Armor_plates&prop=wikitext&format=json",
+      "retrieved_at": "2026-10-24T20:08:01.024091+00:00",
+      "status": 200,
+      "sha256": "699287c1966582443b6d9a8ad1855866f1a3c74539818f0e3881d6f6b6a8b632",
+      "bytes": 13612,
+      "file": "wiki-api-plates.html",
+      "final_url": "https://escapefromtarkov.fandom.com/api.php?action=parse&page=Armor_plates&prop=wikitext&format=json"
+    },
+    "wiki-api-ballistics": {
+      "url": "https://escapefromtarkov.fandom.com/api.php?action=parse&page=Ballistics&prop=wikitext&format=json",
+      "retrieved_at": "2026-10-24T20:08:01.900483+00:00",
+      "status": 200,
+      "sha256": "9a2da7d5e46d714b1412beeadaa2f1d9272511fd25a91534184d7e015e2d59d4",
+      "bytes": 101169,
+      "file": "wiki-api-ballistics.html",
+      "final_url": "https://escapefromtarkov.fandom.com/api.php?action=parse&page=Ballistics&prop=wikitext&format=json"
+    },
+    "wiki-api-changelog": {
+      "url": "https://escapefromtarkov.fandom.com/api.php?action=parse&page=Changelog&prop=wikitext&format=json",
+      "retrieved_at": "2026-10-24T20:08:01.904485+00:00",
+      "status": 200,
+      "sha256": "6e3baebd31eaf0ca1c4d83b72058396f8e06cfa8e165e95dbf285ce04b8d566f",
+      "bytes": 603446,
+      "file": "wiki-api-changelog.html",
+      "final_url": "https://escapefromtarkov.fandom.com/api.php?action=parse&page=Changelog&prop=wikitext&format=json"
+    },
+    "wiki-ammo-whisper": {
+      "url": "https://escapefromtarkov.fandom.com/api.php?action=parse&page=.300_Whisper&prop=wikitext&format=json",
+      "retrieved_at": "2026-10-24T20:08:01.913790+00:00",
+      "status": 200,
+      "sha256": "310d3052b9d3f9b9d35abd20d04acece64ce57f695f894133316d93c8cd3c3fd",
+      "bytes": 2219,
+      "file": "wiki-ammo-whisper.html",
+      "final_url": "https://escapefromtarkov.fandom.com/api.php?action=parse&page=.300_Whisper&prop=wikitext&format=json"
+    },
+    "wiki-ammo-spbt": {
+      "url": "https://escapefromtarkov.fandom.com/api.php?action=parse&page=7.62x54mm_R_SP_BT&prop=wikitext&format=json",
+      "retrieved_at": "2026-10-24T20:08:01.998386+00:00",
+      "status": 200,
+      "sha256": "5c80b581655a46e411240ad64a202b27579f61b6594c2dcbb033bc770a062a13",
+      "bytes": 1715,
+      "file": "wiki-ammo-spbt.html",
+      "final_url": "https://escapefromtarkov.fandom.com/api.php?action=parse&page=7.62x54mm_R_SP_BT&prop=wikitext&format=json"
+    },
+    "wiki-ammo-7n42": {
+      "url": "https://escapefromtarkov.fandom.com/api.php?action=parse&page=9x21mm_7N42_Zubilo&prop=wikitext&format=json",
+      "retrieved_at": "2026-10-24T20:08:02.313763+00:00",
+      "status": 200,
+      "sha256": "c44d2b294f823a6df0cbc8a2ea04a54cbcf2b346da693f66467f55f650114ed5",
+      "bytes": 2030,
+      "file": "wiki-ammo-7n42.html",
+      "final_url": "https://escapefromtarkov.fandom.com/api.php?action=parse&page=9x21mm_7N42_Zubilo&prop=wikitext&format=json"
+    }
+  },
+  "game_version": "Wiki-reported 1.2.5.0.48146 (20 October 2026); official site inaccessible",
+  "catalog_modified": false
+}

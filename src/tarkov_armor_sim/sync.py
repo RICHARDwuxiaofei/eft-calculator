@@ -20,6 +20,16 @@ SYNC_INTERVAL = timedelta(hours=6)
 STALE_AFTER = timedelta(hours=48)
 
 
+def validate_snapshot(snapshot: dict) -> None:
+    """Authenticate staged bytes and time metadata before any DB or cache update."""
+    stamp = datetime.fromisoformat(snapshot["created_at"])
+    if stamp.tzinfo is None:
+        raise ValueError("Snapshot timestamp must include a timezone")
+    canonical = json.dumps(snapshot["ammo"], ensure_ascii=False, sort_keys=True, separators=(",", ":"))
+    if hashlib.sha256(canonical.encode("utf-8")).hexdigest() != snapshot.get("sha256"):
+        raise ValueError("Snapshot SHA-256 mismatch")
+
+
 @dataclass(frozen=True)
 class SyncReport:
     ok: bool
@@ -38,9 +48,16 @@ class SnapshotStore:
         self.backup_path = directory / "snapshot.backup.json"
 
     def read(self) -> dict | None:
-        if not self.current_path.exists():
-            return None
-        return json.loads(self.current_path.read_text(encoding="utf-8"))
+        for path in (self.current_path, self.backup_path):
+            if not path.exists():
+                continue
+            try:
+                snapshot = json.loads(path.read_text(encoding="utf-8"))
+                validate_snapshot(snapshot)
+                return snapshot
+            except (OSError, ValueError, TypeError, KeyError) as exc:
+                LOGGER.warning("Invalid cache retained at %s: %s", path, exc)
+        return None
 
     def status(self) -> str:
         snapshot = self.read()
@@ -60,6 +77,10 @@ class SnapshotStore:
         return datetime.now(UTC) - datetime.fromisoformat(snapshot["created_at"]) >= SYNC_INTERVAL
 
     def atomic_write(self, payload: dict) -> None:
+        validate_snapshot(payload)
+        current = self.read()
+        if current and datetime.fromisoformat(payload["created_at"]) < datetime.fromisoformat(current["created_at"]):
+            raise ValueError("Refusing older snapshot; current cache retained")
         self.directory.mkdir(parents=True, exist_ok=True)
         temp_path = self.directory / "snapshot.pending.json"
         encoded = json.dumps(payload, ensure_ascii=False, indent=2, sort_keys=True)
@@ -71,8 +92,14 @@ class SnapshotStore:
         )
         if hashlib.sha256(canonical.encode("utf-8")).hexdigest() != staged.get("sha256"):
             raise ValueError("暂存快照 SHA-256 校验失败")
-        if self.current_path.exists():
-            shutil.copy2(self.current_path, self.backup_path)
+        if self.current_path.exists() and current is not None:
+            # Do not overwrite a valid backup with a corrupt primary cache.
+            try:
+                validate_snapshot(json.loads(self.current_path.read_text(encoding="utf-8")))
+            except (ValueError, KeyError, TypeError):
+                pass
+            else:
+                shutil.copy2(self.current_path, self.backup_path)
         os.replace(temp_path, self.current_path)
 
 
@@ -116,7 +143,10 @@ class DataSynchronizer:
             results = []
         if results:
             payload = self._snapshot_payload(results)
-            self.store.atomic_write(payload)
+            try:
+                self.store.atomic_write(payload)
+            except ValueError as exc:
+                return SyncReport(False, "失败，保留旧数据", "cache", 0, None, str(exc))
             source_names = " + ".join(item.manifest.source for item in results)
             return SyncReport(
                 True,
@@ -166,6 +196,9 @@ class DataSynchronizer:
             "penetration_power",
             "armor_damage_percent",
             "projectile_count",
+            "muzzle_velocity",
+            "fragmentation_chance",
+            "ricochet_chance",
             "localized_names",
             "image_url",
             "wiki_url",
@@ -173,6 +206,8 @@ class DataSynchronizer:
         for result in ordered:
             for ammo in result.ammo:
                 if ammo.id not in chosen:
+                    if result.manifest.source == "TarkovTracker/tarkovdata":
+                        continue
                     chosen[ammo.id] = ammo
                     chosen_provenance[ammo.id] = result.provenance.get(ammo.id, {})
                     continue

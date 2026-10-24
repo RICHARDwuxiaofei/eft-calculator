@@ -141,7 +141,7 @@ def test_tracker_caliber_filter_and_search_rows_use_item_icons(qtbot, tmp_path) 
     database.apply_ammo_snapshot(
         {
             "snapshot_id": "tracker-ui",
-            "created_at": "2026-07-31T00:00:00+00:00",
+            "created_at": "2026-10-25T00:00:00+00:00",
             "ammo": [asdict(m855), asdict(m855a1)],
         }
     )

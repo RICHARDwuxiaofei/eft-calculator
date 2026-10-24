@@ -1,0 +1,4911 @@
+[
+  {
+    "id": "class-1-durability-0-offset--12",
+    "input": {
+      "schema_version": 1,
+      "ammo": {
+        "id": "independent",
+        "name": "Independent reference",
+        "short_name": "REF",
+        "caliber": "reference",
+        "damage": 50,
+        "penetration_power": 0,
+        "armor_damage_percent": 50,
+        "projectile_count": 1
+      },
+      "armor_layers": [
+        {
+          "id": "reference",
+          "name": "Reference layer",
+          "layer_type": "plate",
+          "armor_class": 1,
+          "current_durability": 0,
+          "displayed_max_durability": 100,
+          "original_max_durability": 100,
+          "material": "ceramic",
+          "destructibility": 0.6,
+          "blunt_throughput": 0.1,
+          "is_hard_armor": true
+        }
+      ],
+      "body_part": "thorax",
+      "distance_m": 0,
+      "enable_distance_decay": false,
+      "shot_count": 1,
+      "simulation_iterations": 100000,
+      "random_seed": 20261025
+    },
+    "expected": {
+      "final_penetration_probability": 1.0,
+      "expected_health_damage": 50.0,
+      "expected_blunt_damage": 0.0,
+      "expected_burst_total_damage": 50.0,
+      "penetration_probability_by_shot": [
+        1.0
+      ],
+      "first_penetration_shot_distribution": {
+        "1": 1.0
+      },
+      "kill_probability_by_shot": [
+        0.0
+      ]
+    },
+    "basis": "independent 50-digit Decimal event enumeration of documented community equations; NOT in-game measurements"
+  },
+  {
+    "id": "class-1-durability-0-offset-0",
+    "input": {
+      "schema_version": 1,
+      "ammo": {
+        "id": "independent",
+        "name": "Independent reference",
+        "short_name": "REF",
+        "caliber": "reference",
+        "damage": 50,
+        "penetration_power": 10,
+        "armor_damage_percent": 50,
+        "projectile_count": 1
+      },
+      "armor_layers": [
+        {
+          "id": "reference",
+          "name": "Reference layer",
+          "layer_type": "plate",
+          "armor_class": 1,
+          "current_durability": 0,
+          "displayed_max_durability": 100,
+          "original_max_durability": 100,
+          "material": "ceramic",
+          "destructibility": 0.6,
+          "blunt_throughput": 0.1,
+          "is_hard_armor": true
+        }
+      ],
+      "body_part": "thorax",
+      "distance_m": 0,
+      "enable_distance_decay": false,
+      "shot_count": 1,
+      "simulation_iterations": 100000,
+      "random_seed": 20261025
+    },
+    "expected": {
+      "final_penetration_probability": 1.0,
+      "expected_health_damage": 50.0,
+      "expected_blunt_damage": 0.0,
+      "expected_burst_total_damage": 50.0,
+      "penetration_probability_by_shot": [
+        1.0
+      ],
+      "first_penetration_shot_distribution": {
+        "1": 1.0
+      },
+      "kill_probability_by_shot": [
+        0.0
+      ]
+    },
+    "basis": "independent 50-digit Decimal event enumeration of documented community equations; NOT in-game measurements"
+  },
+  {
+    "id": "class-1-durability-0-offset-16",
+    "input": {
+      "schema_version": 1,
+      "ammo": {
+        "id": "independent",
+        "name": "Independent reference",
+        "short_name": "REF",
+        "caliber": "reference",
+        "damage": 50,
+        "penetration_power": 26,
+        "armor_damage_percent": 50,
+        "projectile_count": 1
+      },
+      "armor_layers": [
+        {
+          "id": "reference",
+          "name": "Reference layer",
+          "layer_type": "plate",
+          "armor_class": 1,
+          "current_durability": 0,
+          "displayed_max_durability": 100,
+          "original_max_durability": 100,
+          "material": "ceramic",
+          "destructibility": 0.6,
+          "blunt_throughput": 0.1,
+          "is_hard_armor": true
+        }
+      ],
+      "body_part": "thorax",
+      "distance_m": 0,
+      "enable_distance_decay": false,
+      "shot_count": 1,
+      "simulation_iterations": 100000,
+      "random_seed": 20261025
+    },
+    "expected": {
+      "final_penetration_probability": 1.0,
+      "expected_health_damage": 50.0,
+      "expected_blunt_damage": 0.0,
+      "expected_burst_total_damage": 50.0,
+      "penetration_probability_by_shot": [
+        1.0
+      ],
+      "first_penetration_shot_distribution": {
+        "1": 1.0
+      },
+      "kill_probability_by_shot": [
+        0.0
+      ]
+    },
+    "basis": "independent 50-digit Decimal event enumeration of documented community equations; NOT in-game measurements"
+  },
+  {
+    "id": "class-1-durability-0.25-offset--12",
+    "input": {
+      "schema_version": 1,
+      "ammo": {
+        "id": "independent",
+        "name": "Independent reference",
+        "short_name": "REF",
+        "caliber": "reference",
+        "damage": 50,
+        "penetration_power": 0,
+        "armor_damage_percent": 50,
+        "projectile_count": 1
+      },
+      "armor_layers": [
+        {
+          "id": "reference",
+          "name": "Reference layer",
+          "layer_type": "plate",
+          "armor_class": 1,
+          "current_durability": 25.0,
+          "displayed_max_durability": 100,
+          "original_max_durability": 100,
+          "material": "ceramic",
+          "destructibility": 0.6,
+          "blunt_throughput": 0.1,
+          "is_hard_armor": true
+        }
+      ],
+      "body_part": "thorax",
+      "distance_m": 0,
+      "enable_distance_decay": false,
+      "shot_count": 1,
+      "simulation_iterations": 100000,
+      "random_seed": 20261025
+    },
+    "expected": {
+      "final_penetration_probability": 0.0,
+      "expected_health_damage": 0.0,
+      "expected_blunt_damage": 2.384684210526316,
+      "expected_burst_total_damage": 2.384684210526316,
+      "penetration_probability_by_shot": [
+        0.0
+      ],
+      "first_penetration_shot_distribution": {
+        "1": 0.0
+      },
+      "kill_probability_by_shot": [
+        0.0
+      ]
+    },
+    "basis": "independent 50-digit Decimal event enumeration of documented community equations; NOT in-game measurements"
+  },
+  {
+    "id": "class-1-durability-0.25-offset-0",
+    "input": {
+      "schema_version": 1,
+      "ammo": {
+        "id": "independent",
+        "name": "Independent reference",
+        "short_name": "REF",
+        "caliber": "reference",
+        "damage": 50,
+        "penetration_power": 10,
+        "armor_damage_percent": 50,
+        "projectile_count": 1
+      },
+      "armor_layers": [
+        {
+          "id": "reference",
+          "name": "Reference layer",
+          "layer_type": "plate",
+          "armor_class": 1,
+          "current_durability": 25.0,
+          "displayed_max_durability": 100,
+          "original_max_durability": 100,
+          "material": "ceramic",
+          "destructibility": 0.6,
+          "blunt_throughput": 0.1,
+          "is_hard_armor": true
+        }
+      ],
+      "body_part": "thorax",
+      "distance_m": 0,
+      "enable_distance_decay": false,
+      "shot_count": 1,
+      "simulation_iterations": 100000,
+      "random_seed": 20261025
+    },
+    "expected": {
+      "final_penetration_probability": 0.9740046517991517,
+      "expected_health_damage": 29.22013955397455,
+      "expected_blunt_damage": 0.07798604460254481,
+      "expected_burst_total_damage": 29.298125598577098,
+      "penetration_probability_by_shot": [
+        0.9740046517991517
+      ],
+      "first_penetration_shot_distribution": {
+        "1": 0.9740046517991517
+      },
+      "kill_probability_by_shot": [
+        0.0
+      ]
+    },
+    "basis": "independent 50-digit Decimal event enumeration of documented community equations; NOT in-game measurements"
+  },
+  {
+    "id": "class-1-durability-0.25-offset-16",
+    "input": {
+      "schema_version": 1,
+      "ammo": {
+        "id": "independent",
+        "name": "Independent reference",
+        "short_name": "REF",
+        "caliber": "reference",
+        "damage": 50,
+        "penetration_power": 26,
+        "armor_damage_percent": 50,
+        "projectile_count": 1
+      },
+      "armor_layers": [
+        {
+          "id": "reference",
+          "name": "Reference layer",
+          "layer_type": "plate",
+          "armor_class": 1,
+          "current_durability": 25.0,
+          "displayed_max_durability": 100,
+          "original_max_durability": 100,
+          "material": "ceramic",
+          "destructibility": 0.6,
+          "blunt_throughput": 0.1,
+          "is_hard_armor": true
+        }
+      ],
+      "body_part": "thorax",
+      "distance_m": 0,
+      "enable_distance_decay": false,
+      "shot_count": 1,
+      "simulation_iterations": 100000,
+      "random_seed": 20261025
+    },
+    "expected": {
+      "final_penetration_probability": 1.0,
+      "expected_health_damage": 50.0,
+      "expected_blunt_damage": 0.0,
+      "expected_burst_total_damage": 50.0,
+      "penetration_probability_by_shot": [
+        1.0
+      ],
+      "first_penetration_shot_distribution": {
+        "1": 1.0
+      },
+      "kill_probability_by_shot": [
+        0.0
+      ]
+    },
+    "basis": "independent 50-digit Decimal event enumeration of documented community equations; NOT in-game measurements"
+  },
+  {
+    "id": "class-1-durability-0.5-offset--12",
+    "input": {
+      "schema_version": 1,
+      "ammo": {
+        "id": "independent",
+        "name": "Independent reference",
+        "short_name": "REF",
+        "caliber": "reference",
+        "damage": 50,
+        "penetration_power": 0,
+        "armor_damage_percent": 50,
+        "projectile_count": 1
+      },
+      "armor_layers": [
+        {
+          "id": "reference",
+          "name": "Reference layer",
+          "layer_type": "plate",
+          "armor_class": 1,
+          "current_durability": 50.0,
+          "displayed_max_durability": 100,
+          "original_max_durability": 100,
+          "material": "ceramic",
+          "destructibility": 0.6,
+          "blunt_throughput": 0.1,
+          "is_hard_armor": true
+        }
+      ],
+      "body_part": "thorax",
+      "distance_m": 0,
+      "enable_distance_decay": false,
+      "shot_count": 1,
+      "simulation_iterations": 100000,
+      "random_seed": 20261025
+    },
+    "expected": {
+      "final_penetration_probability": 0.0,
+      "expected_health_damage": 0.0,
+      "expected_blunt_damage": 2.221344827586207,
+      "expected_burst_total_damage": 2.221344827586207,
+      "penetration_probability_by_shot": [
+        0.0
+      ],
+      "first_penetration_shot_distribution": {
+        "1": 0.0
+      },
+      "kill_probability_by_shot": [
+        0.0
+      ]
+    },
+    "basis": "independent 50-digit Decimal event enumeration of documented community equations; NOT in-game measurements"
+  },
+  {
+    "id": "class-1-durability-0.5-offset-0",
+    "input": {
+      "schema_version": 1,
+      "ammo": {
+        "id": "independent",
+        "name": "Independent reference",
+        "short_name": "REF",
+        "caliber": "reference",
+        "damage": 50,
+        "penetration_power": 10,
+        "armor_damage_percent": 50,
+        "projectile_count": 1
+      },
+      "armor_layers": [
+        {
+          "id": "reference",
+          "name": "Reference layer",
+          "layer_type": "plate",
+          "armor_class": 1,
+          "current_durability": 50.0,
+          "displayed_max_durability": 100,
+          "original_max_durability": 100,
+          "material": "ceramic",
+          "destructibility": 0.6,
+          "blunt_throughput": 0.1,
+          "is_hard_armor": true
+        }
+      ],
+      "body_part": "thorax",
+      "distance_m": 0,
+      "enable_distance_decay": false,
+      "shot_count": 1,
+      "simulation_iterations": 100000,
+      "random_seed": 20261025
+    },
+    "expected": {
+      "final_penetration_probability": 0.9548216233058109,
+      "expected_health_damage": 28.644648699174326,
+      "expected_blunt_damage": 0.13553513008256737,
+      "expected_burst_total_damage": 28.780183829256895,
+      "penetration_probability_by_shot": [
+        0.9548216233058109
+      ],
+      "first_penetration_shot_distribution": {
+        "1": 0.9548216233058109
+      },
+      "kill_probability_by_shot": [
+        0.0
+      ]
+    },
+    "basis": "independent 50-digit Decimal event enumeration of documented community equations; NOT in-game measurements"
+  },
+  {
+    "id": "class-1-durability-0.5-offset-16",
+    "input": {
+      "schema_version": 1,
+      "ammo": {
+        "id": "independent",
+        "name": "Independent reference",
+        "short_name": "REF",
+        "caliber": "reference",
+        "damage": 50,
+        "penetration_power": 26,
+        "armor_damage_percent": 50,
+        "projectile_count": 1
+      },
+      "armor_layers": [
+        {
+          "id": "reference",
+          "name": "Reference layer",
+          "layer_type": "plate",
+          "armor_class": 1,
+          "current_durability": 50.0,
+          "displayed_max_durability": 100,
+          "original_max_durability": 100,
+          "material": "ceramic",
+          "destructibility": 0.6,
+          "blunt_throughput": 0.1,
+          "is_hard_armor": true
+        }
+      ],
+      "body_part": "thorax",
+      "distance_m": 0,
+      "enable_distance_decay": false,
+      "shot_count": 1,
+      "simulation_iterations": 100000,
+      "random_seed": 20261025
+    },
+    "expected": {
+      "final_penetration_probability": 1.0,
+      "expected_health_damage": 50.0,
+      "expected_blunt_damage": 0.0,
+      "expected_burst_total_damage": 50.0,
+      "penetration_probability_by_shot": [
+        1.0
+      ],
+      "first_penetration_shot_distribution": {
+        "1": 1.0
+      },
+      "kill_probability_by_shot": [
+        0.0
+      ]
+    },
+    "basis": "independent 50-digit Decimal event enumeration of documented community equations; NOT in-game measurements"
+  },
+  {
+    "id": "class-1-durability-1-offset--12",
+    "input": {
+      "schema_version": 1,
+      "ammo": {
+        "id": "independent",
+        "name": "Independent reference",
+        "short_name": "REF",
+        "caliber": "reference",
+        "damage": 50,
+        "penetration_power": 0,
+        "armor_damage_percent": 50,
+        "projectile_count": 1
+      },
+      "armor_layers": [
+        {
+          "id": "reference",
+          "name": "Reference layer",
+          "layer_type": "plate",
+          "armor_class": 1,
+          "current_durability": 100,
+          "displayed_max_durability": 100,
+          "original_max_durability": 100,
+          "material": "ceramic",
+          "destructibility": 0.6,
+          "blunt_throughput": 0.1,
+          "is_hard_armor": true
+        }
+      ],
+      "body_part": "thorax",
+      "distance_m": 0,
+      "enable_distance_decay": false,
+      "shot_count": 1,
+      "simulation_iterations": 100000,
+      "random_seed": 20261025
+    },
+    "expected": {
+      "final_penetration_probability": 0.0,
+      "expected_health_damage": 0.0,
+      "expected_blunt_damage": 2.094673469387755,
+      "expected_burst_total_damage": 2.094673469387755,
+      "penetration_probability_by_shot": [
+        0.0
+      ],
+      "first_penetration_shot_distribution": {
+        "1": 0.0
+      },
+      "kill_probability_by_shot": [
+        0.0
+      ]
+    },
+    "basis": "independent 50-digit Decimal event enumeration of documented community equations; NOT in-game measurements"
+  },
+  {
+    "id": "class-1-durability-1-offset-0",
+    "input": {
+      "schema_version": 1,
+      "ammo": {
+        "id": "independent",
+        "name": "Independent reference",
+        "short_name": "REF",
+        "caliber": "reference",
+        "damage": 50,
+        "penetration_power": 10,
+        "armor_damage_percent": 50,
+        "projectile_count": 1
+      },
+      "armor_layers": [
+        {
+          "id": "reference",
+          "name": "Reference layer",
+          "layer_type": "plate",
+          "armor_class": 1,
+          "current_durability": 100,
+          "displayed_max_durability": 100,
+          "original_max_durability": 100,
+          "material": "ceramic",
+          "destructibility": 0.6,
+          "blunt_throughput": 0.1,
+          "is_hard_armor": true
+        }
+      ],
+      "body_part": "thorax",
+      "distance_m": 0,
+      "enable_distance_decay": false,
+      "shot_count": 1,
+      "simulation_iterations": 100000,
+      "random_seed": 20261025
+    },
+    "expected": {
+      "final_penetration_probability": 0.8929119700124948,
+      "expected_health_damage": 26.787359100374843,
+      "expected_blunt_damage": 0.32069368229258216,
+      "expected_burst_total_damage": 27.108052782667425,
+      "penetration_probability_by_shot": [
+        0.8929119700124948
+      ],
+      "first_penetration_shot_distribution": {
+        "1": 0.8929119700124948
+      },
+      "kill_probability_by_shot": [
+        0.0
+      ]
+    },
+    "basis": "independent 50-digit Decimal event enumeration of documented community equations; NOT in-game measurements"
+  },
+  {
+    "id": "class-1-durability-1-offset-16",
+    "input": {
+      "schema_version": 1,
+      "ammo": {
+        "id": "independent",
+        "name": "Independent reference",
+        "short_name": "REF",
+        "caliber": "reference",
+        "damage": 50,
+        "penetration_power": 26,
+        "armor_damage_percent": 50,
+        "projectile_count": 1
+      },
+      "armor_layers": [
+        {
+          "id": "reference",
+          "name": "Reference layer",
+          "layer_type": "plate",
+          "armor_class": 1,
+          "current_durability": 100,
+          "displayed_max_durability": 100,
+          "original_max_durability": 100,
+          "material": "ceramic",
+          "destructibility": 0.6,
+          "blunt_throughput": 0.1,
+          "is_hard_armor": true
+        }
+      ],
+      "body_part": "thorax",
+      "distance_m": 0,
+      "enable_distance_decay": false,
+      "shot_count": 1,
+      "simulation_iterations": 100000,
+      "random_seed": 20261025
+    },
+    "expected": {
+      "final_penetration_probability": 1.0,
+      "expected_health_damage": 50.0,
+      "expected_blunt_damage": 0.0,
+      "expected_burst_total_damage": 50.0,
+      "penetration_probability_by_shot": [
+        1.0
+      ],
+      "first_penetration_shot_distribution": {
+        "1": 1.0
+      },
+      "kill_probability_by_shot": [
+        0.0
+      ]
+    },
+    "basis": "independent 50-digit Decimal event enumeration of documented community equations; NOT in-game measurements"
+  },
+  {
+    "id": "class-2-durability-0-offset--12",
+    "input": {
+      "schema_version": 1,
+      "ammo": {
+        "id": "independent",
+        "name": "Independent reference",
+        "short_name": "REF",
+        "caliber": "reference",
+        "damage": 50,
+        "penetration_power": 8,
+        "armor_damage_percent": 50,
+        "projectile_count": 1
+      },
+      "armor_layers": [
+        {
+          "id": "reference",
+          "name": "Reference layer",
+          "layer_type": "plate",
+          "armor_class": 2,
+          "current_durability": 0,
+          "displayed_max_durability": 100,
+          "original_max_durability": 100,
+          "material": "ceramic",
+          "destructibility": 0.6,
+          "blunt_throughput": 0.1,
+          "is_hard_armor": true
+        }
+      ],
+      "body_part": "thorax",
+      "distance_m": 0,
+      "enable_distance_decay": false,
+      "shot_count": 1,
+      "simulation_iterations": 100000,
+      "random_seed": 20261025
+    },
+    "expected": {
+      "final_penetration_probability": 1.0,
+      "expected_health_damage": 50.0,
+      "expected_blunt_damage": 0.0,
+      "expected_burst_total_damage": 50.0,
+      "penetration_probability_by_shot": [
+        1.0
+      ],
+      "first_penetration_shot_distribution": {
+        "1": 1.0
+      },
+      "kill_probability_by_shot": [
+        0.0
+      ]
+    },
+    "basis": "independent 50-digit Decimal event enumeration of documented community equations; NOT in-game measurements"
+  },
+  {
+    "id": "class-2-durability-0-offset-0",
+    "input": {
+      "schema_version": 1,
+      "ammo": {
+        "id": "independent",
+        "name": "Independent reference",
+        "short_name": "REF",
+        "caliber": "reference",
+        "damage": 50,
+        "penetration_power": 20,
+        "armor_damage_percent": 50,
+        "projectile_count": 1
+      },
+      "armor_layers": [
+        {
+          "id": "reference",
+          "name": "Reference layer",
+          "layer_type": "plate",
+          "armor_class": 2,
+          "current_durability": 0,
+          "displayed_max_durability": 100,
+          "original_max_durability": 100,
+          "material": "ceramic",
+          "destructibility": 0.6,
+          "blunt_throughput": 0.1,
+          "is_hard_armor": true
+        }
+      ],
+      "body_part": "thorax",
+      "distance_m": 0,
+      "enable_distance_decay": false,
+      "shot_count": 1,
+      "simulation_iterations": 100000,
+      "random_seed": 20261025
+    },
+    "expected": {
+      "final_penetration_probability": 1.0,
+      "expected_health_damage": 50.0,
+      "expected_blunt_damage": 0.0,
+      "expected_burst_total_damage": 50.0,
+      "penetration_probability_by_shot": [
+        1.0
+      ],
+      "first_penetration_shot_distribution": {
+        "1": 1.0
+      },
+      "kill_probability_by_shot": [
+        0.0
+      ]
+    },
+    "basis": "independent 50-digit Decimal event enumeration of documented community equations; NOT in-game measurements"
+  },
+  {
+    "id": "class-2-durability-0-offset-16",
+    "input": {
+      "schema_version": 1,
+      "ammo": {
+        "id": "independent",
+        "name": "Independent reference",
+        "short_name": "REF",
+        "caliber": "reference",
+        "damage": 50,
+        "penetration_power": 36,
+        "armor_damage_percent": 50,
+        "projectile_count": 1
+      },
+      "armor_layers": [
+        {
+          "id": "reference",
+          "name": "Reference layer",
+          "layer_type": "plate",
+          "armor_class": 2,
+          "current_durability": 0,
+          "displayed_max_durability": 100,
+          "original_max_durability": 100,
+          "material": "ceramic",
+          "destructibility": 0.6,
+          "blunt_throughput": 0.1,
+          "is_hard_armor": true
+        }
+      ],
+      "body_part": "thorax",
+      "distance_m": 0,
+      "enable_distance_decay": false,
+      "shot_count": 1,
+      "simulation_iterations": 100000,
+      "random_seed": 20261025
+    },
+    "expected": {
+      "final_penetration_probability": 1.0,
+      "expected_health_damage": 50.0,
+      "expected_blunt_damage": 0.0,
+      "expected_burst_total_damage": 50.0,
+      "penetration_probability_by_shot": [
+        1.0
+      ],
+      "first_penetration_shot_distribution": {
+        "1": 1.0
+      },
+      "kill_probability_by_shot": [
+        0.0
+      ]
+    },
+    "basis": "independent 50-digit Decimal event enumeration of documented community equations; NOT in-game measurements"
+  },
+  {
+    "id": "class-2-durability-0.25-offset--12",
+    "input": {
+      "schema_version": 1,
+      "ammo": {
+        "id": "independent",
+        "name": "Independent reference",
+        "short_name": "REF",
+        "caliber": "reference",
+        "damage": 50,
+        "penetration_power": 8,
+        "armor_damage_percent": 50,
+        "projectile_count": 1
+      },
+      "armor_layers": [
+        {
+          "id": "reference",
+          "name": "Reference layer",
+          "layer_type": "plate",
+          "armor_class": 2,
+          "current_durability": 25.0,
+          "displayed_max_durability": 100,
+          "original_max_durability": 100,
+          "material": "ceramic",
+          "destructibility": 0.6,
+          "blunt_throughput": 0.1,
+          "is_hard_armor": true
+        }
+      ],
+      "body_part": "thorax",
+      "distance_m": 0,
+      "enable_distance_decay": false,
+      "shot_count": 1,
+      "simulation_iterations": 100000,
+      "random_seed": 20261025
+    },
+    "expected": {
+      "final_penetration_probability": 0.3479206648199446,
+      "expected_health_damage": 10.437619944598337,
+      "expected_blunt_damage": 1.6232657050182242,
+      "expected_burst_total_damage": 12.060885649616562,
+      "penetration_probability_by_shot": [
+        0.3479206648199446
+      ],
+      "first_penetration_shot_distribution": {
+        "1": 0.3479206648199446
+      },
+      "kill_probability_by_shot": [
+        0.0
+      ]
+    },
+    "basis": "independent 50-digit Decimal event enumeration of documented community equations; NOT in-game measurements"
+  },
+  {
+    "id": "class-2-durability-0.25-offset-0",
+    "input": {
+      "schema_version": 1,
+      "ammo": {
+        "id": "independent",
+        "name": "Independent reference",
+        "short_name": "REF",
+        "caliber": "reference",
+        "damage": 50,
+        "penetration_power": 20,
+        "armor_damage_percent": 50,
+        "projectile_count": 1
+      },
+      "armor_layers": [
+        {
+          "id": "reference",
+          "name": "Reference layer",
+          "layer_type": "plate",
+          "armor_class": 2,
+          "current_durability": 25.0,
+          "displayed_max_durability": 100,
+          "original_max_durability": 100,
+          "material": "ceramic",
+          "destructibility": 0.6,
+          "blunt_throughput": 0.1,
+          "is_hard_armor": true
+        }
+      ],
+      "body_part": "thorax",
+      "distance_m": 0,
+      "enable_distance_decay": false,
+      "shot_count": 1,
+      "simulation_iterations": 100000,
+      "random_seed": 20261025
+    },
+    "expected": {
+      "final_penetration_probability": 0.9740046517991517,
+      "expected_health_damage": 37.93786056618262,
+      "expected_blunt_damage": 0.07798604460254481,
+      "expected_burst_total_damage": 38.01584661078517,
+      "penetration_probability_by_shot": [
+        0.9740046517991517
+      ],
+      "first_penetration_shot_distribution": {
+        "1": 0.9740046517991517
+      },
+      "kill_probability_by_shot": [
+        0.0
+      ]
+    },
+    "basis": "independent 50-digit Decimal event enumeration of documented community equations; NOT in-game measurements"
+  },
+  {
+    "id": "class-2-durability-0.25-offset-16",
+    "input": {
+      "schema_version": 1,
+      "ammo": {
+        "id": "independent",
+        "name": "Independent reference",
+        "short_name": "REF",
+        "caliber": "reference",
+        "damage": 50,
+        "penetration_power": 36,
+        "armor_damage_percent": 50,
+        "projectile_count": 1
+      },
+      "armor_layers": [
+        {
+          "id": "reference",
+          "name": "Reference layer",
+          "layer_type": "plate",
+          "armor_class": 2,
+          "current_durability": 25.0,
+          "displayed_max_durability": 100,
+          "original_max_durability": 100,
+          "material": "ceramic",
+          "destructibility": 0.6,
+          "blunt_throughput": 0.1,
+          "is_hard_armor": true
+        }
+      ],
+      "body_part": "thorax",
+      "distance_m": 0,
+      "enable_distance_decay": false,
+      "shot_count": 1,
+      "simulation_iterations": 100000,
+      "random_seed": 20261025
+    },
+    "expected": {
+      "final_penetration_probability": 1.0,
+      "expected_health_damage": 50.0,
+      "expected_blunt_damage": 0.0,
+      "expected_burst_total_damage": 50.0,
+      "penetration_probability_by_shot": [
+        1.0
+      ],
+      "first_penetration_shot_distribution": {
+        "1": 1.0
+      },
+      "kill_probability_by_shot": [
+        0.0
+      ]
+    },
+    "basis": "independent 50-digit Decimal event enumeration of documented community equations; NOT in-game measurements"
+  },
+  {
+    "id": "class-2-durability-0.5-offset--12",
+    "input": {
+      "schema_version": 1,
+      "ammo": {
+        "id": "independent",
+        "name": "Independent reference",
+        "short_name": "REF",
+        "caliber": "reference",
+        "damage": 50,
+        "penetration_power": 8,
+        "armor_damage_percent": 50,
+        "projectile_count": 1
+      },
+      "armor_layers": [
+        {
+          "id": "reference",
+          "name": "Reference layer",
+          "layer_type": "plate",
+          "armor_class": 2,
+          "current_durability": 50.0,
+          "displayed_max_durability": 100,
+          "original_max_durability": 100,
+          "material": "ceramic",
+          "destructibility": 0.6,
+          "blunt_throughput": 0.1,
+          "is_hard_armor": true
+        }
+      ],
+      "body_part": "thorax",
+      "distance_m": 0,
+      "enable_distance_decay": false,
+      "shot_count": 1,
+      "simulation_iterations": 100000,
+      "random_seed": 20261025
+    },
+    "expected": {
+      "final_penetration_probability": 0.12980280618311535,
+      "expected_health_damage": 3.89408418549346,
+      "expected_blunt_damage": 1.8819664690278404,
+      "expected_burst_total_damage": 5.776050654521301,
+      "penetration_probability_by_shot": [
+        0.12980280618311535
+      ],
+      "first_penetration_shot_distribution": {
+        "1": 0.12980280618311535
+      },
+      "kill_probability_by_shot": [
+        0.0
+      ]
+    },
+    "basis": "independent 50-digit Decimal event enumeration of documented community equations; NOT in-game measurements"
+  },
+  {
+    "id": "class-2-durability-0.5-offset-0",
+    "input": {
+      "schema_version": 1,
+      "ammo": {
+        "id": "independent",
+        "name": "Independent reference",
+        "short_name": "REF",
+        "caliber": "reference",
+        "damage": 50,
+        "penetration_power": 20,
+        "armor_damage_percent": 50,
+        "projectile_count": 1
+      },
+      "armor_layers": [
+        {
+          "id": "reference",
+          "name": "Reference layer",
+          "layer_type": "plate",
+          "armor_class": 2,
+          "current_durability": 50.0,
+          "displayed_max_durability": 100,
+          "original_max_durability": 100,
+          "material": "ceramic",
+          "destructibility": 0.6,
+          "blunt_throughput": 0.1,
+          "is_hard_armor": true
+        }
+      ],
+      "body_part": "thorax",
+      "distance_m": 0,
+      "enable_distance_decay": false,
+      "shot_count": 1,
+      "simulation_iterations": 100000,
+      "random_seed": 20261025
+    },
+    "expected": {
+      "final_penetration_probability": 0.9548216233058109,
+      "expected_health_damage": 32.58393395607027,
+      "expected_blunt_damage": 0.13553513008256737,
+      "expected_burst_total_damage": 32.719469086152834,
+      "penetration_probability_by_shot": [
+        0.9548216233058109
+      ],
+      "first_penetration_shot_distribution": {
+        "1": 0.9548216233058109
+      },
+      "kill_probability_by_shot": [
+        0.0
+      ]
+    },
+    "basis": "independent 50-digit Decimal event enumeration of documented community equations; NOT in-game measurements"
+  },
+  {
+    "id": "class-2-durability-0.5-offset-16",
+    "input": {
+      "schema_version": 1,
+      "ammo": {
+        "id": "independent",
+        "name": "Independent reference",
+        "short_name": "REF",
+        "caliber": "reference",
+        "damage": 50,
+        "penetration_power": 36,
+        "armor_damage_percent": 50,
+        "projectile_count": 1
+      },
+      "armor_layers": [
+        {
+          "id": "reference",
+          "name": "Reference layer",
+          "layer_type": "plate",
+          "armor_class": 2,
+          "current_durability": 50.0,
+          "displayed_max_durability": 100,
+          "original_max_durability": 100,
+          "material": "ceramic",
+          "destructibility": 0.6,
+          "blunt_throughput": 0.1,
+          "is_hard_armor": true
+        }
+      ],
+      "body_part": "thorax",
+      "distance_m": 0,
+      "enable_distance_decay": false,
+      "shot_count": 1,
+      "simulation_iterations": 100000,
+      "random_seed": 20261025
+    },
+    "expected": {
+      "final_penetration_probability": 1.0,
+      "expected_health_damage": 50.0,
+      "expected_blunt_damage": 0.0,
+      "expected_burst_total_damage": 50.0,
+      "penetration_probability_by_shot": [
+        1.0
+      ],
+      "first_penetration_shot_distribution": {
+        "1": 1.0
+      },
+      "kill_probability_by_shot": [
+        0.0
+      ]
+    },
+    "basis": "independent 50-digit Decimal event enumeration of documented community equations; NOT in-game measurements"
+  },
+  {
+    "id": "class-2-durability-1-offset--12",
+    "input": {
+      "schema_version": 1,
+      "ammo": {
+        "id": "independent",
+        "name": "Independent reference",
+        "short_name": "REF",
+        "caliber": "reference",
+        "damage": 50,
+        "penetration_power": 8,
+        "armor_damage_percent": 50,
+        "projectile_count": 1
+      },
+      "armor_layers": [
+        {
+          "id": "reference",
+          "name": "Reference layer",
+          "layer_type": "plate",
+          "armor_class": 2,
+          "current_durability": 100,
+          "displayed_max_durability": 100,
+          "original_max_durability": 100,
+          "material": "ceramic",
+          "destructibility": 0.6,
+          "blunt_throughput": 0.1,
+          "is_hard_armor": true
+        }
+      ],
+      "body_part": "thorax",
+      "distance_m": 0,
+      "enable_distance_decay": false,
+      "shot_count": 1,
+      "simulation_iterations": 100000,
+      "random_seed": 20261025
+    },
+    "expected": {
+      "final_penetration_probability": 0.03321522698875468,
+      "expected_health_damage": 0.9964568096626406,
+      "expected_blunt_damage": 1.8459275468037977,
+      "expected_burst_total_damage": 2.842384356466438,
+      "penetration_probability_by_shot": [
+        0.03321522698875468
+      ],
+      "first_penetration_shot_distribution": {
+        "1": 0.03321522698875468
+      },
+      "kill_probability_by_shot": [
+        0.0
+      ]
+    },
+    "basis": "independent 50-digit Decimal event enumeration of documented community equations; NOT in-game measurements"
+  },
+  {
+    "id": "class-2-durability-1-offset-0",
+    "input": {
+      "schema_version": 1,
+      "ammo": {
+        "id": "independent",
+        "name": "Independent reference",
+        "short_name": "REF",
+        "caliber": "reference",
+        "damage": 50,
+        "penetration_power": 20,
+        "armor_damage_percent": 50,
+        "projectile_count": 1
+      },
+      "armor_layers": [
+        {
+          "id": "reference",
+          "name": "Reference layer",
+          "layer_type": "plate",
+          "armor_class": 2,
+          "current_durability": 100,
+          "displayed_max_durability": 100,
+          "original_max_durability": 100,
+          "material": "ceramic",
+          "destructibility": 0.6,
+          "blunt_throughput": 0.1,
+          "is_hard_armor": true
+        }
+      ],
+      "body_part": "thorax",
+      "distance_m": 0,
+      "enable_distance_decay": false,
+      "shot_count": 1,
+      "simulation_iterations": 100000,
+      "random_seed": 20261025
+    },
+    "expected": {
+      "final_penetration_probability": 0.8858519616826322,
+      "expected_health_damage": 27.58085279098296,
+      "expected_blunt_damage": 0.34122808891125295,
+      "expected_burst_total_damage": 27.92208087989421,
+      "penetration_probability_by_shot": [
+        0.8858519616826322
+      ],
+      "first_penetration_shot_distribution": {
+        "1": 0.8858519616826322
+      },
+      "kill_probability_by_shot": [
+        0.0
+      ]
+    },
+    "basis": "independent 50-digit Decimal event enumeration of documented community equations; NOT in-game measurements"
+  },
+  {
+    "id": "class-2-durability-1-offset-16",
+    "input": {
+      "schema_version": 1,
+      "ammo": {
+        "id": "independent",
+        "name": "Independent reference",
+        "short_name": "REF",
+        "caliber": "reference",
+        "damage": 50,
+        "penetration_power": 36,
+        "armor_damage_percent": 50,
+        "projectile_count": 1
+      },
+      "armor_layers": [
+        {
+          "id": "reference",
+          "name": "Reference layer",
+          "layer_type": "plate",
+          "armor_class": 2,
+          "current_durability": 100,
+          "displayed_max_durability": 100,
+          "original_max_durability": 100,
+          "material": "ceramic",
+          "destructibility": 0.6,
+          "blunt_throughput": 0.1,
+          "is_hard_armor": true
+        }
+      ],
+      "body_part": "thorax",
+      "distance_m": 0,
+      "enable_distance_decay": false,
+      "shot_count": 1,
+      "simulation_iterations": 100000,
+      "random_seed": 20261025
+    },
+    "expected": {
+      "final_penetration_probability": 1.0,
+      "expected_health_damage": 50.0,
+      "expected_blunt_damage": 0.0,
+      "expected_burst_total_damage": 50.0,
+      "penetration_probability_by_shot": [
+        1.0
+      ],
+      "first_penetration_shot_distribution": {
+        "1": 1.0
+      },
+      "kill_probability_by_shot": [
+        0.0
+      ]
+    },
+    "basis": "independent 50-digit Decimal event enumeration of documented community equations; NOT in-game measurements"
+  },
+  {
+    "id": "class-3-durability-0-offset--12",
+    "input": {
+      "schema_version": 1,
+      "ammo": {
+        "id": "independent",
+        "name": "Independent reference",
+        "short_name": "REF",
+        "caliber": "reference",
+        "damage": 50,
+        "penetration_power": 18,
+        "armor_damage_percent": 50,
+        "projectile_count": 1
+      },
+      "armor_layers": [
+        {
+          "id": "reference",
+          "name": "Reference layer",
+          "layer_type": "plate",
+          "armor_class": 3,
+          "current_durability": 0,
+          "displayed_max_durability": 100,
+          "original_max_durability": 100,
+          "material": "ceramic",
+          "destructibility": 0.6,
+          "blunt_throughput": 0.1,
+          "is_hard_armor": true
+        }
+      ],
+      "body_part": "thorax",
+      "distance_m": 0,
+      "enable_distance_decay": false,
+      "shot_count": 1,
+      "simulation_iterations": 100000,
+      "random_seed": 20261025
+    },
+    "expected": {
+      "final_penetration_probability": 1.0,
+      "expected_health_damage": 50.0,
+      "expected_blunt_damage": 0.0,
+      "expected_burst_total_damage": 50.0,
+      "penetration_probability_by_shot": [
+        1.0
+      ],
+      "first_penetration_shot_distribution": {
+        "1": 1.0
+      },
+      "kill_probability_by_shot": [
+        0.0
+      ]
+    },
+    "basis": "independent 50-digit Decimal event enumeration of documented community equations; NOT in-game measurements"
+  },
+  {
+    "id": "class-3-durability-0-offset-0",
+    "input": {
+      "schema_version": 1,
+      "ammo": {
+        "id": "independent",
+        "name": "Independent reference",
+        "short_name": "REF",
+        "caliber": "reference",
+        "damage": 50,
+        "penetration_power": 30,
+        "armor_damage_percent": 50,
+        "projectile_count": 1
+      },
+      "armor_layers": [
+        {
+          "id": "reference",
+          "name": "Reference layer",
+          "layer_type": "plate",
+          "armor_class": 3,
+          "current_durability": 0,
+          "displayed_max_durability": 100,
+          "original_max_durability": 100,
+          "material": "ceramic",
+          "destructibility": 0.6,
+          "blunt_throughput": 0.1,
+          "is_hard_armor": true
+        }
+      ],
+      "body_part": "thorax",
+      "distance_m": 0,
+      "enable_distance_decay": false,
+      "shot_count": 1,
+      "simulation_iterations": 100000,
+      "random_seed": 20261025
+    },
+    "expected": {
+      "final_penetration_probability": 1.0,
+      "expected_health_damage": 50.0,
+      "expected_blunt_damage": 0.0,
+      "expected_burst_total_damage": 50.0,
+      "penetration_probability_by_shot": [
+        1.0
+      ],
+      "first_penetration_shot_distribution": {
+        "1": 1.0
+      },
+      "kill_probability_by_shot": [
+        0.0
+      ]
+    },
+    "basis": "independent 50-digit Decimal event enumeration of documented community equations; NOT in-game measurements"
+  },
+  {
+    "id": "class-3-durability-0-offset-16",
+    "input": {
+      "schema_version": 1,
+      "ammo": {
+        "id": "independent",
+        "name": "Independent reference",
+        "short_name": "REF",
+        "caliber": "reference",
+        "damage": 50,
+        "penetration_power": 46,
+        "armor_damage_percent": 50,
+        "projectile_count": 1
+      },
+      "armor_layers": [
+        {
+          "id": "reference",
+          "name": "Reference layer",
+          "layer_type": "plate",
+          "armor_class": 3,
+          "current_durability": 0,
+          "displayed_max_durability": 100,
+          "original_max_durability": 100,
+          "material": "ceramic",
+          "destructibility": 0.6,
+          "blunt_throughput": 0.1,
+          "is_hard_armor": true
+        }
+      ],
+      "body_part": "thorax",
+      "distance_m": 0,
+      "enable_distance_decay": false,
+      "shot_count": 1,
+      "simulation_iterations": 100000,
+      "random_seed": 20261025
+    },
+    "expected": {
+      "final_penetration_probability": 1.0,
+      "expected_health_damage": 50.0,
+      "expected_blunt_damage": 0.0,
+      "expected_burst_total_damage": 50.0,
+      "penetration_probability_by_shot": [
+        1.0
+      ],
+      "first_penetration_shot_distribution": {
+        "1": 1.0
+      },
+      "kill_probability_by_shot": [
+        0.0
+      ]
+    },
+    "basis": "independent 50-digit Decimal event enumeration of documented community equations; NOT in-game measurements"
+  },
+  {
+    "id": "class-3-durability-0.25-offset--12",
+    "input": {
+      "schema_version": 1,
+      "ammo": {
+        "id": "independent",
+        "name": "Independent reference",
+        "short_name": "REF",
+        "caliber": "reference",
+        "damage": 50,
+        "penetration_power": 18,
+        "armor_damage_percent": 50,
+        "projectile_count": 1
+      },
+      "armor_layers": [
+        {
+          "id": "reference",
+          "name": "Reference layer",
+          "layer_type": "plate",
+          "armor_class": 3,
+          "current_durability": 25.0,
+          "displayed_max_durability": 100,
+          "original_max_durability": 100,
+          "material": "ceramic",
+          "destructibility": 0.6,
+          "blunt_throughput": 0.1,
+          "is_hard_armor": true
+        }
+      ],
+      "body_part": "thorax",
+      "distance_m": 0,
+      "enable_distance_decay": false,
+      "shot_count": 1,
+      "simulation_iterations": 100000,
+      "random_seed": 20261025
+    },
+    "expected": {
+      "final_penetration_probability": 0.623947811634349,
+      "expected_health_damage": 18.71843434903047,
+      "expected_blunt_damage": 1.043188562746756,
+      "expected_burst_total_damage": 19.761622911777227,
+      "penetration_probability_by_shot": [
+        0.623947811634349
+      ],
+      "first_penetration_shot_distribution": {
+        "1": 0.623947811634349
+      },
+      "kill_probability_by_shot": [
+        0.0
+      ]
+    },
+    "basis": "independent 50-digit Decimal event enumeration of documented community equations; NOT in-game measurements"
+  },
+  {
+    "id": "class-3-durability-0.25-offset-0",
+    "input": {
+      "schema_version": 1,
+      "ammo": {
+        "id": "independent",
+        "name": "Independent reference",
+        "short_name": "REF",
+        "caliber": "reference",
+        "damage": 50,
+        "penetration_power": 30,
+        "armor_damage_percent": 50,
+        "projectile_count": 1
+      },
+      "armor_layers": [
+        {
+          "id": "reference",
+          "name": "Reference layer",
+          "layer_type": "plate",
+          "armor_class": 3,
+          "current_durability": 25.0,
+          "displayed_max_durability": 100,
+          "original_max_durability": 100,
+          "material": "ceramic",
+          "destructibility": 0.6,
+          "blunt_throughput": 0.1,
+          "is_hard_armor": true
+        }
+      ],
+      "body_part": "thorax",
+      "distance_m": 0,
+      "enable_distance_decay": false,
+      "shot_count": 1,
+      "simulation_iterations": 100000,
+      "random_seed": 20261025
+    },
+    "expected": {
+      "final_penetration_probability": 0.9740046517991517,
+      "expected_health_damage": 44.93950554682827,
+      "expected_blunt_damage": 0.07798604460254481,
+      "expected_burst_total_damage": 45.01749159143082,
+      "penetration_probability_by_shot": [
+        0.9740046517991517
+      ],
+      "first_penetration_shot_distribution": {
+        "1": 0.9740046517991517
+      },
+      "kill_probability_by_shot": [
+        0.0
+      ]
+    },
+    "basis": "independent 50-digit Decimal event enumeration of documented community equations; NOT in-game measurements"
+  },
+  {
+    "id": "class-3-durability-0.25-offset-16",
+    "input": {
+      "schema_version": 1,
+      "ammo": {
+        "id": "independent",
+        "name": "Independent reference",
+        "short_name": "REF",
+        "caliber": "reference",
+        "damage": 50,
+        "penetration_power": 46,
+        "armor_damage_percent": 50,
+        "projectile_count": 1
+      },
+      "armor_layers": [
+        {
+          "id": "reference",
+          "name": "Reference layer",
+          "layer_type": "plate",
+          "armor_class": 3,
+          "current_durability": 25.0,
+          "displayed_max_durability": 100,
+          "original_max_durability": 100,
+          "material": "ceramic",
+          "destructibility": 0.6,
+          "blunt_throughput": 0.1,
+          "is_hard_armor": true
+        }
+      ],
+      "body_part": "thorax",
+      "distance_m": 0,
+      "enable_distance_decay": false,
+      "shot_count": 1,
+      "simulation_iterations": 100000,
+      "random_seed": 20261025
+    },
+    "expected": {
+      "final_penetration_probability": 1.0,
+      "expected_health_damage": 50.0,
+      "expected_blunt_damage": 0.0,
+      "expected_burst_total_damage": 50.0,
+      "penetration_probability_by_shot": [
+        1.0
+      ],
+      "first_penetration_shot_distribution": {
+        "1": 1.0
+      },
+      "kill_probability_by_shot": [
+        0.0
+      ]
+    },
+    "basis": "independent 50-digit Decimal event enumeration of documented community equations; NOT in-game measurements"
+  },
+  {
+    "id": "class-3-durability-0.5-offset--12",
+    "input": {
+      "schema_version": 1,
+      "ammo": {
+        "id": "independent",
+        "name": "Independent reference",
+        "short_name": "REF",
+        "caliber": "reference",
+        "damage": 50,
+        "penetration_power": 18,
+        "armor_damage_percent": 50,
+        "projectile_count": 1
+      },
+      "armor_layers": [
+        {
+          "id": "reference",
+          "name": "Reference layer",
+          "layer_type": "plate",
+          "armor_class": 3,
+          "current_durability": 50.0,
+          "displayed_max_durability": 100,
+          "original_max_durability": 100,
+          "material": "ceramic",
+          "destructibility": 0.6,
+          "blunt_throughput": 0.1,
+          "is_hard_armor": true
+        }
+      ],
+      "body_part": "thorax",
+      "distance_m": 0,
+      "enable_distance_decay": false,
+      "shot_count": 1,
+      "simulation_iterations": 100000,
+      "random_seed": 20261025
+    },
+    "expected": {
+      "final_penetration_probability": 0.19851838287752677,
+      "expected_health_damage": 5.955551486325803,
+      "expected_blunt_damage": 1.830611650804871,
+      "expected_burst_total_damage": 7.786163137130674,
+      "penetration_probability_by_shot": [
+        0.19851838287752677
+      ],
+      "first_penetration_shot_distribution": {
+        "1": 0.19851838287752677
+      },
+      "kill_probability_by_shot": [
+        0.0
+      ]
+    },
+    "basis": "independent 50-digit Decimal event enumeration of documented community equations; NOT in-game measurements"
+  },
+  {
+    "id": "class-3-durability-0.5-offset-0",
+    "input": {
+      "schema_version": 1,
+      "ammo": {
+        "id": "independent",
+        "name": "Independent reference",
+        "short_name": "REF",
+        "caliber": "reference",
+        "damage": 50,
+        "penetration_power": 30,
+        "armor_damage_percent": 50,
+        "projectile_count": 1
+      },
+      "armor_layers": [
+        {
+          "id": "reference",
+          "name": "Reference layer",
+          "layer_type": "plate",
+          "armor_class": 3,
+          "current_durability": 50.0,
+          "displayed_max_durability": 100,
+          "original_max_durability": 100,
+          "material": "ceramic",
+          "destructibility": 0.6,
+          "blunt_throughput": 0.1,
+          "is_hard_armor": true
+        }
+      ],
+      "body_part": "thorax",
+      "distance_m": 0,
+      "enable_distance_decay": false,
+      "shot_count": 1,
+      "simulation_iterations": 100000,
+      "random_seed": 20261025
+    },
+    "expected": {
+      "final_penetration_probability": 0.9548216233058109,
+      "expected_health_damage": 37.734842022170234,
+      "expected_blunt_damage": 0.13553513008256737,
+      "expected_burst_total_damage": 37.8703771522528,
+      "penetration_probability_by_shot": [
+        0.9548216233058109
+      ],
+      "first_penetration_shot_distribution": {
+        "1": 0.9548216233058109
+      },
+      "kill_probability_by_shot": [
+        0.0
+      ]
+    },
+    "basis": "independent 50-digit Decimal event enumeration of documented community equations; NOT in-game measurements"
+  },
+  {
+    "id": "class-3-durability-0.5-offset-16",
+    "input": {
+      "schema_version": 1,
+      "ammo": {
+        "id": "independent",
+        "name": "Independent reference",
+        "short_name": "REF",
+        "caliber": "reference",
+        "damage": 50,
+        "penetration_power": 46,
+        "armor_damage_percent": 50,
+        "projectile_count": 1
+      },
+      "armor_layers": [
+        {
+          "id": "reference",
+          "name": "Reference layer",
+          "layer_type": "plate",
+          "armor_class": 3,
+          "current_durability": 50.0,
+          "displayed_max_durability": 100,
+          "original_max_durability": 100,
+          "material": "ceramic",
+          "destructibility": 0.6,
+          "blunt_throughput": 0.1,
+          "is_hard_armor": true
+        }
+      ],
+      "body_part": "thorax",
+      "distance_m": 0,
+      "enable_distance_decay": false,
+      "shot_count": 1,
+      "simulation_iterations": 100000,
+      "random_seed": 20261025
+    },
+    "expected": {
+      "final_penetration_probability": 1.0,
+      "expected_health_damage": 50.0,
+      "expected_blunt_damage": 0.0,
+      "expected_burst_total_damage": 50.0,
+      "penetration_probability_by_shot": [
+        1.0
+      ],
+      "first_penetration_shot_distribution": {
+        "1": 1.0
+      },
+      "kill_probability_by_shot": [
+        0.0
+      ]
+    },
+    "basis": "independent 50-digit Decimal event enumeration of documented community equations; NOT in-game measurements"
+  },
+  {
+    "id": "class-3-durability-1-offset--12",
+    "input": {
+      "schema_version": 1,
+      "ammo": {
+        "id": "independent",
+        "name": "Independent reference",
+        "short_name": "REF",
+        "caliber": "reference",
+        "damage": 50,
+        "penetration_power": 18,
+        "armor_damage_percent": 50,
+        "projectile_count": 1
+      },
+      "armor_layers": [
+        {
+          "id": "reference",
+          "name": "Reference layer",
+          "layer_type": "plate",
+          "armor_class": 3,
+          "current_durability": 100,
+          "displayed_max_durability": 100,
+          "original_max_durability": 100,
+          "material": "ceramic",
+          "destructibility": 0.6,
+          "blunt_throughput": 0.1,
+          "is_hard_armor": true
+        }
+      ],
+      "body_part": "thorax",
+      "distance_m": 0,
+      "enable_distance_decay": false,
+      "shot_count": 1,
+      "simulation_iterations": 100000,
+      "random_seed": 20261025
+    },
+    "expected": {
+      "final_penetration_probability": 0.031864872969596,
+      "expected_health_damage": 0.9559461890878801,
+      "expected_blunt_damage": 1.8433490397256245,
+      "expected_burst_total_damage": 2.7992952288135045,
+      "penetration_probability_by_shot": [
+        0.031864872969596
+      ],
+      "first_penetration_shot_distribution": {
+        "1": 0.031864872969596
+      },
+      "kill_probability_by_shot": [
+        0.0
+      ]
+    },
+    "basis": "independent 50-digit Decimal event enumeration of documented community equations; NOT in-game measurements"
+  },
+  {
+    "id": "class-3-durability-1-offset-0",
+    "input": {
+      "schema_version": 1,
+      "ammo": {
+        "id": "independent",
+        "name": "Independent reference",
+        "short_name": "REF",
+        "caliber": "reference",
+        "damage": 50,
+        "penetration_power": 30,
+        "armor_damage_percent": 50,
+        "projectile_count": 1
+      },
+      "armor_layers": [
+        {
+          "id": "reference",
+          "name": "Reference layer",
+          "layer_type": "plate",
+          "armor_class": 3,
+          "current_durability": 100,
+          "displayed_max_durability": 100,
+          "original_max_durability": 100,
+          "material": "ceramic",
+          "destructibility": 0.6,
+          "blunt_throughput": 0.1,
+          "is_hard_armor": true
+        }
+      ],
+      "body_part": "thorax",
+      "distance_m": 0,
+      "enable_distance_decay": false,
+      "shot_count": 1,
+      "simulation_iterations": 100000,
+      "random_seed": 20261025
+    },
+    "expected": {
+      "final_penetration_probability": 0.8788199750104123,
+      "expected_health_damage": 31.25430307411105,
+      "expected_blunt_damage": 0.3616036676306641,
+      "expected_burst_total_damage": 31.615906741741714,
+      "penetration_probability_by_shot": [
+        0.8788199750104123
+      ],
+      "first_penetration_shot_distribution": {
+        "1": 0.8788199750104123
+      },
+      "kill_probability_by_shot": [
+        0.0
+      ]
+    },
+    "basis": "independent 50-digit Decimal event enumeration of documented community equations; NOT in-game measurements"
+  },
+  {
+    "id": "class-3-durability-1-offset-16",
+    "input": {
+      "schema_version": 1,
+      "ammo": {
+        "id": "independent",
+        "name": "Independent reference",
+        "short_name": "REF",
+        "caliber": "reference",
+        "damage": 50,
+        "penetration_power": 46,
+        "armor_damage_percent": 50,
+        "projectile_count": 1
+      },
+      "armor_layers": [
+        {
+          "id": "reference",
+          "name": "Reference layer",
+          "layer_type": "plate",
+          "armor_class": 3,
+          "current_durability": 100,
+          "displayed_max_durability": 100,
+          "original_max_durability": 100,
+          "material": "ceramic",
+          "destructibility": 0.6,
+          "blunt_throughput": 0.1,
+          "is_hard_armor": true
+        }
+      ],
+      "body_part": "thorax",
+      "distance_m": 0,
+      "enable_distance_decay": false,
+      "shot_count": 1,
+      "simulation_iterations": 100000,
+      "random_seed": 20261025
+    },
+    "expected": {
+      "final_penetration_probability": 1.0,
+      "expected_health_damage": 50.0,
+      "expected_blunt_damage": 0.0,
+      "expected_burst_total_damage": 50.0,
+      "penetration_probability_by_shot": [
+        1.0
+      ],
+      "first_penetration_shot_distribution": {
+        "1": 1.0
+      },
+      "kill_probability_by_shot": [
+        0.0
+      ]
+    },
+    "basis": "independent 50-digit Decimal event enumeration of documented community equations; NOT in-game measurements"
+  },
+  {
+    "id": "class-4-durability-0-offset--12",
+    "input": {
+      "schema_version": 1,
+      "ammo": {
+        "id": "independent",
+        "name": "Independent reference",
+        "short_name": "REF",
+        "caliber": "reference",
+        "damage": 50,
+        "penetration_power": 28,
+        "armor_damage_percent": 50,
+        "projectile_count": 1
+      },
+      "armor_layers": [
+        {
+          "id": "reference",
+          "name": "Reference layer",
+          "layer_type": "plate",
+          "armor_class": 4,
+          "current_durability": 0,
+          "displayed_max_durability": 100,
+          "original_max_durability": 100,
+          "material": "ceramic",
+          "destructibility": 0.6,
+          "blunt_throughput": 0.1,
+          "is_hard_armor": true
+        }
+      ],
+      "body_part": "thorax",
+      "distance_m": 0,
+      "enable_distance_decay": false,
+      "shot_count": 1,
+      "simulation_iterations": 100000,
+      "random_seed": 20261025
+    },
+    "expected": {
+      "final_penetration_probability": 1.0,
+      "expected_health_damage": 50.0,
+      "expected_blunt_damage": 0.0,
+      "expected_burst_total_damage": 50.0,
+      "penetration_probability_by_shot": [
+        1.0
+      ],
+      "first_penetration_shot_distribution": {
+        "1": 1.0
+      },
+      "kill_probability_by_shot": [
+        0.0
+      ]
+    },
+    "basis": "independent 50-digit Decimal event enumeration of documented community equations; NOT in-game measurements"
+  },
+  {
+    "id": "class-4-durability-0-offset-0",
+    "input": {
+      "schema_version": 1,
+      "ammo": {
+        "id": "independent",
+        "name": "Independent reference",
+        "short_name": "REF",
+        "caliber": "reference",
+        "damage": 50,
+        "penetration_power": 40,
+        "armor_damage_percent": 50,
+        "projectile_count": 1
+      },
+      "armor_layers": [
+        {
+          "id": "reference",
+          "name": "Reference layer",
+          "layer_type": "plate",
+          "armor_class": 4,
+          "current_durability": 0,
+          "displayed_max_durability": 100,
+          "original_max_durability": 100,
+          "material": "ceramic",
+          "destructibility": 0.6,
+          "blunt_throughput": 0.1,
+          "is_hard_armor": true
+        }
+      ],
+      "body_part": "thorax",
+      "distance_m": 0,
+      "enable_distance_decay": false,
+      "shot_count": 1,
+      "simulation_iterations": 100000,
+      "random_seed": 20261025
+    },
+    "expected": {
+      "final_penetration_probability": 1.0,
+      "expected_health_damage": 50.0,
+      "expected_blunt_damage": 0.0,
+      "expected_burst_total_damage": 50.0,
+      "penetration_probability_by_shot": [
+        1.0
+      ],
+      "first_penetration_shot_distribution": {
+        "1": 1.0
+      },
+      "kill_probability_by_shot": [
+        0.0
+      ]
+    },
+    "basis": "independent 50-digit Decimal event enumeration of documented community equations; NOT in-game measurements"
+  },
+  {
+    "id": "class-4-durability-0-offset-16",
+    "input": {
+      "schema_version": 1,
+      "ammo": {
+        "id": "independent",
+        "name": "Independent reference",
+        "short_name": "REF",
+        "caliber": "reference",
+        "damage": 50,
+        "penetration_power": 56,
+        "armor_damage_percent": 50,
+        "projectile_count": 1
+      },
+      "armor_layers": [
+        {
+          "id": "reference",
+          "name": "Reference layer",
+          "layer_type": "plate",
+          "armor_class": 4,
+          "current_durability": 0,
+          "displayed_max_durability": 100,
+          "original_max_durability": 100,
+          "material": "ceramic",
+          "destructibility": 0.6,
+          "blunt_throughput": 0.1,
+          "is_hard_armor": true
+        }
+      ],
+      "body_part": "thorax",
+      "distance_m": 0,
+      "enable_distance_decay": false,
+      "shot_count": 1,
+      "simulation_iterations": 100000,
+      "random_seed": 20261025
+    },
+    "expected": {
+      "final_penetration_probability": 1.0,
+      "expected_health_damage": 50.0,
+      "expected_blunt_damage": 0.0,
+      "expected_burst_total_damage": 50.0,
+      "penetration_probability_by_shot": [
+        1.0
+      ],
+      "first_penetration_shot_distribution": {
+        "1": 1.0
+      },
+      "kill_probability_by_shot": [
+        0.0
+      ]
+    },
+    "basis": "independent 50-digit Decimal event enumeration of documented community equations; NOT in-game measurements"
+  },
+  {
+    "id": "class-4-durability-0.25-offset--12",
+    "input": {
+      "schema_version": 1,
+      "ammo": {
+        "id": "independent",
+        "name": "Independent reference",
+        "short_name": "REF",
+        "caliber": "reference",
+        "damage": 50,
+        "penetration_power": 28,
+        "armor_damage_percent": 50,
+        "projectile_count": 1
+      },
+      "armor_layers": [
+        {
+          "id": "reference",
+          "name": "Reference layer",
+          "layer_type": "plate",
+          "armor_class": 4,
+          "current_durability": 25.0,
+          "displayed_max_durability": 100,
+          "original_max_durability": 100,
+          "material": "ceramic",
+          "destructibility": 0.6,
+          "blunt_throughput": 0.1,
+          "is_hard_armor": true
+        }
+      ],
+      "body_part": "thorax",
+      "distance_m": 0,
+      "enable_distance_decay": false,
+      "shot_count": 1,
+      "simulation_iterations": 100000,
+      "random_seed": 20261025
+    },
+    "expected": {
+      "final_penetration_probability": 0.9173399627097576,
+      "expected_health_damage": 32.639436875440815,
+      "expected_blunt_damage": 0.24798011187072716,
+      "expected_burst_total_damage": 32.88741698731154,
+      "penetration_probability_by_shot": [
+        0.9173399627097576
+      ],
+      "first_penetration_shot_distribution": {
+        "1": 0.9173399627097576
+      },
+      "kill_probability_by_shot": [
+        0.0
+      ]
+    },
+    "basis": "independent 50-digit Decimal event enumeration of documented community equations; NOT in-game measurements"
+  },
+  {
+    "id": "class-4-durability-0.25-offset-0",
+    "input": {
+      "schema_version": 1,
+      "ammo": {
+        "id": "independent",
+        "name": "Independent reference",
+        "short_name": "REF",
+        "caliber": "reference",
+        "damage": 50,
+        "penetration_power": 40,
+        "armor_damage_percent": 50,
+        "projectile_count": 1
+      },
+      "armor_layers": [
+        {
+          "id": "reference",
+          "name": "Reference layer",
+          "layer_type": "plate",
+          "armor_class": 4,
+          "current_durability": 25.0,
+          "displayed_max_durability": 100,
+          "original_max_durability": 100,
+          "material": "ceramic",
+          "destructibility": 0.6,
+          "blunt_throughput": 0.1,
+          "is_hard_armor": true
+        }
+      ],
+      "body_part": "thorax",
+      "distance_m": 0,
+      "enable_distance_decay": false,
+      "shot_count": 1,
+      "simulation_iterations": 100000,
+      "random_seed": 20261025
+    },
+    "expected": {
+      "final_penetration_probability": 0.9740046517991517,
+      "expected_health_damage": 48.70023258995759,
+      "expected_blunt_damage": 0.07798604460254481,
+      "expected_burst_total_damage": 48.77821863456013,
+      "penetration_probability_by_shot": [
+        0.9740046517991517
+      ],
+      "first_penetration_shot_distribution": {
+        "1": 0.9740046517991517
+      },
+      "kill_probability_by_shot": [
+        0.0
+      ]
+    },
+    "basis": "independent 50-digit Decimal event enumeration of documented community equations; NOT in-game measurements"
+  },
+  {
+    "id": "class-4-durability-0.25-offset-16",
+    "input": {
+      "schema_version": 1,
+      "ammo": {
+        "id": "independent",
+        "name": "Independent reference",
+        "short_name": "REF",
+        "caliber": "reference",
+        "damage": 50,
+        "penetration_power": 56,
+        "armor_damage_percent": 50,
+        "projectile_count": 1
+      },
+      "armor_layers": [
+        {
+          "id": "reference",
+          "name": "Reference layer",
+          "layer_type": "plate",
+          "armor_class": 4,
+          "current_durability": 25.0,
+          "displayed_max_durability": 100,
+          "original_max_durability": 100,
+          "material": "ceramic",
+          "destructibility": 0.6,
+          "blunt_throughput": 0.1,
+          "is_hard_armor": true
+        }
+      ],
+      "body_part": "thorax",
+      "distance_m": 0,
+      "enable_distance_decay": false,
+      "shot_count": 1,
+      "simulation_iterations": 100000,
+      "random_seed": 20261025
+    },
+    "expected": {
+      "final_penetration_probability": 1.0,
+      "expected_health_damage": 50.0,
+      "expected_blunt_damage": 0.0,
+      "expected_burst_total_damage": 50.0,
+      "penetration_probability_by_shot": [
+        1.0
+      ],
+      "first_penetration_shot_distribution": {
+        "1": 1.0
+      },
+      "kill_probability_by_shot": [
+        0.0
+      ]
+    },
+    "basis": "independent 50-digit Decimal event enumeration of documented community equations; NOT in-game measurements"
+  },
+  {
+    "id": "class-4-durability-0.5-offset--12",
+    "input": {
+      "schema_version": 1,
+      "ammo": {
+        "id": "independent",
+        "name": "Independent reference",
+        "short_name": "REF",
+        "caliber": "reference",
+        "damage": 50,
+        "penetration_power": 28,
+        "armor_damage_percent": 50,
+        "projectile_count": 1
+      },
+      "armor_layers": [
+        {
+          "id": "reference",
+          "name": "Reference layer",
+          "layer_type": "plate",
+          "armor_class": 4,
+          "current_durability": 50.0,
+          "displayed_max_durability": 100,
+          "original_max_durability": 100,
+          "material": "ceramic",
+          "destructibility": 0.6,
+          "blunt_throughput": 0.1,
+          "is_hard_armor": true
+        }
+      ],
+      "body_part": "thorax",
+      "distance_m": 0,
+      "enable_distance_decay": false,
+      "shot_count": 1,
+      "simulation_iterations": 100000,
+      "random_seed": 20261025
+    },
+    "expected": {
+      "final_penetration_probability": 0.28177674197384067,
+      "expected_health_damage": 8.464143033543897,
+      "expected_blunt_damage": 1.7275993650645782,
+      "expected_burst_total_damage": 10.191742398608476,
+      "penetration_probability_by_shot": [
+        0.28177674197384067
+      ],
+      "first_penetration_shot_distribution": {
+        "1": 0.28177674197384067
+      },
+      "kill_probability_by_shot": [
+        0.0
+      ]
+    },
+    "basis": "independent 50-digit Decimal event enumeration of documented community equations; NOT in-game measurements"
+  },
+  {
+    "id": "class-4-durability-0.5-offset-0",
+    "input": {
+      "schema_version": 1,
+      "ammo": {
+        "id": "independent",
+        "name": "Independent reference",
+        "short_name": "REF",
+        "caliber": "reference",
+        "damage": 50,
+        "penetration_power": 40,
+        "armor_damage_percent": 50,
+        "projectile_count": 1
+      },
+      "armor_layers": [
+        {
+          "id": "reference",
+          "name": "Reference layer",
+          "layer_type": "plate",
+          "armor_class": 4,
+          "current_durability": 50.0,
+          "displayed_max_durability": 100,
+          "original_max_durability": 100,
+          "material": "ceramic",
+          "destructibility": 0.6,
+          "blunt_throughput": 0.1,
+          "is_hard_armor": true
+        }
+      ],
+      "body_part": "thorax",
+      "distance_m": 0,
+      "enable_distance_decay": false,
+      "shot_count": 1,
+      "simulation_iterations": 100000,
+      "random_seed": 20261025
+    },
+    "expected": {
+      "final_penetration_probability": 0.9548216233058109,
+      "expected_health_damage": 40.9734049657717,
+      "expected_blunt_damage": 0.13553513008256737,
+      "expected_burst_total_damage": 41.108940095854265,
+      "penetration_probability_by_shot": [
+        0.9548216233058109
+      ],
+      "first_penetration_shot_distribution": {
+        "1": 0.9548216233058109
+      },
+      "kill_probability_by_shot": [
+        0.0
+      ]
+    },
+    "basis": "independent 50-digit Decimal event enumeration of documented community equations; NOT in-game measurements"
+  },
+  {
+    "id": "class-4-durability-0.5-offset-16",
+    "input": {
+      "schema_version": 1,
+      "ammo": {
+        "id": "independent",
+        "name": "Independent reference",
+        "short_name": "REF",
+        "caliber": "reference",
+        "damage": 50,
+        "penetration_power": 56,
+        "armor_damage_percent": 50,
+        "projectile_count": 1
+      },
+      "armor_layers": [
+        {
+          "id": "reference",
+          "name": "Reference layer",
+          "layer_type": "plate",
+          "armor_class": 4,
+          "current_durability": 50.0,
+          "displayed_max_durability": 100,
+          "original_max_durability": 100,
+          "material": "ceramic",
+          "destructibility": 0.6,
+          "blunt_throughput": 0.1,
+          "is_hard_armor": true
+        }
+      ],
+      "body_part": "thorax",
+      "distance_m": 0,
+      "enable_distance_decay": false,
+      "shot_count": 1,
+      "simulation_iterations": 100000,
+      "random_seed": 20261025
+    },
+    "expected": {
+      "final_penetration_probability": 1.0,
+      "expected_health_damage": 50.0,
+      "expected_blunt_damage": 0.0,
+      "expected_burst_total_damage": 50.0,
+      "penetration_probability_by_shot": [
+        1.0
+      ],
+      "first_penetration_shot_distribution": {
+        "1": 1.0
+      },
+      "kill_probability_by_shot": [
+        0.0
+      ]
+    },
+    "basis": "independent 50-digit Decimal event enumeration of documented community equations; NOT in-game measurements"
+  },
+  {
+    "id": "class-4-durability-1-offset--12",
+    "input": {
+      "schema_version": 1,
+      "ammo": {
+        "id": "independent",
+        "name": "Independent reference",
+        "short_name": "REF",
+        "caliber": "reference",
+        "damage": 50,
+        "penetration_power": 28,
+        "armor_damage_percent": 50,
+        "projectile_count": 1
+      },
+      "armor_layers": [
+        {
+          "id": "reference",
+          "name": "Reference layer",
+          "layer_type": "plate",
+          "armor_class": 4,
+          "current_durability": 100,
+          "displayed_max_durability": 100,
+          "original_max_durability": 100,
+          "material": "ceramic",
+          "destructibility": 0.6,
+          "blunt_throughput": 0.1,
+          "is_hard_armor": true
+        }
+      ],
+      "body_part": "thorax",
+      "distance_m": 0,
+      "enable_distance_decay": false,
+      "shot_count": 1,
+      "simulation_iterations": 100000,
+      "random_seed": 20261025
+    },
+    "expected": {
+      "final_penetration_probability": 0.03054254060807997,
+      "expected_health_damage": 0.916276218242399,
+      "expected_blunt_damage": 1.8407029426936055,
+      "expected_burst_total_damage": 2.7569791609360044,
+      "penetration_probability_by_shot": [
+        0.03054254060807997
+      ],
+      "first_penetration_shot_distribution": {
+        "1": 0.03054254060807997
+      },
+      "kill_probability_by_shot": [
+        0.0
+      ]
+    },
+    "basis": "independent 50-digit Decimal event enumeration of documented community equations; NOT in-game measurements"
+  },
+  {
+    "id": "class-4-durability-1-offset-0",
+    "input": {
+      "schema_version": 1,
+      "ammo": {
+        "id": "independent",
+        "name": "Independent reference",
+        "short_name": "REF",
+        "caliber": "reference",
+        "damage": 50,
+        "penetration_power": 40,
+        "armor_damage_percent": 50,
+        "projectile_count": 1
+      },
+      "armor_layers": [
+        {
+          "id": "reference",
+          "name": "Reference layer",
+          "layer_type": "plate",
+          "armor_class": 4,
+          "current_durability": 100,
+          "displayed_max_durability": 100,
+          "original_max_durability": 100,
+          "material": "ceramic",
+          "destructibility": 0.6,
+          "blunt_throughput": 0.1,
+          "is_hard_armor": true
+        }
+      ],
+      "body_part": "thorax",
+      "distance_m": 0,
+      "enable_distance_decay": false,
+      "shot_count": 1,
+      "simulation_iterations": 100000,
+      "random_seed": 20261025
+    },
+    "expected": {
+      "final_penetration_probability": 0.8718160099958351,
+      "expected_health_damage": 33.37942216736671,
+      "expected_blunt_damage": 0.3818208662254673,
+      "expected_burst_total_damage": 33.76124303359218,
+      "penetration_probability_by_shot": [
+        0.8718160099958351
+      ],
+      "first_penetration_shot_distribution": {
+        "1": 0.8718160099958351
+      },
+      "kill_probability_by_shot": [
+        0.0
+      ]
+    },
+    "basis": "independent 50-digit Decimal event enumeration of documented community equations; NOT in-game measurements"
+  },
+  {
+    "id": "class-4-durability-1-offset-16",
+    "input": {
+      "schema_version": 1,
+      "ammo": {
+        "id": "independent",
+        "name": "Independent reference",
+        "short_name": "REF",
+        "caliber": "reference",
+        "damage": 50,
+        "penetration_power": 56,
+        "armor_damage_percent": 50,
+        "projectile_count": 1
+      },
+      "armor_layers": [
+        {
+          "id": "reference",
+          "name": "Reference layer",
+          "layer_type": "plate",
+          "armor_class": 4,
+          "current_durability": 100,
+          "displayed_max_durability": 100,
+          "original_max_durability": 100,
+          "material": "ceramic",
+          "destructibility": 0.6,
+          "blunt_throughput": 0.1,
+          "is_hard_armor": true
+        }
+      ],
+      "body_part": "thorax",
+      "distance_m": 0,
+      "enable_distance_decay": false,
+      "shot_count": 1,
+      "simulation_iterations": 100000,
+      "random_seed": 20261025
+    },
+    "expected": {
+      "final_penetration_probability": 1.0,
+      "expected_health_damage": 50.0,
+      "expected_blunt_damage": 0.0,
+      "expected_burst_total_damage": 50.0,
+      "penetration_probability_by_shot": [
+        1.0
+      ],
+      "first_penetration_shot_distribution": {
+        "1": 1.0
+      },
+      "kill_probability_by_shot": [
+        0.0
+      ]
+    },
+    "basis": "independent 50-digit Decimal event enumeration of documented community equations; NOT in-game measurements"
+  },
+  {
+    "id": "class-5-durability-0-offset--12",
+    "input": {
+      "schema_version": 1,
+      "ammo": {
+        "id": "independent",
+        "name": "Independent reference",
+        "short_name": "REF",
+        "caliber": "reference",
+        "damage": 50,
+        "penetration_power": 38,
+        "armor_damage_percent": 50,
+        "projectile_count": 1
+      },
+      "armor_layers": [
+        {
+          "id": "reference",
+          "name": "Reference layer",
+          "layer_type": "plate",
+          "armor_class": 5,
+          "current_durability": 0,
+          "displayed_max_durability": 100,
+          "original_max_durability": 100,
+          "material": "ceramic",
+          "destructibility": 0.6,
+          "blunt_throughput": 0.1,
+          "is_hard_armor": true
+        }
+      ],
+      "body_part": "thorax",
+      "distance_m": 0,
+      "enable_distance_decay": false,
+      "shot_count": 1,
+      "simulation_iterations": 100000,
+      "random_seed": 20261025
+    },
+    "expected": {
+      "final_penetration_probability": 1.0,
+      "expected_health_damage": 50.0,
+      "expected_blunt_damage": 0.0,
+      "expected_burst_total_damage": 50.0,
+      "penetration_probability_by_shot": [
+        1.0
+      ],
+      "first_penetration_shot_distribution": {
+        "1": 1.0
+      },
+      "kill_probability_by_shot": [
+        0.0
+      ]
+    },
+    "basis": "independent 50-digit Decimal event enumeration of documented community equations; NOT in-game measurements"
+  },
+  {
+    "id": "class-5-durability-0-offset-0",
+    "input": {
+      "schema_version": 1,
+      "ammo": {
+        "id": "independent",
+        "name": "Independent reference",
+        "short_name": "REF",
+        "caliber": "reference",
+        "damage": 50,
+        "penetration_power": 50,
+        "armor_damage_percent": 50,
+        "projectile_count": 1
+      },
+      "armor_layers": [
+        {
+          "id": "reference",
+          "name": "Reference layer",
+          "layer_type": "plate",
+          "armor_class": 5,
+          "current_durability": 0,
+          "displayed_max_durability": 100,
+          "original_max_durability": 100,
+          "material": "ceramic",
+          "destructibility": 0.6,
+          "blunt_throughput": 0.1,
+          "is_hard_armor": true
+        }
+      ],
+      "body_part": "thorax",
+      "distance_m": 0,
+      "enable_distance_decay": false,
+      "shot_count": 1,
+      "simulation_iterations": 100000,
+      "random_seed": 20261025
+    },
+    "expected": {
+      "final_penetration_probability": 1.0,
+      "expected_health_damage": 50.0,
+      "expected_blunt_damage": 0.0,
+      "expected_burst_total_damage": 50.0,
+      "penetration_probability_by_shot": [
+        1.0
+      ],
+      "first_penetration_shot_distribution": {
+        "1": 1.0
+      },
+      "kill_probability_by_shot": [
+        0.0
+      ]
+    },
+    "basis": "independent 50-digit Decimal event enumeration of documented community equations; NOT in-game measurements"
+  },
+  {
+    "id": "class-5-durability-0-offset-16",
+    "input": {
+      "schema_version": 1,
+      "ammo": {
+        "id": "independent",
+        "name": "Independent reference",
+        "short_name": "REF",
+        "caliber": "reference",
+        "damage": 50,
+        "penetration_power": 66,
+        "armor_damage_percent": 50,
+        "projectile_count": 1
+      },
+      "armor_layers": [
+        {
+          "id": "reference",
+          "name": "Reference layer",
+          "layer_type": "plate",
+          "armor_class": 5,
+          "current_durability": 0,
+          "displayed_max_durability": 100,
+          "original_max_durability": 100,
+          "material": "ceramic",
+          "destructibility": 0.6,
+          "blunt_throughput": 0.1,
+          "is_hard_armor": true
+        }
+      ],
+      "body_part": "thorax",
+      "distance_m": 0,
+      "enable_distance_decay": false,
+      "shot_count": 1,
+      "simulation_iterations": 100000,
+      "random_seed": 20261025
+    },
+    "expected": {
+      "final_penetration_probability": 1.0,
+      "expected_health_damage": 50.0,
+      "expected_blunt_damage": 0.0,
+      "expected_burst_total_damage": 50.0,
+      "penetration_probability_by_shot": [
+        1.0
+      ],
+      "first_penetration_shot_distribution": {
+        "1": 1.0
+      },
+      "kill_probability_by_shot": [
+        0.0
+      ]
+    },
+    "basis": "independent 50-digit Decimal event enumeration of documented community equations; NOT in-game measurements"
+  },
+  {
+    "id": "class-5-durability-0.25-offset--12",
+    "input": {
+      "schema_version": 1,
+      "ammo": {
+        "id": "independent",
+        "name": "Independent reference",
+        "short_name": "REF",
+        "caliber": "reference",
+        "damage": 50,
+        "penetration_power": 38,
+        "armor_damage_percent": 50,
+        "projectile_count": 1
+      },
+      "armor_layers": [
+        {
+          "id": "reference",
+          "name": "Reference layer",
+          "layer_type": "plate",
+          "armor_class": 5,
+          "current_durability": 25.0,
+          "displayed_max_durability": 100,
+          "original_max_durability": 100,
+          "material": "ceramic",
+          "destructibility": 0.6,
+          "blunt_throughput": 0.1,
+          "is_hard_armor": true
+        }
+      ],
+      "body_part": "thorax",
+      "distance_m": 0,
+      "enable_distance_decay": false,
+      "shot_count": 1,
+      "simulation_iterations": 100000,
+      "random_seed": 20261025
+    },
+    "expected": {
+      "final_penetration_probability": 0.9474718079301564,
+      "expected_health_damage": 38.978612269263415,
+      "expected_blunt_damage": 0.15758457620953073,
+      "expected_burst_total_damage": 39.136196845472945,
+      "penetration_probability_by_shot": [
+        0.9474718079301564
+      ],
+      "first_penetration_shot_distribution": {
+        "1": 0.9474718079301564
+      },
+      "kill_probability_by_shot": [
+        0.0
+      ]
+    },
+    "basis": "independent 50-digit Decimal event enumeration of documented community equations; NOT in-game measurements"
+  },
+  {
+    "id": "class-5-durability-0.25-offset-0",
+    "input": {
+      "schema_version": 1,
+      "ammo": {
+        "id": "independent",
+        "name": "Independent reference",
+        "short_name": "REF",
+        "caliber": "reference",
+        "damage": 50,
+        "penetration_power": 50,
+        "armor_damage_percent": 50,
+        "projectile_count": 1
+      },
+      "armor_layers": [
+        {
+          "id": "reference",
+          "name": "Reference layer",
+          "layer_type": "plate",
+          "armor_class": 5,
+          "current_durability": 25.0,
+          "displayed_max_durability": 100,
+          "original_max_durability": 100,
+          "material": "ceramic",
+          "destructibility": 0.6,
+          "blunt_throughput": 0.1,
+          "is_hard_armor": true
+        }
+      ],
+      "body_part": "thorax",
+      "distance_m": 0,
+      "enable_distance_decay": false,
+      "shot_count": 1,
+      "simulation_iterations": 100000,
+      "random_seed": 20261025
+    },
+    "expected": {
+      "final_penetration_probability": 1.0,
+      "expected_health_damage": 50.0,
+      "expected_blunt_damage": 0.0,
+      "expected_burst_total_damage": 50.0,
+      "penetration_probability_by_shot": [
+        1.0
+      ],
+      "first_penetration_shot_distribution": {
+        "1": 1.0
+      },
+      "kill_probability_by_shot": [
+        0.0
+      ]
+    },
+    "basis": "independent 50-digit Decimal event enumeration of documented community equations; NOT in-game measurements"
+  },
+  {
+    "id": "class-5-durability-0.25-offset-16",
+    "input": {
+      "schema_version": 1,
+      "ammo": {
+        "id": "independent",
+        "name": "Independent reference",
+        "short_name": "REF",
+        "caliber": "reference",
+        "damage": 50,
+        "penetration_power": 66,
+        "armor_damage_percent": 50,
+        "projectile_count": 1
+      },
+      "armor_layers": [
+        {
+          "id": "reference",
+          "name": "Reference layer",
+          "layer_type": "plate",
+          "armor_class": 5,
+          "current_durability": 25.0,
+          "displayed_max_durability": 100,
+          "original_max_durability": 100,
+          "material": "ceramic",
+          "destructibility": 0.6,
+          "blunt_throughput": 0.1,
+          "is_hard_armor": true
+        }
+      ],
+      "body_part": "thorax",
+      "distance_m": 0,
+      "enable_distance_decay": false,
+      "shot_count": 1,
+      "simulation_iterations": 100000,
+      "random_seed": 20261025
+    },
+    "expected": {
+      "final_penetration_probability": 1.0,
+      "expected_health_damage": 50.0,
+      "expected_blunt_damage": 0.0,
+      "expected_burst_total_damage": 50.0,
+      "penetration_probability_by_shot": [
+        1.0
+      ],
+      "first_penetration_shot_distribution": {
+        "1": 1.0
+      },
+      "kill_probability_by_shot": [
+        0.0
+      ]
+    },
+    "basis": "independent 50-digit Decimal event enumeration of documented community equations; NOT in-game measurements"
+  },
+  {
+    "id": "class-5-durability-0.5-offset--12",
+    "input": {
+      "schema_version": 1,
+      "ammo": {
+        "id": "independent",
+        "name": "Independent reference",
+        "short_name": "REF",
+        "caliber": "reference",
+        "damage": 50,
+        "penetration_power": 38,
+        "armor_damage_percent": 50,
+        "projectile_count": 1
+      },
+      "armor_layers": [
+        {
+          "id": "reference",
+          "name": "Reference layer",
+          "layer_type": "plate",
+          "armor_class": 5,
+          "current_durability": 50.0,
+          "displayed_max_durability": 100,
+          "original_max_durability": 100,
+          "material": "ceramic",
+          "destructibility": 0.6,
+          "blunt_throughput": 0.1,
+          "is_hard_armor": true
+        }
+      ],
+      "body_part": "thorax",
+      "distance_m": 0,
+      "enable_distance_decay": false,
+      "shot_count": 1,
+      "simulation_iterations": 100000,
+      "random_seed": 20261025
+    },
+    "expected": {
+      "final_penetration_probability": 0.37957788347205706,
+      "expected_health_damage": 13.051320673516596,
+      "expected_blunt_damage": 1.5676355375374145,
+      "expected_burst_total_damage": 14.61895621105401,
+      "penetration_probability_by_shot": [
+        0.37957788347205706
+      ],
+      "first_penetration_shot_distribution": {
+        "1": 0.37957788347205706
+      },
+      "kill_probability_by_shot": [
+        0.0
+      ]
+    },
+    "basis": "independent 50-digit Decimal event enumeration of documented community equations; NOT in-game measurements"
+  },
+  {
+    "id": "class-5-durability-0.5-offset-0",
+    "input": {
+      "schema_version": 1,
+      "ammo": {
+        "id": "independent",
+        "name": "Independent reference",
+        "short_name": "REF",
+        "caliber": "reference",
+        "damage": 50,
+        "penetration_power": 50,
+        "armor_damage_percent": 50,
+        "projectile_count": 1
+      },
+      "armor_layers": [
+        {
+          "id": "reference",
+          "name": "Reference layer",
+          "layer_type": "plate",
+          "armor_class": 5,
+          "current_durability": 50.0,
+          "displayed_max_durability": 100,
+          "original_max_durability": 100,
+          "material": "ceramic",
+          "destructibility": 0.6,
+          "blunt_throughput": 0.1,
+          "is_hard_armor": true
+        }
+      ],
+      "body_part": "thorax",
+      "distance_m": 0,
+      "enable_distance_decay": false,
+      "shot_count": 1,
+      "simulation_iterations": 100000,
+      "random_seed": 20261025
+    },
+    "expected": {
+      "final_penetration_probability": 0.9548216233058109,
+      "expected_health_damage": 43.19785815268099,
+      "expected_blunt_damage": 0.13553513008256737,
+      "expected_burst_total_damage": 43.33339328276356,
+      "penetration_probability_by_shot": [
+        0.9548216233058109
+      ],
+      "first_penetration_shot_distribution": {
+        "1": 0.9548216233058109
+      },
+      "kill_probability_by_shot": [
+        0.0
+      ]
+    },
+    "basis": "independent 50-digit Decimal event enumeration of documented community equations; NOT in-game measurements"
+  },
+  {
+    "id": "class-5-durability-0.5-offset-16",
+    "input": {
+      "schema_version": 1,
+      "ammo": {
+        "id": "independent",
+        "name": "Independent reference",
+        "short_name": "REF",
+        "caliber": "reference",
+        "damage": 50,
+        "penetration_power": 66,
+        "armor_damage_percent": 50,
+        "projectile_count": 1
+      },
+      "armor_layers": [
+        {
+          "id": "reference",
+          "name": "Reference layer",
+          "layer_type": "plate",
+          "armor_class": 5,
+          "current_durability": 50.0,
+          "displayed_max_durability": 100,
+          "original_max_durability": 100,
+          "material": "ceramic",
+          "destructibility": 0.6,
+          "blunt_throughput": 0.1,
+          "is_hard_armor": true
+        }
+      ],
+      "body_part": "thorax",
+      "distance_m": 0,
+      "enable_distance_decay": false,
+      "shot_count": 1,
+      "simulation_iterations": 100000,
+      "random_seed": 20261025
+    },
+    "expected": {
+      "final_penetration_probability": 1.0,
+      "expected_health_damage": 50.0,
+      "expected_blunt_damage": 0.0,
+      "expected_burst_total_damage": 50.0,
+      "penetration_probability_by_shot": [
+        1.0
+      ],
+      "first_penetration_shot_distribution": {
+        "1": 1.0
+      },
+      "kill_probability_by_shot": [
+        0.0
+      ]
+    },
+    "basis": "independent 50-digit Decimal event enumeration of documented community equations; NOT in-game measurements"
+  },
+  {
+    "id": "class-5-durability-1-offset--12",
+    "input": {
+      "schema_version": 1,
+      "ammo": {
+        "id": "independent",
+        "name": "Independent reference",
+        "short_name": "REF",
+        "caliber": "reference",
+        "damage": 50,
+        "penetration_power": 38,
+        "armor_damage_percent": 50,
+        "projectile_count": 1
+      },
+      "armor_layers": [
+        {
+          "id": "reference",
+          "name": "Reference layer",
+          "layer_type": "plate",
+          "armor_class": 5,
+          "current_durability": 100,
+          "displayed_max_durability": 100,
+          "original_max_durability": 100,
+          "material": "ceramic",
+          "destructibility": 0.6,
+          "blunt_throughput": 0.1,
+          "is_hard_armor": true
+        }
+      ],
+      "body_part": "thorax",
+      "distance_m": 0,
+      "enable_distance_decay": false,
+      "shot_count": 1,
+      "simulation_iterations": 100000,
+      "random_seed": 20261025
+    },
+    "expected": {
+      "final_penetration_probability": 0.02924822990420658,
+      "expected_health_damage": 0.8920590349161778,
+      "expected_blunt_damage": 1.8379897034823924,
+      "expected_burst_total_damage": 2.7300487383985703,
+      "penetration_probability_by_shot": [
+        0.02924822990420658
+      ],
+      "first_penetration_shot_distribution": {
+        "1": 0.02924822990420658
+      },
+      "kill_probability_by_shot": [
+        0.0
+      ]
+    },
+    "basis": "independent 50-digit Decimal event enumeration of documented community equations; NOT in-game measurements"
+  },
+  {
+    "id": "class-5-durability-1-offset-0",
+    "input": {
+      "schema_version": 1,
+      "ammo": {
+        "id": "independent",
+        "name": "Independent reference",
+        "short_name": "REF",
+        "caliber": "reference",
+        "damage": 50,
+        "penetration_power": 50,
+        "armor_damage_percent": 50,
+        "projectile_count": 1
+      },
+      "armor_layers": [
+        {
+          "id": "reference",
+          "name": "Reference layer",
+          "layer_type": "plate",
+          "armor_class": 5,
+          "current_durability": 100,
+          "displayed_max_durability": 100,
+          "original_max_durability": 100,
+          "material": "ceramic",
+          "destructibility": 0.6,
+          "blunt_throughput": 0.1,
+          "is_hard_armor": true
+        }
+      ],
+      "body_part": "thorax",
+      "distance_m": 0,
+      "enable_distance_decay": false,
+      "shot_count": 1,
+      "simulation_iterations": 100000,
+      "random_seed": 20261025
+    },
+    "expected": {
+      "final_penetration_probability": 0.8648400666389005,
+      "expected_health_damage": 34.706931421217135,
+      "expected_blunt_damage": 0.40188013247031423,
+      "expected_burst_total_damage": 35.10881155368745,
+      "penetration_probability_by_shot": [
+        0.8648400666389005
+      ],
+      "first_penetration_shot_distribution": {
+        "1": 0.8648400666389005
+      },
+      "kill_probability_by_shot": [
+        0.0
+      ]
+    },
+    "basis": "independent 50-digit Decimal event enumeration of documented community equations; NOT in-game measurements"
+  },
+  {
+    "id": "class-5-durability-1-offset-16",
+    "input": {
+      "schema_version": 1,
+      "ammo": {
+        "id": "independent",
+        "name": "Independent reference",
+        "short_name": "REF",
+        "caliber": "reference",
+        "damage": 50,
+        "penetration_power": 66,
+        "armor_damage_percent": 50,
+        "projectile_count": 1
+      },
+      "armor_layers": [
+        {
+          "id": "reference",
+          "name": "Reference layer",
+          "layer_type": "plate",
+          "armor_class": 5,
+          "current_durability": 100,
+          "displayed_max_durability": 100,
+          "original_max_durability": 100,
+          "material": "ceramic",
+          "destructibility": 0.6,
+          "blunt_throughput": 0.1,
+          "is_hard_armor": true
+        }
+      ],
+      "body_part": "thorax",
+      "distance_m": 0,
+      "enable_distance_decay": false,
+      "shot_count": 1,
+      "simulation_iterations": 100000,
+      "random_seed": 20261025
+    },
+    "expected": {
+      "final_penetration_probability": 1.0,
+      "expected_health_damage": 50.0,
+      "expected_blunt_damage": 0.0,
+      "expected_burst_total_damage": 50.0,
+      "penetration_probability_by_shot": [
+        1.0
+      ],
+      "first_penetration_shot_distribution": {
+        "1": 1.0
+      },
+      "kill_probability_by_shot": [
+        0.0
+      ]
+    },
+    "basis": "independent 50-digit Decimal event enumeration of documented community equations; NOT in-game measurements"
+  },
+  {
+    "id": "class-6-durability-0-offset--12",
+    "input": {
+      "schema_version": 1,
+      "ammo": {
+        "id": "independent",
+        "name": "Independent reference",
+        "short_name": "REF",
+        "caliber": "reference",
+        "damage": 50,
+        "penetration_power": 48,
+        "armor_damage_percent": 50,
+        "projectile_count": 1
+      },
+      "armor_layers": [
+        {
+          "id": "reference",
+          "name": "Reference layer",
+          "layer_type": "plate",
+          "armor_class": 6,
+          "current_durability": 0,
+          "displayed_max_durability": 100,
+          "original_max_durability": 100,
+          "material": "ceramic",
+          "destructibility": 0.6,
+          "blunt_throughput": 0.1,
+          "is_hard_armor": true
+        }
+      ],
+      "body_part": "thorax",
+      "distance_m": 0,
+      "enable_distance_decay": false,
+      "shot_count": 1,
+      "simulation_iterations": 100000,
+      "random_seed": 20261025
+    },
+    "expected": {
+      "final_penetration_probability": 1.0,
+      "expected_health_damage": 50.0,
+      "expected_blunt_damage": 0.0,
+      "expected_burst_total_damage": 50.0,
+      "penetration_probability_by_shot": [
+        1.0
+      ],
+      "first_penetration_shot_distribution": {
+        "1": 1.0
+      },
+      "kill_probability_by_shot": [
+        0.0
+      ]
+    },
+    "basis": "independent 50-digit Decimal event enumeration of documented community equations; NOT in-game measurements"
+  },
+  {
+    "id": "class-6-durability-0-offset-0",
+    "input": {
+      "schema_version": 1,
+      "ammo": {
+        "id": "independent",
+        "name": "Independent reference",
+        "short_name": "REF",
+        "caliber": "reference",
+        "damage": 50,
+        "penetration_power": 60,
+        "armor_damage_percent": 50,
+        "projectile_count": 1
+      },
+      "armor_layers": [
+        {
+          "id": "reference",
+          "name": "Reference layer",
+          "layer_type": "plate",
+          "armor_class": 6,
+          "current_durability": 0,
+          "displayed_max_durability": 100,
+          "original_max_durability": 100,
+          "material": "ceramic",
+          "destructibility": 0.6,
+          "blunt_throughput": 0.1,
+          "is_hard_armor": true
+        }
+      ],
+      "body_part": "thorax",
+      "distance_m": 0,
+      "enable_distance_decay": false,
+      "shot_count": 1,
+      "simulation_iterations": 100000,
+      "random_seed": 20261025
+    },
+    "expected": {
+      "final_penetration_probability": 1.0,
+      "expected_health_damage": 50.0,
+      "expected_blunt_damage": 0.0,
+      "expected_burst_total_damage": 50.0,
+      "penetration_probability_by_shot": [
+        1.0
+      ],
+      "first_penetration_shot_distribution": {
+        "1": 1.0
+      },
+      "kill_probability_by_shot": [
+        0.0
+      ]
+    },
+    "basis": "independent 50-digit Decimal event enumeration of documented community equations; NOT in-game measurements"
+  },
+  {
+    "id": "class-6-durability-0-offset-16",
+    "input": {
+      "schema_version": 1,
+      "ammo": {
+        "id": "independent",
+        "name": "Independent reference",
+        "short_name": "REF",
+        "caliber": "reference",
+        "damage": 50,
+        "penetration_power": 76,
+        "armor_damage_percent": 50,
+        "projectile_count": 1
+      },
+      "armor_layers": [
+        {
+          "id": "reference",
+          "name": "Reference layer",
+          "layer_type": "plate",
+          "armor_class": 6,
+          "current_durability": 0,
+          "displayed_max_durability": 100,
+          "original_max_durability": 100,
+          "material": "ceramic",
+          "destructibility": 0.6,
+          "blunt_throughput": 0.1,
+          "is_hard_armor": true
+        }
+      ],
+      "body_part": "thorax",
+      "distance_m": 0,
+      "enable_distance_decay": false,
+      "shot_count": 1,
+      "simulation_iterations": 100000,
+      "random_seed": 20261025
+    },
+    "expected": {
+      "final_penetration_probability": 1.0,
+      "expected_health_damage": 50.0,
+      "expected_blunt_damage": 0.0,
+      "expected_burst_total_damage": 50.0,
+      "penetration_probability_by_shot": [
+        1.0
+      ],
+      "first_penetration_shot_distribution": {
+        "1": 1.0
+      },
+      "kill_probability_by_shot": [
+        0.0
+      ]
+    },
+    "basis": "independent 50-digit Decimal event enumeration of documented community equations; NOT in-game measurements"
+  },
+  {
+    "id": "class-6-durability-0.25-offset--12",
+    "input": {
+      "schema_version": 1,
+      "ammo": {
+        "id": "independent",
+        "name": "Independent reference",
+        "short_name": "REF",
+        "caliber": "reference",
+        "damage": 50,
+        "penetration_power": 48,
+        "armor_damage_percent": 50,
+        "projectile_count": 1
+      },
+      "armor_layers": [
+        {
+          "id": "reference",
+          "name": "Reference layer",
+          "layer_type": "plate",
+          "armor_class": 6,
+          "current_durability": 25.0,
+          "displayed_max_durability": 100,
+          "original_max_durability": 100,
+          "material": "ceramic",
+          "destructibility": 0.6,
+          "blunt_throughput": 0.1,
+          "is_hard_armor": true
+        }
+      ],
+      "body_part": "thorax",
+      "distance_m": 0,
+      "enable_distance_decay": false,
+      "shot_count": 1,
+      "simulation_iterations": 100000,
+      "random_seed": 20261025
+    },
+    "expected": {
+      "final_penetration_probability": 0.9566828156169849,
+      "expected_health_damage": 43.30428468546209,
+      "expected_blunt_damage": 0.1299515531490453,
+      "expected_burst_total_damage": 43.434236238611135,
+      "penetration_probability_by_shot": [
+        0.9566828156169849
+      ],
+      "first_penetration_shot_distribution": {
+        "1": 0.9566828156169849
+      },
+      "kill_probability_by_shot": [
+        0.0
+      ]
+    },
+    "basis": "independent 50-digit Decimal event enumeration of documented community equations; NOT in-game measurements"
+  },
+  {
+    "id": "class-6-durability-0.25-offset-0",
+    "input": {
+      "schema_version": 1,
+      "ammo": {
+        "id": "independent",
+        "name": "Independent reference",
+        "short_name": "REF",
+        "caliber": "reference",
+        "damage": 50,
+        "penetration_power": 60,
+        "armor_damage_percent": 50,
+        "projectile_count": 1
+      },
+      "armor_layers": [
+        {
+          "id": "reference",
+          "name": "Reference layer",
+          "layer_type": "plate",
+          "armor_class": 6,
+          "current_durability": 25.0,
+          "displayed_max_durability": 100,
+          "original_max_durability": 100,
+          "material": "ceramic",
+          "destructibility": 0.6,
+          "blunt_throughput": 0.1,
+          "is_hard_armor": true
+        }
+      ],
+      "body_part": "thorax",
+      "distance_m": 0,
+      "enable_distance_decay": false,
+      "shot_count": 1,
+      "simulation_iterations": 100000,
+      "random_seed": 20261025
+    },
+    "expected": {
+      "final_penetration_probability": 1.0,
+      "expected_health_damage": 50.0,
+      "expected_blunt_damage": 0.0,
+      "expected_burst_total_damage": 50.0,
+      "penetration_probability_by_shot": [
+        1.0
+      ],
+      "first_penetration_shot_distribution": {
+        "1": 1.0
+      },
+      "kill_probability_by_shot": [
+        0.0
+      ]
+    },
+    "basis": "independent 50-digit Decimal event enumeration of documented community equations; NOT in-game measurements"
+  },
+  {
+    "id": "class-6-durability-0.25-offset-16",
+    "input": {
+      "schema_version": 1,
+      "ammo": {
+        "id": "independent",
+        "name": "Independent reference",
+        "short_name": "REF",
+        "caliber": "reference",
+        "damage": 50,
+        "penetration_power": 76,
+        "armor_damage_percent": 50,
+        "projectile_count": 1
+      },
+      "armor_layers": [
+        {
+          "id": "reference",
+          "name": "Reference layer",
+          "layer_type": "plate",
+          "armor_class": 6,
+          "current_durability": 25.0,
+          "displayed_max_durability": 100,
+          "original_max_durability": 100,
+          "material": "ceramic",
+          "destructibility": 0.6,
+          "blunt_throughput": 0.1,
+          "is_hard_armor": true
+        }
+      ],
+      "body_part": "thorax",
+      "distance_m": 0,
+      "enable_distance_decay": false,
+      "shot_count": 1,
+      "simulation_iterations": 100000,
+      "random_seed": 20261025
+    },
+    "expected": {
+      "final_penetration_probability": 1.0,
+      "expected_health_damage": 50.0,
+      "expected_blunt_damage": 0.0,
+      "expected_burst_total_damage": 50.0,
+      "penetration_probability_by_shot": [
+        1.0
+      ],
+      "first_penetration_shot_distribution": {
+        "1": 1.0
+      },
+      "kill_probability_by_shot": [
+        0.0
+      ]
+    },
+    "basis": "independent 50-digit Decimal event enumeration of documented community equations; NOT in-game measurements"
+  },
+  {
+    "id": "class-6-durability-0.5-offset--12",
+    "input": {
+      "schema_version": 1,
+      "ammo": {
+        "id": "independent",
+        "name": "Independent reference",
+        "short_name": "REF",
+        "caliber": "reference",
+        "damage": 50,
+        "penetration_power": 48,
+        "armor_damage_percent": 50,
+        "projectile_count": 1
+      },
+      "armor_layers": [
+        {
+          "id": "reference",
+          "name": "Reference layer",
+          "layer_type": "plate",
+          "armor_class": 6,
+          "current_durability": 50.0,
+          "displayed_max_durability": 100,
+          "original_max_durability": 100,
+          "material": "ceramic",
+          "destructibility": 0.6,
+          "blunt_throughput": 0.1,
+          "is_hard_armor": true
+        }
+      ],
+      "body_part": "thorax",
+      "distance_m": 0,
+      "enable_distance_decay": false,
+      "shot_count": 1,
+      "simulation_iterations": 100000,
+      "random_seed": 20261025
+    },
+    "expected": {
+      "final_penetration_probability": 0.491921807372176,
+      "expected_health_damage": 18.472945825565688,
+      "expected_blunt_damage": 1.3454260939538316,
+      "expected_burst_total_damage": 19.81837191951952,
+      "penetration_probability_by_shot": [
+        0.491921807372176
+      ],
+      "first_penetration_shot_distribution": {
+        "1": 0.491921807372176
+      },
+      "kill_probability_by_shot": [
+        0.0
+      ]
+    },
+    "basis": "independent 50-digit Decimal event enumeration of documented community equations; NOT in-game measurements"
+  },
+  {
+    "id": "class-6-durability-0.5-offset-0",
+    "input": {
+      "schema_version": 1,
+      "ammo": {
+        "id": "independent",
+        "name": "Independent reference",
+        "short_name": "REF",
+        "caliber": "reference",
+        "damage": 50,
+        "penetration_power": 60,
+        "armor_damage_percent": 50,
+        "projectile_count": 1
+      },
+      "armor_layers": [
+        {
+          "id": "reference",
+          "name": "Reference layer",
+          "layer_type": "plate",
+          "armor_class": 6,
+          "current_durability": 50.0,
+          "displayed_max_durability": 100,
+          "original_max_durability": 100,
+          "material": "ceramic",
+          "destructibility": 0.6,
+          "blunt_throughput": 0.1,
+          "is_hard_armor": true
+        }
+      ],
+      "body_part": "thorax",
+      "distance_m": 0,
+      "enable_distance_decay": false,
+      "shot_count": 1,
+      "simulation_iterations": 100000,
+      "random_seed": 20261025
+    },
+    "expected": {
+      "final_penetration_probability": 0.9548216233058109,
+      "expected_health_damage": 44.82005030085548,
+      "expected_blunt_damage": 0.13553513008256737,
+      "expected_burst_total_damage": 44.955585430938044,
+      "penetration_probability_by_shot": [
+        0.9548216233058109
+      ],
+      "first_penetration_shot_distribution": {
+        "1": 0.9548216233058109
+      },
+      "kill_probability_by_shot": [
+        0.0
+      ]
+    },
+    "basis": "independent 50-digit Decimal event enumeration of documented community equations; NOT in-game measurements"
+  },
+  {
+    "id": "class-6-durability-0.5-offset-16",
+    "input": {
+      "schema_version": 1,
+      "ammo": {
+        "id": "independent",
+        "name": "Independent reference",
+        "short_name": "REF",
+        "caliber": "reference",
+        "damage": 50,
+        "penetration_power": 76,
+        "armor_damage_percent": 50,
+        "projectile_count": 1
+      },
+      "armor_layers": [
+        {
+          "id": "reference",
+          "name": "Reference layer",
+          "layer_type": "plate",
+          "armor_class": 6,
+          "current_durability": 50.0,
+          "displayed_max_durability": 100,
+          "original_max_durability": 100,
+          "material": "ceramic",
+          "destructibility": 0.6,
+          "blunt_throughput": 0.1,
+          "is_hard_armor": true
+        }
+      ],
+      "body_part": "thorax",
+      "distance_m": 0,
+      "enable_distance_decay": false,
+      "shot_count": 1,
+      "simulation_iterations": 100000,
+      "random_seed": 20261025
+    },
+    "expected": {
+      "final_penetration_probability": 1.0,
+      "expected_health_damage": 50.0,
+      "expected_blunt_damage": 0.0,
+      "expected_burst_total_damage": 50.0,
+      "penetration_probability_by_shot": [
+        1.0
+      ],
+      "first_penetration_shot_distribution": {
+        "1": 1.0
+      },
+      "kill_probability_by_shot": [
+        0.0
+      ]
+    },
+    "basis": "independent 50-digit Decimal event enumeration of documented community equations; NOT in-game measurements"
+  },
+  {
+    "id": "class-6-durability-1-offset--12",
+    "input": {
+      "schema_version": 1,
+      "ammo": {
+        "id": "independent",
+        "name": "Independent reference",
+        "short_name": "REF",
+        "caliber": "reference",
+        "damage": 50,
+        "penetration_power": 48,
+        "armor_damage_percent": 50,
+        "projectile_count": 1
+      },
+      "armor_layers": [
+        {
+          "id": "reference",
+          "name": "Reference layer",
+          "layer_type": "plate",
+          "armor_class": 6,
+          "current_durability": 100,
+          "displayed_max_durability": 100,
+          "original_max_durability": 100,
+          "material": "ceramic",
+          "destructibility": 0.6,
+          "blunt_throughput": 0.1,
+          "is_hard_armor": true
+        }
+      ],
+      "body_part": "thorax",
+      "distance_m": 0,
+      "enable_distance_decay": false,
+      "shot_count": 1,
+      "simulation_iterations": 100000,
+      "random_seed": 20261025
+    },
+    "expected": {
+      "final_penetration_probability": 0.027981940857975843,
+      "expected_health_damage": 0.9281537329773676,
+      "expected_blunt_damage": 1.8352097698666372,
+      "expected_burst_total_damage": 2.7633635028440047,
+      "penetration_probability_by_shot": [
+        0.027981940857975843
+      ],
+      "first_penetration_shot_distribution": {
+        "1": 0.027981940857975843
+      },
+      "kill_probability_by_shot": [
+        0.0
+      ]
+    },
+    "basis": "independent 50-digit Decimal event enumeration of documented community equations; NOT in-game measurements"
+  },
+  {
+    "id": "class-6-durability-1-offset-0",
+    "input": {
+      "schema_version": 1,
+      "ammo": {
+        "id": "independent",
+        "name": "Independent reference",
+        "short_name": "REF",
+        "caliber": "reference",
+        "damage": 50,
+        "penetration_power": 60,
+        "armor_damage_percent": 50,
+        "projectile_count": 1
+      },
+      "armor_layers": [
+        {
+          "id": "reference",
+          "name": "Reference layer",
+          "layer_type": "plate",
+          "armor_class": 6,
+          "current_durability": 100,
+          "displayed_max_durability": 100,
+          "original_max_durability": 100,
+          "material": "ceramic",
+          "destructibility": 0.6,
+          "blunt_throughput": 0.1,
+          "is_hard_armor": true
+        }
+      ],
+      "body_part": "thorax",
+      "distance_m": 0,
+      "enable_distance_decay": false,
+      "shot_count": 1,
+      "simulation_iterations": 100000,
+      "random_seed": 20261025
+    },
+    "expected": {
+      "final_penetration_probability": 0.8578921449396085,
+      "expected_health_damage": 35.570075395194465,
+      "expected_blunt_damage": 0.4217819141398567,
+      "expected_burst_total_damage": 35.99185730933432,
+      "penetration_probability_by_shot": [
+        0.8578921449396085
+      ],
+      "first_penetration_shot_distribution": {
+        "1": 0.8578921449396085
+      },
+      "kill_probability_by_shot": [
+        0.0
+      ]
+    },
+    "basis": "independent 50-digit Decimal event enumeration of documented community equations; NOT in-game measurements"
+  },
+  {
+    "id": "class-6-durability-1-offset-16",
+    "input": {
+      "schema_version": 1,
+      "ammo": {
+        "id": "independent",
+        "name": "Independent reference",
+        "short_name": "REF",
+        "caliber": "reference",
+        "damage": 50,
+        "penetration_power": 76,
+        "armor_damage_percent": 50,
+        "projectile_count": 1
+      },
+      "armor_layers": [
+        {
+          "id": "reference",
+          "name": "Reference layer",
+          "layer_type": "plate",
+          "armor_class": 6,
+          "current_durability": 100,
+          "displayed_max_durability": 100,
+          "original_max_durability": 100,
+          "material": "ceramic",
+          "destructibility": 0.6,
+          "blunt_throughput": 0.1,
+          "is_hard_armor": true
+        }
+      ],
+      "body_part": "thorax",
+      "distance_m": 0,
+      "enable_distance_decay": false,
+      "shot_count": 1,
+      "simulation_iterations": 100000,
+      "random_seed": 20261025
+    },
+    "expected": {
+      "final_penetration_probability": 1.0,
+      "expected_health_damage": 50.0,
+      "expected_blunt_damage": 0.0,
+      "expected_burst_total_damage": 50.0,
+      "penetration_probability_by_shot": [
+        1.0
+      ],
+      "first_penetration_shot_distribution": {
+        "1": 1.0
+      },
+      "kill_probability_by_shot": [
+        0.0
+      ]
+    },
+    "basis": "independent 50-digit Decimal event enumeration of documented community equations; NOT in-game measurements"
+  },
+  {
+    "id": "material-aramid",
+    "input": {
+      "schema_version": 1,
+      "ammo": {
+        "id": "independent",
+        "name": "Independent reference",
+        "short_name": "REF",
+        "caliber": "reference",
+        "damage": 50,
+        "penetration_power": 40,
+        "armor_damage_percent": 50,
+        "projectile_count": 1
+      },
+      "armor_layers": [
+        {
+          "id": "reference",
+          "name": "Reference layer",
+          "layer_type": "plate",
+          "armor_class": 5,
+          "current_durability": 100,
+          "displayed_max_durability": 100,
+          "original_max_durability": 100,
+          "material": "aramid",
+          "destructibility": 0.1875,
+          "blunt_throughput": 0.1,
+          "is_hard_armor": true
+        }
+      ],
+      "body_part": "thorax",
+      "distance_m": 0,
+      "enable_distance_decay": false,
+      "shot_count": 1,
+      "simulation_iterations": 100000,
+      "random_seed": 20261025
+    },
+    "expected": {
+      "final_penetration_probability": 0.08851353602665556,
+      "expected_health_damage": 2.8417122131407844,
+      "expected_blunt_damage": 1.889846271579019,
+      "expected_burst_total_damage": 4.731558484719804,
+      "penetration_probability_by_shot": [
+        0.08851353602665556
+      ],
+      "first_penetration_shot_distribution": {
+        "1": 0.08851353602665556
+      },
+      "kill_probability_by_shot": [
+        0.0
+      ]
+    },
+    "basis": "independent 50-digit Decimal event enumeration of documented community equations; NOT in-game measurements"
+  },
+  {
+    "id": "material-uhmwpe",
+    "input": {
+      "schema_version": 1,
+      "ammo": {
+        "id": "independent",
+        "name": "Independent reference",
+        "short_name": "REF",
+        "caliber": "reference",
+        "damage": 50,
+        "penetration_power": 40,
+        "armor_damage_percent": 50,
+        "projectile_count": 1
+      },
+      "armor_layers": [
+        {
+          "id": "reference",
+          "name": "Reference layer",
+          "layer_type": "plate",
+          "armor_class": 5,
+          "current_durability": 100,
+          "displayed_max_durability": 100,
+          "original_max_durability": 100,
+          "material": "uhmwpe",
+          "destructibility": 0.3375,
+          "blunt_throughput": 0.1,
+          "is_hard_armor": true
+        }
+      ],
+      "body_part": "thorax",
+      "distance_m": 0,
+      "enable_distance_decay": false,
+      "shot_count": 1,
+      "simulation_iterations": 100000,
+      "random_seed": 20261025
+    },
+    "expected": {
+      "final_penetration_probability": 0.08851353602665556,
+      "expected_health_damage": 2.8417122131407844,
+      "expected_blunt_damage": 1.889846271579019,
+      "expected_burst_total_damage": 4.731558484719804,
+      "penetration_probability_by_shot": [
+        0.08851353602665556
+      ],
+      "first_penetration_shot_distribution": {
+        "1": 0.08851353602665556
+      },
+      "kill_probability_by_shot": [
+        0.0
+      ]
+    },
+    "basis": "independent 50-digit Decimal event enumeration of documented community equations; NOT in-game measurements"
+  },
+  {
+    "id": "material-combined",
+    "input": {
+      "schema_version": 1,
+      "ammo": {
+        "id": "independent",
+        "name": "Independent reference",
+        "short_name": "REF",
+        "caliber": "reference",
+        "damage": 50,
+        "penetration_power": 40,
+        "armor_damage_percent": 50,
+        "projectile_count": 1
+      },
+      "armor_layers": [
+        {
+          "id": "reference",
+          "name": "Reference layer",
+          "layer_type": "plate",
+          "armor_class": 5,
+          "current_durability": 100,
+          "displayed_max_durability": 100,
+          "original_max_durability": 100,
+          "material": "combined",
+          "destructibility": 0.375,
+          "blunt_throughput": 0.1,
+          "is_hard_armor": true
+        }
+      ],
+      "body_part": "thorax",
+      "distance_m": 0,
+      "enable_distance_decay": false,
+      "shot_count": 1,
+      "simulation_iterations": 100000,
+      "random_seed": 20261025
+    },
+    "expected": {
+      "final_penetration_probability": 0.08851353602665556,
+      "expected_health_damage": 2.8417122131407844,
+      "expected_blunt_damage": 1.889846271579019,
+      "expected_burst_total_damage": 4.731558484719804,
+      "penetration_probability_by_shot": [
+        0.08851353602665556
+      ],
+      "first_penetration_shot_distribution": {
+        "1": 0.08851353602665556
+      },
+      "kill_probability_by_shot": [
+        0.0
+      ]
+    },
+    "basis": "independent 50-digit Decimal event enumeration of documented community equations; NOT in-game measurements"
+  },
+  {
+    "id": "material-titanium",
+    "input": {
+      "schema_version": 1,
+      "ammo": {
+        "id": "independent",
+        "name": "Independent reference",
+        "short_name": "REF",
+        "caliber": "reference",
+        "damage": 50,
+        "penetration_power": 40,
+        "armor_damage_percent": 50,
+        "projectile_count": 1
+      },
+      "armor_layers": [
+        {
+          "id": "reference",
+          "name": "Reference layer",
+          "layer_type": "plate",
+          "armor_class": 5,
+          "current_durability": 100,
+          "displayed_max_durability": 100,
+          "original_max_durability": 100,
+          "material": "titanium",
+          "destructibility": 0.4125,
+          "blunt_throughput": 0.1,
+          "is_hard_armor": true
+        }
+      ],
+      "body_part": "thorax",
+      "distance_m": 0,
+      "enable_distance_decay": false,
+      "shot_count": 1,
+      "simulation_iterations": 100000,
+      "random_seed": 20261025
+    },
+    "expected": {
+      "final_penetration_probability": 0.08851353602665556,
+      "expected_health_damage": 2.8417122131407844,
+      "expected_blunt_damage": 1.889846271579019,
+      "expected_burst_total_damage": 4.731558484719804,
+      "penetration_probability_by_shot": [
+        0.08851353602665556
+      ],
+      "first_penetration_shot_distribution": {
+        "1": 0.08851353602665556
+      },
+      "kill_probability_by_shot": [
+        0.0
+      ]
+    },
+    "basis": "independent 50-digit Decimal event enumeration of documented community equations; NOT in-game measurements"
+  },
+  {
+    "id": "material-aluminum",
+    "input": {
+      "schema_version": 1,
+      "ammo": {
+        "id": "independent",
+        "name": "Independent reference",
+        "short_name": "REF",
+        "caliber": "reference",
+        "damage": 50,
+        "penetration_power": 40,
+        "armor_damage_percent": 50,
+        "projectile_count": 1
+      },
+      "armor_layers": [
+        {
+          "id": "reference",
+          "name": "Reference layer",
+          "layer_type": "plate",
+          "armor_class": 5,
+          "current_durability": 100,
+          "displayed_max_durability": 100,
+          "original_max_durability": 100,
+          "material": "aluminum",
+          "destructibility": 0.45,
+          "blunt_throughput": 0.1,
+          "is_hard_armor": true
+        }
+      ],
+      "body_part": "thorax",
+      "distance_m": 0,
+      "enable_distance_decay": false,
+      "shot_count": 1,
+      "simulation_iterations": 100000,
+      "random_seed": 20261025
+    },
+    "expected": {
+      "final_penetration_probability": 0.08851353602665556,
+      "expected_health_damage": 2.8417122131407844,
+      "expected_blunt_damage": 1.889846271579019,
+      "expected_burst_total_damage": 4.731558484719804,
+      "penetration_probability_by_shot": [
+        0.08851353602665556
+      ],
+      "first_penetration_shot_distribution": {
+        "1": 0.08851353602665556
+      },
+      "kill_probability_by_shot": [
+        0.0
+      ]
+    },
+    "basis": "independent 50-digit Decimal event enumeration of documented community equations; NOT in-game measurements"
+  },
+  {
+    "id": "material-steel",
+    "input": {
+      "schema_version": 1,
+      "ammo": {
+        "id": "independent",
+        "name": "Independent reference",
+        "short_name": "REF",
+        "caliber": "reference",
+        "damage": 50,
+        "penetration_power": 40,
+        "armor_damage_percent": 50,
+        "projectile_count": 1
+      },
+      "armor_layers": [
+        {
+          "id": "reference",
+          "name": "Reference layer",
+          "layer_type": "plate",
+          "armor_class": 5,
+          "current_durability": 100,
+          "displayed_max_durability": 100,
+          "original_max_durability": 100,
+          "material": "steel",
+          "destructibility": 0.525,
+          "blunt_throughput": 0.1,
+          "is_hard_armor": true
+        }
+      ],
+      "body_part": "thorax",
+      "distance_m": 0,
+      "enable_distance_decay": false,
+      "shot_count": 1,
+      "simulation_iterations": 100000,
+      "random_seed": 20261025
+    },
+    "expected": {
+      "final_penetration_probability": 0.08851353602665556,
+      "expected_health_damage": 2.8417122131407844,
+      "expected_blunt_damage": 1.889846271579019,
+      "expected_burst_total_damage": 4.731558484719804,
+      "penetration_probability_by_shot": [
+        0.08851353602665556
+      ],
+      "first_penetration_shot_distribution": {
+        "1": 0.08851353602665556
+      },
+      "kill_probability_by_shot": [
+        0.0
+      ]
+    },
+    "basis": "independent 50-digit Decimal event enumeration of documented community equations; NOT in-game measurements"
+  },
+  {
+    "id": "material-ceramic",
+    "input": {
+      "schema_version": 1,
+      "ammo": {
+        "id": "independent",
+        "name": "Independent reference",
+        "short_name": "REF",
+        "caliber": "reference",
+        "damage": 50,
+        "penetration_power": 40,
+        "armor_damage_percent": 50,
+        "projectile_count": 1
+      },
+      "armor_layers": [
+        {
+          "id": "reference",
+          "name": "Reference layer",
+          "layer_type": "plate",
+          "armor_class": 5,
+          "current_durability": 100,
+          "displayed_max_durability": 100,
+          "original_max_durability": 100,
+          "material": "ceramic",
+          "destructibility": 0.6,
+          "blunt_throughput": 0.1,
+          "is_hard_armor": true
+        }
+      ],
+      "body_part": "thorax",
+      "distance_m": 0,
+      "enable_distance_decay": false,
+      "shot_count": 1,
+      "simulation_iterations": 100000,
+      "random_seed": 20261025
+    },
+    "expected": {
+      "final_penetration_probability": 0.08851353602665556,
+      "expected_health_damage": 2.8417122131407844,
+      "expected_blunt_damage": 1.889846271579019,
+      "expected_burst_total_damage": 4.731558484719804,
+      "penetration_probability_by_shot": [
+        0.08851353602665556
+      ],
+      "first_penetration_shot_distribution": {
+        "1": 0.08851353602665556
+      },
+      "kill_probability_by_shot": [
+        0.0
+      ]
+    },
+    "basis": "independent 50-digit Decimal event enumeration of documented community equations; NOT in-game measurements"
+  },
+  {
+    "id": "material-glass",
+    "input": {
+      "schema_version": 1,
+      "ammo": {
+        "id": "independent",
+        "name": "Independent reference",
+        "short_name": "REF",
+        "caliber": "reference",
+        "damage": 50,
+        "penetration_power": 40,
+        "armor_damage_percent": 50,
+        "projectile_count": 1
+      },
+      "armor_layers": [
+        {
+          "id": "reference",
+          "name": "Reference layer",
+          "layer_type": "plate",
+          "armor_class": 5,
+          "current_durability": 100,
+          "displayed_max_durability": 100,
+          "original_max_durability": 100,
+          "material": "glass",
+          "destructibility": 0.6,
+          "blunt_throughput": 0.1,
+          "is_hard_armor": true
+        }
+      ],
+      "body_part": "thorax",
+      "distance_m": 0,
+      "enable_distance_decay": false,
+      "shot_count": 1,
+      "simulation_iterations": 100000,
+      "random_seed": 20261025
+    },
+    "expected": {
+      "final_penetration_probability": 0.08851353602665556,
+      "expected_health_damage": 2.8417122131407844,
+      "expected_blunt_damage": 1.889846271579019,
+      "expected_burst_total_damage": 4.731558484719804,
+      "penetration_probability_by_shot": [
+        0.08851353602665556
+      ],
+      "first_penetration_shot_distribution": {
+        "1": 0.08851353602665556
+      },
+      "kill_probability_by_shot": [
+        0.0
+      ]
+    },
+    "basis": "independent 50-digit Decimal event enumeration of documented community equations; NOT in-game measurements"
+  },
+  {
+    "id": "DBX95",
+    "input": {
+      "schema_version": 1,
+      "ammo": {
+        "id": "independent",
+        "name": "DBX95",
+        "short_name": "DBX95",
+        "caliber": "5.8x42",
+        "damage": 57,
+        "penetration_power": 33,
+        "armor_damage_percent": 50,
+        "projectile_count": 1
+      },
+      "armor_layers": [
+        {
+          "id": "reference",
+          "name": "Reference layer",
+          "layer_type": "plate",
+          "armor_class": 5,
+          "current_durability": 100,
+          "displayed_max_durability": 100,
+          "original_max_durability": 100,
+          "material": "ceramic",
+          "destructibility": 0.6,
+          "blunt_throughput": 0.1,
+          "is_hard_armor": true
+        }
+      ],
+      "body_part": "thorax",
+      "distance_m": 0,
+      "enable_distance_decay": false,
+      "shot_count": 1,
+      "simulation_iterations": 100000,
+      "random_seed": 20261025
+    },
+    "expected": {
+      "final_penetration_probability": 0.0,
+      "expected_health_damage": 0.0,
+      "expected_blunt_damage": 1.645438775510204,
+      "expected_burst_total_damage": 1.645438775510204,
+      "penetration_probability_by_shot": [
+        0.0
+      ],
+      "first_penetration_shot_distribution": {
+        "1": 0.0
+      },
+      "kill_probability_by_shot": [
+        0.0
+      ]
+    },
+    "basis": "independent 50-digit Decimal event enumeration of documented community equations; NOT in-game measurements"
+  },
+  {
+    "id": "DBP191",
+    "input": {
+      "schema_version": 1,
+      "ammo": {
+        "id": "independent",
+        "name": "DBP191",
+        "short_name": "DBP191",
+        "caliber": "5.8x42",
+        "damage": 53,
+        "penetration_power": 39,
+        "armor_damage_percent": 50,
+        "projectile_count": 1
+      },
+      "armor_layers": [
+        {
+          "id": "reference",
+          "name": "Reference layer",
+          "layer_type": "plate",
+          "armor_class": 5,
+          "current_durability": 100,
+          "displayed_max_durability": 100,
+          "original_max_durability": 100,
+          "material": "ceramic",
+          "destructibility": 0.6,
+          "blunt_throughput": 0.1,
+          "is_hard_armor": true
+        }
+      ],
+      "body_part": "thorax",
+      "distance_m": 0,
+      "enable_distance_decay": false,
+      "shot_count": 1,
+      "simulation_iterations": 100000,
+      "random_seed": 20261025
+    },
+    "expected": {
+      "final_penetration_probability": 0.05488088296543107,
+      "expected_health_damage": 1.8209665747380033,
+      "expected_blunt_damage": 1.9869894994356092,
+      "expected_burst_total_damage": 3.8079560741736125,
+      "penetration_probability_by_shot": [
+        0.05488088296543107
+      ],
+      "first_penetration_shot_distribution": {
+        "1": 0.05488088296543107
+      },
+      "kill_probability_by_shot": [
+        0.0
+      ]
+    },
+    "basis": "independent 50-digit Decimal event enumeration of documented community equations; NOT in-game measurements"
+  },
+  {
+    "id": "DVX12",
+    "input": {
+      "schema_version": 1,
+      "ammo": {
+        "id": "independent",
+        "name": "DVX12",
+        "short_name": "DVX12",
+        "caliber": "5.8x42",
+        "damage": 48,
+        "penetration_power": 47,
+        "armor_damage_percent": 50,
+        "projectile_count": 1
+      },
+      "armor_layers": [
+        {
+          "id": "reference",
+          "name": "Reference layer",
+          "layer_type": "plate",
+          "armor_class": 5,
+          "current_durability": 100,
+          "displayed_max_durability": 100,
+          "original_max_durability": 100,
+          "material": "ceramic",
+          "destructibility": 0.6,
+          "blunt_throughput": 0.1,
+          "is_hard_armor": true
+        }
+      ],
+      "body_part": "thorax",
+      "distance_m": 0,
+      "enable_distance_decay": false,
+      "shot_count": 1,
+      "simulation_iterations": 100000,
+      "random_seed": 20261025
+    },
+    "expected": {
+      "final_penetration_probability": 0.547942107455227,
+      "expected_health_damage": 19.84331280148423,
+      "expected_blunt_damage": 1.173195403806237,
+      "expected_burst_total_damage": 21.016508205290467,
+      "penetration_probability_by_shot": [
+        0.547942107455227
+      ],
+      "first_penetration_shot_distribution": {
+        "1": 0.547942107455227
+      },
+      "kill_probability_by_shot": [
+        0.0
+      ]
+    },
+    "basis": "independent 50-digit Decimal event enumeration of documented community equations; NOT in-game measurements"
+  },
+  {
+    "id": "DVC12",
+    "input": {
+      "schema_version": 1,
+      "ammo": {
+        "id": "independent",
+        "name": "DVC12",
+        "short_name": "DVC12",
+        "caliber": "5.8x42",
+        "damage": 46,
+        "penetration_power": 52,
+        "armor_damage_percent": 50,
+        "projectile_count": 1
+      },
+      "armor_layers": [
+        {
+          "id": "reference",
+          "name": "Reference layer",
+          "layer_type": "plate",
+          "armor_class": 5,
+          "current_durability": 100,
+          "displayed_max_durability": 100,
+          "original_max_durability": 100,
+          "material": "ceramic",
+          "destructibility": 0.6,
+          "blunt_throughput": 0.1,
+          "is_hard_armor": true
+        }
+      ],
+      "body_part": "thorax",
+      "distance_m": 0,
+      "enable_distance_decay": false,
+      "shot_count": 1,
+      "simulation_iterations": 100000,
+      "random_seed": 20261025
+    },
+    "expected": {
+      "final_penetration_probability": 0.9227761782088195,
+      "expected_health_damage": 35.43218682899241,
+      "expected_blunt_damage": 0.21313774814365813,
+      "expected_burst_total_damage": 35.645324577136066,
+      "penetration_probability_by_shot": [
+        0.9227761782088195
+      ],
+      "first_penetration_shot_distribution": {
+        "1": 0.9227761782088195
+      },
+      "kill_probability_by_shot": [
+        0.0
+      ]
+    },
+    "basis": "independent 50-digit Decimal event enumeration of documented community equations; NOT in-game measurements"
+  },
+  {
+    "id": "repaired-50-of-original-100",
+    "input": {
+      "schema_version": 1,
+      "ammo": {
+        "id": "independent",
+        "name": "Independent reference",
+        "short_name": "REF",
+        "caliber": "reference",
+        "damage": 50,
+        "penetration_power": 40,
+        "armor_damage_percent": 50,
+        "projectile_count": 1
+      },
+      "armor_layers": [
+        {
+          "id": "reference",
+          "name": "Reference layer",
+          "layer_type": "plate",
+          "armor_class": 5,
+          "current_durability": 50.0,
+          "displayed_max_durability": 50,
+          "original_max_durability": 100,
+          "material": "ceramic",
+          "destructibility": 0.6,
+          "blunt_throughput": 0.1,
+          "is_hard_armor": true
+        }
+      ],
+      "body_part": "thorax",
+      "distance_m": 0,
+      "enable_distance_decay": false,
+      "shot_count": 1,
+      "simulation_iterations": 100000,
+      "random_seed": 20261025
+    },
+    "expected": {
+      "final_penetration_probability": 0.5514399524375743,
+      "expected_health_damage": 19.958513099144657,
+      "expected_blunt_damage": 1.2141283080487104,
+      "expected_burst_total_damage": 21.172641407193368,
+      "penetration_probability_by_shot": [
+        0.5514399524375743
+      ],
+      "first_penetration_shot_distribution": {
+        "1": 0.5514399524375743
+      },
+      "kill_probability_by_shot": [
+        0.0
+      ]
+    },
+    "basis": "independent 50-digit Decimal event enumeration of documented community equations; NOT in-game measurements"
+  },
+  {
+    "id": "eight-pellets-break-after-four",
+    "input": {
+      "schema_version": 1,
+      "ammo": {
+        "id": "independent",
+        "name": "Independent reference",
+        "short_name": "REF",
+        "caliber": "reference",
+        "damage": 50,
+        "penetration_power": 0,
+        "armor_damage_percent": 50,
+        "projectile_count": 8
+      },
+      "armor_layers": [
+        {
+          "id": "reference",
+          "name": "Reference layer",
+          "layer_type": "plate",
+          "armor_class": 5,
+          "current_durability": 4,
+          "displayed_max_durability": 100,
+          "original_max_durability": 100,
+          "material": "ceramic",
+          "destructibility": 0.6,
+          "blunt_throughput": 0.1,
+          "is_hard_armor": true
+        }
+      ],
+      "body_part": "thorax",
+      "distance_m": 0,
+      "enable_distance_decay": false,
+      "shot_count": 1,
+      "simulation_iterations": 100000,
+      "random_seed": 20261025
+    },
+    "expected": {
+      "final_penetration_probability": 1.0,
+      "expected_health_damage": 200.0,
+      "expected_blunt_damage": 8.256118501997346,
+      "expected_burst_total_damage": 208.25611850199735,
+      "penetration_probability_by_shot": [
+        1.0
+      ],
+      "first_penetration_shot_distribution": {
+        "1": 1.0
+      },
+      "kill_probability_by_shot": [
+        1.0
+      ]
+    },
+    "basis": "independent 50-digit Decimal event enumeration of documented community equations; NOT in-game measurements"
+  },
+  {
+    "id": "three-triggers-break-after-two",
+    "input": {
+      "schema_version": 1,
+      "ammo": {
+        "id": "independent",
+        "name": "Independent reference",
+        "short_name": "REF",
+        "caliber": "reference",
+        "damage": 50,
+        "penetration_power": 0,
+        "armor_damage_percent": 50,
+        "projectile_count": 1
+      },
+      "armor_layers": [
+        {
+          "id": "reference",
+          "name": "Reference layer",
+          "layer_type": "plate",
+          "armor_class": 5,
+          "current_durability": 2,
+          "displayed_max_durability": 100,
+          "original_max_durability": 100,
+          "material": "ceramic",
+          "destructibility": 0.6,
+          "blunt_throughput": 0.1,
+          "is_hard_armor": true
+        }
+      ],
+      "body_part": "thorax",
+      "distance_m": 0,
+      "enable_distance_decay": false,
+      "shot_count": 3,
+      "simulation_iterations": 100000,
+      "random_seed": 20261025
+    },
+    "expected": {
+      "final_penetration_probability": 0.0,
+      "expected_health_damage": 0.0,
+      "expected_blunt_damage": 2.1468367346938777,
+      "expected_burst_total_damage": 54.48907077724707,
+      "penetration_probability_by_shot": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "first_penetration_shot_distribution": {
+        "1": 0.0,
+        "2": 0.0,
+        "3": 1.0
+      },
+      "kill_probability_by_shot": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "basis": "independent 50-digit Decimal event enumeration of documented community equations; NOT in-game measurements"
+  },
+  {
+    "id": "three-triggers-two-layers",
+    "input": {
+      "schema_version": 1,
+      "ammo": {
+        "id": "independent",
+        "name": "Independent reference",
+        "short_name": "REF",
+        "caliber": "reference",
+        "damage": 50,
+        "penetration_power": 52,
+        "armor_damage_percent": 50,
+        "projectile_count": 1
+      },
+      "armor_layers": [
+        {
+          "id": "reference",
+          "name": "Reference layer",
+          "layer_type": "plate",
+          "armor_class": 5,
+          "current_durability": 100,
+          "displayed_max_durability": 100,
+          "original_max_durability": 100,
+          "material": "ceramic",
+          "destructibility": 0.6,
+          "blunt_throughput": 0.1,
+          "is_hard_armor": true
+        },
+        {
+          "id": "reference",
+          "name": "Reference layer",
+          "layer_type": "soft",
+          "armor_class": 3,
+          "current_durability": 100,
+          "displayed_max_durability": 100,
+          "original_max_durability": 100,
+          "material": "aramid",
+          "destructibility": 0.1875,
+          "blunt_throughput": 0.1,
+          "is_hard_armor": true
+        }
+      ],
+      "body_part": "thorax",
+      "distance_m": 0,
+      "enable_distance_decay": false,
+      "shot_count": 3,
+      "simulation_iterations": 100000,
+      "random_seed": 20261025
+    },
+    "expected": {
+      "final_penetration_probability": 0.8981215361281653,
+      "expected_health_damage": 37.484253465267244,
+      "expected_blunt_damage": 0.3345707741720788,
+      "expected_burst_total_damage": 118.626655451632,
+      "penetration_probability_by_shot": [
+        0.8981215361281653,
+        0.9106142000040692,
+        0.9452867472072685
+      ],
+      "first_penetration_shot_distribution": {
+        "1": 0.8981215361281653,
+        "2": 0.0928832198344957,
+        "3": 0.008522171079853577
+      },
+      "kill_probability_by_shot": [
+        0.0,
+        0.0,
+        0.9816908216436706
+      ]
+    },
+    "basis": "independent 50-digit Decimal event enumeration of documented community equations; NOT in-game measurements"
+  },
+  {
+    "id": "head-health",
+    "input": {
+      "schema_version": 1,
+      "ammo": {
+        "id": "independent",
+        "name": "Independent reference",
+        "short_name": "REF",
+        "caliber": "reference",
+        "damage": 50,
+        "penetration_power": 52,
+        "armor_damage_percent": 50,
+        "projectile_count": 1
+      },
+      "armor_layers": [
+        {
+          "id": "reference",
+          "name": "Reference layer",
+          "layer_type": "plate",
+          "armor_class": 5,
+          "current_durability": 100,
+          "displayed_max_durability": 100,
+          "original_max_durability": 100,
+          "material": "ceramic",
+          "destructibility": 0.6,
+          "blunt_throughput": 0.1,
+          "is_hard_armor": true
+        }
+      ],
+      "body_part": "head",
+      "distance_m": 0,
+      "enable_distance_decay": false,
+      "shot_count": 3,
+      "simulation_iterations": 100000,
+      "random_seed": 20261025
+    },
+    "expected": {
+      "final_penetration_probability": 0.9227761782088195,
+      "expected_health_damage": 38.513246553252614,
+      "expected_blunt_damage": 0.23167146537354144,
+      "expected_burst_total_damage": 120.4695562118891,
+      "penetration_probability_by_shot": [
+        0.9227761782088195,
+        0.9344968506381813,
+        0.9452867472072685
+      ],
+      "first_penetration_shot_distribution": {
+        "1": 0.9227761782088195,
+        "2": 0.07228796388392263,
+        "3": 0.0046802866795830275
+      },
+      "kill_probability_by_shot": [
+        0.9227761782088195,
+        0.9950641420927422,
+        0.9997444287723252
+      ]
+    },
+    "basis": "independent 50-digit Decimal event enumeration of documented community equations; NOT in-game measurements"
+  },
+  {
+    "id": "stomach-health",
+    "input": {
+      "schema_version": 1,
+      "ammo": {
+        "id": "independent",
+        "name": "Independent reference",
+        "short_name": "REF",
+        "caliber": "reference",
+        "damage": 50,
+        "penetration_power": 52,
+        "armor_damage_percent": 50,
+        "projectile_count": 1
+      },
+      "armor_layers": [
+        {
+          "id": "reference",
+          "name": "Reference layer",
+          "layer_type": "plate",
+          "armor_class": 5,
+          "current_durability": 100,
+          "displayed_max_durability": 100,
+          "original_max_durability": 100,
+          "material": "ceramic",
+          "destructibility": 0.6,
+          "blunt_throughput": 0.1,
+          "is_hard_armor": true
+        }
+      ],
+      "body_part": "stomach",
+      "distance_m": 0,
+      "enable_distance_decay": false,
+      "shot_count": 3,
+      "simulation_iterations": 100000,
+      "random_seed": 20261025
+    },
+    "expected": {
+      "final_penetration_probability": 0.9227761782088195,
+      "expected_health_damage": 38.513246553252614,
+      "expected_blunt_damage": 0.23167146537354144,
+      "expected_burst_total_damage": 120.4695562118891,
+      "penetration_probability_by_shot": [
+        0.9227761782088195,
+        0.9344968506381813,
+        0.9452867472072685
+      ],
+      "first_penetration_shot_distribution": {
+        "1": 0.9227761782088195,
+        "2": 0.07228796388392263,
+        "3": 0.0046802866795830275
+      },
+      "kill_probability_by_shot": []
+    },
+    "basis": "independent 50-digit Decimal event enumeration of documented community equations; NOT in-game measurements"
+  },
+  {
+    "id": "distance-enabled-False",
+    "input": {
+      "schema_version": 1,
+      "ammo": {
+        "id": "independent",
+        "name": "Independent reference",
+        "short_name": "REF",
+        "caliber": "reference",
+        "damage": 50,
+        "penetration_power": 44,
+        "armor_damage_percent": 50,
+        "projectile_count": 1
+      },
+      "armor_layers": [
+        {
+          "id": "reference",
+          "name": "Reference layer",
+          "layer_type": "plate",
+          "armor_class": 5,
+          "current_durability": 100,
+          "displayed_max_durability": 100,
+          "original_max_durability": 100,
+          "material": "ceramic",
+          "destructibility": 0.6,
+          "blunt_throughput": 0.1,
+          "is_hard_armor": true
+        }
+      ],
+      "body_part": "thorax",
+      "distance_m": 250,
+      "enable_distance_decay": false,
+      "shot_count": 1,
+      "simulation_iterations": 100000,
+      "random_seed": 20261025
+    },
+    "expected": {
+      "final_penetration_probability": 0.3030441482715535,
+      "expected_health_damage": 10.702099650671078,
+      "expected_blunt_damage": 1.6959496118539044,
+      "expected_burst_total_damage": 12.398049262524983,
+      "penetration_probability_by_shot": [
+        0.3030441482715535
+      ],
+      "first_penetration_shot_distribution": {
+        "1": 0.3030441482715535
+      },
+      "kill_probability_by_shot": [
+        0.0
+      ]
+    },
+    "basis": "independent 50-digit Decimal event enumeration of documented community equations; NOT in-game measurements"
+  },
+  {
+    "id": "distance-enabled-True",
+    "input": {
+      "schema_version": 1,
+      "ammo": {
+        "id": "independent",
+        "name": "Independent reference",
+        "short_name": "REF",
+        "caliber": "reference",
+        "damage": 50,
+        "penetration_power": 44,
+        "armor_damage_percent": 50,
+        "projectile_count": 1
+      },
+      "armor_layers": [
+        {
+          "id": "reference",
+          "name": "Reference layer",
+          "layer_type": "plate",
+          "armor_class": 5,
+          "current_durability": 100,
+          "displayed_max_durability": 100,
+          "original_max_durability": 100,
+          "material": "ceramic",
+          "destructibility": 0.6,
+          "blunt_throughput": 0.1,
+          "is_hard_armor": true
+        }
+      ],
+      "body_part": "thorax",
+      "distance_m": 250,
+      "enable_distance_decay": true,
+      "shot_count": 1,
+      "simulation_iterations": 100000,
+      "random_seed": 20261025
+    },
+    "expected": {
+      "final_penetration_probability": 0.028176597251145356,
+      "expected_health_damage": 0.7402353824462218,
+      "expected_blunt_damage": 1.5832442372322963,
+      "expected_burst_total_damage": 2.323479619678518,
+      "penetration_probability_by_shot": [
+        0.028176597251145356
+      ],
+      "first_penetration_shot_distribution": {
+        "1": 0.028176597251145356
+      },
+      "kill_probability_by_shot": [
+        0.0
+      ]
+    },
+    "basis": "independent 50-digit Decimal event enumeration of documented community equations; NOT in-game measurements"
+  }
+]

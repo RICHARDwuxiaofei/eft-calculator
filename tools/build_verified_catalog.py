@@ -55,6 +55,11 @@ def main() -> None:
     parser.add_argument("--source-dir", type=Path, required=True)
     parser.add_argument("--armor-dir", type=Path)
     args = parser.parse_args()
+    existing_catalog = ROOT/"src/tarkov_armor_sim/resources/items/catalog.json"
+    if existing_catalog.exists():
+        existing_version = json.loads(existing_catalog.read_text(encoding="utf-8")).get("version", "")
+        if existing_version[-10:] > VERSION[-10:]:
+            raise SystemExit("Historical importer cannot overwrite a newer reviewed catalog; use versioned audit tools.")
     source = args.source_dir
     wiki = source / "ammo-table.txt"
     old = json.loads((source / "fallback-ammo.txt").read_text())

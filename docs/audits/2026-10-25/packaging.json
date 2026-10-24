@@ -1,0 +1,24 @@
+[
+  {
+    "variant": "debug",
+    "file": "android\\app\\build\\outputs\\apk\\debug\\app-debug.apk",
+    "sha256": "f303ae633969cac1544a8032122bea58d85d1d47d7cdde6351f97a5f55122bca",
+    "verified_images": 222,
+    "catalog_identical": true,
+    "signing": "debug key"
+  },
+  {
+    "variant": "release",
+    "file": "android\\app\\build\\outputs\\apk\\release\\app-release-unsigned.apk",
+    "sha256": "c78c4d83443f13636b4da606753b3988d78ec1269b567f7b7b8c9624be8ee169",
+    "verified_images": 222,
+    "catalog_identical": true,
+    "signing": "unsigned: NOT a delivery APK"
+  },
+  {
+    "variant": "windows",
+    "verified_images": 222,
+    "catalog_identical": true,
+    "signing": "not Authenticode signed"
+  }
+]

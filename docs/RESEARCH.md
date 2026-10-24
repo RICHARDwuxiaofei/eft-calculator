@@ -1,4 +1,28 @@
-# Ballistics and data audit - 2026-09-16
+# Ballistics and data research
+
+## 2026-10-25 re-audit
+
+The September findings below are historical, not a claim that the old URLs still work.
+The current audit is [AUDIT_2026-10-25.md](AUDIT_2026-10-25.md); machine-readable
+evidence and source hashes are in [audits/2026-10-25](audits/2026-10-25/).
+All 222 existing item identities were resolved against individual Wiki pages using
+their embedded EFT node IDs. Wiki tables checked 1,072 fields, the maintained chart
+911, and item infoboxes produced 812 observations (including explicit unparsed values).
+Three unresolved numeric conflicts were retained and documented, not silently decided.
+The two extra firearm candidates in the chart were confirmed Arena-only by the Wiki.
+
+The Wiki changelog reports 1.2.5.0.48146, 20 October 2026. The official news site was
+inaccessible here, so this is a community-reported patch context, not official live-server proof.
+Wiki HTML returned 403 but public MediaWiki APIs worked; the old Chinese directory
+returned 404 and tarkov.dev GraphQL still returned 422. The exact item-ID image service
+returned all 222 original byte sequences unchanged. 179 ricochet metadata fields and
+222 Wiki URLs were updated; no damage/penetration/wear/speed fields were arbitrarily changed.
+
+The actual v3 curve also has the **P >= R + 15 -> 100%** branch, preceding the
+piecewise smooth curve below. Default distance decay is now consistently off in the
+shared model/serialization as well as both frontends. No proprietary formula is claimed.
+
+## Historical audit - 2026-09-16
 
 ## What is and is not verified
 

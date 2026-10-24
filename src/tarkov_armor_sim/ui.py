@@ -8,9 +8,11 @@ data horizon after every recalculation.
 
 from __future__ import annotations
 
+import os
 from pathlib import Path
 
 import pyqtgraph as pg
+from PySide6.QtCore import QSettings
 from PySide6.QtGui import QFont, QFontDatabase, QIcon
 from PySide6.QtWidgets import QApplication
 
@@ -105,6 +107,10 @@ class MainWindow(_base.MainWindow):
 
 def create_application(database: Database) -> tuple[QApplication, MainWindow]:
     app = QApplication.instance() or QApplication([])
+    if os.getenv("EFT_TEST_SETTINGS_DIRECTORY"):
+        QSettings.setDefaultFormat(QSettings.Format.IniFormat)
+        QSettings.setPath(QSettings.Format.IniFormat, QSettings.Scope.UserScope,
+                          os.environ["EFT_TEST_SETTINGS_DIRECTORY"])
     app.setApplicationName("EFT Calculator")
     app.setOrganizationName("EFTCalculator")
     font_path = Path("C:/Windows/Fonts/msyh.ttc")

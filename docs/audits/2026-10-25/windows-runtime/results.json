@@ -1,0 +1,23 @@
+{
+  "exe_sha256": "f2812e810d61e5fd87a8f68f51acbb37d12b5436bd7776c3003e79e4d70de5de",
+  "results": [
+    {
+      "case": "fresh",
+      "exit_code": 0,
+      "rendered_screenshot": "fresh.png",
+      "isolated": true
+    },
+    {
+      "case": "legacy",
+      "exit_code": 0,
+      "rendered_screenshot": "legacy.png",
+      "isolated": true
+    },
+    {
+      "case": "corrupt",
+      "exit_code": 0,
+      "rendered_screenshot": "corrupt.png",
+      "isolated": true
+    }
+  ]
+}

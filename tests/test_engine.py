@@ -36,8 +36,9 @@ def test_post_penetration_state_decays() -> None:
 
 
 def test_distance_reduces_result() -> None:
-    near = analyze(scenario(distance_m=0), CurrentApproximation())
-    far = analyze(scenario(distance_m=500), CurrentApproximation())
+    # Experimental decay is opt-in in the model as well as both frontends.
+    near = analyze(scenario(distance_m=0, enable_distance_decay=True), CurrentApproximation())
+    far = analyze(scenario(distance_m=500, enable_distance_decay=True), CurrentApproximation())
     assert far.final_penetration_probability < near.final_penetration_probability
 
 

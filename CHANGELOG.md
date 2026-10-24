@@ -1,3 +1,13 @@
+# 2.2.3 audit candidate - 2026-10-25
+
+- 保留 v2.2.2 的数学规则及六组共享期望；新增 92 组独立 Decimal 案例、600 组性质生成，跨端桥验证。
+- 数据库迁移前保全、物理损坏与坏行隔离，防止旧缓存回退和在线覆盖人工编辑；恢复上次输入。
+- 核对 222 个物品身份及原图，更新 401 个链接/元数据字段，明确保留三项来源冲突。
+- 修复共享 API 距离默认值、严格类型/工作量上限、完整口径和无序搜索、动态中英文术语。
+- Android Material 3 首屏摘要、专业参数折叠、状态栏对比度；Windows 构建路径隔离，避免不兼容 ICU。
+- 两端真实渲染、Windows EXE 三数据库场景、Android Room 迁移/坏文件与共享计算测试；正式发布改为显式门控。
+- 未创建正式 Release；完整证据与限制见 docs/AUDIT_2026-10-25.md。
+
 # 2.2.0 - 2026-09-16
 
 Correctness overhaul: sourced penetration curve, armor-damage percentage, sequential

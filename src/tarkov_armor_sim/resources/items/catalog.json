@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "version": "wiki-reviewed-2026-09-16",
+  "version": "wiki-reviewed-2026-10-25",
   "ammo": [
     {
       "id": "54527a984bdc2d4e668b4567",
@@ -12,7 +12,7 @@
       "armor_damage_percent": 37.0,
       "projectile_count": 1,
       "muzzle_velocity": 922.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [
         "m855"
       ],
@@ -21,7 +21,8 @@
         "zh": "5.56x45毫米 M855"
       },
       "image_url": "https://assets.tarkov.dev/54527a984bdc2d4e668b4567-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/54527a984bdc2d4e668b4567.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/5.56x45mm_M855",
+      "ricochet_chance": 0.4
     },
     {
       "id": "54527ac44bdc2d36668b4567",
@@ -33,7 +34,7 @@
       "armor_damage_percent": 47.0,
       "projectile_count": 1,
       "muzzle_velocity": 945.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [
         "m855a1"
       ],
@@ -42,7 +43,8 @@
         "zh": "5.56x45毫米 M855A1"
       },
       "image_url": "https://assets.tarkov.dev/54527ac44bdc2d36668b4567-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/54527ac44bdc2d36668b4567.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/5.56x45mm_M855A1",
+      "ricochet_chance": 0.38
     },
     {
       "id": "560d5e524bdc2d25448b4571",
@@ -54,14 +56,15 @@
       "armor_damage_percent": 26.0,
       "projectile_count": 8,
       "muzzle_velocity": 415.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "12/70 7mm buckshot",
         "zh": "12/70 7毫米鹿弹"
       },
       "image_url": "https://assets.tarkov.dev/560d5e524bdc2d25448b4571-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/560d5e524bdc2d25448b4571.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/12/70_7mm_buckshot",
+      "ricochet_chance": 0.0
     },
     {
       "id": "560d61e84bdc2da74d8b4571",
@@ -73,14 +76,15 @@
       "armor_damage_percent": 87.0,
       "projectile_count": 1,
       "muzzle_velocity": 875.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "7.62x54mm R SNB gzh",
         "zh": "7.62x54R SNB"
       },
       "image_url": "https://assets.tarkov.dev/560d61e84bdc2da74d8b4571-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/560d61e84bdc2da74d8b4571.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/7.62x54mm_R_SNB_gzh",
+      "ricochet_chance": 0.285
     },
     {
       "id": "5656d7c34bdc2d9d198b4587",
@@ -92,14 +96,15 @@
       "armor_damage_percent": 52.0,
       "projectile_count": 1,
       "muzzle_velocity": 717.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "7.62x39mm PS gzh",
         "zh": "7.62x39毫米 PS"
       },
       "image_url": "https://assets.tarkov.dev/5656d7c34bdc2d9d198b4587-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/5656d7c34bdc2d9d198b4587.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/7.62x39mm_PS_gzh",
+      "ricochet_chance": 0.35
     },
     {
       "id": "56d59d3ad2720bdb418b4577",
@@ -111,14 +116,15 @@
       "armor_damage_percent": 33.0,
       "projectile_count": 1,
       "muzzle_velocity": 457.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "9x19mm Pst gzh",
         "zh": "9x19 毫米 Pst"
       },
       "image_url": "https://assets.tarkov.dev/56d59d3ad2720bdb418b4577-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/56d59d3ad2720bdb418b4577.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/9x19mm_Pst_gzh",
+      "ricochet_chance": 0.05
     },
     {
       "id": "56dfef82d2720bbd668b4567",
@@ -130,14 +136,15 @@
       "armor_damage_percent": 46.0,
       "projectile_count": 1,
       "muzzle_velocity": 890.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "5.45x39mm BP gs",
         "zh": "5.45x39毫米 BP"
       },
       "image_url": "https://assets.tarkov.dev/56dfef82d2720bbd668b4567-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/56dfef82d2720bbd668b4567.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/5.45x39mm_BP_gs",
+      "ricochet_chance": 0.36
     },
     {
       "id": "56dff026d2720bb8668b4567",
@@ -149,7 +156,7 @@
       "armor_damage_percent": 57.0,
       "projectile_count": 1,
       "muzzle_velocity": 830.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [
         "545bp"
       ],
@@ -158,7 +165,8 @@
         "zh": "5.45x39毫米 BS"
       },
       "image_url": "https://assets.tarkov.dev/56dff026d2720bb8668b4567-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/56dff026d2720bb8668b4567.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/5.45x39mm_BS_gs",
+      "ricochet_chance": 0.38
     },
     {
       "id": "56dff061d2720bb5668b4567",
@@ -170,14 +178,15 @@
       "armor_damage_percent": 44.0,
       "projectile_count": 1,
       "muzzle_velocity": 880.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "5.45x39mm BT gs",
         "zh": "5.45x39毫米 BT"
       },
       "image_url": "https://assets.tarkov.dev/56dff061d2720bb5668b4567-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/56dff061d2720bb5668b4567.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/5.45x39mm_BT_gs",
+      "ricochet_chance": 0.37
     },
     {
       "id": "56dff0bed2720bb0668b4567",
@@ -189,14 +198,15 @@
       "armor_damage_percent": 38.0,
       "projectile_count": 1,
       "muzzle_velocity": 884.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "5.45x39mm FMJ",
         "zh": "5.45x39毫米 FMJ"
       },
       "image_url": "https://assets.tarkov.dev/56dff0bed2720bb0668b4567-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/56dff0bed2720bb0668b4567.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/5.45x39mm_FMJ",
+      "ricochet_chance": 0.26
     },
     {
       "id": "56dff216d2720bbd668b4568",
@@ -208,14 +218,15 @@
       "armor_damage_percent": 15.0,
       "projectile_count": 1,
       "muzzle_velocity": 884.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "5.45x39mm HP",
         "zh": "5.45x39毫米 HP"
       },
       "image_url": "https://assets.tarkov.dev/56dff216d2720bbd668b4568-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/56dff216d2720bbd668b4568.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/5.45x39mm_HP",
+      "ricochet_chance": 0.2
     },
     {
       "id": "56dff2ced2720bb4668b4567",
@@ -227,14 +238,15 @@
       "armor_damage_percent": 42.0,
       "projectile_count": 1,
       "muzzle_velocity": 886.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "5.45x39mm PP gs",
         "zh": "5.45x39毫米 PP"
       },
       "image_url": "https://assets.tarkov.dev/56dff2ced2720bb4668b4567-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/56dff2ced2720bb4668b4567.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/5.45x39mm_PP_gs",
+      "ricochet_chance": 0.38
     },
     {
       "id": "56dff338d2720bbd668b4569",
@@ -246,14 +258,15 @@
       "armor_damage_percent": 24.0,
       "projectile_count": 1,
       "muzzle_velocity": 866.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "5.45x39mm PRS gs",
         "zh": "5.45x39毫米 PRS"
       },
       "image_url": "https://assets.tarkov.dev/56dff338d2720bbd668b4569-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/56dff338d2720bbd668b4569.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/5.45x39mm_PRS_gs",
+      "ricochet_chance": 0.04
     },
     {
       "id": "56dff3afd2720bba668b4567",
@@ -265,14 +278,15 @@
       "armor_damage_percent": 40.0,
       "projectile_count": 1,
       "muzzle_velocity": 890.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "5.45x39mm PS gs",
         "zh": "5.45x39毫米 PS"
       },
       "image_url": "https://assets.tarkov.dev/56dff3afd2720bba668b4567-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/56dff3afd2720bba668b4567.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/5.45x39mm_PS_gs",
+      "ricochet_chance": 0.4
     },
     {
       "id": "56dff421d2720b5f5a8b4567",
@@ -284,14 +298,15 @@
       "armor_damage_percent": 31.0,
       "projectile_count": 1,
       "muzzle_velocity": 873.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "5.45x39mm SP",
         "zh": "5.45x39毫米 SP"
       },
       "image_url": "https://assets.tarkov.dev/56dff421d2720b5f5a8b4567-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/56dff421d2720b5f5a8b4567.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/5.45x39mm_SP",
+      "ricochet_chance": 0.15
     },
     {
       "id": "56dff4a2d2720bbd668b456a",
@@ -303,14 +318,15 @@
       "armor_damage_percent": 36.0,
       "projectile_count": 1,
       "muzzle_velocity": 883.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "5.45x39mm T gs",
         "zh": "5.45x39毫米 T"
       },
       "image_url": "https://assets.tarkov.dev/56dff4a2d2720bbd668b456a-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/56dff4a2d2720bbd668b456a.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/5.45x39mm_T_gs",
+      "ricochet_chance": 0.4
     },
     {
       "id": "56dff4ecd2720b5f5a8b4568",
@@ -322,14 +338,15 @@
       "armor_damage_percent": 33.0,
       "projectile_count": 1,
       "muzzle_velocity": 303.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "5.45x39mm US gs",
         "zh": "5.45x39毫米 US"
       },
       "image_url": "https://assets.tarkov.dev/56dff4ecd2720b5f5a8b4568-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/56dff4ecd2720b5f5a8b4568.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/5.45x39mm_US_gs",
+      "ricochet_chance": 0.4
     },
     {
       "id": "5735fdcd2459776445391d61",
@@ -341,14 +358,15 @@
       "armor_damage_percent": 32.0,
       "projectile_count": 1,
       "muzzle_velocity": 425.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "7.62x25mm TT AKBS",
         "zh": "7.62x25毫米TT AKBS"
       },
       "image_url": "https://assets.tarkov.dev/5735fdcd2459776445391d61-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/5735fdcd2459776445391d61.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/7.62x25mm_TT_AKBS",
+      "ricochet_chance": 0.065
     },
     {
       "id": "5735ff5c245977640e39ba7e",
@@ -360,14 +378,15 @@
       "armor_damage_percent": 29.0,
       "projectile_count": 1,
       "muzzle_velocity": 427.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "7.62x25mm TT FMJ43",
         "zh": "7.62x25毫米TT FMJ43"
       },
       "image_url": "https://assets.tarkov.dev/5735ff5c245977640e39ba7e-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/5735ff5c245977640e39ba7e.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/7.62x25mm_TT_FMJ43",
+      "ricochet_chance": 0.065
     },
     {
       "id": "573601b42459776410737435",
@@ -379,14 +398,15 @@
       "armor_damage_percent": 28.0,
       "projectile_count": 1,
       "muzzle_velocity": 375.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "7.62x25mm TT LRN",
         "zh": "7.62x25毫米TT LRN"
       },
       "image_url": "https://assets.tarkov.dev/573601b42459776410737435-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/573601b42459776410737435.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/7.62x25mm_TT_LRN",
+      "ricochet_chance": 0.05
     },
     {
       "id": "573602322459776445391df1",
@@ -398,14 +418,15 @@
       "armor_damage_percent": 27.0,
       "projectile_count": 1,
       "muzzle_velocity": 385.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "7.62x25mm TT LRNPC",
         "zh": "7.62x25毫米TT LRNPC"
       },
       "image_url": "https://assets.tarkov.dev/573602322459776445391df1-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/573602322459776445391df1.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/7.62x25mm_TT_LRNPC",
+      "ricochet_chance": 0.05
     },
     {
       "id": "5736026a245977644601dc61",
@@ -417,14 +438,15 @@
       "armor_damage_percent": 32.0,
       "projectile_count": 1,
       "muzzle_velocity": 430.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "7.62x25mm TT P gl",
         "zh": "7.62x25毫米TT P gl"
       },
       "image_url": "https://assets.tarkov.dev/5736026a245977644601dc61-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/5736026a245977644601dc61.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/7.62x25mm_TT_P_gl",
+      "ricochet_chance": 0.065
     },
     {
       "id": "573603562459776430731618",
@@ -436,14 +458,15 @@
       "armor_damage_percent": 36.0,
       "projectile_count": 1,
       "muzzle_velocity": 430.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "7.62x25mm TT Pst gzh",
         "zh": "7.62x25毫米TT Pst gzh"
       },
       "image_url": "https://assets.tarkov.dev/573603562459776430731618-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/573603562459776430731618.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/7.62x25mm_TT_Pst_gzh",
+      "ricochet_chance": 0.1
     },
     {
       "id": "573603c924597764442bd9cb",
@@ -455,14 +478,15 @@
       "armor_damage_percent": 34.0,
       "projectile_count": 1,
       "muzzle_velocity": 415.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "7.62x25mm TT PT gzh",
         "zh": "7.62x25毫米TT PT gzh"
       },
       "image_url": "https://assets.tarkov.dev/573603c924597764442bd9cb-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/573603c924597764442bd9cb.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/7.62x25mm_TT_PT_gzh",
+      "ricochet_chance": 0.1
     },
     {
       "id": "573718ba2459775a75491131",
@@ -474,14 +498,15 @@
       "armor_damage_percent": 28.0,
       "projectile_count": 1,
       "muzzle_velocity": 325.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "9x18mm PM BZhT gzh",
         "zh": "9x18毫米PM 9 BZT gzh"
       },
       "image_url": "https://assets.tarkov.dev/573718ba2459775a75491131-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/573718ba2459775a75491131.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/9x18mm_PM_BZhT_gzh",
+      "ricochet_chance": 0.095
     },
     {
       "id": "573719762459775a626ccbc1",
@@ -493,14 +518,15 @@
       "armor_damage_percent": 16.0,
       "projectile_count": 1,
       "muzzle_velocity": 302.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "9x18mm PM P gzh",
         "zh": "9x18毫米PM 9 P gzh"
       },
       "image_url": "https://assets.tarkov.dev/573719762459775a626ccbc1-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/573719762459775a626ccbc1.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/9x18mm_PM_P_gzh",
+      "ricochet_chance": 0.065
     },
     {
       "id": "573719df2459775a626ccbc2",
@@ -512,14 +538,15 @@
       "armor_damage_percent": 30.0,
       "projectile_count": 1,
       "muzzle_velocity": 519.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "9x18mm PM PBM gzh",
         "zh": "9x18毫米 PM PBM"
       },
       "image_url": "https://assets.tarkov.dev/573719df2459775a626ccbc2-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/573719df2459775a626ccbc2.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/9x18mm_PM_PBM_gzh",
+      "ricochet_chance": 0.09
     },
     {
       "id": "57371aab2459775a77142f22",
@@ -531,14 +558,15 @@
       "armor_damage_percent": 33.0,
       "projectile_count": 1,
       "muzzle_velocity": 420.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "9x18mm PMM PstM gzh",
         "zh": "9x18毫米PM PMM"
       },
       "image_url": "https://assets.tarkov.dev/57371aab2459775a77142f22-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/57371aab2459775a77142f22.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/9x18mm_PMM_PstM_gzh",
+      "ricochet_chance": 0.075
     },
     {
       "id": "57371b192459775a9f58a5e0",
@@ -550,14 +578,15 @@
       "armor_damage_percent": 15.0,
       "projectile_count": 1,
       "muzzle_velocity": 297.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "9x18mm PM PPe gzh",
         "zh": "9x18毫米PM PPe gzh"
       },
       "image_url": "https://assets.tarkov.dev/57371b192459775a9f58a5e0-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/57371b192459775a9f58a5e0.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/9x18mm_PM_PPe_gzh",
+      "ricochet_chance": 0.05
     },
     {
       "id": "57371e4124597760ff7b25f1",
@@ -569,14 +598,15 @@
       "armor_damage_percent": 22.0,
       "projectile_count": 1,
       "muzzle_velocity": 301.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "9x18mm PM PPT gzh",
         "zh": "9x18毫米PM PPT gzh"
       },
       "image_url": "https://assets.tarkov.dev/57371e4124597760ff7b25f1-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/57371e4124597760ff7b25f1.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/9x18mm_PM_PPT_gzh",
+      "ricochet_chance": 0.1
     },
     {
       "id": "57371eb62459776125652ac1",
@@ -588,14 +618,15 @@
       "armor_damage_percent": 16.0,
       "projectile_count": 1,
       "muzzle_velocity": 302.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "9x18mm PM PRS gs",
         "zh": "9x18毫米PM PRS gs"
       },
       "image_url": "https://assets.tarkov.dev/57371eb62459776125652ac1-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/57371eb62459776125652ac1.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/9x18mm_PM_PRS_gs",
+      "ricochet_chance": 0.005
     },
     {
       "id": "57371f2b24597761224311f1",
@@ -607,14 +638,15 @@
       "armor_damage_percent": 16.0,
       "projectile_count": 1,
       "muzzle_velocity": 330.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "9x18mm PM PS gs PPO",
         "zh": "9x18毫米PM PS gs PPO"
       },
       "image_url": "https://assets.tarkov.dev/57371f2b24597761224311f1-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/57371f2b24597761224311f1.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/9x18mm_PM_PS_gs_PPO",
+      "ricochet_chance": 0.03
     },
     {
       "id": "57371f8d24597761006c6a81",
@@ -626,14 +658,15 @@
       "armor_damage_percent": 13.0,
       "projectile_count": 1,
       "muzzle_velocity": 315.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "9x18mm PM PSO gzh",
         "zh": "9x18毫米PM PSO gzh"
       },
       "image_url": "https://assets.tarkov.dev/57371f8d24597761006c6a81-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/57371f8d24597761006c6a81.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/9x18mm_PM_PSO_gzh",
+      "ricochet_chance": 0.065
     },
     {
       "id": "5737201124597760fc4431f1",
@@ -645,14 +678,15 @@
       "armor_damage_percent": 26.0,
       "projectile_count": 1,
       "muzzle_velocity": 298.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "9x18mm PM Pst gzh",
         "zh": "9x18毫米PM Pst gzh"
       },
       "image_url": "https://assets.tarkov.dev/5737201124597760fc4431f1-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/5737201124597760fc4431f1.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/9x18mm_PM_Pst_gzh",
+      "ricochet_chance": 0.1
     },
     {
       "id": "5737207f24597760ff7b25f2",
@@ -664,14 +698,15 @@
       "armor_damage_percent": 5.0,
       "projectile_count": 1,
       "muzzle_velocity": 280.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "9x18mm PM PSV",
         "zh": "9x18毫米PM PSV"
       },
       "image_url": "https://assets.tarkov.dev/5737207f24597760ff7b25f2-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/5737207f24597760ff7b25f2.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/9x18mm_PM_PSV",
+      "ricochet_chance": 0.01
     },
     {
       "id": "573720e02459776143012541",
@@ -683,14 +718,15 @@
       "armor_damage_percent": 26.0,
       "projectile_count": 1,
       "muzzle_velocity": 330.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "9x18mm PM RG028 gzh",
         "zh": "9x18毫米PM RG028 gzh"
       },
       "image_url": "https://assets.tarkov.dev/573720e02459776143012541-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/573720e02459776143012541.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/9x18mm_PM_RG028_gzh",
+      "ricochet_chance": 0.05
     },
     {
       "id": "57372140245977611f70ee91",
@@ -702,14 +738,15 @@
       "armor_damage_percent": 5.0,
       "projectile_count": 1,
       "muzzle_velocity": 420.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "9x18mm PM SP7 gzh",
         "zh": "9x18毫米PM SP7 gzh"
       },
       "image_url": "https://assets.tarkov.dev/57372140245977611f70ee91-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/57372140245977611f70ee91.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/9x18mm_PM_SP7_gzh",
+      "ricochet_chance": 0.05
     },
     {
       "id": "5737218f245977612125ba51",
@@ -721,14 +758,15 @@
       "armor_damage_percent": 2.0,
       "projectile_count": 1,
       "muzzle_velocity": 250.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "9x18mm PM SP8 gzh",
         "zh": "9x18毫米PM SP8 gzh"
       },
       "image_url": "https://assets.tarkov.dev/5737218f245977612125ba51-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/5737218f245977612125ba51.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/9x18mm_PM_SP8_gzh",
+      "ricochet_chance": 0.05
     },
     {
       "id": "57a0dfb82459774d3078b56c",
@@ -740,14 +778,15 @@
       "armor_damage_percent": 39.0,
       "projectile_count": 1,
       "muzzle_velocity": 290.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "9x39mm SP-5 gs",
         "zh": "9x39毫米 SP-5"
       },
       "image_url": "https://assets.tarkov.dev/57a0dfb82459774d3078b56c-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/57a0dfb82459774d3078b56c.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/9x39mm_SP-5_gs",
+      "ricochet_chance": 0.4
     },
     {
       "id": "57a0e5022459774d1673f889",
@@ -759,14 +798,15 @@
       "armor_damage_percent": 64.0,
       "projectile_count": 1,
       "muzzle_velocity": 305.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "9x39mm SP-6 gs",
         "zh": "9x39毫米 SP-6"
       },
       "image_url": "https://assets.tarkov.dev/57a0e5022459774d1673f889-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/57a0e5022459774d1673f889.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/9x39mm_SP-6_gs",
+      "ricochet_chance": 0.5
     },
     {
       "id": "58820d1224597753c90aeb13",
@@ -778,14 +818,15 @@
       "armor_damage_percent": 55.0,
       "projectile_count": 1,
       "muzzle_velocity": 370.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "12/70 lead slug",
         "zh": "12/70 铅头弹"
       },
       "image_url": "https://assets.tarkov.dev/58820d1224597753c90aeb13-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/58820d1224597753c90aeb13.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/12/70_lead_slug",
+      "ricochet_chance": 0.1
     },
     {
       "id": "58864a4f2459770fcc257101",
@@ -797,14 +838,15 @@
       "armor_damage_percent": 32.0,
       "projectile_count": 1,
       "muzzle_velocity": 340.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "9x19mm PSO gzh",
         "zh": "9x19毫米 PSO gzh"
       },
       "image_url": "https://assets.tarkov.dev/58864a4f2459770fcc257101-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/58864a4f2459770fcc257101.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/9x19mm_PSO_gzh",
+      "ricochet_chance": 0.065
     },
     {
       "id": "5887431f2459777e1612938f",
@@ -816,14 +858,15 @@
       "armor_damage_percent": 78.0,
       "projectile_count": 1,
       "muzzle_velocity": 865.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "7.62x54mm R LPS gzh",
         "zh": "7.62x54R LPS Gzh"
       },
       "image_url": "https://assets.tarkov.dev/5887431f2459777e1612938f-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/5887431f2459777e1612938f.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/7.62x54mm_R_LPS_gzh",
+      "ricochet_chance": 0.39
     },
     {
       "id": "58dd3ad986f77403051cba8f",
@@ -835,7 +878,7 @@
       "armor_damage_percent": 67.0,
       "projectile_count": 1,
       "muzzle_velocity": 820.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [
         "m80"
       ],
@@ -844,7 +887,8 @@
         "zh": "7.62x51毫米 M80"
       },
       "image_url": "https://assets.tarkov.dev/58dd3ad986f77403051cba8f-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/58dd3ad986f77403051cba8f.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/7.62x51mm_M80",
+      "ricochet_chance": 0.38
     },
     {
       "id": "59e0d99486f7744a32234762",
@@ -856,7 +900,7 @@
       "armor_damage_percent": 63.0,
       "projectile_count": 1,
       "muzzle_velocity": 730.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [
         "762bp"
       ],
@@ -865,7 +909,8 @@
         "zh": "7.62x39毫米 BP"
       },
       "image_url": "https://assets.tarkov.dev/59e0d99486f7744a32234762-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/59e0d99486f7744a32234762.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/7.62x39mm_BP_gzh",
+      "ricochet_chance": 0.315
     },
     {
       "id": "59e4cf5286f7741778269d8a",
@@ -877,14 +922,15 @@
       "armor_damage_percent": 46.0,
       "projectile_count": 1,
       "muzzle_velocity": 720.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "7.62x39mm T-45M1 gzh",
         "zh": "7.62x39毫米 T45M1"
       },
       "image_url": "https://assets.tarkov.dev/59e4cf5286f7741778269d8a-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/59e4cf5286f7741778269d8a.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/7.62x39mm_T-45M1_gzh",
+      "ricochet_chance": 0.35
     },
     {
       "id": "59e4d24686f7741776641ac7",
@@ -896,14 +942,15 @@
       "armor_damage_percent": 42.0,
       "projectile_count": 1,
       "muzzle_velocity": 301.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "7.62x39mm US gzh",
         "zh": "7.62x39毫米 US"
       },
       "image_url": "https://assets.tarkov.dev/59e4d24686f7741776641ac7-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/59e4d24686f7741776641ac7.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/7.62x39mm_US_gzh",
+      "ricochet_chance": 0.358
     },
     {
       "id": "59e4d3d286f774176a36250a",
@@ -915,14 +962,15 @@
       "armor_damage_percent": 20.0,
       "projectile_count": 1,
       "muzzle_velocity": 754.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "7.62x39mm HP",
         "zh": "7.62x39毫米 HP"
       },
       "image_url": "https://assets.tarkov.dev/59e4d3d286f774176a36250a-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/59e4d3d286f774176a36250a.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/7.62x39mm_HP",
+      "ricochet_chance": 0.175
     },
     {
       "id": "59e6542b86f77411dc52a77a",
@@ -934,14 +982,15 @@
       "armor_damage_percent": 48.0,
       "projectile_count": 1,
       "muzzle_velocity": 580.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": ".366 TKM FMJ",
         "zh": ".366 TKM FMJ"
       },
       "image_url": "https://assets.tarkov.dev/59e6542b86f77411dc52a77a-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/59e6542b86f77411dc52a77a.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/.366_TKM_FMJ",
+      "ricochet_chance": 0.065
     },
     {
       "id": "59e655cb86f77411dc52a77b",
@@ -953,14 +1002,15 @@
       "armor_damage_percent": 40.0,
       "projectile_count": 1,
       "muzzle_velocity": 770.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": ".366 TKM EKO",
         "zh": ".366 TKM EKO"
       },
       "image_url": "https://assets.tarkov.dev/59e655cb86f77411dc52a77b-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/59e655cb86f77411dc52a77b.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/.366_TKM_EKO",
+      "ricochet_chance": 0.1
     },
     {
       "id": "59e6658b86f77411d949b250",
@@ -972,14 +1022,15 @@
       "armor_damage_percent": 38.0,
       "projectile_count": 1,
       "muzzle_velocity": 550.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": ".366 TKM Geksa",
         "zh": ".366 TKM Geksa"
       },
       "image_url": "https://assets.tarkov.dev/59e6658b86f77411d949b250-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/59e6658b86f77411d949b250.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/.366_TKM_Geksa",
+      "ricochet_chance": 0.05
     },
     {
       "id": "59e68f6f86f7746c9f75e846",
@@ -991,14 +1042,15 @@
       "armor_damage_percent": 26.0,
       "projectile_count": 1,
       "muzzle_velocity": 874.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "5.56x45mm M856",
         "zh": "5.56x45毫米 M856"
       },
       "image_url": "https://assets.tarkov.dev/59e68f6f86f7746c9f75e846-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/59e68f6f86f7746c9f75e846.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/5.56x45mm_M856",
+      "ricochet_chance": 0.38
     },
     {
       "id": "59e6906286f7746c9f75e847",
@@ -1010,14 +1062,15 @@
       "armor_damage_percent": 44.0,
       "projectile_count": 1,
       "muzzle_velocity": 940.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "5.56x45mm M856A1",
         "zh": "5.56x45毫米 M856A1"
       },
       "image_url": "https://assets.tarkov.dev/59e6906286f7746c9f75e847-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/59e6906286f7746c9f75e847.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/5.56x45mm_M856A1",
+      "ricochet_chance": 0.38
     },
     {
       "id": "59e690b686f7746c9f75e848",
@@ -1029,7 +1082,7 @@
       "armor_damage_percent": 52.0,
       "projectile_count": 1,
       "muzzle_velocity": 1013.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [
         "m995"
       ],
@@ -1038,7 +1091,8 @@
         "zh": "5.56x45毫米 M995"
       },
       "image_url": "https://assets.tarkov.dev/59e690b686f7746c9f75e848-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/59e690b686f7746c9f75e848.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/5.56x45mm_M995",
+      "ricochet_chance": 0.36
     },
     {
       "id": "59e6918f86f7746c9f75e849",
@@ -1050,14 +1104,15 @@
       "armor_damage_percent": 24.0,
       "projectile_count": 1,
       "muzzle_velocity": 936.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "5.56x45mm MK 255 Mod 0 (RRLP)",
         "zh": "5.56x45毫米 Mk 255 Mod 0"
       },
       "image_url": "https://assets.tarkov.dev/59e6918f86f7746c9f75e849-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/59e6918f86f7746c9f75e849.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/5.56x45mm_MK_255_Mod_0_(RRLP)",
+      "ricochet_chance": 0.1
     },
     {
       "id": "59e6920f86f77411d82aa167",
@@ -1069,14 +1124,15 @@
       "armor_damage_percent": 33.0,
       "projectile_count": 1,
       "muzzle_velocity": 957.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "5.56x45mm FMJ",
         "zh": "5.56x45毫米 55 FMJ"
       },
       "image_url": "https://assets.tarkov.dev/59e6920f86f77411d82aa167-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/59e6920f86f77411d82aa167.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/5.56x45mm_FMJ",
+      "ricochet_chance": 0.26
     },
     {
       "id": "59e6927d86f77411da468256",
@@ -1088,14 +1144,15 @@
       "armor_damage_percent": 22.0,
       "projectile_count": 1,
       "muzzle_velocity": 947.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "5.56x45mm HP",
         "zh": "5.56x45毫米 55 HP"
       },
       "image_url": "https://assets.tarkov.dev/59e6927d86f77411da468256-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/59e6927d86f77411da468256.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/5.56x45mm_HP",
+      "ricochet_chance": 0.2
     },
     {
       "id": "59e77a2386f7742ee578960a",
@@ -1107,14 +1164,15 @@
       "armor_damage_percent": 84.0,
       "projectile_count": 1,
       "muzzle_velocity": 875.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "7.62x54mm R PS gzh",
         "zh": "7.62x54R 7N1狙击弹"
       },
       "image_url": "https://assets.tarkov.dev/59e77a2386f7742ee578960a-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/59e77a2386f7742ee578960a.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/7.62x54mm_R_PS_gzh",
+      "ricochet_chance": 0.285
     },
     {
       "id": "5a269f97c4a282000b151807",
@@ -1126,14 +1184,15 @@
       "armor_damage_percent": 39.0,
       "projectile_count": 1,
       "muzzle_velocity": 410.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "9x21mm PS gzh",
         "zh": "9x21毫米 SP10"
       },
       "image_url": "https://assets.tarkov.dev/5a269f97c4a282000b151807-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/5a269f97c4a282000b151807.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/9x21mm_PS_gzh",
+      "ricochet_chance": 0.4
     },
     {
       "id": "5a26abfac4a28232980eabff",
@@ -1145,14 +1204,15 @@
       "armor_damage_percent": 44.0,
       "projectile_count": 1,
       "muzzle_velocity": 413.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "9x21mm P gzh",
         "zh": "9x21毫米 SP11"
       },
       "image_url": "https://assets.tarkov.dev/5a26abfac4a28232980eabff-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/5a26abfac4a28232980eabff.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/9x21mm_P_gzh",
+      "ricochet_chance": 0.2
     },
     {
       "id": "5a26ac06c4a282000c5a90a8",
@@ -1164,14 +1224,15 @@
       "armor_damage_percent": 63.0,
       "projectile_count": 1,
       "muzzle_velocity": 415.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "9x21mm PE gzh",
         "zh": "9x21毫米 SP12"
       },
       "image_url": "https://assets.tarkov.dev/5a26ac06c4a282000c5a90a8-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/5a26ac06c4a282000c5a90a8.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/9x21mm_PE_gzh",
+      "ricochet_chance": 0.2
     },
     {
       "id": "5a26ac0ec4a28200741e1e18",
@@ -1183,14 +1244,15 @@
       "armor_damage_percent": 42.0,
       "projectile_count": 1,
       "muzzle_velocity": 410.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "9x21mm BT gzh",
         "zh": "9x21毫米 SP13"
       },
       "image_url": "https://assets.tarkov.dev/5a26ac0ec4a28200741e1e18-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/5a26ac0ec4a28200741e1e18.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/9x21mm_BT_gzh",
+      "ricochet_chance": 0.4
     },
     {
       "id": "5a38ebd9c4a282000d722a5b",
@@ -1202,14 +1264,15 @@
       "armor_damage_percent": 14.0,
       "projectile_count": 8,
       "muzzle_velocity": 430.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "20/70 7.5mm buckshot",
         "zh": "20/70 7.5毫米鹿弹"
       },
       "image_url": "https://assets.tarkov.dev/5a38ebd9c4a282000d722a5b-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/5a38ebd9c4a282000d722a5b.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/20/70_7.5mm_buckshot",
+      "ricochet_chance": 0.0
     },
     {
       "id": "5a3c16fe86f77452b62de32a",
@@ -1221,14 +1284,15 @@
       "armor_damage_percent": 38.0,
       "projectile_count": 1,
       "muzzle_velocity": 420.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "9x19mm Luger CCI",
         "zh": "9x19毫米 Luger CCI"
       },
       "image_url": "https://assets.tarkov.dev/5a3c16fe86f77452b62de32a-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/5a3c16fe86f77452b62de32a.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/9x19mm_Luger_CCI",
+      "ricochet_chance": 0.065
     },
     {
       "id": "5a6086ea4f39f99cd479502f",
@@ -1240,14 +1304,15 @@
       "armor_damage_percent": 79.0,
       "projectile_count": 1,
       "muzzle_velocity": 833.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "7.62x51mm M61",
         "zh": "7.62x51毫米 M61"
       },
       "image_url": "https://assets.tarkov.dev/5a6086ea4f39f99cd479502f-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/5a6086ea4f39f99cd479502f.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/7.62x51mm_M61",
+      "ricochet_chance": 0.3
     },
     {
       "id": "5a608bf24f39f98ffc77720e",
@@ -1259,14 +1324,15 @@
       "armor_damage_percent": 65.0,
       "projectile_count": 1,
       "muzzle_velocity": 820.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "7.62x51mm M62 Tracer",
         "zh": "7.62x51毫米 M62"
       },
       "image_url": "https://assets.tarkov.dev/5a608bf24f39f98ffc77720e-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/5a608bf24f39f98ffc77720e.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/7.62x51mm_M62_Tracer",
+      "ricochet_chance": 0.38
     },
     {
       "id": "5ba2678ad4351e44f824b344",
@@ -1278,14 +1344,15 @@
       "armor_damage_percent": 41.0,
       "projectile_count": 1,
       "muzzle_velocity": 620.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "4.6x30mm FMJ SX",
         "zh": "4.6x30毫米 FMJ SX"
       },
       "image_url": "https://assets.tarkov.dev/5ba2678ad4351e44f824b344-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/5ba2678ad4351e44f824b344.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/4.6x30mm_FMJ_SX",
+      "ricochet_chance": 0.4
     },
     {
       "id": "5ba26812d4351e003201fef1",
@@ -1297,14 +1364,15 @@
       "armor_damage_percent": 28.0,
       "projectile_count": 1,
       "muzzle_velocity": 690.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "4.6x30mm Action SX",
         "zh": "4.6x30毫米 Action SX"
       },
       "image_url": "https://assets.tarkov.dev/5ba26812d4351e003201fef1-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/5ba26812d4351e003201fef1.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/4.6x30mm_Action_SX",
+      "ricochet_chance": 0.3
     },
     {
       "id": "5ba26835d4351e0035628ff5",
@@ -1316,14 +1384,15 @@
       "armor_damage_percent": 46.0,
       "projectile_count": 1,
       "muzzle_velocity": 680.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "4.6x30mm AP SX",
         "zh": "4.6x30毫米 AP SX"
       },
       "image_url": "https://assets.tarkov.dev/5ba26835d4351e0035628ff5-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/5ba26835d4351e0035628ff5.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/4.6x30mm_AP_SX",
+      "ricochet_chance": 0.6
     },
     {
       "id": "5ba26844d4351e00334c9475",
@@ -1335,14 +1404,15 @@
       "armor_damage_percent": 33.0,
       "projectile_count": 1,
       "muzzle_velocity": 290.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "4.6x30mm Subsonic SX",
         "zh": "4.6x30毫米 Subsonic SX"
       },
       "image_url": "https://assets.tarkov.dev/5ba26844d4351e00334c9475-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/5ba26844d4351e00334c9475.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/4.6x30mm_Subsonic_SX",
+      "ricochet_chance": 0.5
     },
     {
       "id": "5c0d56a986f774449d5de529",
@@ -1354,14 +1424,15 @@
       "armor_damage_percent": 11.0,
       "projectile_count": 1,
       "muzzle_velocity": 381.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "9x19mm RIP",
         "zh": "9x19毫米 RIP"
       },
       "image_url": "https://assets.tarkov.dev/5c0d56a986f774449d5de529-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/5c0d56a986f774449d5de529.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/9x19mm_RIP",
+      "ricochet_chance": 0.002
     },
     {
       "id": "5c0d591486f7744c505b416f",
@@ -1373,14 +1444,15 @@
       "armor_damage_percent": 11.0,
       "projectile_count": 1,
       "muzzle_velocity": 410.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "12/70 RIP",
         "zh": "12/70 RIP"
       },
       "image_url": "https://assets.tarkov.dev/5c0d591486f7744c505b416f-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/5c0d591486f7744c505b416f.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/12/70_RIP",
+      "ricochet_chance": 0.01
     },
     {
       "id": "5c0d5ae286f7741e46554302",
@@ -1392,14 +1464,15 @@
       "armor_damage_percent": 11.0,
       "projectile_count": 1,
       "muzzle_velocity": 936.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "5.56x45mm Warmageddon",
         "zh": "5.56x45毫米 Warmage"
       },
       "image_url": "https://assets.tarkov.dev/5c0d5ae286f7741e46554302-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/5c0d5ae286f7741e46554302.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/5.56x45mm_Warmageddon",
+      "ricochet_chance": 0.05
     },
     {
       "id": "5c0d5e4486f77478390952fe",
@@ -1411,14 +1484,15 @@
       "armor_damage_percent": 59.0,
       "projectile_count": 1,
       "muzzle_velocity": 905.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "5.45x39mm PPBS gs Igolnik",
         "zh": "5.45x39毫米 7N39“针刺”"
       },
       "image_url": "https://assets.tarkov.dev/5c0d5e4486f77478390952fe-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/5c0d5e4486f77478390952fe.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/5.45x39mm_PPBS_gs_Igolnik",
+      "ricochet_chance": 0.38
     },
     {
       "id": "5c0d668f86f7747ccb7f13b2",
@@ -1430,14 +1504,15 @@
       "armor_damage_percent": 48.0,
       "projectile_count": 1,
       "muzzle_velocity": 310.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "9x39mm SPP gs",
         "zh": "9x39毫米 7N9 SPP"
       },
       "image_url": "https://assets.tarkov.dev/5c0d668f86f7747ccb7f13b2-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/5c0d668f86f7747ccb7f13b2.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/9x39mm_SPP_gs",
+      "ricochet_chance": 0.4
     },
     {
       "id": "5c0d688c86f77413ae3407b2",
@@ -1449,14 +1524,15 @@
       "armor_damage_percent": 69.0,
       "projectile_count": 1,
       "muzzle_velocity": 295.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "9x39mm BP gs",
         "zh": "9x39毫米 BP"
       },
       "image_url": "https://assets.tarkov.dev/5c0d688c86f77413ae3407b2-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/5c0d688c86f77413ae3407b2.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/9x39mm_BP_gs",
+      "ricochet_chance": 0.5
     },
     {
       "id": "5c3df7d588a4501f290594e5",
@@ -1468,14 +1544,15 @@
       "armor_damage_percent": 33.0,
       "projectile_count": 1,
       "muzzle_velocity": 365.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "9x19mm Green Tracer",
         "zh": "9x19毫米 绿色曳光弹"
       },
       "image_url": "https://assets.tarkov.dev/5c3df7d588a4501f290594e5-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/5c3df7d588a4501f290594e5.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/9x19mm_Green_Tracer",
+      "ricochet_chance": 0.05
     },
     {
       "id": "5c925fa22e221601da359b7b",
@@ -1487,14 +1564,15 @@
       "armor_damage_percent": 48.0,
       "projectile_count": 1,
       "muzzle_velocity": 392.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "9x19mm AP 6.3",
         "zh": "9x19毫米 AP 6.3"
       },
       "image_url": "https://assets.tarkov.dev/5c925fa22e221601da359b7b-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/5c925fa22e221601da359b7b.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/9x19mm_AP_6.3",
+      "ricochet_chance": 0.2
     },
     {
       "id": "5cadf6ddae9215051e1c23b2",
@@ -1506,14 +1584,15 @@
       "armor_damage_percent": 60.0,
       "projectile_count": 1,
       "muzzle_velocity": 300.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "12.7x55mm PS12",
         "zh": "12.7x55毫米 PS12"
       },
       "image_url": "https://assets.tarkov.dev/5cadf6ddae9215051e1c23b2-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/5cadf6ddae9215051e1c23b2.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/12.7x55mm_PS12",
+      "ricochet_chance": 0.4
     },
     {
       "id": "5cadf6e5ae921500113bb973",
@@ -1525,14 +1604,15 @@
       "armor_damage_percent": 22.0,
       "projectile_count": 1,
       "muzzle_velocity": 870.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "12.7x55mm PS12A",
         "zh": "12.7x55毫米 PS12A"
       },
       "image_url": "https://assets.tarkov.dev/5cadf6e5ae921500113bb973-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/5cadf6e5ae921500113bb973.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/12.7x55mm_PS12A",
+      "ricochet_chance": 0.2
     },
     {
       "id": "5cadf6eeae921500134b2799",
@@ -1544,14 +1624,15 @@
       "armor_damage_percent": 57.0,
       "projectile_count": 1,
       "muzzle_velocity": 570.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "12.7x55mm PS12B",
         "zh": "12.7x55毫米 PS12B"
       },
       "image_url": "https://assets.tarkov.dev/5cadf6eeae921500134b2799-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/5cadf6eeae921500134b2799.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/12.7x55mm_PS12B",
+      "ricochet_chance": 0.5
     },
     {
       "id": "5cc80f38e4a949001152b560",
@@ -1563,14 +1644,15 @@
       "armor_damage_percent": 43.0,
       "projectile_count": 1,
       "muzzle_velocity": 715.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "5.7x28mm SS190",
         "zh": "5.7x28毫米 SS190"
       },
       "image_url": "https://assets.tarkov.dev/5cc80f38e4a949001152b560-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/5cc80f38e4a949001152b560.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/5.7x28mm_SS190",
+      "ricochet_chance": 0.6
     },
     {
       "id": "5cc80f53e4a949000e1ea4f8",
@@ -1582,14 +1664,15 @@
       "armor_damage_percent": 41.0,
       "projectile_count": 1,
       "muzzle_velocity": 715.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "5.7x28mm L191",
         "zh": "5.7x28毫米 L191"
       },
       "image_url": "https://assets.tarkov.dev/5cc80f53e4a949000e1ea4f8-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/5cc80f53e4a949000e1ea4f8.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/5.7x28mm_L191",
+      "ricochet_chance": 0.6
     },
     {
       "id": "5cc80f67e4a949035e43bbba",
@@ -1601,14 +1684,15 @@
       "armor_damage_percent": 37.0,
       "projectile_count": 1,
       "muzzle_velocity": 299.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "5.7x28mm SB193",
         "zh": "5.7x28毫米 SB193"
       },
       "image_url": "https://assets.tarkov.dev/5cc80f67e4a949035e43bbba-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/5cc80f67e4a949035e43bbba.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/5.7x28mm_SB193",
+      "ricochet_chance": 0.3
     },
     {
       "id": "5cc80f79e4a949033c7343b2",
@@ -1620,14 +1704,15 @@
       "armor_damage_percent": 19.0,
       "projectile_count": 1,
       "muzzle_velocity": 792.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "5.7x28mm SS198LF",
         "zh": "5.7x28毫米 SS198LF"
       },
       "image_url": "https://assets.tarkov.dev/5cc80f79e4a949033c7343b2-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/5cc80f79e4a949033c7343b2.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/5.7x28mm_SS198LF",
+      "ricochet_chance": 0.2
     },
     {
       "id": "5cc80f8fe4a949033b0224a2",
@@ -1639,14 +1724,15 @@
       "armor_damage_percent": 22.0,
       "projectile_count": 1,
       "muzzle_velocity": 594.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "5.7x28mm SS197SR",
         "zh": "5.7x28毫米 SS197SR"
       },
       "image_url": "https://assets.tarkov.dev/5cc80f8fe4a949033b0224a2-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/5cc80f8fe4a949033b0224a2.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/5.7x28mm_SS197SR",
+      "ricochet_chance": 0.05
     },
     {
       "id": "5cc86832d7f00c000d3a6e6c",
@@ -1658,14 +1744,15 @@
       "armor_damage_percent": 7.0,
       "projectile_count": 1,
       "muzzle_velocity": 729.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "5.7x28mm R37.F",
         "zh": "5.7x28毫米 R37.F"
       },
       "image_url": "https://assets.tarkov.dev/5cc86832d7f00c000d3a6e6c-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/5cc86832d7f00c000d3a6e6c.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/5.7x28mm_R37.F",
+      "ricochet_chance": 0.05
     },
     {
       "id": "5cc86840d7f00c002412c56c",
@@ -1677,14 +1764,15 @@
       "armor_damage_percent": 9.0,
       "projectile_count": 1,
       "muzzle_velocity": 724.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "5.7x28mm R37.X",
         "zh": "5.7x28毫米 R37.X"
       },
       "image_url": "https://assets.tarkov.dev/5cc86840d7f00c002412c56c-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/5cc86840d7f00c002412c56c.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/5.7x28mm_R37.X",
+      "ricochet_chance": 0.1
     },
     {
       "id": "5d6e6772a4b936088465b17c",
@@ -1696,14 +1784,15 @@
       "armor_damage_percent": 15.0,
       "projectile_count": 8,
       "muzzle_velocity": 330.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "12/70 5.25mm buckshot",
         "zh": "12/70 5.25毫米鹿弹"
       },
       "image_url": "https://assets.tarkov.dev/5d6e6772a4b936088465b17c-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/5d6e6772a4b936088465b17c.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/12/70_5.25mm_buckshot",
+      "ricochet_chance": 0.0
     },
     {
       "id": "5d6e67fba4b9361bc73bc779",
@@ -1715,14 +1804,15 @@
       "armor_damage_percent": 26.0,
       "projectile_count": 9,
       "muzzle_velocity": 430.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "12/70 6.5mm Express buckshot",
         "zh": "12/70 Express 6.5 毫米鹿弹"
       },
       "image_url": "https://assets.tarkov.dev/5d6e67fba4b9361bc73bc779-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/5d6e67fba4b9361bc73bc779.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/12/70_6.5mm_Express_buckshot",
+      "ricochet_chance": 0.0
     },
     {
       "id": "5d6e6806a4b936088465b17e",
@@ -1734,7 +1824,7 @@
       "armor_damage_percent": 26.0,
       "projectile_count": 8,
       "muzzle_velocity": 385.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [
         "buckshot"
       ],
@@ -1743,7 +1833,8 @@
         "zh": "12/70 Magnum 8.5 毫米鹿弹"
       },
       "image_url": "https://assets.tarkov.dev/5d6e6806a4b936088465b17e-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/5d6e6806a4b936088465b17e.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/12/70_8.5mm_Magnum_buckshot",
+      "ricochet_chance": 0.0
     },
     {
       "id": "5d6e6869a4b9361c140bcfde",
@@ -1755,14 +1846,15 @@
       "armor_damage_percent": 48.0,
       "projectile_count": 1,
       "muzzle_velocity": 390.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "12/70 Grizzly 40 slug",
         "zh": "12/70 Grizzly 40独头弹"
       },
       "image_url": "https://assets.tarkov.dev/5d6e6869a4b9361c140bcfde-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/5d6e6869a4b9361c140bcfde.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/12/70_Grizzly_40_slug",
+      "ricochet_chance": 0.1
     },
     {
       "id": "5d6e6891a4b9361bd473feea",
@@ -1774,14 +1866,15 @@
       "armor_damage_percent": 40.0,
       "projectile_count": 1,
       "muzzle_velocity": 410.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "12/70 Poleva-3 slug",
         "zh": "12/70 Poleva-3 独头弹"
       },
       "image_url": "https://assets.tarkov.dev/5d6e6891a4b9361bd473feea-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/5d6e6891a4b9361bd473feea.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/12/70_Poleva-3_slug",
+      "ricochet_chance": 0.1
     },
     {
       "id": "5d6e689ca4b9361bc8618956",
@@ -1793,14 +1886,15 @@
       "armor_damage_percent": 50.0,
       "projectile_count": 1,
       "muzzle_velocity": 430.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "12/70 Poleva-6u slug",
         "zh": "12/70 Poleva-6U 独头弹"
       },
       "image_url": "https://assets.tarkov.dev/5d6e689ca4b9361bc8618956-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/5d6e689ca4b9361bc8618956.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/12/70_Poleva-6u_slug",
+      "ricochet_chance": 0.1
     },
     {
       "id": "5d6e68a8a4b9360b6c0d54e2",
@@ -1812,7 +1906,7 @@
       "armor_damage_percent": 65.0,
       "projectile_count": 1,
       "muzzle_velocity": 510.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [
         "ap20",
         "ap20",
@@ -1824,7 +1918,8 @@
         "zh": "12/70 AP-20独头弹"
       },
       "image_url": "https://assets.tarkov.dev/5d6e68a8a4b9360b6c0d54e2-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/5d6e68a8a4b9360b6c0d54e2.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/12/70_AP-20_armor-piercing_slug",
+      "ricochet_chance": 0.1
     },
     {
       "id": "5d6e68b3a4b9361bca7e50b5",
@@ -1836,14 +1931,15 @@
       "armor_damage_percent": 46.0,
       "projectile_count": 1,
       "muzzle_velocity": 442.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "12/70 Copper Sabot Premier HP slug",
         "zh": "12/70 Copper Sabot Premier 空尖独头弹"
       },
       "image_url": "https://assets.tarkov.dev/5d6e68b3a4b9361bca7e50b5-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/5d6e68b3a4b9361bca7e50b5.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/12/70_Copper_Sabot_Premier_HP_slug",
+      "ricochet_chance": 0.1
     },
     {
       "id": "5d6e68c4a4b9361b93413f79",
@@ -1855,14 +1951,15 @@
       "armor_damage_percent": 57.0,
       "projectile_count": 1,
       "muzzle_velocity": 410.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "12/70 makeshift .50 BMG slug",
         "zh": "12/70 .50 BMG 简易独头弹"
       },
       "image_url": "https://assets.tarkov.dev/5d6e68c4a4b9361b93413f79-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/5d6e68c4a4b9361b93413f79.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/12/70_makeshift_.50_BMG_slug",
+      "ricochet_chance": 0.1
     },
     {
       "id": "5d6e68d1a4b93622fe60e845",
@@ -1874,14 +1971,15 @@
       "armor_damage_percent": 12.0,
       "projectile_count": 1,
       "muzzle_velocity": 594.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "12/70 SuperFormance HP slug",
         "zh": "12/70 SuperFormance 空尖独头弹"
       },
       "image_url": "https://assets.tarkov.dev/5d6e68d1a4b93622fe60e845-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/5d6e68d1a4b93622fe60e845.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/12/70_SuperFormance_HP_slug",
+      "ricochet_chance": 0.1
     },
     {
       "id": "5d6e68dea4b9361bcc29e659",
@@ -1893,14 +1991,15 @@
       "armor_damage_percent": 65.0,
       "projectile_count": 2,
       "muzzle_velocity": 415.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "12/70 Dual Sabot slug",
         "zh": "12/70 Dual Sabot 独头弹"
       },
       "image_url": "https://assets.tarkov.dev/5d6e68dea4b9361bcc29e659-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/5d6e68dea4b9361bcc29e659.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/12/70_Dual_Sabot_slug",
+      "ricochet_chance": 0.1
     },
     {
       "id": "5d6e68e6a4b9361c140bcfe0",
@@ -1912,14 +2011,15 @@
       "armor_damage_percent": 50.0,
       "projectile_count": 1,
       "muzzle_velocity": 480.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "12/70 FTX Custom Lite slug",
         "zh": "12/70 FTX Custom Lite独头弹"
       },
       "image_url": "https://assets.tarkov.dev/5d6e68e6a4b9361c140bcfe0-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/5d6e68e6a4b9361c140bcfe0.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/12/70_FTX_Custom_Lite_slug",
+      "ricochet_chance": 0.1
     },
     {
       "id": "5d6e6911a4b9361bd5780d52",
@@ -1931,14 +2031,15 @@
       "armor_damage_percent": 26.0,
       "projectile_count": 8,
       "muzzle_velocity": 320.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "12/70 flechette",
         "zh": "12/70 箭形弹"
       },
       "image_url": "https://assets.tarkov.dev/5d6e6911a4b9361bd5780d52-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/5d6e6911a4b9361bd5780d52.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/12/70_flechette",
+      "ricochet_chance": 0.0
     },
     {
       "id": "5d6e695fa4b936359b35d852",
@@ -1950,14 +2051,15 @@
       "armor_damage_percent": 12.0,
       "projectile_count": 8,
       "muzzle_velocity": 340.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "20/70 5.6mm buckshot",
         "zh": "20/70 5.6毫米鹿弹"
       },
       "image_url": "https://assets.tarkov.dev/5d6e695fa4b936359b35d852-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/5d6e695fa4b936359b35d852.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/20/70_5.6mm_buckshot",
+      "ricochet_chance": 0.0
     },
     {
       "id": "5d6e69b9a4b9361bc8618958",
@@ -1969,14 +2071,15 @@
       "armor_damage_percent": 13.0,
       "projectile_count": 8,
       "muzzle_velocity": 410.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "20/70 6.2mm buckshot",
         "zh": "20/70 6.2毫米鹿弹"
       },
       "image_url": "https://assets.tarkov.dev/5d6e69b9a4b9361bc8618958-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/5d6e69b9a4b9361bc8618958.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/20/70_6.2mm_buckshot",
+      "ricochet_chance": 0.0
     },
     {
       "id": "5d6e69c7a4b9360b6c0d54e4",
@@ -1988,14 +2091,15 @@
       "armor_damage_percent": 13.0,
       "projectile_count": 9,
       "muzzle_velocity": 475.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "20/70 7.3mm buckshot",
         "zh": "20/70 7.3毫米鹿弹"
       },
       "image_url": "https://assets.tarkov.dev/5d6e69c7a4b9360b6c0d54e4-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/5d6e69c7a4b9360b6c0d54e4.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/20/70_7.3mm_buckshot",
+      "ricochet_chance": 0.0
     },
     {
       "id": "5d6e6a05a4b93618084f58d0",
@@ -2007,14 +2111,15 @@
       "armor_damage_percent": 42.0,
       "projectile_count": 1,
       "muzzle_velocity": 415.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "20/70 Star slug",
         "zh": "20/70 Star独头弹"
       },
       "image_url": "https://assets.tarkov.dev/5d6e6a05a4b93618084f58d0-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/5d6e6a05a4b93618084f58d0.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/20/70_Star_slug",
+      "ricochet_chance": 0.1
     },
     {
       "id": "5d6e6a42a4b9364f07165f52",
@@ -2026,14 +2131,15 @@
       "armor_damage_percent": 40.0,
       "projectile_count": 1,
       "muzzle_velocity": 445.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "20/70 Poleva-6u slug",
         "zh": "20/70 Poleva-6U 独头弹"
       },
       "image_url": "https://assets.tarkov.dev/5d6e6a42a4b9364f07165f52-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/5d6e6a42a4b9364f07165f52.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/20/70_Poleva-6u_slug",
+      "ricochet_chance": 0.1
     },
     {
       "id": "5d6e6a53a4b9361bd473feec",
@@ -2045,14 +2151,15 @@
       "armor_damage_percent": 35.0,
       "projectile_count": 1,
       "muzzle_velocity": 425.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "20/70 Poleva-3 slug",
         "zh": "20/70 Poleva-3 独头弹"
       },
       "image_url": "https://assets.tarkov.dev/5d6e6a53a4b9361bd473feec-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/5d6e6a53a4b9361bd473feec.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/20/70_Poleva-3_slug",
+      "ricochet_chance": 0.1
     },
     {
       "id": "5d6e6a5fa4b93614ec501745",
@@ -2064,14 +2171,15 @@
       "armor_damage_percent": 13.0,
       "projectile_count": 1,
       "muzzle_velocity": 405.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "20/70 Devastator slug",
         "zh": "20/70 Devastator独头弹"
       },
       "image_url": "https://assets.tarkov.dev/5d6e6a5fa4b93614ec501745-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/5d6e6a5fa4b93614ec501745.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/20/70_Devastator_slug",
+      "ricochet_chance": 0.1
     },
     {
       "id": "5e023cf8186a883be655e54f",
@@ -2083,14 +2191,15 @@
       "armor_damage_percent": 83.0,
       "projectile_count": 1,
       "muzzle_velocity": 800.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "7.62x54mm R T-46M gzh",
         "zh": "7.62x54R T-46M"
       },
       "image_url": "https://assets.tarkov.dev/5e023cf8186a883be655e54f-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/5e023cf8186a883be655e54f.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/7.62x54mm_R_T-46M_gzh",
+      "ricochet_chance": 0.3
     },
     {
       "id": "5e023d34e8a400319a28ed44",
@@ -2102,14 +2211,15 @@
       "armor_damage_percent": 87.0,
       "projectile_count": 1,
       "muzzle_velocity": 875.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "7.62x54mm R BT gzh",
         "zh": "7.62x54R 7BT1"
       },
       "image_url": "https://assets.tarkov.dev/5e023d34e8a400319a28ed44-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/5e023d34e8a400319a28ed44.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/7.62x54mm_R_BT_gzh",
+      "ricochet_chance": 0.265
     },
     {
       "id": "5e023d48186a883be655e551",
@@ -2121,14 +2231,15 @@
       "armor_damage_percent": 88.0,
       "projectile_count": 1,
       "muzzle_velocity": 785.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "7.62x54mm R BS gs",
         "zh": "7.62x54R 7N37"
       },
       "image_url": "https://assets.tarkov.dev/5e023d48186a883be655e551-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/5e023d48186a883be655e551.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/7.62x54mm_R_BS_gs",
+      "ricochet_chance": 0.34
     },
     {
       "id": "5e023e53d4353e3302577c4c",
@@ -2140,14 +2251,15 @@
       "armor_damage_percent": 56.0,
       "projectile_count": 1,
       "muzzle_velocity": 840.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "7.62x51mm BCP FMJ",
         "zh": "7.62x51毫米 BPZ FMJ"
       },
       "image_url": "https://assets.tarkov.dev/5e023e53d4353e3302577c4c-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/5e023e53d4353e3302577c4c.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/7.62x51mm_BCP_FMJ",
+      "ricochet_chance": 0.4
     },
     {
       "id": "5e023e6e34d52a55c3304f71",
@@ -2159,14 +2271,15 @@
       "armor_damage_percent": 25.0,
       "projectile_count": 1,
       "muzzle_velocity": 800.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "7.62x51mm TCW SP",
         "zh": "7.62x51毫米 TCW SP"
       },
       "image_url": "https://assets.tarkov.dev/5e023e6e34d52a55c3304f71-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/5e023e6e34d52a55c3304f71.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/7.62x51mm_TCW_SP",
+      "ricochet_chance": 0.4
     },
     {
       "id": "5e023e88277cce2b522ff2b1",
@@ -2178,14 +2291,15 @@
       "armor_damage_percent": 40.0,
       "projectile_count": 1,
       "muzzle_velocity": 800.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "7.62x51mm Ultra Nosler",
         "zh": "7.62x51毫米 Ultra Nosler"
       },
       "image_url": "https://assets.tarkov.dev/5e023e88277cce2b522ff2b1-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/5e023e88277cce2b522ff2b1.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/7.62x51mm_Ultra_Nosler",
+      "ricochet_chance": 0.2
     },
     {
       "id": "5e81f423763d9f754677bf2e",
@@ -2197,14 +2311,15 @@
       "armor_damage_percent": 36.0,
       "projectile_count": 1,
       "muzzle_velocity": 340.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": ".45 ACP Match FMJ",
         "zh": ".45 ACP FMJ"
       },
       "image_url": "https://assets.tarkov.dev/5e81f423763d9f754677bf2e-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/5e81f423763d9f754677bf2e.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/.45_ACP_Match_FMJ",
+      "ricochet_chance": 0.065
     },
     {
       "id": "5e85a9a6eacf8c039e4e2ac1",
@@ -2216,14 +2331,15 @@
       "armor_damage_percent": 20.0,
       "projectile_count": 8,
       "muzzle_velocity": 270.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "23x75mm Shrapnel-10 buckshot",
         "zh": "23x75 毫米“破片-10”霰弹"
       },
       "image_url": "https://assets.tarkov.dev/5e85a9a6eacf8c039e4e2ac1-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/5e85a9a6eacf8c039e4e2ac1.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/23x75mm_Shrapnel-10_buckshot",
+      "ricochet_chance": 0.2
     },
     {
       "id": "5e85a9f4add9fe03027d9bf1",
@@ -2235,14 +2351,15 @@
       "armor_damage_percent": 0.0,
       "projectile_count": 1,
       "muzzle_velocity": 80.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "23x75mm Zvezda flashbang round",
         "zh": "23x75 毫米“红星”闪光弹"
       },
       "image_url": "https://assets.tarkov.dev/5e85a9f4add9fe03027d9bf1-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/5e85a9f4add9fe03027d9bf1.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/23x75mm_Zvezda_flashbang_round",
+      "ricochet_chance": 0.4
     },
     {
       "id": "5e85aa1a988a8701445df1f5",
@@ -2254,14 +2371,15 @@
       "armor_damage_percent": 75.0,
       "projectile_count": 1,
       "muzzle_velocity": 420.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "23x75mm Barrikada slug",
         "zh": "23x75 毫米破障独头弹"
       },
       "image_url": "https://assets.tarkov.dev/5e85aa1a988a8701445df1f5-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/5e85aa1a988a8701445df1f5.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/23x75mm_Barrikada_slug",
+      "ricochet_chance": 0.4
     },
     {
       "id": "5ea2a8e200685063ec28c05a",
@@ -2273,14 +2391,15 @@
       "armor_damage_percent": 12.0,
       "projectile_count": 1,
       "muzzle_velocity": 293.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": ".45 ACP RIP",
         "zh": ".45 RIP"
       },
       "image_url": "https://assets.tarkov.dev/5ea2a8e200685063ec28c05a-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/5ea2a8e200685063ec28c05a.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/.45_ACP_RIP",
+      "ricochet_chance": 0.002
     },
     {
       "id": "5efb0c1bd79ff02a1f5e68d9",
@@ -2292,14 +2411,15 @@
       "armor_damage_percent": 85.0,
       "projectile_count": 1,
       "muzzle_velocity": 930.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "7.62x51mm M993",
         "zh": "7.62x51 毫米 M993"
       },
       "image_url": "https://assets.tarkov.dev/5efb0c1bd79ff02a1f5e68d9-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/5efb0c1bd79ff02a1f5e68d9.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/7.62x51mm_M993",
+      "ricochet_chance": 0.28
     },
     {
       "id": "5efb0cabfb3e451d70735af5",
@@ -2311,14 +2431,15 @@
       "armor_damage_percent": 48.0,
       "projectile_count": 1,
       "muzzle_velocity": 299.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": ".45 ACP AP",
         "zh": ".45 ACP AP"
       },
       "image_url": "https://assets.tarkov.dev/5efb0cabfb3e451d70735af5-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/5efb0cabfb3e451d70735af5.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/.45_ACP_AP",
+      "ricochet_chance": 0.1
     },
     {
       "id": "5efb0d4f4bc50b58e81710f3",
@@ -2330,14 +2451,15 @@
       "armor_damage_percent": 37.0,
       "projectile_count": 1,
       "muzzle_velocity": 290.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": ".45 ACP Lasermatch FMJ",
         "zh": ".45 ACP Lasermatch FMJ"
       },
       "image_url": "https://assets.tarkov.dev/5efb0d4f4bc50b58e81710f3-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/5efb0d4f4bc50b58e81710f3.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/.45_ACP_Lasermatch_FMJ",
+      "ricochet_chance": 0.065
     },
     {
       "id": "5efb0da7a29a85116f6ea05f",
@@ -2349,14 +2471,15 @@
       "armor_damage_percent": 55.0,
       "projectile_count": 1,
       "muzzle_velocity": 560.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "9x19mm PBP gzh",
         "zh": "9x19 毫米 7N31"
       },
       "image_url": "https://assets.tarkov.dev/5efb0da7a29a85116f6ea05f-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/5efb0da7a29a85116f6ea05f.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/9x19mm_PBP_gzh",
+      "ricochet_chance": 0.2
     },
     {
       "id": "5efb0e16aeb21837e749c7ff",
@@ -2368,14 +2491,15 @@
       "armor_damage_percent": 22.0,
       "projectile_count": 1,
       "muzzle_velocity": 290.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "9x19mm QuakeMaker",
         "zh": "9x19 毫米 QuakeMaker"
       },
       "image_url": "https://assets.tarkov.dev/5efb0e16aeb21837e749c7ff-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/5efb0e16aeb21837e749c7ff.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/9x19mm_QuakeMaker",
+      "ricochet_chance": 0.1
     },
     {
       "id": "5efb0fc6aeb21837e749c801",
@@ -2387,14 +2511,15 @@
       "armor_damage_percent": 30.0,
       "projectile_count": 1,
       "muzzle_velocity": 274.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": ".45 ACP Hydra-Shok",
         "zh": ".45 ACP Hydra-Shok"
       },
       "image_url": "https://assets.tarkov.dev/5efb0fc6aeb21837e749c801-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/5efb0fc6aeb21837e749c801.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/.45_ACP_Hydra-Shok",
+      "ricochet_chance": 0.066
     },
     {
       "id": "5f0596629e22f464da6bbdd9",
@@ -2406,14 +2531,15 @@
       "armor_damage_percent": 60.0,
       "projectile_count": 1,
       "muzzle_velocity": 602.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": ".366 TKM AP-M",
         "zh": ".366 AP"
       },
       "image_url": "https://assets.tarkov.dev/5f0596629e22f464da6bbdd9-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/5f0596629e22f464da6bbdd9.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/.366_TKM_AP-M",
+      "ricochet_chance": 0.065
     },
     {
       "id": "5f647f31b6238e5dd066e196",
@@ -2425,14 +2551,15 @@
       "armor_damage_percent": 20.0,
       "projectile_count": 8,
       "muzzle_velocity": 375.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "23x75mm Shrapnel-25 buckshot",
         "zh": "23x75 毫米“破片-25”霰弹"
       },
       "image_url": "https://assets.tarkov.dev/5f647f31b6238e5dd066e196-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/5f647f31b6238e5dd066e196.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/23x75mm_Shrapnel-25_buckshot",
+      "ricochet_chance": 0.2
     },
     {
       "id": "5fbe3ffdf8b6a877a729ea82",
@@ -2444,14 +2571,15 @@
       "armor_damage_percent": 36.0,
       "projectile_count": 1,
       "muzzle_velocity": 605.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": ".300 Blackout BCP FMJ",
         "zh": ".300 Blackout BPZ FMJ"
       },
       "image_url": "https://assets.tarkov.dev/5fbe3ffdf8b6a877a729ea82-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/5fbe3ffdf8b6a877a729ea82.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/.300_Blackout_BCP_FMJ",
+      "ricochet_chance": 0.3
     },
     {
       "id": "5fc275cf85fd526b824a571a",
@@ -2463,14 +2591,15 @@
       "armor_damage_percent": 83.0,
       "projectile_count": 1,
       "muzzle_velocity": 900.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": ".338 Lapua Magnum FMJ",
         "zh": ".338 Lapua Magnum FMJ"
       },
       "image_url": "https://assets.tarkov.dev/5fc275cf85fd526b824a571a-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/5fc275cf85fd526b824a571a.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/.338_Lapua_Magnum_FMJ",
+      "ricochet_chance": 0.4
     },
     {
       "id": "5fc382a9d724d907e2077dab",
@@ -2482,14 +2611,15 @@
       "armor_damage_percent": 89.0,
       "projectile_count": 1,
       "muzzle_velocity": 849.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": ".338 Lapua Magnum AP",
         "zh": ".338 Lapua Magnum AP"
       },
       "image_url": "https://assets.tarkov.dev/5fc382a9d724d907e2077dab-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/5fc382a9d724d907e2077dab.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/.338_Lapua_Magnum_AP",
+      "ricochet_chance": 0.3
     },
     {
       "id": "5fc382b6d6fa9c00c571bbc3",
@@ -2501,14 +2631,15 @@
       "armor_damage_percent": 55.0,
       "projectile_count": 1,
       "muzzle_velocity": 880.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": ".338 Lapua Magnum TAC-X",
         "zh": ".338 Lapua Magnum TAC-X"
       },
       "image_url": "https://assets.tarkov.dev/5fc382b6d6fa9c00c571bbc3-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/5fc382b6d6fa9c00c571bbc3.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/.338_Lapua_Magnum_TAC-X",
+      "ricochet_chance": 0.4
     },
     {
       "id": "5fc382c1016cce60e8341b20",
@@ -2520,14 +2651,15 @@
       "armor_damage_percent": 70.0,
       "projectile_count": 1,
       "muzzle_velocity": 849.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": ".338 Lapua Magnum UCW",
         "zh": ".338 UPZ Lapua Magnum"
       },
       "image_url": "https://assets.tarkov.dev/5fc382c1016cce60e8341b20-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/5fc382c1016cce60e8341b20.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/.338_Lapua_Magnum_UCW",
+      "ricochet_chance": 0.4
     },
     {
       "id": "5fd20ff893a8961fc660a954",
@@ -2539,14 +2671,15 @@
       "armor_damage_percent": 65.0,
       "projectile_count": 1,
       "muzzle_velocity": 635.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": ".300 Blackout AP",
         "zh": ".300 Blackout AP"
       },
       "image_url": "https://assets.tarkov.dev/5fd20ff893a8961fc660a954-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/5fd20ff893a8961fc660a954.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/.300_Blackout_AP",
+      "ricochet_chance": 0.3
     },
     {
       "id": "60194943740c5d77f6705eea",
@@ -2558,14 +2691,15 @@
       "armor_damage_percent": 39.0,
       "projectile_count": 1,
       "muzzle_velocity": 902.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "5.56x45mm MK 318 Mod 0 (SOST)",
         "zh": "5.56x45毫米 Mk 318 Mod 0 (SOST)"
       },
       "image_url": "https://assets.tarkov.dev/60194943740c5d77f6705eea-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/60194943740c5d77f6705eea.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/5.56x45mm_MK_318_Mod_0_(SOST)",
+      "ricochet_chance": 0.35
     },
     {
       "id": "601949593ae8f707c4608daa",
@@ -2577,14 +2711,15 @@
       "armor_damage_percent": 58.0,
       "projectile_count": 1,
       "muzzle_velocity": 1013.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "5.56x45mm SSA AP",
         "zh": "5.56x45毫米 SSA AP"
       },
       "image_url": "https://assets.tarkov.dev/601949593ae8f707c4608daa-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/601949593ae8f707c4608daa.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/5.56x45mm_SSA_AP",
+      "ricochet_chance": 0.48
     },
     {
       "id": "601aa3d2b2bcb34913271e6d",
@@ -2596,14 +2731,15 @@
       "armor_damage_percent": 76.0,
       "projectile_count": 1,
       "muzzle_velocity": 875.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "7.62x39mm MAI AP",
         "zh": "7.62x39毫米 MAI AP"
       },
       "image_url": "https://assets.tarkov.dev/601aa3d2b2bcb34913271e6d-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/601aa3d2b2bcb34913271e6d.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/7.62x39mm_MAI_AP",
+      "ricochet_chance": 0.435
     },
     {
       "id": "61962b617c6c7b169525f168",
@@ -2615,7 +2751,7 @@
       "armor_damage_percent": 45.0,
       "projectile_count": 1,
       "muzzle_velocity": 915.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [
         "7n40"
       ],
@@ -2624,7 +2760,8 @@
         "zh": "5.45x39毫米 7N40 gs"
       },
       "image_url": "https://assets.tarkov.dev/61962b617c6c7b169525f168-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/61962b617c6c7b169525f168.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/5.45x39mm_7N40",
+      "ricochet_chance": 0.3
     },
     {
       "id": "61962d879bb3d20b0946d385",
@@ -2636,14 +2773,15 @@
       "armor_damage_percent": 57.0,
       "projectile_count": 1,
       "muzzle_velocity": 320.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "9x39mm PAB-9 gs",
         "zh": "9x39毫米 PAB-9"
       },
       "image_url": "https://assets.tarkov.dev/61962d879bb3d20b0946d385-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/61962d879bb3d20b0946d385.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/9x39mm_PAB-9_gs",
+      "ricochet_chance": 0.48
     },
     {
       "id": "6196364158ef8c428c287d9f",
@@ -2655,14 +2793,15 @@
       "armor_damage_percent": 25.0,
       "projectile_count": 1,
       "muzzle_velocity": 723.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": ".300 Blackout V-Max",
         "zh": ".300 Blackout V-Max"
       },
       "image_url": "https://assets.tarkov.dev/6196364158ef8c428c287d9f-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/6196364158ef8c428c287d9f.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/.300_Blackout_V-Max",
+      "ricochet_chance": 0.1
     },
     {
       "id": "6196365d58ef8c428c287da1",
@@ -2674,14 +2813,15 @@
       "armor_damage_percent": 18.0,
       "projectile_count": 1,
       "muzzle_velocity": 853.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": ".300 Whisper",
         "zh": ".300 Whisper"
       },
       "image_url": "https://assets.tarkov.dev/6196365d58ef8c428c287da1-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/6196365d58ef8c428c287da1.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/.300_Whisper",
+      "ricochet_chance": 0.1
     },
     {
       "id": "619636be6db0f2477964e710",
@@ -2693,14 +2833,15 @@
       "armor_damage_percent": 40.0,
       "projectile_count": 1,
       "muzzle_velocity": 442.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": ".300 Blackout M62 Tracer",
         "zh": ".300 Blackout M62 曳光弹"
       },
       "image_url": "https://assets.tarkov.dev/619636be6db0f2477964e710-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/619636be6db0f2477964e710.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/.300_Blackout_M62_Tracer",
+      "ricochet_chance": 0.37
     },
     {
       "id": "62330b3ed4dc74626d570b95",
@@ -2712,14 +2853,15 @@
       "armor_damage_percent": 43.0,
       "projectile_count": 1,
       "muzzle_velocity": 385.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": ".357 Magnum FMJ",
         "zh": ".357 Magnum FMJ"
       },
       "image_url": "https://assets.tarkov.dev/62330b3ed4dc74626d570b95-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/62330b3ed4dc74626d570b95.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/.357_Magnum_FMJ",
+      "ricochet_chance": 0.065
     },
     {
       "id": "62330bfadc5883093563729b",
@@ -2731,14 +2873,15 @@
       "armor_damage_percent": 20.0,
       "projectile_count": 1,
       "muzzle_velocity": 481.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": ".357 Magnum HP",
         "zh": ".357 Magnum Hollow Point"
       },
       "image_url": "https://assets.tarkov.dev/62330bfadc5883093563729b-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/62330bfadc5883093563729b.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/.357_Magnum_HP",
+      "ricochet_chance": 0.025
     },
     {
       "id": "62330c18744e5e31df12f516",
@@ -2750,14 +2893,15 @@
       "armor_damage_percent": 28.0,
       "projectile_count": 1,
       "muzzle_velocity": 425.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": ".357 Magnum JHP",
         "zh": ".357 Magnum JHP"
       },
       "image_url": "https://assets.tarkov.dev/62330c18744e5e31df12f516-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/62330c18744e5e31df12f516.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/.357_Magnum_JHP",
+      "ricochet_chance": 0.055
     },
     {
       "id": "62330c40bdd19b369e1e53d1",
@@ -2769,14 +2913,15 @@
       "armor_damage_percent": 15.0,
       "projectile_count": 1,
       "muzzle_velocity": 455.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": ".357 Magnum SP",
         "zh": ".357 Magnum Soft Point"
       },
       "image_url": "https://assets.tarkov.dev/62330c40bdd19b369e1e53d1-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/62330c40bdd19b369e1e53d1.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/.357_Magnum_SP",
+      "ricochet_chance": 0.03
     },
     {
       "id": "64b6979341772715af0f9c39",
@@ -2788,14 +2933,15 @@
       "armor_damage_percent": 37.0,
       "projectile_count": 1,
       "muzzle_velocity": 579.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "4.6x30mm JSP SX",
         "zh": "4.6x30毫米 JSP SX"
       },
       "image_url": "https://assets.tarkov.dev/64b6979341772715af0f9c39-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/64b6979341772715af0f9c39.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/4.6x30mm_JSP_SX",
+      "ricochet_chance": 0.35
     },
     {
       "id": "64b7af434b75259c590fa893",
@@ -2807,14 +2953,15 @@
       "armor_damage_percent": 57.0,
       "projectile_count": 1,
       "muzzle_velocity": 732.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "7.62x39mm PP gzh",
         "zh": "7.62x39毫米 PP gzh"
       },
       "image_url": "https://assets.tarkov.dev/64b7af434b75259c590fa893-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/64b7af434b75259c590fa893.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/7.62x39mm_PP_gzh",
+      "ricochet_chance": 0.33
     },
     {
       "id": "64b7af5a8532cf95ee0a0dbd",
@@ -2826,14 +2973,15 @@
       "armor_damage_percent": 33.0,
       "projectile_count": 1,
       "muzzle_velocity": 775.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "7.62x39mm FMJ",
         "zh": "7.62x39毫米 FMJ"
       },
       "image_url": "https://assets.tarkov.dev/64b7af5a8532cf95ee0a0dbd-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/64b7af5a8532cf95ee0a0dbd.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/7.62x39mm_FMJ",
+      "ricochet_chance": 0.25
     },
     {
       "id": "64b7af734b75259c590fa895",
@@ -2845,14 +2993,15 @@
       "armor_damage_percent": 27.0,
       "projectile_count": 1,
       "muzzle_velocity": 772.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "7.62x39mm SP",
         "zh": "7.62x39毫米 SP"
       },
       "image_url": "https://assets.tarkov.dev/64b7af734b75259c590fa895-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/64b7af734b75259c590fa895.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/7.62x39mm_SP",
+      "ricochet_chance": 0.2
     },
     {
       "id": "64b7bbb74b75259c590fa897",
@@ -2864,14 +3013,15 @@
       "armor_damage_percent": 35.0,
       "projectile_count": 1,
       "muzzle_velocity": 385.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "9x19mm FMJ M882",
         "zh": "9x19毫米 FMJ M882"
       },
       "image_url": "https://assets.tarkov.dev/64b7bbb74b75259c590fa897-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/64b7bbb74b75259c590fa897.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/9x19mm_FMJ_M882",
+      "ricochet_chance": 0.1
     },
     {
       "id": "64b8725c4b75259c590fa899",
@@ -2883,14 +3033,15 @@
       "armor_damage_percent": 57.0,
       "projectile_count": 1,
       "muzzle_velocity": 725.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": ".300 Blackout CBJ",
         "zh": ".300 Blackout CBJ"
       },
       "image_url": "https://assets.tarkov.dev/64b8725c4b75259c590fa899-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/64b8725c4b75259c590fa899.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/.300_Blackout_CBJ",
+      "ricochet_chance": 0.2
     },
     {
       "id": "64b8ee384b75259c590fa89b",
@@ -2902,14 +3053,15 @@
       "armor_damage_percent": 22.0,
       "projectile_count": 10,
       "muzzle_velocity": 310.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "12/70 Piranha",
         "zh": "12/70 “食人鱼”"
       },
       "image_url": "https://assets.tarkov.dev/64b8ee384b75259c590fa89b-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/64b8ee384b75259c590fa89b.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/12/70_Piranha",
+      "ricochet_chance": 0.1
     },
     {
       "id": "64b8f7968532cf95ee0a0dbf",
@@ -2921,14 +3073,15 @@
       "armor_damage_percent": 63.0,
       "projectile_count": 1,
       "muzzle_velocity": 760.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "7.62x54mm R FMJ",
         "zh": "7.62x54毫米 R FMJ"
       },
       "image_url": "https://assets.tarkov.dev/64b8f7968532cf95ee0a0dbf-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/64b8f7968532cf95ee0a0dbf.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/7.62x54mm_R_FMJ",
+      "ricochet_chance": 0.16
     },
     {
       "id": "64b8f7b5389d7ffd620ccba2",
@@ -2940,14 +3093,15 @@
       "armor_damage_percent": 56.0,
       "projectile_count": 1,
       "muzzle_velocity": 703.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "7.62x54mm R SP BT",
         "zh": "7.62x54毫米 R SP BT"
       },
       "image_url": "https://assets.tarkov.dev/64b8f7b5389d7ffd620ccba2-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/64b8f7b5389d7ffd620ccba2.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/7.62x54mm_R_SP_BT",
+      "ricochet_chance": 0.12
     },
     {
       "id": "64b8f7c241772715af0f9c3d",
@@ -2959,14 +3113,15 @@
       "armor_damage_percent": 37.0,
       "projectile_count": 1,
       "muzzle_velocity": 807.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "7.62x54mm R HP BT",
         "zh": "7.62x54毫米 R HP BT"
       },
       "image_url": "https://assets.tarkov.dev/64b8f7c241772715af0f9c3d-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/64b8f7c241772715af0f9c3d.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/7.62x54mm_R_HP_BT",
+      "ricochet_chance": 0.1
     },
     {
       "id": "6529243824cbe3c74a05e5c1",
@@ -2978,14 +3133,15 @@
       "armor_damage_percent": 58.0,
       "projectile_count": 1,
       "muzzle_velocity": 914.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "6.8x51mm SIG Hybrid",
         "zh": "6.8x51毫米 SIG Hybrid"
       },
       "image_url": "https://assets.tarkov.dev/6529243824cbe3c74a05e5c1-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/6529243824cbe3c74a05e5c1.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/6.8x51mm_SIG_Hybrid",
+      "ricochet_chance": 0.3
     },
     {
       "id": "6529302b8c26af6326029fb7",
@@ -2997,14 +3153,15 @@
       "armor_damage_percent": 49.0,
       "projectile_count": 1,
       "muzzle_velocity": 899.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "6.8x51mm SIG FMJ",
         "zh": "6.8x51毫米 SIG FMJ"
       },
       "image_url": "https://assets.tarkov.dev/6529302b8c26af6326029fb7-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/6529302b8c26af6326029fb7.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/6.8x51mm_SIG_FMJ",
+      "ricochet_chance": 0.27
     },
     {
       "id": "6576f4708ca9c4381d16cd9d",
@@ -3016,14 +3173,15 @@
       "armor_damage_percent": 47.0,
       "projectile_count": 1,
       "muzzle_velocity": 400.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "9x21mm 7n42",
         "zh": "9x21毫米 7N42“凿刀”穿甲手枪弹"
       },
       "image_url": "https://assets.tarkov.dev/6576f4708ca9c4381d16cd9d-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/6576f4708ca9c4381d16cd9d.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/9x21mm_7N42_Zubilo",
+      "ricochet_chance": 0.5
     },
     {
       "id": "6576f93989f0062e741ba952",
@@ -3035,14 +3193,15 @@
       "armor_damage_percent": 44.0,
       "projectile_count": 1,
       "muzzle_velocity": 300.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "9x21mm 7U4",
         "zh": "9x21毫米 7U4"
       },
       "image_url": "https://assets.tarkov.dev/6576f93989f0062e741ba952-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/6576f93989f0062e741ba952.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/9x21mm_7U4",
+      "ricochet_chance": 0.3
     },
     {
       "id": "6576f96220d53a5b8f3e395e",
@@ -3054,14 +3213,15 @@
       "armor_damage_percent": 28.0,
       "projectile_count": 1,
       "muzzle_velocity": 330.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "9x39mm FMJ",
         "zh": "9x39毫米 FMJ"
       },
       "image_url": "https://assets.tarkov.dev/6576f96220d53a5b8f3e395e-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/6576f96220d53a5b8f3e395e.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/9x39mm_FMJ",
+      "ricochet_chance": 0.4
     },
     {
       "id": "660137d8481cc6907a0c5cda",
@@ -3073,14 +3233,15 @@
       "armor_damage_percent": 54.0,
       "projectile_count": 1,
       "muzzle_velocity": 482.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "20/70 TSS Armor Piercing Slug",
         "zh": "20/70 TSS 穿甲独头弹"
       },
       "image_url": "https://assets.tarkov.dev/660137d8481cc6907a0c5cda-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/660137d8481cc6907a0c5cda.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/20/70_TSS_Armor_Piercing_Slug",
+      "ricochet_chance": 0.18
     },
     {
       "id": "660137ef76c1b56143052be8",
@@ -3092,14 +3253,15 @@
       "armor_damage_percent": 47.0,
       "projectile_count": 1,
       "muzzle_velocity": 476.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "20/70 Dangerous Game Slug",
         "zh": "20/70“危险猎物”独头弹 (DGS)"
       },
       "image_url": "https://assets.tarkov.dev/660137ef76c1b56143052be8-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/660137ef76c1b56143052be8.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/20/70_Dangerous_Game_Slug",
+      "ricochet_chance": 0.15
     },
     {
       "id": "6601380580e77cfd080e3418",
@@ -3111,14 +3273,15 @@
       "armor_damage_percent": 24.0,
       "projectile_count": 8,
       "muzzle_velocity": 400.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "20/70 flechette",
         "zh": "20/70 箭形弹"
       },
       "image_url": "https://assets.tarkov.dev/6601380580e77cfd080e3418-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/6601380580e77cfd080e3418.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/20/70_flechette",
+      "ricochet_chance": 0.0
     },
     {
       "id": "668fe62ac62660a5d8071446",
@@ -3130,14 +3293,15 @@
       "armor_damage_percent": 50.0,
       "projectile_count": 1,
       "muzzle_velocity": 440.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": ".50 AE FMJ",
         "zh": ".50 AE FMJ"
       },
       "image_url": "https://assets.tarkov.dev/668fe62ac62660a5d8071446-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/668fe62ac62660a5d8071446.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/.50_AE_FMJ",
+      "ricochet_chance": 0.08
     },
     {
       "id": "66a0d1c87d0d369e270bb9de",
@@ -3149,14 +3313,15 @@
       "armor_damage_percent": 23.0,
       "projectile_count": 1,
       "muzzle_velocity": 440.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": ".50 AE JHP",
         "zh": ".50 AE JHP"
       },
       "image_url": "https://assets.tarkov.dev/66a0d1c87d0d369e270bb9de-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/66a0d1c87d0d369e270bb9de.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/.50_AE_JHP",
+      "ricochet_chance": 0.02
     },
     {
       "id": "66a0d1e0ed648d72fe064d06",
@@ -3168,14 +3333,15 @@
       "armor_damage_percent": 56.0,
       "projectile_count": 1,
       "muzzle_velocity": 460.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": ".50 AE Copper Solid",
         "zh": ".50 AE实心铜弹"
       },
       "image_url": "https://assets.tarkov.dev/66a0d1e0ed648d72fe064d06-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/66a0d1e0ed648d72fe064d06.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/.50_AE_Copper_Solid",
+      "ricochet_chance": 0.06
     },
     {
       "id": "66a0d1f88486c69fce00fdf6",
@@ -3187,14 +3353,15 @@
       "armor_damage_percent": 28.0,
       "projectile_count": 1,
       "muzzle_velocity": 465.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": ".50 AE Hawk JSP",
         "zh": ".50 AE Hawk JSP"
       },
       "image_url": "https://assets.tarkov.dev/66a0d1f88486c69fce00fdf6-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/66a0d1f88486c69fce00fdf6.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/.50_AE_Hawk_JSP",
+      "ricochet_chance": 0.004
     },
     {
       "id": "6768c25aa7b238f14a08d3f6",
@@ -3206,14 +3373,15 @@
       "armor_damage_percent": 74.0,
       "projectile_count": 1,
       "muzzle_velocity": 929.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "7.62x51mm M80A1",
         "zh": "7.62x51毫米 M80A1"
       },
       "image_url": "https://assets.tarkov.dev/6768c25aa7b238f14a08d3f6-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/6768c25aa7b238f14a08d3f6.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/7.62x51mm_M80A1",
+      "ricochet_chance": 0.25
     },
     {
       "id": "67c540c3d0538d12ec036c08",
@@ -3225,14 +3393,14 @@
       "armor_damage_percent": 78.0,
       "projectile_count": 1,
       "muzzle_velocity": 838.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": ".308 ME",
         "zh": ".308 ME"
       },
       "image_url": "https://assets.tarkov.dev/67c540c3d0538d12ec036c08-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/67c540c3d0538d12ec036c08.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/.308_ME"
     },
     {
       "id": "67c540cfb032bbdb530201b8",
@@ -3244,14 +3412,14 @@
       "armor_damage_percent": 55.0,
       "projectile_count": 1,
       "muzzle_velocity": 838.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": ".308 ME LOKT",
         "zh": ".308 ME LOKT"
       },
       "image_url": "https://assets.tarkov.dev/67c540cfb032bbdb530201b8-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/67c540cfb032bbdb530201b8.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/.308_ME_LOKT"
     },
     {
       "id": "67d41936f378a36c4706eeb9",
@@ -3263,14 +3431,15 @@
       "armor_damage_percent": 22.0,
       "projectile_count": 1,
       "muzzle_velocity": 880.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": ".50 BMG HP",
         "zh": ".50 BMG HP"
       },
       "image_url": "https://assets.tarkov.dev/67d41936f378a36c4706eeb9-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/67d41936f378a36c4706eeb9.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/.50_BMG_HP",
+      "ricochet_chance": 0.02
     },
     {
       "id": "67dc212493ce32834b0fa446",
@@ -3282,14 +3451,15 @@
       "armor_damage_percent": 55.0,
       "projectile_count": 1,
       "muzzle_velocity": 867.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": ".50 BMG M21",
         "zh": ".50 BMG M21"
       },
       "image_url": "https://assets.tarkov.dev/67dc212493ce32834b0fa446-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/67dc212493ce32834b0fa446.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/.50_BMG_M21",
+      "ricochet_chance": 0.15
     },
     {
       "id": "67dc255ee3028a8b120efc48",
@@ -3301,14 +3471,15 @@
       "armor_damage_percent": 85.0,
       "projectile_count": 1,
       "muzzle_velocity": 887.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": ".50 BMG M33",
         "zh": ".50 BMG M33"
       },
       "image_url": "https://assets.tarkov.dev/67dc255ee3028a8b120efc48-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/67dc255ee3028a8b120efc48.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/.50_BMG_M33",
+      "ricochet_chance": 0.35
     },
     {
       "id": "67dc2648ba5b79876906a166",
@@ -3320,14 +3491,15 @@
       "armor_damage_percent": 90.0,
       "projectile_count": 1,
       "muzzle_velocity": 1220.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": ".50 BMG M903 SLAP",
         "zh": ".50 BMG M903 SLAP"
       },
       "image_url": "https://assets.tarkov.dev/67dc2648ba5b79876906a166-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/67dc2648ba5b79876906a166.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/.50_BMG_M903_SLAP",
+      "ricochet_chance": 0.45
     },
     {
       "id": "68aeed8a8906b00bc800fdd6",
@@ -3339,14 +3511,15 @@
       "armor_damage_percent": 55.0,
       "projectile_count": 1,
       "muzzle_velocity": 697.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "9.3x64mm SP",
         "zh": "9.3x64毫米 SP"
       },
       "image_url": "https://assets.tarkov.dev/68aeed8a8906b00bc800fdd6-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/68aeed8a8906b00bc800fdd6.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/9.3x64mm_SP",
+      "ricochet_chance": 0.4
     },
     {
       "id": "68bac6ca653ee6b1e406d978",
@@ -3358,14 +3531,15 @@
       "armor_damage_percent": 55.0,
       "projectile_count": 1,
       "muzzle_velocity": 793.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "9.3x64mm FMJ",
         "zh": "9.3x64毫米 FMJ"
       },
       "image_url": "https://assets.tarkov.dev/68bac6ca653ee6b1e406d978-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/68bac6ca653ee6b1e406d978.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/9.3x64mm_FMJ",
+      "ricochet_chance": 0.4
     },
     {
       "id": "68bad8376cb22acf1107a586",
@@ -3377,14 +3551,15 @@
       "armor_damage_percent": 55.0,
       "projectile_count": 1,
       "muzzle_velocity": 790.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "9.3x64mm 7N33",
         "zh": "9.3x64毫米 7N33"
       },
       "image_url": "https://assets.tarkov.dev/68bad8376cb22acf1107a586-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/68bad8376cb22acf1107a586.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/9.3x64mm_7N33",
+      "ricochet_chance": 0.4
     },
     {
       "id": "68c15a033173b556890b5959",
@@ -3396,14 +3571,14 @@
       "armor_damage_percent": 33.0,
       "projectile_count": 1,
       "muzzle_velocity": 900.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "7.62x25mm TT M855A1",
         "zh": "7.62x25毫米 TT M855A1"
       },
       "image_url": "https://assets.tarkov.dev/68c15a033173b556890b5959-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/68c15a033173b556890b5959.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/7.62x25mm_TT_M855A1"
     },
     {
       "id": "68c15b4bb30038a118088bd6",
@@ -3415,14 +3590,14 @@
       "armor_damage_percent": 31.0,
       "projectile_count": 1,
       "muzzle_velocity": 900.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "7.62x25mm TT M856A1",
         "zh": "7.62x25毫米 TT M856A1"
       },
       "image_url": "https://assets.tarkov.dev/68c15b4bb30038a118088bd6-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/68c15b4bb30038a118088bd6.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/7.62x25mm_TT_M856A1"
     },
     {
       "id": "68c15f77ed3d7df9220debd6",
@@ -3434,14 +3609,14 @@
       "armor_damage_percent": 36.0,
       "projectile_count": 1,
       "muzzle_velocity": 940.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "7.62x25mm TT M995",
         "zh": "7.62x25毫米 TT M995"
       },
       "image_url": "https://assets.tarkov.dev/68c15f77ed3d7df9220debd6-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/68c15f77ed3d7df9220debd6.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/7.62x25mm_TT_M995"
     },
     {
       "id": "6a07208057b2695f9d001e63",
@@ -3453,14 +3628,15 @@
       "armor_damage_percent": 43.0,
       "projectile_count": 1,
       "muzzle_velocity": 840.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "5.8x42mm DBP191",
         "zh": "5.8x42毫米 DBP191"
       },
       "image_url": "https://assets.tarkov.dev/6a07208057b2695f9d001e63-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/6a07208057b2695f9d001e63.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/5.8x42mm_DBP191",
+      "ricochet_chance": 0.4
     },
     {
       "id": "6a42661705016139300b2085",
@@ -3472,14 +3648,15 @@
       "armor_damage_percent": 40.0,
       "projectile_count": 1,
       "muzzle_velocity": 910.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "5.8x42mm DBX95",
         "zh": "5.8x42毫米 DBX95"
       },
       "image_url": "https://assets.tarkov.dev/6a42661705016139300b2085-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/6a42661705016139300b2085.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/5.8x42mm_DBX95",
+      "ricochet_chance": 0.4
     },
     {
       "id": "6a42662fcb506840dd053827",
@@ -3491,14 +3668,15 @@
       "armor_damage_percent": 60.0,
       "projectile_count": 1,
       "muzzle_velocity": 872.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "5.8x42mm DVC12",
         "zh": "5.8x42毫米 DVC12"
       },
       "image_url": "https://assets.tarkov.dev/6a42662fcb506840dd053827-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/6a42662fcb506840dd053827.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/5.8x42mm_DVC12",
+      "ricochet_chance": 0.4
     },
     {
       "id": "6a426637ddc63098d100ae67",
@@ -3510,14 +3688,15 @@
       "armor_damage_percent": 54.0,
       "projectile_count": 1,
       "muzzle_velocity": 850.0,
-      "source_version": "wiki-reviewed-2026-09-16",
+      "source_version": "wiki-reviewed-2026-10-25",
       "aliases": [],
       "localized_names": {
         "en": "5.8x42mm DVX12",
         "zh": "5.8x42毫米 DVX12"
       },
       "image_url": "https://assets.tarkov.dev/6a426637ddc63098d100ae67-icon.webp",
-      "wiki_url": "https://www.eftarkov.com/news/id/6a426637ddc63098d100ae67.html"
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/5.8x42mm_DVX12",
+      "ricochet_chance": 0.4
     }
   ],
   "armor": [
@@ -3532,8 +3711,8 @@
         "front",
         "back"
       ],
-      "source_version": "wiki-reviewed-2026-09-16",
-      "wiki_url": "https://www.eftarkov.com/news/id/6943c85be2f21398e70378cc.html",
+      "source_version": "wiki-reviewed-2026-10-25",
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/Tac-Kek_SAPI_Level_III+_ballistic_plate_(Replica)",
       "image_url": "https://assets.tarkov.dev/6943c85be2f21398e70378cc-icon.webp"
     },
     {
@@ -3547,8 +3726,8 @@
         "front",
         "back"
       ],
-      "source_version": "wiki-reviewed-2026-09-16",
-      "wiki_url": "https://www.eftarkov.com/news/id/656fac30c6baea13cd07e10c.html",
+      "source_version": "wiki-reviewed-2026-10-25",
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/PRTCTR_Lightweight_ballistic_plate",
       "image_url": "https://assets.tarkov.dev/656fac30c6baea13cd07e10c-icon.webp"
     },
     {
@@ -3561,8 +3740,8 @@
       "slots": [
         "front"
       ],
-      "source_version": "wiki-reviewed-2026-09-16",
-      "wiki_url": "https://www.eftarkov.com/news/id/656f57dc27aed95beb08f628.html",
+      "source_version": "wiki-reviewed-2026-10-25",
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/Zhuk-3_ballistic_plate_(Front)",
       "image_url": "https://assets.tarkov.dev/656f57dc27aed95beb08f628-icon.webp"
     },
     {
@@ -3575,8 +3754,8 @@
       "slots": [
         "front"
       ],
-      "source_version": "wiki-reviewed-2026-09-16",
-      "wiki_url": "https://www.eftarkov.com/news/id/654a4dea7c17dec2f50cc86a.html",
+      "source_version": "wiki-reviewed-2026-10-25",
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/6B12_ballistic_plates_(Front)",
       "image_url": "https://assets.tarkov.dev/654a4dea7c17dec2f50cc86a-icon.webp"
     },
     {
@@ -3590,8 +3769,8 @@
         "front",
         "back"
       ],
-      "source_version": "wiki-reviewed-2026-09-16",
-      "wiki_url": "https://www.eftarkov.com/news/id/656f9d5900d62bcd2e02407c.html",
+      "source_version": "wiki-reviewed-2026-10-25",
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/AR500_Legacy_Plate_ballistic_plate",
       "image_url": "https://assets.tarkov.dev/656f9d5900d62bcd2e02407c-icon.webp"
     },
     {
@@ -3605,8 +3784,8 @@
         "front",
         "back"
       ],
-      "source_version": "wiki-reviewed-2026-09-16",
-      "wiki_url": "https://www.eftarkov.com/news/id/656fad8c498d1b7e3e071da0.html",
+      "source_version": "wiki-reviewed-2026-10-25",
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/Monoclete_level_III_PE_ballistic_plate",
       "image_url": "https://assets.tarkov.dev/656fad8c498d1b7e3e071da0-icon.webp"
     },
     {
@@ -3620,8 +3799,8 @@
         "front",
         "back"
       ],
-      "source_version": "wiki-reviewed-2026-09-16",
-      "wiki_url": "https://www.eftarkov.com/news/id/656fb21fa0dce000a2020f7c.html",
+      "source_version": "wiki-reviewed-2026-10-25",
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/NewSphereTech_level_III_ballistic_plate",
       "image_url": "https://assets.tarkov.dev/656fb21fa0dce000a2020f7c-icon.webp"
     },
     {
@@ -3635,8 +3814,8 @@
         "front",
         "back"
       ],
-      "source_version": "wiki-reviewed-2026-09-16",
-      "wiki_url": "https://www.eftarkov.com/news/id/656fb0bd7c2d57afe200c0dc.html",
+      "source_version": "wiki-reviewed-2026-10-25",
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/SPRTN_Elaphros_ballistic_plate",
       "image_url": "https://assets.tarkov.dev/656fb0bd7c2d57afe200c0dc-icon.webp"
     },
     {
@@ -3650,8 +3829,8 @@
         "front",
         "back"
       ],
-      "source_version": "wiki-reviewed-2026-09-16",
-      "wiki_url": "https://www.eftarkov.com/news/id/656f9fa0498d1b7e3e071d98.html",
+      "source_version": "wiki-reviewed-2026-10-25",
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/SPRTN_Omega_ballistic_plate",
       "image_url": "https://assets.tarkov.dev/656f9fa0498d1b7e3e071d98-icon.webp"
     },
     {
@@ -3665,8 +3844,8 @@
         "front",
         "back"
       ],
-      "source_version": "wiki-reviewed-2026-09-16",
-      "wiki_url": "https://www.eftarkov.com/news/id/656fa25e94b480b8a500c0e0.html",
+      "source_version": "wiki-reviewed-2026-10-25",
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/Kiba_Arms_Titan_ballistic_plate",
       "image_url": "https://assets.tarkov.dev/656fa25e94b480b8a500c0e0-icon.webp"
     },
     {
@@ -3679,8 +3858,8 @@
       "slots": [
         "back"
       ],
-      "source_version": "wiki-reviewed-2026-09-16",
-      "wiki_url": "https://www.eftarkov.com/news/id/656efd66034e8e01c407f35c.html",
+      "source_version": "wiki-reviewed-2026-10-25",
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/6B13_custom_ballistic_plates_(Back)",
       "image_url": "https://assets.tarkov.dev/656efd66034e8e01c407f35c-icon.webp"
     },
     {
@@ -3693,8 +3872,8 @@
       "slots": [
         "back"
       ],
-      "source_version": "wiki-reviewed-2026-09-16",
-      "wiki_url": "https://www.eftarkov.com/news/id/657b22485f444d6dff0c6c2f.html",
+      "source_version": "wiki-reviewed-2026-10-25",
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/6B23-2_ballistic_plate_(Back)",
       "image_url": "https://assets.tarkov.dev/657b22485f444d6dff0c6c2f-icon.webp"
     },
     {
@@ -3707,8 +3886,8 @@
       "slots": [
         "front"
       ],
-      "source_version": "wiki-reviewed-2026-09-16",
-      "wiki_url": "https://www.eftarkov.com/news/id/656f603f94b480b8a500c0d6.html",
+      "source_version": "wiki-reviewed-2026-10-25",
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/6B33_ballistic_plate_(Front)",
       "image_url": "https://assets.tarkov.dev/656f603f94b480b8a500c0d6-icon.webp"
     },
     {
@@ -3722,8 +3901,8 @@
         "front",
         "back"
       ],
-      "source_version": "wiki-reviewed-2026-09-16",
-      "wiki_url": "https://www.eftarkov.com/news/id/656fa0fb498d1b7e3e071d9c.html",
+      "source_version": "wiki-reviewed-2026-10-25",
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/Global_Armor%E2%80%99s_Steel_ballistic_plate",
       "image_url": "https://assets.tarkov.dev/656fa0fb498d1b7e3e071d9c-icon.webp"
     },
     {
@@ -3737,8 +3916,8 @@
         "front",
         "back"
       ],
-      "source_version": "wiki-reviewed-2026-09-16",
-      "wiki_url": "https://www.eftarkov.com/news/id/655746010177119f4a097ff7.html",
+      "source_version": "wiki-reviewed-2026-10-25",
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/SAPI_level_III+_ballistic_plate",
       "image_url": "https://assets.tarkov.dev/655746010177119f4a097ff7-icon.webp"
     },
     {
@@ -3752,8 +3931,8 @@
         "left",
         "right"
       ],
-      "source_version": "wiki-reviewed-2026-09-16",
-      "wiki_url": "https://www.eftarkov.com/news/id/6557458f83942d705f0c4962.html",
+      "source_version": "wiki-reviewed-2026-10-25",
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/SSAPI_level_III+_ballistic_plate_(Side)",
       "image_url": "https://assets.tarkov.dev/6557458f83942d705f0c4962-icon.webp"
     },
     {
@@ -3767,8 +3946,8 @@
         "front",
         "back"
       ],
-      "source_version": "wiki-reviewed-2026-09-16",
-      "wiki_url": "https://www.eftarkov.com/news/id/656fa53d94b480b8a500c0e4.html",
+      "source_version": "wiki-reviewed-2026-10-25",
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/TallCom_Guardian_ballistic_plate",
       "image_url": "https://assets.tarkov.dev/656fa53d94b480b8a500c0e4-icon.webp"
     },
     {
@@ -3782,8 +3961,8 @@
         "front",
         "back"
       ],
-      "source_version": "wiki-reviewed-2026-09-16",
-      "wiki_url": "https://www.eftarkov.com/news/id/656fa8d700d62bcd2e024084.html",
+      "source_version": "wiki-reviewed-2026-10-25",
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/Cult_Locust_ballistic_plate",
       "image_url": "https://assets.tarkov.dev/656fa8d700d62bcd2e024084-icon.webp"
     },
     {
@@ -3797,8 +3976,8 @@
         "front",
         "back"
       ],
-      "source_version": "wiki-reviewed-2026-09-16",
-      "wiki_url": "https://www.eftarkov.com/news/id/656fae5f7c2d57afe200c0d7.html",
+      "source_version": "wiki-reviewed-2026-10-25",
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/GAC_3s15m_ballistic_plate",
       "image_url": "https://assets.tarkov.dev/656fae5f7c2d57afe200c0d7-icon.webp"
     },
     {
@@ -3811,8 +3990,8 @@
       "slots": [
         "front"
       ],
-      "source_version": "wiki-reviewed-2026-09-16",
-      "wiki_url": "https://www.eftarkov.com/news/id/656f611f94b480b8a500c0db.html",
+      "source_version": "wiki-reviewed-2026-10-25",
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/Granit_4_ballistic_plate_(Front)",
       "image_url": "https://assets.tarkov.dev/656f611f94b480b8a500c0db-icon.webp"
     },
     {
@@ -3825,8 +4004,8 @@
       "slots": [
         "back"
       ],
-      "source_version": "wiki-reviewed-2026-09-16",
-      "wiki_url": "https://www.eftarkov.com/news/id/656efaf54772930db4031ff5.html",
+      "source_version": "wiki-reviewed-2026-10-25",
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/Granit_4_ballistic_plates_(Back)",
       "image_url": "https://assets.tarkov.dev/656efaf54772930db4031ff5-icon.webp"
     },
     {
@@ -3840,8 +4019,8 @@
         "front",
         "back"
       ],
-      "source_version": "wiki-reviewed-2026-09-16",
-      "wiki_url": "https://www.eftarkov.com/news/id/65573fa5655447403702a816.html",
+      "source_version": "wiki-reviewed-2026-10-25",
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/Granit_Br4_ballistic_plate",
       "image_url": "https://assets.tarkov.dev/65573fa5655447403702a816-icon.webp"
     },
     {
@@ -3854,8 +4033,8 @@
       "slots": [
         "front"
       ],
-      "source_version": "wiki-reviewed-2026-09-16",
-      "wiki_url": "https://www.eftarkov.com/news/id/656f664200d62bcd2e024077.html",
+      "source_version": "wiki-reviewed-2026-10-25",
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/Korund-VM_ballistic_plates_(Front)",
       "image_url": "https://assets.tarkov.dev/656f664200d62bcd2e024077-icon.webp"
     },
     {
@@ -3868,8 +4047,8 @@
       "slots": [
         "back"
       ],
-      "source_version": "wiki-reviewed-2026-09-16",
-      "wiki_url": "https://www.eftarkov.com/news/id/657b2797c3dbcb01d60c35ea.html",
+      "source_version": "wiki-reviewed-2026-10-25",
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/Korund-VM_ballistic_plate_(Back)",
       "image_url": "https://assets.tarkov.dev/657b2797c3dbcb01d60c35ea-icon.webp"
     },
     {
@@ -3883,8 +4062,8 @@
         "left",
         "right"
       ],
-      "source_version": "wiki-reviewed-2026-09-16",
-      "wiki_url": "https://www.eftarkov.com/news/id/654a4f8bc721968a4404ef18.html",
+      "source_version": "wiki-reviewed-2026-10-25",
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/Korund-VM_ballistic_plate_(Side)",
       "image_url": "https://assets.tarkov.dev/654a4f8bc721968a4404ef18-icon.webp"
     },
     {
@@ -3897,8 +4076,8 @@
       "slots": [
         "front"
       ],
-      "source_version": "wiki-reviewed-2026-09-16",
-      "wiki_url": "https://www.eftarkov.com/news/id/656f66b5c6baea13cd07e108.html",
+      "source_version": "wiki-reviewed-2026-10-25",
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/Korund-VM-K_ballistic_plates_(Front)",
       "image_url": "https://assets.tarkov.dev/656f66b5c6baea13cd07e108-icon.webp"
     },
     {
@@ -3911,8 +4090,8 @@
       "slots": [
         "back"
       ],
-      "source_version": "wiki-reviewed-2026-09-16",
-      "wiki_url": "https://www.eftarkov.com/news/id/657b28d25f444d6dff0c6c77.html",
+      "source_version": "wiki-reviewed-2026-10-25",
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/Korund-VM-K_ballistic_plate_(Back)",
       "image_url": "https://assets.tarkov.dev/657b28d25f444d6dff0c6c77-icon.webp"
     },
     {
@@ -3926,8 +4105,8 @@
         "front",
         "back"
       ],
-      "source_version": "wiki-reviewed-2026-09-16",
-      "wiki_url": "https://www.eftarkov.com/news/id/656fa61e94b480b8a500c0e8.html",
+      "source_version": "wiki-reviewed-2026-10-25",
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/NESCO_4400-SA-MC_ballistic_plate",
       "image_url": "https://assets.tarkov.dev/656fa61e94b480b8a500c0e8-icon.webp"
     },
     {
@@ -3941,8 +4120,8 @@
         "front",
         "back"
       ],
-      "source_version": "wiki-reviewed-2026-09-16",
-      "wiki_url": "https://www.eftarkov.com/news/id/64afdcb83efdfea28601d041.html",
+      "source_version": "wiki-reviewed-2026-10-25",
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/ESAPI_level_IV_ballistic_plate",
       "image_url": "https://assets.tarkov.dev/64afdcb83efdfea28601d041-icon.webp"
     },
     {
@@ -3956,8 +4135,8 @@
         "left",
         "right"
       ],
-      "source_version": "wiki-reviewed-2026-09-16",
-      "wiki_url": "https://www.eftarkov.com/news/id/64afdb577bb3bfe8fe03fd1d.html",
+      "source_version": "wiki-reviewed-2026-10-25",
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/ESBI_level_IV_ballistic_plate_(Side)",
       "image_url": "https://assets.tarkov.dev/64afdb577bb3bfe8fe03fd1d-icon.webp"
     },
     {
@@ -3971,8 +4150,8 @@
         "front",
         "back"
       ],
-      "source_version": "wiki-reviewed-2026-09-16",
-      "wiki_url": "https://www.eftarkov.com/news/id/656faf0ca0dce000a2020f77.html",
+      "source_version": "wiki-reviewed-2026-10-25",
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/GAC_4sss2_ballistic_plate",
       "image_url": "https://assets.tarkov.dev/656faf0ca0dce000a2020f77-icon.webp"
     },
     {
@@ -3986,8 +4165,8 @@
         "front",
         "back"
       ],
-      "source_version": "wiki-reviewed-2026-09-16",
-      "wiki_url": "https://www.eftarkov.com/news/id/656fa99800d62bcd2e024088.html",
+      "source_version": "wiki-reviewed-2026-10-25",
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/Cult_Termite_ballistic_plate",
       "image_url": "https://assets.tarkov.dev/656fa99800d62bcd2e024088-icon.webp"
     },
     {
@@ -4000,8 +4179,8 @@
       "slots": [
         "front"
       ],
-      "source_version": "wiki-reviewed-2026-09-16",
-      "wiki_url": "https://www.eftarkov.com/news/id/656f63c027aed95beb08f62c.html",
+      "source_version": "wiki-reviewed-2026-10-25",
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/Granit_4RS_ballistic_plate_(Front)",
       "image_url": "https://assets.tarkov.dev/656f63c027aed95beb08f62c-icon.webp"
     },
     {
@@ -4014,8 +4193,8 @@
       "slots": [
         "back"
       ],
-      "source_version": "wiki-reviewed-2026-09-16",
-      "wiki_url": "https://www.eftarkov.com/news/id/654a4a964b446df1ad03f192.html",
+      "source_version": "wiki-reviewed-2026-10-25",
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/Granit_4RS_ballistic_plates_(Back)",
       "image_url": "https://assets.tarkov.dev/654a4a964b446df1ad03f192-icon.webp"
     },
     {
@@ -4029,8 +4208,8 @@
         "front",
         "back"
       ],
-      "source_version": "wiki-reviewed-2026-09-16",
-      "wiki_url": "https://www.eftarkov.com/news/id/64afc71497cf3a403c01ff38.html",
+      "source_version": "wiki-reviewed-2026-10-25",
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/Granit_Br5_ballistic_plate",
       "image_url": "https://assets.tarkov.dev/64afc71497cf3a403c01ff38-icon.webp"
     },
     {
@@ -4044,8 +4223,8 @@
         "left",
         "right"
       ],
-      "source_version": "wiki-reviewed-2026-09-16",
-      "wiki_url": "https://www.eftarkov.com/news/id/64afd81707e2cf40e903a316.html",
+      "source_version": "wiki-reviewed-2026-10-25",
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/Granit_ballistic_plate_(Side)",
       "image_url": "https://assets.tarkov.dev/64afd81707e2cf40e903a316-icon.webp"
     },
     {
@@ -4059,8 +4238,8 @@
         "front",
         "back"
       ],
-      "source_version": "wiki-reviewed-2026-09-16",
-      "wiki_url": "https://www.eftarkov.com/news/id/656fa76500d62bcd2e024080.html",
+      "source_version": "wiki-reviewed-2026-10-25",
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/Kiba_Arms_Steel_ballistic_plate",
       "image_url": "https://assets.tarkov.dev/656fa76500d62bcd2e024080-icon.webp"
     },
     {
@@ -4074,8 +4253,8 @@
         "front",
         "back"
       ],
-      "source_version": "wiki-reviewed-2026-09-16",
-      "wiki_url": "https://www.eftarkov.com/news/id/656fafe3498d1b7e3e071da4.html",
+      "source_version": "wiki-reviewed-2026-10-25",
+      "wiki_url": "https://escapefromtarkov.fandom.com/wiki/KITECO_SC-IV_SA_ballistic_plate",
       "image_url": "https://assets.tarkov.dev/656fafe3498d1b7e3e071da4-icon.webp"
     }
   ],
@@ -4232,5 +4411,13 @@
     "kiteco": "656fafe3498d1b7e3e071da4",
     "kiba-steel": "656fa76500d62bcd2e024080",
     "esapi-iv": "64afdcb83efdfea28601d041"
+  },
+  "audit": {
+    "reviewed_at": "2026-10-25",
+    "source": "Escape from Tarkov Wiki API + NoFoodAfterMidnight",
+    "item_id_verified": 222,
+    "unresolved_source_conflicts": 3,
+    "status": "identity-reviewed; conflicting damage/wear inputs retained and documented",
+    "report": "docs/AUDIT_2026-10-25.md"
   }
 }

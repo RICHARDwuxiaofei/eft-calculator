@@ -1,20 +1,20 @@
 from __future__ import annotations
 
 import logging
+import os
 import platform
 import sys
 from pathlib import Path
 
 from . import __version__
 from .data import DATA_VERSION, Database, default_database_path
-from .legacy_db import repair_legacy_ammo_payloads
 from .rulesets import CurrentApproximation
 
 LOGGER = logging.getLogger(__name__)
 
 
 def configure_logging() -> None:
-    log_dir = Path.home() / ".tarkov-armor-simulator" / "logs"
+    log_dir = Path(os.environ["EFT_LOG_DIRECTORY"]) if "EFT_LOG_DIRECTORY" in os.environ else Path.home() / ".tarkov-armor-simulator" / "logs"
     log_dir.mkdir(parents=True, exist_ok=True)
     logging.basicConfig(
         filename=log_dir / "application.log",
@@ -36,15 +36,14 @@ def main() -> int:
     from .ui import create_application
 
     database_path = default_database_path()
-    repaired_rows = repair_legacy_ammo_payloads(database_path)
-    if repaired_rows:
-        LOGGER.warning("repaired %d legacy ammo payload(s) before startup", repaired_rows)
     database = Database(database_path)
+    if database.recovery_backup:
+        LOGGER.warning("Unreadable database preserved at %s", database.recovery_backup)
     app, window = create_application(database)
+    if "--smoke-test" in sys.argv:
+        window.resize(1280, 720)
     window.show()
     if "--smoke-test" in sys.argv:
-        import os
-
         from PySide6.QtCore import QTimer
 
         from .engine import analyze

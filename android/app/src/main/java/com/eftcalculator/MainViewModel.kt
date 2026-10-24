@@ -16,6 +16,7 @@ import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flatMapLatest
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import org.json.JSONArray
@@ -106,7 +107,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     private val preferences = PreferencesRepository(application)
     private val engine = PythonSimulationEngine()
     val query = MutableStateFlow("")
-    val ammo = query.flatMapLatest(database.ammoDao()::search)
+    val ammo = query.flatMapLatest { query -> database.ammoDao().search("").map { items -> items.filter { matchesAmmoQuery(it, query) } } }
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), emptyList())
     val favorites = database.ammoDao().favorites()
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), emptyList())
@@ -119,6 +120,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     private var calculation: Job? = null
     private var generation = 0L
     private val engineMutex = Mutex()
+    private var sessionReady = false
 
     init {
         viewModelScope.launch {
@@ -130,7 +132,8 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
             val install = bundled.filter { item ->
                 existing[item.id]?.source.let { source -> source == null || source == "bundled" ||
                     source == "TarkovTracker/tarkovdata" ||
-                    (source == "tarkov.dev" && syncedAt < 1789516800000L) }
+                    (source.startsWith("wiki-reviewed-") && source.takeLast(10) < item.source.takeLast(10)) ||
+                    (source == "tarkov.dev" && syncedAt < 1792857600000L) }
             }
             database.withTransaction {
                 dao.upsertAll(install)
@@ -141,6 +144,14 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
                     }
                 }
             }
+            val saved = preferences.session.first()
+            val restored = saved?.let { runCatching { SessionCodec.decode(it) }.getOrNull() }
+            val current = dao.all()
+            _state.value = if (restored != null) restored.copy(selectedAmmo =
+                current.firstOrNull { it.id == restored.selectedAmmo?.id } ?: restored.selectedAmmo)
+                else _state.value.copy(selectedAmmo = current.firstOrNull { it.id == "54527ac44bdc2d36668b4567" } ?: current.firstOrNull())
+            sessionReady = true
+            calculate()
         }
         DataSyncWorker.schedule(application)
     }
@@ -204,7 +215,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         if (index !in _state.value.armor.indices) return
         require(value.durability.isFinite() && value.repairedMaximum.isFinite() && value.maximum.isFinite())
         require(value.durability >= 0f && value.durability <= value.repairedMaximum &&
-            value.repairedMaximum <= value.maximum && value.maximum > 0f)
+            value.repairedMaximum > 0f && value.repairedMaximum <= value.maximum && value.maximum > 0f)
         val armor = _state.value.armor.toMutableList()
         armor[index] = value
         _state.value = _state.value.copy(armor = armor)
@@ -264,6 +275,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     fun updateConditions(distance: Int = _state.value.distance, shots: Int = _state.value.shots) {
+        require(distance in 0..1000 && shots in 1..20)
         _state.value = _state.value.copy(distance = distance, shots = shots)
         calculate()
     }
@@ -287,6 +299,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         val revision = ++generation
         calculation?.cancel()
         val snapshot = _state.value
+        if (sessionReady) viewModelScope.launch { preferences.saveSession(SessionCodec.encode(snapshot)) }
         val selected = snapshot.selectedAmmo
         _state.value = snapshot.copy(result = null, calculating = selected != null, error = null)
         if (selected == null) return
@@ -374,7 +387,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
                 item.getDouble("damage"), item.getDouble("penetration_power"),
                 item.getDouble("armor_damage_percent"), item.getInt("projectile_count"),
                 item.optDouble("muzzle_velocity").takeIf { it.isFinite() },
-                root.getString("version"), "$name $short $caliber ${zh.orEmpty()}", zh)
+                root.getString("version"), "$name $short $caliber ${zh.orEmpty()} ${item.optJSONArray("aliases")?.let { aliases -> (0 until aliases.length()).joinToString(" ") { aliases.getString(it) } }.orEmpty()}", zh)
         }
     }
 }

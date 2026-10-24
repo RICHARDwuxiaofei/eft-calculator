@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import logging
 import os
-from dataclasses import replace
+from dataclasses import asdict, replace
 from pathlib import Path
 
 import pyqtgraph as pg
@@ -85,6 +85,7 @@ def resource_path(*parts: str) -> Path:
 
 STYLE = """
 QWidget { background: #101418; color: #eef0f2; font-size: 14px; }
+QLabel { background: transparent; }
 QMainWindow { background: #0b0e11; }
 QFrame#card { background: #171c21; border: 1px solid #303840; border-radius: 10px; }
 QFrame#hero { background: #1d242b; border: 1px solid #bd9958; border-radius: 12px; }
@@ -136,8 +137,17 @@ class MainWindow(QMainWindow):
 
     def __init__(self, database: Database) -> None:
         super().__init__()
+        # Some offscreen Windows environments cannot enumerate installed fonts.
+        # Direct embedders must load the same real font as the application entry.
+        font_path = Path("C:/Windows/Fonts/msyh.ttc")
+        if font_path.exists() and "Microsoft YaHei UI" not in QFontDatabase.families():
+            QFontDatabase.addApplicationFont(str(font_path))
+        self.setFont(QFont("Microsoft YaHei UI", 10))
         self.database = database
-        self.settings = QSettings("EFTCalculator", "EFTCalculator")
+        self._restoring_session = True
+        settings_directory = os.getenv("EFT_TEST_SETTINGS_DIRECTORY")
+        self.settings = (QSettings(str(Path(settings_directory)/"EFTCalculator.ini"), QSettings.Format.IniFormat)
+                         if settings_directory else QSettings("EFTCalculator", "EFTCalculator"))
         requested_locale = os.getenv("EFT_CALCULATOR_LANG") or str(
             self.settings.value("language", "system")
         )
@@ -177,6 +187,11 @@ class MainWindow(QMainWindow):
         self._restore_settings()
         self._refresh_ammo()
         self._reset_all()
+        self._restore_session()
+        self._restoring_session = False
+        self._schedule_analysis()
+        if database.recovery_backup:
+            self.status.setText(self._t("损坏数据库已完整保存在 {path}，当前使用离线目录。", path=database.recovery_backup))
         QTimer.singleShot(900, self._load_cached_snapshot)
 
     def _t(self, source: str, **values: object) -> str:
@@ -471,6 +486,7 @@ class MainWindow(QMainWindow):
         self.metric_grid = metrics
         self.metric_cards = []
         self.result_values: dict[str, QLabel] = {}
+        self.result_labels: dict[str, QLabel] = {}
         for index, (key, title) in enumerate(
             (
                 ("three", "3 发内至少穿透一次"),
@@ -493,6 +509,7 @@ class MainWindow(QMainWindow):
             self.metric_cards.append(card)
             metrics.addWidget(card, index // 3, index % 3)
             self.result_values[key] = value
+            self.result_labels[key] = label
         layout.addLayout(metrics)
         self.audit_context = QLabel()
         self.audit_context.setWordWrap(True)
@@ -627,20 +644,10 @@ class MainWindow(QMainWindow):
         self.global_search.setCompleter(self.ammo_completer)
         self.caliber_filter = QComboBox()
         self.caliber_filter.addItem("全部口径", "")
-        for caliber in (
-            "5.56x45",
-            "5.45x39",
-            "7.62x39",
-            "7.62x51",
-            "7.62x54R",
-            "9x19",
-            ".300 BLK",
-            "4.6x30",
-            "5.7x28",
-            "5.8x42",
-            ".45 ACP",
-            "12/70",
-        ):
+        preferred = ("5.56x45", "5.45x39", "7.62x39", "7.62x51", "7.62x54R", "9x19", ".300 BLK", "4.6x30", "5.7x28", "5.8x42", ".45 ACP", "12/70")
+        calibers = {display_caliber(ammo.caliber) for ammo in self.database.all_ammo()}
+        ordered = [value for value in preferred if value in calibers] + sorted(calibers-set(preferred))
+        for caliber in ordered:
             self.caliber_filter.addItem(caliber, caliber)
         self.caliber_filter.currentIndexChanged.connect(self._refresh_ammo)
         self.caliber_filter.hide()
@@ -1415,13 +1422,16 @@ class MainWindow(QMainWindow):
             simulation_iterations=iterations or self.iterations.currentData(), random_seed=20260916)
 
     def _schedule_analysis(self, *_args) -> None:
+        if self._restoring_session:
+            return
+        self._save_session()
         self._generation += 1
         if self.worker:
             self.worker.cancelled = True
         self.current_result = None
         self.current_scenario = None
         if hasattr(self, "status"):
-            self.status.setText("参数已变更，正在重新计算；旧结果不可导出。")
+            self.status.setText(self._t("参数已变更，正在重新计算；旧结果不可导出。"))
         self._analysis_timer.start()
 
     def _analyze(self) -> None:
@@ -1447,30 +1457,31 @@ class MainWindow(QMainWindow):
         self.penetration_metric.setText(f"{result.final_penetration_probability:.1%}")
         self.conclusion.setText(result_summary(result, self.shots.value(), self._t))
         horizon = min(3, len(result.penetration_probability_by_shot))
-        self.result_values["three"].setText(f"{result.three_shot_penetration_probability:.1%} ({horizon} 发)")
+        self.result_labels["three"].setText(self._t("前 {shots} 发内至少穿透一次", shots=horizon))
+        self.result_values["three"].setText(self._t("{probability:.1%}（{shots} 发内）", probability=result.three_shot_penetration_probability, shots=horizon))
         first = result.expected_first_penetration_shot
         self.result_values["first"].setText(f"{first:.2f}" if first is not None else "—")
         self.result_values["health"].setText(f"{result.expected_health_damage:.2f}")
         self.result_values["blunt"].setText(f"{result.expected_blunt_damage:.2f}")
         self.result_values["kill"].setText(f"{result.kill_probability_by_shot[-1]:.1%}"
-            if result.kill_probability_by_shot else "不预测")
-        self.result_values["confidence"].setText(result.confidence.value)
+            if result.kill_probability_by_shot else self._t("不预测"))
+        self.result_values["confidence"].setText(self._t(result.confidence.value))
         low, high = result.penetration_confidence_interval
-        sampling = (f"抽样 {result.sample_count:,} 次，首发概率 95% 区间 {low:.1%}–{high:.1%}"
-                    if result.sample_count else "首颗弹丸解析期望（无抽样误差）")
-        self.result_context.setText(f"{result.ruleset_version}\n数据：{result.data_version}")
+        sampling = (self._t("抽样 {count:,} 次，首发概率 95% 区间 {low:.1%}–{high:.1%}", count=result.sample_count, low=low, high=high)
+                    if result.sample_count else self._t("首颗弹丸解析期望（无抽样误差）"))
+        self.result_context.setText(self._t("{ruleset}\n数据：{data}", ruleset=result.ruleset_version, data=result.data_version))
         conditional = result.conditional_penetrating_damage
-        conditional_text = f"{conditional:.2f}" if conditional is not None else "N/A"
+        conditional_text = f"{conditional:.2f}" if conditional is not None else "—"
         self.audit_context.setText(
-            f"\u6210\u529f\u7a7f\u900f\u65f6\u9996\u53d1\u8089\u4f24\u5408\u8ba1\uff1a{conditional_text}\n"
-            f"{sampling}\n整轮总伤害期望 {result.expected_burst_total_damage:.2f}；"
-            "上方肉伤/钝伤仅指首发。首穿均值仅统计本轮内发生穿透的轨迹。\n"
-            "霰弹全部弹丸命中同一路径，逐颗结算。游戏模型仍是社区近似，不含跳弹/碎裂/黑肢扩散。"
-            + ("\n" + "\n".join(result.warnings[:-1]) if len(result.warnings)>1 else ""))
+            self._t("成功穿透时首发肉伤合计：{damage}\n", damage=conditional_text)
+            + sampling + "\n"
+            + self._t("整轮总伤害期望 {damage:.2f}；上方肉伤/钝伤仅指首发。首穿均值仅统计本轮内发生穿透的轨迹。", damage=result.expected_burst_total_damage)
+            + "\n" + self._t("霰弹全部弹丸命中同一路径，逐颗结算。游戏模型仍是社区近似，不含跳弹/碎裂/黑肢扩散。")
+            + ("\n" + "\n".join(self._t(warning) for warning in result.warnings[:-1]) if len(result.warnings)>1 else ""))
         self._fill_layer_results(result)
         self._fill_burst_results(result)
         self._plot_result(result)
-        self.status.setText("计算完成 · 参数、曲线和导出对应同一快照。")
+        self.status.setText(self._t("计算完成 · 参数、曲线和导出对应同一快照。"))
 
     def _set_empty_result_state(self) -> None:
         self.current_result = None
@@ -1784,10 +1795,45 @@ class MainWindow(QMainWindow):
             self.restoreGeometry(geometry)
 
     def closeEvent(self, event) -> None:
+        self._save_session()
         if self.worker:
             self.worker.cancelled = True
         self.settings.setValue("geometry", self.saveGeometry())
         super().closeEvent(event)
+
+    def _save_session(self) -> None:
+        if self._restoring_session or self.selected_ammo is None:
+            return
+        self.database.save_session({"schema_version": 1, "ammo": asdict(self.selected_ammo),
+            "armor_layers": [asdict(layer) for layer in self.layers],
+            "distance_m": self.distance.value(), "shot_count": self.shots.value(),
+            "body_part": str(self.body_part.currentData()),
+            "enable_distance_decay": self.distance_decay.isChecked(),
+            "ruleset": self.ruleset_combo.currentData(),
+            "simulation_iterations": self.iterations.currentData(), "random_seed": 20260916})
+
+    def _restore_session(self) -> None:
+        from tarkov_sim_core.serialization import scenario_from_dict
+
+        try:
+            payload = self.database.load_session()
+            if payload is None:
+                return
+            restored = scenario_from_dict(payload)
+        except (ValueError, TypeError, KeyError, AttributeError) as exc:
+            LOGGER.warning("Saved session retained but cannot be restored: %s", exc)
+            return
+        # Resolve current catalogue values for real items; custom overrides retain their inputs.
+        selected = next((item for item in self.database.all_ammo() if item.id == restored.ammo.id), restored.ammo)
+        self._set_selected_ammo(selected)
+        self.layers = [layer.clone() for layer in restored.armor_layers]
+        self.distance.setValue(round(restored.distance_m))
+        self.shots.setValue(restored.shot_count)
+        self.body_part.setCurrentIndex(max(0, self.body_part.findData(restored.body_part)))
+        self.distance_decay.setChecked(restored.enable_distance_decay)
+        self.ruleset_combo.setCurrentIndex(max(0, self.ruleset_combo.findData(payload.get("ruleset", "current"))))
+        self.iterations.setCurrentIndex(max(0, self.iterations.findData(restored.simulation_iterations)))
+        self._refresh_layers()
 
 
     def _launch_worker(self, scenario: ShotScenario, *, preview: bool) -> None:

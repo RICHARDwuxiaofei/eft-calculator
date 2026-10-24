@@ -1,5 +1,8 @@
 # Validation audit - 2026-09-18
 
+Historical evidence for v2.2.2. Current re-audit, new independent vectors, runtime
+results and unresolved source conflicts: [AUDIT_2026-10-25.md](AUDIT_2026-10-25.md).
+
 This audit was performed for the 2.2.2 chart/data correction.  It separates
 **public item data**, **documented game rules**, and **community-model assumptions**
 so passing tests are not misrepresented as access to proprietary server code.

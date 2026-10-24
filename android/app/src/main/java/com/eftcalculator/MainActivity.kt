@@ -3,10 +3,12 @@ package com.eftcalculator
 import android.content.Context
 import android.graphics.BitmapFactory
 import android.os.Bundle
+import android.content.res.Configuration
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -34,6 +36,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.core.view.WindowCompat
 import androidx.window.core.layout.WindowSizeClass
 import com.eftcalculator.data.AmmoEntity
 import org.json.JSONObject
@@ -43,6 +46,8 @@ import kotlin.math.roundToInt
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        WindowCompat.getInsetsController(window, window.decorView).isAppearanceLightStatusBars =
+            resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK != Configuration.UI_MODE_NIGHT_YES
         setContent { EftCalculatorApp() }
     }
 }
@@ -51,6 +56,14 @@ private fun text(en: String, zh: String) = if (Locale.getDefault().language.star
 private fun number(value: Double) = String.format(Locale.ROOT, "%.1f", value)
 private fun percent(value: Double) = number(value * 100) + "%"
 private fun AmmoEntity.displayName() = if (Locale.getDefault().language.startsWith("zh")) nameZh ?: name else name
+private fun materialName(value: String) = text(value, mapOf("ceramic" to "陶瓷", "steel" to "装甲钢", "aramid" to "芳纶", "uhmwpe" to "超高分子量聚乙烯", "titanium" to "钛", "combined" to "复合材料", "aluminum" to "铝", "glass" to "防弹玻璃")[value] ?: value)
+private fun warningText(value: String) = text(value, mapOf(
+    "Stomach: no death prediction; black-limb overflow is not modeled." to "腹部不预测致死；尚未模拟黑肢伤害扩散。",
+    "Distance decay is a linear sensitivity estimate, NOT verified EFT flight physics." to "距离衰减为线性敏感性估算，尚未经游戏弹道验证。",
+    "Distance decay disabled: calculations use muzzle damage/penetration." to "距离衰减已关闭，当前使用枪口处的伤害与穿深。",
+    "Backing-soft-armor blunt attenuation is not modeled; blunt damage is approximate." to "尚未模拟后方软甲对钝伤的衰减，钝伤数值为近似值。",
+    "All pellets hit this same chosen armor path; no spread or partial-hit selection." to "全部弹丸命中所选护甲路径，未模拟散布或部分命中。"
+)[value] ?: value)
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -65,7 +78,7 @@ fun EftCalculatorApp(vm: MainViewModel = viewModel()) {
     var dataInfo by remember { mutableStateOf(false) }
     val wide = currentWindowAdaptiveInfo().windowSizeClass
         .isWidthAtLeastBreakpoint(WindowSizeClass.WIDTH_DP_EXPANDED_LOWER_BOUND)
-    MaterialTheme(colorScheme = darkColorScheme(primary = Color(0xFFF0C36A), surface = Color(0xFF171C21))) {
+    MaterialTheme(colorScheme = if (isSystemInDarkTheme()) darkColorScheme(primary = Color(0xFFF0C36A), surface = Color(0xFF171C21)) else lightColorScheme(primary = Color(0xFF775A18))) {
         Scaffold(topBar = {
             TopAppBar(title = { Text("EFT Calculator", fontWeight = FontWeight.Bold) }, actions = {
                 IconButton(onClick = { search = true }) { Icon(Icons.Default.Search, stringResource(R.string.search)) }
@@ -91,6 +104,15 @@ fun EftCalculatorApp(vm: MainViewModel = viewModel()) {
                     }
                     Column(Modifier.weight(0.58f).fillMaxHeight().verticalScroll(rememberScrollState())) { Results(state, vm::simulate) }
                 } else LazyColumn(Modifier.padding(padding).fillMaxSize().padding(12.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
+                    item {
+                        Card(Modifier.fillMaxWidth()) {
+                            Column(Modifier.padding(12.dp)) {
+                                Text(text("First-trigger penetration · expected total damage", "首发穿透率 · 首发期望总伤害"), fontSize = 12.sp)
+                                Text(state.result?.let { "${percent(it.penetration)} · ${number(it.healthDamage + it.bluntDamage)}" } ?: "—",
+                                    style = MaterialTheme.typography.headlineMedium, color = MaterialTheme.colorScheme.primary)
+                            }
+                        }
+                    }
                     item { Inputs(state, vm, { search = true }, { armor = true }) }
                     item { Results(state, vm::simulate) }
                 }
@@ -103,30 +125,48 @@ fun EftCalculatorApp(vm: MainViewModel = viewModel()) {
         }
         if (search) AmmoPicker(ammo, vm.query.value, { vm.query.value = it }, { vm.selectAmmo(it); search = false }, { search = false })
         if (armor) ArmorEditor(state.armor, vm, { armor = false })
-        if (dataInfo) AlertDialog(onDismissRequest = { dataInfo = false }, confirmButton = { TextButton(onClick = { dataInfo = false }) { Text("OK") } },
+        if (dataInfo) AlertDialog(onDismissRequest = { dataInfo = false }, confirmButton = { TextButton(onClick = { dataInfo = false }) { Text(text("Close", "关闭")) } },
             title = { Text(stringResource(R.string.settings_data)) }, text = { Text(text(
-                "Offline Wiki-reviewed snapshot: 2026-09-16. Live sync only replaces data after validation. An unavailable endpoint never replaces the cache with an older fallback. Exact item-ID icons; missing images show ?. Community armor model, not a verified current-server replica. See docs/RESEARCH.md.",
-                "\u79bb\u7ebf Wiki \u6838\u5bf9\u5feb\u7167\uff1a2026-09-16\u3002\u8054\u7f51\u540c\u6b65\u5fc5\u987b\u5148\u901a\u8fc7\u9a8c\u8bc1\uff1b\u63a5\u53e3\u5931\u8d25\u4e0d\u4f1a\u7528\u65e7\u5907\u7528\u6e90\u8986\u76d6\u7f13\u5b58\u3002\u56fe\u6807\u6309\u7269\u54c1 ID \u7ed1\u5b9a\uff0c\u7f3a\u56fe\u663e\u793a\u95ee\u53f7\u3002\u62a4\u7532\u6a21\u578b\u4e3a\u793e\u533a\u8fd1\u4f3c\uff0c\u672a\u8bc1\u5b9e\u4e0e\u5f53\u524d\u670d\u52a1\u5668\u5b8c\u5168\u4e00\u81f4\u3002\u8be6\u89c1 docs/RESEARCH.md\u3002")) })
+                "Item identities reviewed 2026-10-25. Three source conflicts remain documented; damage/wear values were retained. Live sync retains offline data on failure. Exact item-ID icons. Community armor model. See docs/AUDIT_2026-10-25.md.",
+                "物品身份核对日期：2026-10-25。已记录三项来源冲突，未擅自覆盖伤害等数值。同步失败保留离线数据。图片按物品 ID 绑定。护甲模型为社区近似，未证实与当前服务器完全一致。详见 docs/AUDIT_2026-10-25.md。")) })
     }
 }
 
 @Composable
 private fun Inputs(state: CalculatorState, vm: MainViewModel, onSearch: () -> Unit, onArmor: () -> Unit) {
+    var advanced by rememberSaveable { mutableStateOf(false) }
+    val context = LocalContext.current
+    val armorCatalog = remember { loadArmor(context) }
     Card(Modifier.fillMaxWidth()) {
         Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(10.dp)) {
             Text(stringResource(R.string.query_parameters), style = MaterialTheme.typography.titleLarge)
             Button(onClick = onSearch, modifier = Modifier.fillMaxWidth()) { Text(state.selectedAmmo?.let { "${it.shortName} | ${it.caliber}" } ?: stringResource(R.string.choose_ammo)) }
             state.selectedAmmo?.let { item ->
-                ItemIcon(item.id.removePrefix("custom-"), "ammo", item.name)
-                Text("${item.displayName()}\nDMG ${number(item.damage)} | PEN ${number(item.penetrationPower)} | AD ${number(item.armorDamagePercent)}%")
-                Text(text("${item.projectileCount} projectiles per trigger; ALL hit the same path.", "\u6bcf\u53d1 ${item.projectileCount} \u9897\u5f39\u4e38\uff0c\u5168\u90e8\u547d\u4e2d\u540c\u4e00\u8def\u5f84\u3002"))
+                Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                    ItemIcon(item.id.removePrefix("custom-"), "ammo", item.name)
+                    Text(item.displayName(), modifier = Modifier.weight(1f))
+                }
+                Text(text("Damage ${number(item.damage)} | Pen ${number(item.penetrationPower)} | Armor damage ${number(item.armorDamagePercent)}%", "伤害 ${number(item.damage)} | 穿深 ${number(item.penetrationPower)} | 甲伤 ${number(item.armorDamagePercent)}%"))
+                if (item.projectileCount > 1) Text(text("${item.projectileCount} projectiles per trigger; ALL hit the same path.", "每发 ${item.projectileCount} 颗弹丸，全部命中同一路径。"), fontSize = 12.sp)
             }
-            TextButton(onClick = vm::toggleFavorite, enabled = state.selectedAmmo != null) { Text(stringResource(R.string.toggle_favorite)) }
             Button(onClick = onArmor, modifier = Modifier.fillMaxWidth()) { Text(stringResource(R.string.armor_layers) + " (${state.armor.size})") }
             state.armor.forEachIndexed { i, layer ->
-                ItemIcon(layer.itemId, "armor", layer.name)
-                Text("${i + 1}. ${if (layer.enabled) "" else "[OFF] "}${layer.name}\nClass ${layer.armorClass} | ${layer.material} | ${number(layer.durability.toDouble())}/${number(layer.repairedMaximum.toDouble())} (original ${number(layer.maximum.toDouble())})", fontSize = 12.sp)
+                val known = armorCatalog.firstOrNull { it.id == layer.itemId }
+                val label = if (known != null && layer.name in listOf(known.nameEn, known.nameZh, "SAPI level III+ ballistic plate")) text(known.nameEn, known.nameZh) else layer.name
+                if (i > 0) Text("↓", color = MaterialTheme.colorScheme.primary)
+                Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                    ItemIcon(layer.itemId, "armor", layer.name)
+                    Column(Modifier.weight(1f)) {
+                        Text("${i + 1}. ${if (layer.enabled) "" else text("[Disabled] ", "[已停用] ")}$label", fontWeight = FontWeight.Bold)
+                        Text(text("Class ${layer.armorClass}", "${layer.armorClass} 级") + " | ${materialName(layer.material)} | ${number(layer.durability.toDouble())}/${number(layer.repairedMaximum.toDouble())} " + text("(original ${number(layer.maximum.toDouble())})", "（出厂 ${number(layer.maximum.toDouble())}）"), fontSize = 12.sp)
+                    }
+                }
             }
+            Text(stringResource(R.string.burst_value, state.shots))
+            Slider(value = state.shots.toFloat(), onValueChange = { vm.updateConditions(shots = it.roundToInt().coerceIn(1, 20)) }, valueRange = 1f..20f, steps = 18)
+            TextButton(onClick = { advanced = !advanced }) { Text(if (advanced) text("Hide advanced settings", "收起专业参数") else text("Body part, distance and reset settings", "命中部位、距离与重置设置")) }
+            if (advanced) {
+            TextButton(onClick = vm::toggleFavorite, enabled = state.selectedAmmo != null) { Text(stringResource(R.string.toggle_favorite)) }
             FlowRow(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
                 TextButton(onClick = vm::resetAmmo) { Text(stringResource(R.string.reset_ammo)) }
                 TextButton(onClick = vm::resetArmor) { Text(stringResource(R.string.reset_armor)) }
@@ -140,8 +180,7 @@ private fun Inputs(state: CalculatorState, vm: MainViewModel, onSearch: () -> Un
             }
             Text(stringResource(R.string.distance_value, state.distance))
             Slider(value = state.distance.toFloat(), onValueChange = { vm.updateConditions(distance = it.roundToInt()) }, valueRange = 0f..1000f, enabled = state.distanceDecay)
-            Text(stringResource(R.string.burst_value, state.shots))
-            Slider(value = state.shots.toFloat(), onValueChange = { vm.updateConditions(shots = it.roundToInt().coerceIn(1, 20)) }, valueRange = 1f..20f, steps = 18)
+            }
         }
     }
 }
@@ -149,6 +188,7 @@ private fun Inputs(state: CalculatorState, vm: MainViewModel, onSearch: () -> Un
 @Composable
 private fun Results(state: CalculatorState, onSimulate: () -> Unit) {
     val r = state.result
+    var details by rememberSaveable { mutableStateOf(false) }
     Card(Modifier.fillMaxWidth()) {
         Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
             Text(stringResource(R.string.first_shot_all_armor))
@@ -158,11 +198,13 @@ private fun Results(state: CalculatorState, onSimulate: () -> Unit) {
             if (r == null) Text(if (state.calculating) stringResource(R.string.calculating) else stringResource(R.string.choose_ammo_auto))
             else {
                 Text(text("First-trigger expected flesh / blunt damage", "\u9996\u53d1\u671f\u671b\u8089\u4f24 / \u949d\u4f24") + ": ${number(r.healthDamage)} / ${number(r.bluntDamage)}")
-                Text(text("Flesh damage conditional on penetration (all penetrating pellets)", "\u6210\u529f\u7a7f\u900f\u65f6\u7684\u8089\u4f24\u5408\u8ba1\uff08\u542b\u5168\u90e8\u7a7f\u900f\u5f39\u4e38\uff09") + ": ${r.conditionalDamage?.let(::number) ?: "N/A"}")
+                Text(text("Flesh damage conditional on penetration (all penetrating pellets)", "\u6210\u529f\u7a7f\u900f\u65f6\u7684\u8089\u4f24\u5408\u8ba1\uff08\u542b\u5168\u90e8\u7a7f\u900f\u5f39\u4e38\uff09") + ": ${r.conditionalDamage?.let(::number) ?: "—"}")
                 Text(text("At least one penetration in first ${minOf(3, state.shots)} triggers", "\u524d ${minOf(3, state.shots)} \u53d1\u81f3\u5c11\u4e00\u6b21\u7a7f\u900f") + ": ${percent(r.threeShot)}")
                 Text(text("Entire burst expected damage", "\u6574\u8f6e\u603b\u4f24\u5bb3\u671f\u671b") + ": ${number(r.burstDamage)}")
-                Text(if (r.samples == 0) text("Exact single-projectile expectation", "\u5355\u5f39\u4e38\u89e3\u6790\u671f\u671b") else "N=${r.samples}; 95% CI ${percent(r.intervalLow)} - ${percent(r.intervalHigh)}")
+                Text(if (r.samples == 0) text("Exact single-projectile expectation", "\u5355\u5f39\u4e38\u89e3\u6790\u671f\u671b") else text("${r.samples} samples; 95% CI ${percent(r.intervalLow)} - ${percent(r.intervalHigh)}", "抽样 ${r.samples} 次；95% 置信区间 ${percent(r.intervalLow)} - ${percent(r.intervalHigh)}"))
                 Text(text("Community model uncertainty is NOT included in the sampling interval.", "\u62bd\u6837\u533a\u95f4\u4e0d\u5305\u542b\u6e38\u620f\u6a21\u578b\u7684\u4e0d\u786e\u5b9a\u6027\u3002"), fontSize = 12.sp)
+                TextButton(onClick = { details = !details }) { Text(if (details) text("Hide detailed charts and layers", "收起图表与分层详情") else text("Show charts and layer details", "展开图表与分层详情")) }
+                if (details) {
                 Text("${r.rulesetVersion}\n${r.dataVersion}", fontSize = 11.sp)
                 Text(text("Per-trigger penetration (%)", "\u9010\u53d1\u7a7f\u900f\u6982\u7387 (%)"))
                 LineChart(listOf(r.burst.map { it.penetrationPercent }), 100.0, 1)
@@ -175,8 +217,9 @@ private fun Results(state: CalculatorState, onSimulate: () -> Unit) {
                 Text(text("Layer table: FIRST projectile only", "\u5206\u5c42\u8be6\u60c5\uff1a\u4ec5\u9996\u9897\u5f39\u4e38"), fontWeight = FontWeight.Bold)
                 r.layers.forEach { Text("${it.name}: ${number(it.penetrationPercent)}% | ${number(it.durabilityAfter)}", fontSize = 12.sp) }
                 Text(text("Trigger | penetration | cumulative kill probability", "\u53d1\u6570 | \u7a7f\u900f | \u7d2f\u8ba1\u81f4\u6b7b\u6982\u7387"), fontWeight = FontWeight.Bold)
-                r.burst.forEach { Text("${it.shot} | ${number(it.penetrationPercent)}% | ${it.killPercent?.let { v -> number(v) + "%" } ?: "N/A"}", fontSize = 12.sp) }
-                r.warnings.forEach { Text(it, fontSize = 11.sp) }
+                r.burst.forEach { Text("${it.shot} | ${number(it.penetrationPercent)}% | ${it.killPercent?.let { v -> number(v) + "%" } ?: text("Not modeled", "未建模")}", fontSize = 12.sp) }
+                }
+                r.warnings.forEach { Text(warningText(it), fontSize = 11.sp) }
             }
             Button(onClick = onSimulate, enabled = !state.calculating && state.selectedAmmo != null) { Text(stringResource(R.string.run_monte_carlo)) }
         }
@@ -216,7 +259,7 @@ private fun AmmoRow(item: AmmoEntity, onSelect: () -> Unit) {
             ItemIcon(item.id, "ammo", item.name)
             Column(Modifier.weight(1f)) {
                 Text(item.displayName())
-                Text("${item.caliber} | DMG ${number(item.damage)} | PEN ${number(item.penetrationPower)} | AD ${number(item.armorDamagePercent)}% | x${item.projectileCount}", fontSize = 11.sp)
+                Text("${displayCaliber(item.caliber)} | " + text("DMG", "伤害") + " ${number(item.damage)} | " + text("PEN", "穿深") + " ${number(item.penetrationPower)} | " + text("AD", "甲伤") + " ${number(item.armorDamagePercent)}% | ×${item.projectileCount}", fontSize = 11.sp)
             }
         }
     }
@@ -226,14 +269,14 @@ private fun AmmoRow(item: AmmoEntity, onSelect: () -> Unit) {
 @Composable
 private fun AmmoPicker(ammo: List<AmmoEntity>, query: String, onQuery: (String) -> Unit, onSelect: (AmmoEntity) -> Unit, onDismiss: () -> Unit) {
     var caliber by remember { mutableStateOf("") }
-    val calibers = ammo.map { it.caliber }.distinct().sorted()
+    val calibers = ammo.map { displayCaliber(it.caliber) }.distinct().sorted()
     ModalBottomSheet(onDismissRequest = onDismiss, sheetState = rememberModalBottomSheetState(skipPartiallyExpanded = true)) {
         Column(Modifier.fillMaxWidth().fillMaxHeight(0.9f).padding(16.dp), verticalArrangement = Arrangement.spacedBy(10.dp)) {
             Text(stringResource(R.string.choose_ammo), style = MaterialTheme.typography.titleLarge)
             TextField(value = query, onValueChange = onQuery, label = { Text(stringResource(R.string.search)) }, modifier = Modifier.fillMaxWidth(), singleLine = true)
             Selector(text("Caliber", "\u53e3\u5f84"), caliber, listOf("" to text("All calibers", "\u5168\u90e8\u53e3\u5f84")) + calibers.map { it to it }) { caliber = it }
             LazyColumn(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(6.dp)) {
-                items(ammo.filter { caliber.isEmpty() || it.caliber == caliber }, key = { it.id }) { AmmoRow(it) { onSelect(it) } }
+                items(ammo.filter { caliberMatches(it.caliber, caliber) }, key = { it.id }) { AmmoRow(it) { onSelect(it) } }
             }
         }
     }
@@ -272,7 +315,7 @@ private fun ArmorEditor(layers: List<ArmorInput>, vm: MainViewModel, onDismiss: 
     var filterMaterial by remember { mutableStateOf("") }
     val materials = listOf("aramid", "uhmwpe", "combined", "titanium", "aluminum", "steel", "ceramic", "glass")
     val o = original.toFloatOrNull()?.takeIf { it.isFinite() && it > 0f && it <= 10000f }
-    val r = repaired.toFloatOrNull()?.takeIf { it.isFinite() && it >= 0f && o != null && it <= o }
+    val r = repaired.toFloatOrNull()?.takeIf { it.isFinite() && it > 0f && o != null && it <= o }
     val d = durability.toFloatOrNull()?.takeIf { it.isFinite() && it >= 0f && r != null && it <= r }
     val b = throughput.toDoubleOrNull()?.takeIf { it.isFinite() && it in 0.0..100.0 }
     val valid = o != null && r != null && d != null && b != null && name.isNotBlank()
@@ -289,10 +332,10 @@ private fun ArmorEditor(layers: List<ArmorInput>, vm: MainViewModel, onDismiss: 
                 TextButton(onClick = { vm.removeArmor(selected); index = 0 }, enabled = layers.isNotEmpty()) { Text(text("Remove", "\u5220\u9664")) }
             }
             Row(verticalAlignment = Alignment.CenterVertically) { Checkbox(enabled, { enabled = it }); Text(text("Layer enabled", "\u542f\u7528\u6b64\u5c42")) }
-            Selector(text("Preset class filter", "\u9884\u8bbe\u7b5b\u9009\uff1a\u7b49\u7ea7"), filterClass, listOf("" to "All") + (1..6).map { it.toString() to it.toString() }) { filterClass = it }
-            Selector(text("Preset material filter", "\u9884\u8bbe\u7b5b\u9009\uff1a\u6750\u8d28"), filterMaterial, listOf("" to "All") + materials.map { it to it }) { filterMaterial = it }
+            Selector(text("Preset class filter", "\u9884\u8bbe\u7b5b\u9009\uff1a\u7b49\u7ea7"), filterClass, listOf("" to text("All", "全部")) + (1..6).map { it.toString() to it.toString() }) { filterClass = it }
+            Selector(text("Preset material filter", "\u9884\u8bbe\u7b5b\u9009\uff1a\u6750\u8d28"), filterMaterial, listOf("" to text("All", "全部")) + materials.map { it to materialName(it) }) { filterMaterial = it }
             val options = catalog.filter { (filterClass.isEmpty() || it.armorClass.toString() == filterClass) && (filterMaterial.isEmpty() || it.material == filterMaterial) }
-            Selector(text("Verified plate presets", "\u5df2\u6838\u5bf9\u63d2\u677f\u9884\u8bbe"), presetId, listOf("" to text("Custom / select", "\u81ea\u5b9a\u4e49 / \u9009\u62e9")) + options.map { it.id to "${it.nameZh} | ${it.armorClass} | ${it.material} | ${it.durability}" }) { id ->
+            Selector(text("Verified plate presets", "\u5df2\u6838\u5bf9\u63d2\u677f\u9884\u8bbe"), presetId, listOf("" to text("Custom / select", "\u81ea\u5b9a\u4e49 / \u9009\u62e9")) + options.map { it.id to "${text(it.nameEn, it.nameZh)} | ${it.armorClass} | ${materialName(it.material)} | ${it.durability}" }) { id ->
                 presetId = id
                 catalog.firstOrNull { it.id == id }?.let { p ->
                     armorClass = p.armorClass; material = p.material; name = text(p.nameEn, p.nameZh)
@@ -301,9 +344,9 @@ private fun ArmorEditor(layers: List<ArmorInput>, vm: MainViewModel, onDismiss: 
             }
             if (presetId.isNotEmpty()) ItemIcon(presetId, "armor", name)
             TextField(name, { name = it }, label = { Text(stringResource(R.string.layer_name)) }, modifier = Modifier.fillMaxWidth())
-            Selector(text("Layer type", "\u9632\u62a4\u5c42\u7c7b\u578b"), layerType, listOf("plate" to "Plate", "soft" to "Soft armor", "helmet" to "Helmet (no ricochet)")) { layerType = it; presetId = "" }
+            Selector(text("Layer type", "\u9632\u62a4\u5c42\u7c7b\u578b"), layerType, listOf("plate" to text("Plate", "插板"), "soft" to text("Soft armor", "软甲"), "helmet" to text("Helmet (no ricochet)", "头盔（不模拟跳弹）"))) { layerType = it; presetId = "" }
             FlowRow(horizontalArrangement = Arrangement.spacedBy(5.dp)) { (1..6).forEach { n -> FilterChip(selected = armorClass == n, onClick = { armorClass = n; presetId = ""; name = text("Custom armor", "\u81ea\u5b9a\u4e49\u62a4\u7532") }, label = { Text(n.toString()) }) } }
-            Selector(text("Material", "\u6750\u8d28"), material, materials.map { it to it }) { material = it; presetId = ""; name = text("Custom armor", "\u81ea\u5b9a\u4e49\u62a4\u7532") }
+            Selector(text("Material", "\u6750\u8d28"), material, materials.map { it to materialName(it) }) { material = it; presetId = ""; name = text("Custom armor", "\u81ea\u5b9a\u4e49\u62a4\u7532") }
             TextField(original, { original = it }, label = { Text(stringResource(R.string.original_durability)) }, modifier = Modifier.fillMaxWidth(), singleLine = true)
             TextField(repaired, { repaired = it }, label = { Text(text("Repaired maximum", "\u4fee\u540e\u8010\u4e45\u4e0a\u9650")) }, modifier = Modifier.fillMaxWidth(), singleLine = true)
             TextField(durability, { durability = it }, label = { Text(stringResource(R.string.current_durability)) }, modifier = Modifier.fillMaxWidth(), singleLine = true)
