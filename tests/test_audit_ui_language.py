@@ -24,3 +24,16 @@ def test_english_dynamic_controls_tables_and_chart_labels(qtbot, tmp_path, monke
     assert not [text for text in texts if re.search(r"[\u4e00-\u9fff]", text)]
     window.close()
     window.thread_pool.waitForDone(10000)
+
+
+def test_initial_wide_show_uses_actual_result_viewport_width(qtbot, tmp_path):
+    _, window = create_application(Database(tmp_path/"first-show.sqlite3"))
+    qtbot.addWidget(window)
+    window.resize(1920, 1080)
+    window.show()
+    qtbot.wait(60)
+    assert window.results_scroll.width() >= 800
+    assert window.metric_grid.itemAtPosition(0, 2) is not None
+    assert window.metric_grid.itemAtPosition(1, 2) is not None
+    window.close()
+    window.thread_pool.waitForDone(10000)

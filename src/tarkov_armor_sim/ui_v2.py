@@ -1912,6 +1912,11 @@ class MainWindow(QMainWindow):
         self.data_version_label.setVisible(self.width() >= 600)
         self.input_panel.setMinimumWidth(0)
         self.results_panel.setMinimumWidth(0)
+        # Initial show/resize happens before the child scroll viewport is laid out.
+        # Reflow on the next event turn using its actual width, not the stale width.
+        QTimer.singleShot(0, self._reflow_result_cards)
+
+    def _reflow_result_cards(self) -> None:
         if hasattr(self, "common_buttons"):
             columns = 1 if self.results_scroll.width() < 480 else 3
             for index, button in enumerate(self.common_buttons):

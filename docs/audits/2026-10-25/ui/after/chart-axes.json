@@ -1,0 +1,7 @@
+{
+  "shot_count": 3,
+  "probability_view_range": [[0.5, 3.5], [0.0, 100.0]],
+  "durability_view_range": [[0.0, 3.0], [0.0, 47.25]],
+  "durability_sweep_view_range": [[0.0, 45.0], [0.0, 100.0]],
+  "meaning": "Actual Qt ViewBox ranges; probability units are percent. Half-step padding surrounds trigger positions 1 through 3."
+}
