@@ -34,7 +34,7 @@ EN_US: dict[str, str] = {
     "玻璃": "Glass",
     "超高分子量聚乙烯": "UHMWPE",
     "未知材料": "Unknown material",
-    "伤害 {damage:g}  穿深 {penetration:g}\n甲伤 {armor:g}%  弹丸 {pellets} (全命中)": "Damage {damage:g}  Pen {penetration:g}\nArmor damage {armor:g}%  Pellets {pellets} (all hit)",
+    "伤害 {damage:g}  穿深 {penetration:g}\n甲伤 {armor:g}%  弹丸 {pellets} (全命中)": "Damage {damage:g}  Pen {penetration:g}\nArmor damage {armor:g}% · {pellets} pellets",
     "{name}\n当前 {current:g} / 维修 {repaired:g} / 出厂 {original:g} · 实际 {ratio:.1%}": "{name}\nCurrent {current:g} / repaired {repaired:g} / original {original:g} · ratio {ratio:.1%}",
     "每发至少一颗弹丸穿透全部选定层": "At least one projectile passes all layers per trigger",
     "穿透概率": "Penetration probability",

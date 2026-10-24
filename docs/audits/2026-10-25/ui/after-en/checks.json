@@ -2,26 +2,26 @@
   {
     "width": 1280,
     "height": 720,
-    "input_minimum_width": 350
+    "input_minimum_width": 330
   },
   {
     "width": 1920,
     "height": 1080,
-    "input_minimum_width": 350
+    "input_minimum_width": 330
   },
   {
     "width": 2560,
     "height": 1440,
-    "input_minimum_width": 350
+    "input_minimum_width": 330
   },
   {
     "width": 390,
     "height": 844,
-    "input_minimum_width": 350
+    "input_minimum_width": 330
   },
   {
     "width": 360,
     "height": 640,
-    "input_minimum_width": 350
+    "input_minimum_width": 330
   }
 ]
