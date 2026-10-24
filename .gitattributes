@@ -8,6 +8,8 @@
 *.yaml text eol=lf
 *.md text eol=lf
 *.json text eol=lf
+docs/audits/**/*.xml text eol=lf
+docs/audits/**/*.txt text eol=lf
 
 *.png binary
 *.ico binary

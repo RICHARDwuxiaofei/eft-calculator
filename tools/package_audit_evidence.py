@@ -32,7 +32,7 @@ def main():
     (SOURCE/"packaging.json").write_text(json.dumps(packaging,indent=2)+"\n",encoding="utf-8")
     files = ["inventory.json","item-pages.json","applied-data-diff.json","numerical.json","online-images.json","packaging.json","pytest.xml"]
     files += [str(path.relative_to(SOURCE)) for path in SOURCE.glob("image-contact-*.png")]
-    for folder in ("ui/before","ui/after","android-runtime","android-before","android-dark","windows-runtime"):
+    for folder in ("ui/before","ui/after","ui/after-en","android-runtime","android-before","android-dark","windows-runtime"):
         files += [str(path.relative_to(SOURCE)) for path in (SOURCE/folder).glob("*") if path.suffix in (".png", ".xml", ".json") or path.name == "instrumentation.txt"]
     for relative in files:
         target = TARGET/relative

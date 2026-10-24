@@ -197,6 +197,11 @@ class MainWindow(QMainWindow):
     def _t(self, source: str, **values: object) -> str:
         return self.i18n.translate(source, **values)
 
+    def _material_text(self, value: str) -> str:
+        names = {"ceramic":"陶瓷", "steel":"钢", "aramid":"芳纶", "uhmwpe":"超高分子量聚乙烯",
+                 "titanium":"钛", "aluminum":"铝", "glass":"玻璃", "combined":"复合"}
+        return self._t(names.get(value, "未知材料"))
+
     def _translate_widget_tree(self, root: QWidget) -> None:
         widgets = [root, *root.findChildren(QWidget)]
         for widget in widgets:
@@ -222,6 +227,15 @@ class MainWindow(QMainWindow):
 
     def _apply_i18n(self) -> None:
         self._translate_widget_tree(self)
+        charts = (
+            (self.plot, "每发至少一颗弹丸穿透全部选定层", "穿透概率", "发次（扳机次数）", "%"),
+            (self.durability_plot, "射击后各层平均剩余耐久", "耐久点数", "发次；0 = 射击前", None),
+            (self.durability_sweep, "当前选中层：首颗弹丸穿透全部层的概率", "概率", "选中层当前耐久（其他层不变）", "%"),
+        )
+        for plot, title, left, bottom, units in charts:
+            plot.setTitle(self._t(title))
+            plot.setLabel("left", self._t(left), units=units)
+            plot.setLabel("bottom", self._t(bottom))
 
     def _change_language(self, locale: str) -> None:
         self.i18n.set_locale(locale)
@@ -391,6 +405,7 @@ class MainWindow(QMainWindow):
         for title, ratio in (("修满", 1.0), ("75", 0.75), ("50", 0.5), ("25", 0.25), ("损坏", 0.0)):
             button = QPushButton(title)
             button.setObjectName("ghost")
+            button.setStyleSheet("padding: 6px 4px;")
             button.clicked.connect(
                 lambda _checked=False, current=ratio: self._set_durability_ratio(current)
             )
@@ -502,8 +517,10 @@ class MainWindow(QMainWindow):
             card_layout = QVBoxLayout(card)
             label = QLabel(title)
             label.setObjectName("muted")
+            label.setWordWrap(True)
             value = QLabel("—")
             value.setObjectName("metricValue")
+            value.setWordWrap(True)
             card_layout.addWidget(label)
             card_layout.addWidget(value)
             self.metric_cards.append(card)
@@ -741,7 +758,7 @@ class MainWindow(QMainWindow):
         self.plate_material_filter = QComboBox()
         self.plate_material_filter.addItem("全部材质", "")
         for value in MATERIAL_DESTRUCTIBILITY:
-            self.plate_material_filter.addItem(value, value)
+            self.plate_material_filter.addItem(self._material_text(value), value)
         self.plate_class_filter.currentIndexChanged.connect(self._armor_slot_changed)
         self.plate_material_filter.currentIndexChanged.connect(self._armor_slot_changed)
         preset_form.addRow("等级筛选", self.plate_class_filter)
@@ -1090,8 +1107,9 @@ class MainWindow(QMainWindow):
             return
         self.selected_ammo_button.setText(
             f"{ammo.short_name[:25]} \u00b7 {display_caliber(ammo.caliber)}\n"
-            f"\u4f24\u5bb3 {ammo.damage:g}  \u7a7f\u6df1 {ammo.penetration_power:g}\n"
-            f"\u7532\u4f24 {ammo.armor_damage_percent:g}%  \u5f39\u4e38 {ammo.projectile_count} (\u5168\u547d\u4e2d)"
+            + self._t("伤害 {damage:g}  穿深 {penetration:g}\n甲伤 {armor:g}%  弹丸 {pellets} (全命中)",
+                      damage=ammo.damage, penetration=ammo.penetration_power,
+                      armor=ammo.armor_damage_percent, pellets=ammo.projectile_count)
         )
         self.selected_ammo_button.setToolTip(ammo.display_name(self.i18n.locale))
         self.selected_ammo_button.setIcon(QIcon(str(self._ammo_icon(ammo))))
@@ -1256,7 +1274,7 @@ class MainWindow(QMainWindow):
                 str(row + 1),
                 self._t(layer.name),
                 str(layer.armor_class),
-                layer.material.value,
+                self._material_text(layer.material.value),
                 f"{layer.current_durability:.1f}/{layer.displayed_max_durability:.1f}/{layer.original_max_durability:.1f}",
                 self._t("启用") if layer.enabled else self._t("停用"),
             )
@@ -1295,8 +1313,10 @@ class MainWindow(QMainWindow):
         self.durability_slider.setMaximum(round(layer.displayed_max_durability / layer.original_max_durability * 1000))
         self.durability_slider.setValue(round(layer.true_durability_ratio * 1000))
         self.durability_label.setText(
-            f"{layer.name}\n当前 {layer.current_durability:g} / 维修 {layer.displayed_max_durability:g}"
-            f" / 出厂 {layer.original_max_durability:g} · 实际 {layer.true_durability_ratio:.1%}")
+            self._t("{name}\n当前 {current:g} / 维修 {repaired:g} / 出厂 {original:g} · 实际 {ratio:.1%}",
+                    name=self._t(layer.name), current=layer.current_durability,
+                    repaired=layer.displayed_max_durability, original=layer.original_max_durability,
+                    ratio=layer.true_durability_ratio))
         self._updating_durability = False
 
     def _durability_changed(self, value: int) -> None:
@@ -1502,7 +1522,7 @@ class MainWindow(QMainWindow):
         self.layer_result_table.setRowCount(len(result.layer_results))
         for row, layer in enumerate(result.layer_results):
             values = (
-                layer.name,
+                self._t(layer.name),
                 f"{layer.conditional_penetration_probability:.1%}",
                 f"{layer.cumulative_penetration_probability:.1%}",
                 f"{layer.stop_probability:.1%}",
@@ -1545,7 +1565,7 @@ class MainWindow(QMainWindow):
             self.durability_plot.plot(
                 [snapshot.shot for snapshot in result.durability_timeline],
                 [snapshot.durability[index] for snapshot in result.durability_timeline],
-                name=f"{index+1}. {layer.name}", pen=pg.intColor(index, hues=max(3,len(active))))
+                name=f"{index+1}. {self._t(layer.name)}", pen=pg.intColor(index, hues=max(3,len(active))))
         # Exact probability for the first pellet. Do not describe this as a full shell curve.
         row = self.layer_table.currentRow()
         if not 0 <= row < len(scenario.armor_layers):
@@ -1626,7 +1646,7 @@ class MainWindow(QMainWindow):
             return
         from .engine import analyze
         self.compare_table.setHorizontalHeaderLabels(
-            ["弹药", "口径", "首颗穿透", "每发弹丸数", "穿深", "首颗期望肉伤"])
+            [self._t(label) for label in ("弹药", "口径", "首颗穿透", "每发弹丸数", "穿深", "首颗期望肉伤")])
         ammo_items = self.database.all_ammo()
         self.compare_table.setSortingEnabled(False)
         self.compare_table.setRowCount(len(ammo_items))
