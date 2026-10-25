@@ -13,6 +13,7 @@
 | [`711fc02`](https://github.com/RICHARDwuxiaofei/eft-calculator/commit/711fc02c4ca94ca101a658d98fff91684a53d0f6) | 运行时翻译补全、图表/表头术语和指标换行 | 本地通过；远端发现 Linux 英文 360 像素布局超宽 4 像素，保留失败记录 |
 | [`481c754`](https://github.com/RICHARDwuxiaofei/eft-calculator/commit/481c754b9e60961b23872082beb58f6ccf8cc157) | 缩短弹药卡片重复说明，保留完整“全部命中”模型提示；不修改尺寸断言 | 远端回归、verify、Windows、Android 编译均成功；后续新提交触发并发策略，旧模拟器运行被取消 |
 | [`2fbde4f`](https://github.com/RICHARDwuxiaofei/eft-calculator/commit/2fbde4f83380e102bf07e237a32f4bfffa46e548) | 首次大窗口显示后按实际视口重新排布卡片，新增首帧回归；补充真实图表及 5.8×42 筛选截图 | 最终功能提交，本地与远端完整验收成功 |
+| [`fbb3d92`](https://github.com/RICHARDwuxiaofei/eft-calculator/commit/fbb3d92efabfbf4661472308e70a381967867762) | 仅加固 pytest 缓存/日志目录隔离，并记录早期设置隔离边界；应用功能未变化 | 本地 231 项及远端全流水线再次成功 |
 
 ## 本地最终验收
 
@@ -36,6 +37,11 @@
 最终 CI 的 Windows 三类数据库真实启动均退出 0；Android API 35 模拟器 5 项测试通过，
 随后安装并实际运行生产签名交付 APK，竖屏/横屏/宽屏均留存截图。
 安装哈希与本地下载 APK 完全相同。本地 API 36.1 专用模拟器已停止，未操作或卸载个人设备应用。
+
+最后的测试隔离提交也完成远端验收：
+[Regression / 40160168954](https://github.com/RICHARDwuxiaofei/eft-calculator/actions/runs/40160168954) 和
+[双端 / 40160169149](https://github.com/RICHARDwuxiaofei/eft-calculator/actions/runs/40160169149) 均成功。
+下方下载收据明确对应最后功能变更 `2fbde4f`，不是将不同源提交的产物混称为同一哈希。
 
 第一轮已成功的记录：[Regression 40131713304](https://github.com/RICHARDwuxiaofei/eft-calculator/actions/runs/40131713304)、
 [双端 40131713294](https://github.com/RICHARDwuxiaofei/eft-calculator/actions/runs/40131713294)。
