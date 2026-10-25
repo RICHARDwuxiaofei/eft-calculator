@@ -1,0 +1,71 @@
+{
+  "source_commit": "2fbde4f83380e102bf07e237a32f4bfffa46e548",
+  "workflow_run": "https://github.com/RICHARDwuxiaofei/eft-calculator/actions/runs/40133144463",
+  "artifacts": [
+    {
+      "filename": "EFT-Calculator-Android-2.2.3.apk",
+      "bytes": 35939561,
+      "sha256": "d56687989b5ff7d9b81ec26ae4cb2529fe06ef2a514f7e6410e8c4ab74e7ddd7",
+      "verified_images": 222,
+      "catalog_identical": true
+    },
+    {
+      "filename": "EFT-Calculator-Windows-2.2.3.zip",
+      "bytes": 78496976,
+      "sha256": "a8a246a80fcda66c011fd4b44d0eeb5b5c02e57ae80580d3fdcc96a59c1aac9c",
+      "verified_images": 222,
+      "catalog_identical": true
+    }
+  ],
+  "android_signing": {
+    "kind": "production release key",
+    "apk_signature_v2_verified": true,
+    "certificate_sha256": "e313537608ae44b884d91ef8198eeb824efe9ea0f5c9659be5c745694f7effce"
+  },
+  "windows_signing": "not Authenticode signed",
+  "formal_release_created": false,
+  "runtime_receipts": [
+    {
+      "path": "ci-runtime/android-instrumentation.txt",
+      "sha256": "b15d77b4fbf85d08d221a550f77231b7e76b6aae1ca18b706c9ab5fc05cee03d"
+    },
+    {
+      "path": "ci-runtime/installed-apk-sha256.txt",
+      "sha256": "5c89a5d455e54dc88cd2de9726c5fb12386d195d1ed60a9332a534356d0bb8a0"
+    },
+    {
+      "path": "ci-runtime/android-signed-portrait.png",
+      "sha256": "d4a80f2ad23f4bd762c8033e389b484e8dea6fbd6f38b80edb80c63e77384692"
+    },
+    {
+      "path": "ci-runtime/android-signed-landscape.png",
+      "sha256": "f2f7b6f6ecebf5a5f11b2bb1e7c575938b26e003417c10d33ded51276ecbcf5f"
+    },
+    {
+      "path": "ci-runtime/android-signed-wide.png",
+      "sha256": "817e7809c26c2c7c878b23706d3431286403dfb5b10ef8eb98e1fbb567730a08"
+    },
+    {
+      "path": "ci-runtime/android-jvm.xml",
+      "sha256": "b41f6d14d5e4d399a6165e6a1bf7598a6cbd337bf9facedc0b90264c92c538ca"
+    },
+    {
+      "path": "ci-runtime/windows-results.json",
+      "sha256": "e80e8011b5eca5c0b17328b0e21b350d487db2a5482fdc1abb1ddf98abefb653"
+    },
+    {
+      "path": "ci-runtime/windows-fresh.png",
+      "sha256": "d83f483cf3bb10dbf8c00926d8b9b4eecbed73cf3b91067095cb90b04140696b"
+    },
+    {
+      "path": "ci-runtime/windows-legacy.png",
+      "sha256": "d83f483cf3bb10dbf8c00926d8b9b4eecbed73cf3b91067095cb90b04140696b"
+    },
+    {
+      "path": "ci-runtime/windows-corrupt.png",
+      "sha256": "d83f483cf3bb10dbf8c00926d8b9b4eecbed73cf3b91067095cb90b04140696b"
+    }
+  ],
+  "windows_exe_sha256": "42dfa99ce238bf5918aca867650dc3706b18ffe2a953394b95b2e7f309250aed",
+  "installed_apk_matches_download": true
+}
